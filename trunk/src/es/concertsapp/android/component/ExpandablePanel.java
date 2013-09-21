@@ -91,19 +91,7 @@ public class ExpandablePanel extends LinearLayout
         super.onFinishInflate();
 
         mHandle = findViewById(mHandleId);
-        /*if (mHandle == null) {
-            throw new IllegalArgumentException(
-                    "The handle attribute is must refer to an"
-                            + " existing child.");
-        }*/
-
         mContent = findViewById(mContentId);
-        /*if (mContent == null) {
-            throw new IllegalArgumentException(
-                    "The content attribute must refer to an"
-                            + " existing child.");
-        }*/
-
         if (mContent!=null && mHandle!=null)
         {
             android.view.ViewGroup.LayoutParams lp = mContent.getLayoutParams();
@@ -168,6 +156,8 @@ public class ExpandablePanel extends LinearLayout
             return true;
         }
     }
+
+
 
     public interface OnExpandListener {
         public void onExpand(int id,View handle, View content);

@@ -4,11 +4,8 @@ package es.concertsapp.android.gui.band.detail;
 //import android.app.ActionBar;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
@@ -25,16 +22,17 @@ public class BandInfoActivity extends MenuFragmentActivity
     private static final String LOG_TAG = "BANDINFOACTIVITY";
 	private BandSectionsPageAdapter bandSectionsPageAdapter;
     private ViewPager mViewPager;
+    private String artistName;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_band_info);
-		
+
 		//Recibimos el id de la banda
 		Bundle extras = getIntent().getExtras();
-		String artistName=extras.getString(MyAppParameters.BANDID);
+		artistName=extras.getString(MyAppParameters.BANDID);
         Integer fragment=extras.getInt(MyAppParameters.FRAGMENTID);
         ArtistDTO artistDTO = null;
         try
@@ -60,4 +58,10 @@ public class BandInfoActivity extends MenuFragmentActivity
         if (fragment!=null)
             mViewPager.setCurrentItem(fragment);
 	}
+
+    public String getArtistName()
+    {
+        return artistName;
+    }
 }
+

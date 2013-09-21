@@ -10,12 +10,10 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import es.concertsapp.android.gui.R;
 import es.concertsapp.android.utils.geo.PlaceInterface;
 import es.concertsapp.android.utils.geo.impl.GooglePlacesApi;
 

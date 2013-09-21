@@ -1,15 +1,12 @@
 package es.concertsapp.android.gui.band.list.favourites;
 
-import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.os.AsyncTask;
-import android.os.Looper;
 import android.util.Log;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import es.concertsapp.android.conf.ConfValues;

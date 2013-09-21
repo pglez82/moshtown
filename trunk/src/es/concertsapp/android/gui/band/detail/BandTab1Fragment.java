@@ -1,8 +1,6 @@
 package es.concertsapp.android.gui.band.detail;
 
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
@@ -16,18 +14,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.acra.ACRA;
 
 import java.util.Collection;
 
 import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
-import es.concertsapp.android.gui.band.list.BandListFragment;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;

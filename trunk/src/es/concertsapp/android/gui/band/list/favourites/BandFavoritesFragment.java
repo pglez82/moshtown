@@ -1,17 +1,12 @@
 package es.concertsapp.android.gui.band.list.favourites;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -22,7 +17,6 @@ import android.widget.TextView;
 import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
-import es.concertsapp.android.gui.band.list.BandMainActivitySectionsPageAdapter;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.dto.ArtistDTO;

@@ -1,6 +1,5 @@
 package es.concertsapp.android.gui.band.list;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;

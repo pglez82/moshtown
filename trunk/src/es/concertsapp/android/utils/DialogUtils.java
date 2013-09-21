@@ -3,6 +3,7 @@ package es.concertsapp.android.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -44,5 +45,12 @@ public class DialogUtils
 		builder.setSingleChoiceItems(items.toArray(new CharSequence[items.size()]), 0, onClickListener);
         builder.show();
 	}
+
+    public static void showToast(Context context, int duration, int message)
+    {
+        Toast toast = Toast.makeText(context, message ,duration);
+        toast.show();
+
+    }
 
 }

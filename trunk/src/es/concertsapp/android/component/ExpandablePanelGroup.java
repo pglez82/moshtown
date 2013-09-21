@@ -1,12 +1,11 @@
 package es.concertsapp.android.component;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by pablo on 5/09/13.
@@ -46,7 +45,19 @@ public class ExpandablePanelGroup extends LinearLayout
                 }
             });
         }
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (getChildCount()>0)
+                {
+                    ((ExpandablePanel)getChildAt(0)).tooglePanel();
+                    getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            }
+        });
     }
+
+
 
     private void closeAllOtherPanels(int id)
     {

@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment;
-import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 
 /**
  * Created by pablo on 6/07/13.

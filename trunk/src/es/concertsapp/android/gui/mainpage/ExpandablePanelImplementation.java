@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.concertsapp.android.component.ExpandablePanel;
-import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
 
 public class ExpandablePanelImplementation extends Activity

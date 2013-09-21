@@ -31,6 +31,8 @@
 
     <!--Actividad de un grupo-->
     <string name="title_activity_band_info">Información del grupo</string>
+    <string name="playstop_text">Reproducir, parar</string>
+    <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
 
 	<!--Bandas similares-->
 	<string name="similarbandsheadertext">Bandas similares</string>

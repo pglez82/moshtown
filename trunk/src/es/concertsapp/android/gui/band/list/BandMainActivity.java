@@ -1,12 +1,10 @@
 package es.concertsapp.android.gui.band.list;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Window;
 
 import es.concertsapp.android.gui.R;
-import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 
 /**

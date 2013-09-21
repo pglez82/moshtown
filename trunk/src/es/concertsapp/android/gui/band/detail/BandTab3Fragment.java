@@ -1,31 +1,31 @@
 package es.concertsapp.android.gui.band.detail;
 
 
-import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.umass.lastfm.Channel;
 import de.umass.lastfm.Item;
+import es.concertsapp.android.component.ExpandablePanel;
+import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.player.SongPlayer;
+import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
@@ -33,15 +33,13 @@ import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.exception.LastFmException;
 
 
-public class BandTab3Fragment extends ListFragment implements MediaController.MediaPlayerControl, MediaPlayer.OnPreparedListener
+public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerStatusChangedListener
 {
     private static final String LOG_TAG = "BANDTAB3FRAGMENT";
     private Channel podcasts;
     private String spotifyUri;
     private boolean alreadySearched = false;
-    private MediaPlayer mediaPlayer;
-    private MediaController mediaController;
-    private Handler handler = new Handler();
+    private String artistName;
 
     //Barras de progreso
     private ProgressBar lastfmProgressBar;
@@ -52,10 +50,7 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        alreadySearched=false;
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setOnPreparedListener(this);
-        mediaController = new MediaController(this.getActivity());
+        SongPlayer.getInstance().setListener(this);
     }
 
     private void retrieveInformation(String artistName)
@@ -78,52 +73,50 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
     {
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
-        String artistName = args.getString(MyAppParameters.BANDID);
+        artistName = args.getString(MyAppParameters.BANDID);
         lastfmProgressBar=(ProgressBar)view.findViewById(R.id.progressbarlastfm);
         spotifyProgressBar=(ProgressBar)view.findViewById(R.id.progressbarspotify);
-        View v=view.findViewById(R.id.buttonrep);
-        v.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                mediaController.show(0);
-            }
-        });
-        mediaController.setPrevNextListeners(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-            }
-        },
-        new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-            }
-        });
         retrieveInformation(artistName);
     }
 
-    @Override
-    public void onPrepared(MediaPlayer mediaPlayer)
+    private void showPlayButton(final ImageButton imageButton,final Item song)
     {
-        mediaController.setMediaPlayer(this);
-        mediaController.setAnchorView(getActivity().findViewById(R.id.contentlastfm));
-
-        handler.post(new Runnable() {
-            public void run() {
-                mediaController.setEnabled(true);
-                mediaController.show();
+        imageButton.setBackgroundResource(R.drawable.play);
+        imageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                playSong(song);
+                showStopButton(imageButton,song);
             }
         });
+    }
+
+    private void showStopButton(final ImageButton imageButton,final Item song)
+    {
+        imageButton.setBackgroundResource(R.drawable.stop);
+        imageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                stopSong();
+                showPlayButton(imageButton,song);
+            }
+        });
+    }
+
+    @Override
+    public void playerStatusChanged()
+    {
+        ((BaseAdapter)getListView().getAdapter()).notifyDataSetChanged();
     }
 
     static class PodcastHolder
     {
         TextView song;
+        ImageButton playstopButton;
     }
 
     private class DonwloadPodcastsTask extends AsyncTask<String, Void, Channel>
@@ -134,12 +127,10 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
         //Adapter para mostrar los datos cargados por este hilo
         private class PodcastsAdapter extends BaseAdapter
         {
-            private Channel podcasts;
             private List<Item> songs;
 
             public PodcastsAdapter(Channel podcasts)
             {
-                this.podcasts = podcasts;
                 if (podcasts!=null && podcasts.getItems()!=null && podcasts.getItems().size()>0)
                     songs = new ArrayList<Item>(podcasts.getItems());
                 else
@@ -170,6 +161,11 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
                 return position;
             }
 
+            public List<Item> getSongs()
+            {
+                return songs;
+            }
+
             @Override
             public View getView(int position, View convertView, ViewGroup parent)
             {
@@ -182,6 +178,7 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
 
                     holder = new PodcastHolder();
                     holder.song = (TextView)row.findViewById(R.id.songtitle);
+                    holder.playstopButton = (ImageButton)row.findViewById(R.id.playstop);
                     row.setTag(holder);
                 } else {
                     holder = (PodcastHolder) row.getTag();
@@ -189,6 +186,13 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
 
                 Item songLastfm = (Item)this.getItem(position);
                 holder.song.setText(songLastfm.getTitle());
+                //Miramos que canción se está reproduciendo
+                Item songPlaying = SongPlayer.getInstance().getSongPlaying();
+                if (songPlaying!=null && songPlaying.getTitle().equals(songLastfm.getTitle()))
+                    showStopButton(holder.playstopButton,songLastfm);
+                else
+                    showPlayButton(holder.playstopButton,songLastfm);
+
                 return row;
             }
         }
@@ -214,6 +218,7 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
             podcasts=null;
             try
             {
+
                 podcasts=lastFmApiConnector.getArtistPodcast(params[0]);
                 spotifyUri=lastFmApiConnector.getSpotifyUri(params[0]);
             }
@@ -229,18 +234,12 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
         protected void onPostExecute(final Channel result)
         {
             PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
-            listView.setAdapter(podcastsAdapter);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            if (result!=null)
             {
-                @Override
-                public void onItemClick(AdapterView<?> arg0, View arg1,
-                                        int position, long arg3) {
-                    List<Item> songs = new ArrayList<Item>(result.getItems());
-                    Item song = songs.get(position);
-                    playSong(song);
-                }
-            });
-            mediaController = new MediaController(getActivity());
+                //TODO: Esto está mal. Habría que preveer que pasa cuando se viene de otro grupo y ya está sonando música
+
+            }
+            listView.setAdapter(podcastsAdapter);
             if (spotifyUri!=null && !"".equals(spotifyUri))
             {
                 showSpotify(spotifyUri);
@@ -252,26 +251,16 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
 
 
 
-    private void playSong(Item song) {
-        try {
-            mediaPlayer.reset();
-            mediaPlayer.setDataSource(song.getEnclosureUrl());
-            mediaPlayer.prepare();
-            mediaPlayer.start();
+    private void playSong(Item song)
+    {
+        SongPlayer.getInstance().setListSongs(((DonwloadPodcastsTask.PodcastsAdapter)getListView().getAdapter()).getSongs());
+        SongPlayer.getInstance().setBandPlaying(((BandInfoActivity)this.getActivity()).getArtistName());
+        SongPlayer.getInstance().playSong(song);
+    }
 
-            // Setup listener so next song starts automatically
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-            {
-
-                public void onCompletion(MediaPlayer arg0)
-                {
-                }
-
-            });
-
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "Error arrancando una canción",e);
-        }
+    private void stopSong()
+    {
+        SongPlayer.getInstance().stopSong();
     }
 
     private void showSpotify(String uri)
@@ -286,63 +275,22 @@ public class BandTab3Fragment extends ListFragment implements MediaController.Me
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        if (mediaPlayer.isPlaying())
-            mediaPlayer.stop();
-        mediaPlayer.release();
-    }
-
-    @Override
-    public void start()
+    public void onDestroyView()
     {
-        mediaPlayer.start();
+        super.onDestroyView();
+        SongPlayer.getInstance().setListener(null);
     }
 
-    public void pause() {
-        mediaPlayer.pause();
-    }
-
-    public int getDuration() {
-        return mediaPlayer.getDuration();
-    }
-
-    public int getCurrentPosition() {
-        return mediaPlayer.getCurrentPosition();
-    }
-
-    public void seekTo(int i) {
-        mediaPlayer.seekTo(i);
-    }
-
-    public boolean isPlaying() {
-        return mediaPlayer.isPlaying();
-    }
-
-    public int getBufferPercentage() {
-        return 0;
-    }
-
-    public boolean canPause() {
-        return true;
-    }
-
-    public boolean canSeekBackward() {
-        return true;
-    }
-
-    public boolean canSeekForward() {
-        return true;
-    }
-
+    /**
+     * Cuando el usuario sale de la pantalla le avisamos de que puede controlar el reproductor desde el menu
+     */
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer !=null)
+    public void onStop()
+    {
+        super.onStop();
+        if (SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
         {
-            mediaPlayer.release();
+            DialogUtils.showToast(this.getActivity(), Toast.LENGTH_LONG,R.string.toast_player);
         }
-
     }
-
 }

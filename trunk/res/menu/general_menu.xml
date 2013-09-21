@@ -10,5 +10,14 @@
     <item android:id="@+id/menu_close"
           android:title="@string/menu_close" >
     </item>
+    <item android:id="@+id/menu_player"
+          android:title="Reproductor...">
+        <menu>
+            <item android:id="@+id/menu_stop"
+                    android:title="Parar"></item>
+            <item android:id="@+id/menu_show"
+                  android:title="Mostrar"></item>
+        </menu>
+    </item>
 
 </menu>
