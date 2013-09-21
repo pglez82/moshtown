@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
+              android:layout_width="fill_parent"
+              android:layout_height="match_parent"
+              >
+
+    <es.concertsapp.android.component.ExpandablePanelGroup
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/panelgroup1">
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablePanel1"
+                example:handle="@+id/handlerpanel1"
+                example:content="@+id/contentpanel1"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                >
+            <Button
+                    android:id="@id/handlerpanel1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Más"
+                    android:shadowColor="#000000"/>
+            <TextView
+                    android:id="@id/contentpanel1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars = "vertical"
+                    />
+
+        </es.concertsapp.android.component.ExpandablePanel>
+
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablePanel2"
+                example:handle="@+id/handlerpanel2"
+                example:content="@+id/contentpanel2"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="false"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="false"
+                android:layout_below="@+id/expandablePanel1">
+            <Button
+                    android:id="@id/handlerpanel2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Más"
+                    android:shadowColor="#000000"/>
+            <TextView
+                    android:id="@id/contentpanel2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars = "vertical"
+                    />
+
+        </es.concertsapp.android.component.ExpandablePanel>
+
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablePanel3"
+                example:handle="@+id/handlerpanel3"
+                example:content="@+id/contentpanel3"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="false"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="false"
+                android:layout_below="@+id/expandablePanel2">
+            <Button
+                    android:id="@id/handlerpanel3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Más"
+                    android:shadowColor="#000000"/>
+            <TextView
+                    android:id="@id/contentpanel3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars = "vertical"
+                    />
+
+        </es.concertsapp.android.component.ExpandablePanel>
+    </es.concertsapp.android.component.ExpandablePanelGroup>
+
+</RelativeLayout>

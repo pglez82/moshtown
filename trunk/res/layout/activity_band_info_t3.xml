@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/songsview">
+    <es.concertsapp.android.component.ExpandablePanelGroup
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/panelgroup1">
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablepanellastfm"
+                example:handle="@+id/lastfmbutton"
+                example:content="@+id/contentlastfm"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                >
+        <Button
+                android:id="@id/lastfmbutton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Last.fm (desplegar)"
+                android:shadowColor="#000000"/>
+        <LinearLayout
+                android:id="@id/contentlastfm"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+            <ProgressBar
+                    style="@android:style/Widget.ProgressBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressbarlastfm"
+                    android:layout_gravity="right|top"/>
+            <ListView android:id="@id/android:list"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:drawSelectorOnTop="false"/>
+            <Button
+                android:id="@+id/buttonrep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Controles"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+            </Button>
+
+            <MediaController
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mediaController"
+                    android:layout_gravity="left|center_vertical"/>
+
+            <TextView android:id="@id/android:empty"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Este grupo no tiene canciones disponibles en LAST.FM"/>
+        </LinearLayout>
+        </es.concertsapp.android.component.ExpandablePanel>
+
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablepanelspotify"
+                example:handle="@+id/spotifypanelbutton"
+                example:content="@+id/contentspotify"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="false"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="false"
+                >
+            <Button
+                android:id="@id/spotifypanelbutton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Spotify (desplegar)"
+                android:shadowColor="#000000"/>
+            <LinearLayout
+                android:id="@id/contentspotify"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+                <ProgressBar
+                        style="@android:style/Widget.ProgressBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressbarspotify"
+                        android:layout_gravity="right|top"/>
+                <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/spotifyWebView"/>
+            </LinearLayout>
+
+        </es.concertsapp.android.component.ExpandablePanel>
+    </es.concertsapp.android.component.ExpandablePanelGroup>
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Generales-->
+    <string name="app_name">HxCPunkapp</string>
+    
+    <!--Listado de conciertos-->
+    <string name="list_loading">Cargando ...</string>
+    <string name="list_noresults">No hay bolos e-burros</string>
+    <string name="buscar_text">Buscar</string>
+    <string name="listMoreButton_text">Cargar más eventos</string>
+    <string name="gps_button">GPS</string>
+    <string name="no_location_info_title">Error</string>
+    <string name="no_location_info_text">No se ha podido determinar la posición</string>
+    <string name="edit_ciudad_hint">Introduce una ciudad</string>
+    
+    <!--Actividad del evento-->
+    <string name="imagen_evento">Imagen del evento</string>
+    <string name="title_activity_concert_info">Información del concierto</string>
+    <string name="bandsheadertext">Lista de grupos</string>
+    <string name="calendarbuttontext">Calendario</string>
+    <string name="mapabuttontext">Mapa</string>
+    <string name="no_calendar_title">Error</string>
+    <string name="no_calendar_message">No se ha podido iniciar el calendario</string>
+    <string name="no_tickets_available">No hay información sobre tickets</string>
+
+    <!--Actividad listado de grupos-->
+    <string name="edit_banda_hint">Introduce un grupo</string>
+    <string name="buscarbanda_text">Buscar</string>
+    <string name="bandeventsheadertext">Lista de conciertos</string>
+    <string name="imagen_banda">Añadir a favoritos</string>
+
+    <!--Actividad de un grupo-->
+    <string name="title_activity_band_info">Información del grupo</string>
+
+	<!--Bandas similares-->
+	<string name="similarbandsheadertext">Bandas similares</string>
+
+    <!--Menu-->
+    <string name="menu_searchevents">Buscar conciertos</string>
+    <string name="menu_searchbands">Buscar grupos</string>
+    <string name="menu_close">Salir</string>
+
+
+    <!--ACRA-->
+    <string name="acradialogtext">Voy a mandar esta info al Chon directamente. Escribe aquí algo si crees que me puede ayudar con el fallo</string>
+    <string name="acratoasttext">Bombazo al canto. Recogiendo todos los datos..</string>
+    <string name="acracomment">Comentario:</string>
+    <string name="acradialogok">Thank you my friend</string>
+
+    <!--Mensajes de error-->
+    <string name="error_dialog_title">Error</string>
+    <string name="lastfm_error">Se ha producido un error con last.fm. Pruebe más tarde.</string>
+</resources>

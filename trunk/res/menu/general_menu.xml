@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_searchevents"
+          android:title="@string/menu_searchevents" >
+    </item>
+    <item android:id="@+id/menu_searchbands"
+          android:title="@string/menu_searchbands" >
+    </item>
+    <item android:id="@+id/menu_close"
+          android:title="@string/menu_close" >
+    </item>
+
+</menu>
