@@ -35,6 +35,7 @@ public class BandTab2Fragment extends Fragment
 {
     private static final String LOG_TAG="BANDTAB2FRAGMENT";
     private ArtistDTO artistDTO;
+    private Throwable backgroundError=null;
 	
 	static class ArtistEventHolder 
 	{
@@ -129,8 +130,15 @@ public class BandTab2Fragment extends Fragment
 		{
 			this.listView = listView;
 		}
-		
-		@Override
+
+        @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+            backgroundError=null;
+        }
+
+        @Override
 		protected List<ArtistEventDTO> doInBackground(String... params) 
 		{
 			LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();
@@ -142,7 +150,7 @@ public class BandTab2Fragment extends Fragment
             catch (LastFmException e)
             {
                 Log.e(LOG_TAG,"Se ha producido un error obteniendo los eventos de un artista",e);
-                UnexpectedErrorHandler.handleUnexpectedError(e);
+                backgroundError = e;
             }
             return listArtist;
 		}
@@ -150,19 +158,25 @@ public class BandTab2Fragment extends Fragment
 		@Override
 		protected void onPostExecute(final List<ArtistEventDTO> result) 
 		{
-			BandEventsAdapter bandEventsAdapter = new BandEventsAdapter(result);
-			listView.setAdapter(bandEventsAdapter);
-			listView.setOnItemClickListener(new OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int position, long arg3) {
-					Intent i = new Intent(getActivity(),EventInfoActivity.class);
+            if (backgroundError!=null)
+                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
+            else
+            {
+                BandEventsAdapter bandEventsAdapter = new BandEventsAdapter(result);
 
-					ArtistEventDTO artistEventDTO = result.get(position-1);
-					i.putExtra(MyAppParameters.EVENTID, artistEventDTO.getEventId());
-					startActivity(i);
-				}
-			});
+                listView.setAdapter(bandEventsAdapter);
+                listView.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1,
+                            int position, long arg3) {
+                        Intent i = new Intent(getActivity(),EventInfoActivity.class);
+
+                        ArtistEventDTO artistEventDTO = result.get(position-1);
+                        i.putExtra(MyAppParameters.EVENTID, artistEventDTO.getEventId());
+                        startActivity(i);
+                    }
+                });
+            }
 		}
 	}
 
@@ -201,10 +215,10 @@ public class BandTab2Fragment extends Fragment
             listView1.addHeaderView(header);
             new DonwloadEventsBandTask(listView1).execute(artistName);
         }
-        catch (LastFmException e)
+        catch (Throwable e)
         {
             Log.e(LOG_TAG, "Se ha producido un error al obtener la info detallada del artista");
-            UnexpectedErrorHandler.handleUnexpectedError(e);
+            UnexpectedErrorHandler.handleUnexpectedError(this.getActivity(),e);
             DialogUtils.showErrorDialog(this.getActivity(),R.string.lastfm_error);
         }
 		return rootView;

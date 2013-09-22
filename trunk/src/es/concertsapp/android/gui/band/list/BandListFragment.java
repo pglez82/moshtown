@@ -29,6 +29,7 @@ import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewArtistAvaibleListener;
@@ -52,6 +53,8 @@ public class BandListFragment extends ListFragment
     private ListFooters activeFooter;
 
     private FavouriteBandsStore favouriteBandsStore;
+
+    private Throwable errorBackground=null;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -307,7 +310,9 @@ public class BandListFragment extends ListFragment
 		{
 			this.listView = listView;
 		}
-		
+
+
+
 		@Override
 		protected Void doInBackground(String... params) 
 		{
@@ -316,9 +321,9 @@ public class BandListFragment extends ListFragment
             {
 			    lastFmApiConnector.getArtists(params[0],this);
             }
-            catch (LastFmException e)
+            catch (Throwable e)
             {
-                DialogUtils.showErrorDialog(getActivity(),R.string.lastfm_error);
+                errorBackground = e;
             }
 			return null;
 		}
@@ -343,6 +348,7 @@ public class BandListFragment extends ListFragment
 		protected void onPreExecute()
         {
 			super.onPreExecute();
+            errorBackground=null;
 			this.listBands=new ArrayList<ArtistDTO>();
 
             showFooter(ListFooters.LOADING);
@@ -368,6 +374,8 @@ public class BandListFragment extends ListFragment
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
+            if (errorBackground!=null)
+                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),errorBackground);
             if (listBands==null || listBands.isEmpty())
                 showFooter(ListFooters.NO_RESULTS);
             else

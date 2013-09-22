@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.concertsapp.android.gui"
     android:versionCode="1"
-    android:versionName="0.32"
+    android:versionName="0.33"
     >
 
     <uses-sdk
@@ -15,6 +15,7 @@
     <permission
     android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE"
     android:protectionLevel="signature"/>
+
     <uses-permission android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE"/>
 
 
@@ -59,6 +60,7 @@
         </activity>
         <activity
                 android:name=".band.list.BandMainActivity"
+                android:windowSoftInputMode="stateUnchanged|adjustResize"
                 android:label="Grupos" >
         </activity>
         <activity
@@ -67,7 +69,8 @@
         </activity>
         <activity
                 android:name=".event.list.EventListActivity"
-                android:label="Conciertos" >
+                android:label="Conciertos"
+                android:windowSoftInputMode="stateUnchanged|adjustResize">
         </activity>
 
         <activity android:name="org.acra.CrashReportDialog"

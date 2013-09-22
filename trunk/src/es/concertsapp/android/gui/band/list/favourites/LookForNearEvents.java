@@ -29,6 +29,7 @@ public class LookForNearEvents
     private LookForNearEventsTask lookForNearEventsTask;
 
     private List<ArtistDTO> alreadyLookedUp=new ArrayList<ArtistDTO>();
+    private Throwable backgroundError=null;
 
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
@@ -123,7 +124,7 @@ public class LookForNearEvents
             catch (Throwable e)
             {
                 Log.e(LOG_TAG, "Se ha producido un error al buscar los eventos cercanos de los artistas favoritos");
-                UnexpectedErrorHandler.handleUnexpectedError(e);
+                backgroundError=e;
             }
             return null;
         }
@@ -140,6 +141,8 @@ public class LookForNearEvents
         {
             super.onPostExecute(aVoid);
             favouritesActivity.getProgressBar().setVisibility(ProgressBar.INVISIBLE);
+            if (backgroundError!=null)
+                UnexpectedErrorHandler.handleUnexpectedError(favouritesActivity.getActivity(),backgroundError);
         }
 
 

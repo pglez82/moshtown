@@ -115,10 +115,10 @@ public class EventInfoActivity extends MenuFragmentActivity
                 }
         });
         }
-        catch(LastFmException e)
+        catch(Throwable e)
         {
             Log.e(LOG_TAG,"Se ha producido un error obteniendo la info del artista",e);
-            UnexpectedErrorHandler.handleUnexpectedError(e);
+            UnexpectedErrorHandler.handleUnexpectedError(this,e);
             DialogUtils.showErrorDialog(this,R.string.lastfm_error);
         }
 	}

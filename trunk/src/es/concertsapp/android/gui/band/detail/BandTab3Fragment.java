@@ -38,7 +38,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     private static final String LOG_TAG = "BANDTAB3FRAGMENT";
     private Channel podcasts;
     private String spotifyUri;
-    private boolean alreadySearched = false;
     private String artistName;
 
     //Barras de progreso
@@ -55,10 +54,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private void retrieveInformation(String artistName)
     {
-        if (!alreadySearched)
-        {
-            new DonwloadPodcastsTask(getListView()).execute(artistName);
-        }
+        new DonwloadPodcastsTask(getListView()).execute(artistName);
     }
 
     @Override
@@ -200,7 +196,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         public DonwloadPodcastsTask(ListView listView)
         {
             this.listView = listView;
-            alreadySearched=true;
         }
 
         @Override
@@ -209,6 +204,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             super.onPreExecute();
             lastfmProgressBar.setVisibility(ProgressBar.VISIBLE);
             spotifyProgressBar.setVisibility(ProgressBar.VISIBLE);
+            Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
         @Override
@@ -218,14 +214,15 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             podcasts=null;
             try
             {
-
+                Log.d(LOG_TAG,"Lanzamos la petición a last.fm para las canciones y el spotify");
                 podcasts=lastFmApiConnector.getArtistPodcast(params[0]);
                 spotifyUri=lastFmApiConnector.getSpotifyUri(params[0]);
+                Log.d(LOG_TAG,"Finalizada la petición, devolviendo resultados");
             }
-            catch (LastFmException e)
+            catch (Throwable e)
             {
                 Log.e(LOG_TAG,"Se ha producido un error obteniendo los eventos de un artista",e);
-                UnexpectedErrorHandler.handleUnexpectedError(e);
+                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),e);
             }
             return podcasts;
         }

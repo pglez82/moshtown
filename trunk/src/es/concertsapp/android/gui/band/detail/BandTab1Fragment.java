@@ -139,10 +139,10 @@ public class BandTab1Fragment extends Fragment
 
 
         }
-        catch (LastFmException e)
+        catch (Throwable e)
         {
             Log.e(LOG_TAG,"Se ha producido une error obteniendo la info del artista",e);
-            UnexpectedErrorHandler.handleUnexpectedError(e);
+            UnexpectedErrorHandler.handleUnexpectedError(this.getActivity(),e);
             DialogUtils.showErrorDialog(this.getActivity(),R.string.lastfm_error);
         }
 

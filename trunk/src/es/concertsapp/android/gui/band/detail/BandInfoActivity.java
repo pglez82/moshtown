@@ -40,10 +40,10 @@ public class BandInfoActivity extends MenuFragmentActivity
             LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();
             artistDTO=lastFmApiConnector.getArtistInfo(artistName);
         }
-        catch (LastFmException e)
+        catch (Throwable e)
         {
             Log.e(LOG_TAG,"Error obteniendo la info del artista",e);
-            UnexpectedErrorHandler.handleUnexpectedError(e);
+            UnexpectedErrorHandler.handleUnexpectedError(this,e);
         }
 		bandSectionsPageAdapter = new BandSectionsPageAdapter(getSupportFragmentManager(),artistName,artistDTO);
 		

@@ -1,6 +1,7 @@
 package es.concertsapp.android.gui.event.list;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +18,13 @@ import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.utils.DateFormater;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
+import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewEventAvaibleListener;
 import es.lastfm.api.connector.dto.EventDTO;
+import es.lastfm.api.connector.exception.LastFmException;
 
 
 public class EventPageAdapter extends BaseAdapter
@@ -37,7 +40,11 @@ public class EventPageAdapter extends BaseAdapter
     private String ciudad;
     private double lat,lon;
     private boolean coordinates;
-    
+
+    //Variable que indica si se produjo algún error (si !=null) en el proceso en segundo plano. On background
+    //no puede mostrar el error porque no puede tocar la ui. Eso hay que hacerlo en el postexecute
+    private Throwable backgroundError=null;
+
     //Hilo que carga los conciertos
     private LoadingTask loadingTask;
     
@@ -56,12 +63,13 @@ public class EventPageAdapter extends BaseAdapter
     
     //Para bajar las imagenes de manera asincroncas
     private final ImageDownloader imageDownloader;
-    
+
     private class LoadingTask extends AsyncTask<Void, EventDTO, Boolean> implements NewEventAvaibleListener
     {
     	@Override
     	protected void onPreExecute()
     	{
+            backgroundError = null;
     		if (!isCancelled())
     			lastFmApiConnector.setEventSearchListeners(null, this);
     	}
@@ -100,7 +108,7 @@ public class EventPageAdapter extends BaseAdapter
         	}
         	catch (Throwable e) {
         		Log.e(LOG_TAG, "Error en la llamada al api...",e);
-                UnexpectedErrorHandler.handleUnexpectedError(e);
+                backgroundError = e;
         	}
 			if (lastFmApiConnector.hasMoreResults())
 				return true;
@@ -128,6 +136,10 @@ public class EventPageAdapter extends BaseAdapter
 		@Override
 		protected void onPostExecute(Boolean result)
 		{
+            if (backgroundError != null)
+            {
+                UnexpectedErrorHandler.handleUnexpectedError(eventListActivity,backgroundError);
+            }
 			if (!isCancelled())
 			{
 				Log.d(LOG_TAG,"El hilo ha acabado por ahora..., actualizando el footer");
