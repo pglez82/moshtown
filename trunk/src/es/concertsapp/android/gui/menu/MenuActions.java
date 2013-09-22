@@ -51,11 +51,11 @@ public class MenuActions
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 if (SongPlayer.getInstance().isPlaying())
-                    SongPlayer.getInstance().stopSong();
+                    SongPlayer.getInstance().stopSong(activity);
                 activity.startActivity(intent);
                 return true;
             case R.id.menu_stop:
-                SongPlayer.getInstance().stopSong();
+                SongPlayer.getInstance().stopSong(activity);
                 return true;
             case R.id.menu_show:
                 myIntent = new Intent(activity, BandInfoActivity.class);

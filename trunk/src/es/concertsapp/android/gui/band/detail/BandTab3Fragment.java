@@ -249,18 +249,16 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         }
     }
 
-
-
     private void playSong(Item song)
     {
         SongPlayer.getInstance().setListSongs(((DonwloadPodcastsTask.PodcastsAdapter)getListView().getAdapter()).getSongs());
         SongPlayer.getInstance().setBandPlaying(((BandInfoActivity)this.getActivity()).getArtistName());
-        SongPlayer.getInstance().playSong(song);
+        SongPlayer.getInstance().playSong(song,getActivity());
     }
 
     private void stopSong()
     {
-        SongPlayer.getInstance().stopSong();
+        SongPlayer.getInstance().stopSong(getActivity());
     }
 
     private void showSpotify(String uri)
