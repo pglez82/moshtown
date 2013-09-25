@@ -49,17 +49,6 @@ public class MainActivity extends MenuActivity
                 buttonBands(v);
             }
         });
-
-        Button buttonTest = (Button)findViewById(R.id.buttonTest);
-        buttonTest.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(MainActivity.this, ExpandablePanelImplementation.class);
-                startActivity(myIntent);
-            }
-        });
 	}
 
     private void buttonConciertos(View v)

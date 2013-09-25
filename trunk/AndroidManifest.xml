@@ -64,10 +64,6 @@
                 android:label="Grupos" >
         </activity>
         <activity
-                android:name=".mainpage.ExpandablePanelImplementation"
-                android:label="Mi propio componente" >
-        </activity>
-        <activity
                 android:name=".event.list.EventListActivity"
                 android:label="Conciertos"
                 android:windowSoftInputMode="stateUnchanged|adjustResize">

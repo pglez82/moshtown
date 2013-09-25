@@ -19,10 +19,4 @@
             android:text="Grupos"
             android:id="@+id/buttonGrupos"
             android:layout_gravity="center"/>
-    <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Test"
-            android:id="@+id/buttonTest"
-            android:layout_gravity="center"/>
 </LinearLayout>

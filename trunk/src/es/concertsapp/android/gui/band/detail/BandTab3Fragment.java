@@ -40,6 +40,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     private String spotifyUri;
     private String artistName;
 
+    private Throwable backgroundError=null;
+
     //Barras de progreso
     private ProgressBar lastfmProgressBar;
     private ProgressBar spotifyProgressBar;
@@ -204,6 +206,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             super.onPreExecute();
             lastfmProgressBar.setVisibility(ProgressBar.VISIBLE);
             spotifyProgressBar.setVisibility(ProgressBar.VISIBLE);
+            getListView().getEmptyView().setVisibility(View.INVISIBLE);
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
@@ -222,7 +225,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             catch (Throwable e)
             {
                 Log.e(LOG_TAG,"Se ha producido un error obteniendo los eventos de un artista",e);
-                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),e);
+                backgroundError = e;
             }
             return podcasts;
         }
@@ -230,19 +233,20 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         @Override
         protected void onPostExecute(final Channel result)
         {
-            PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
-            if (result!=null)
+            getListView().getEmptyView().setVisibility(View.VISIBLE);
+            if (backgroundError!=null)
+                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
+            else
             {
-                //TODO: Esto está mal. Habría que preveer que pasa cuando se viene de otro grupo y ya está sonando música
-
+                PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
+                listView.setAdapter(podcastsAdapter);
+                if (spotifyUri!=null && !"".equals(spotifyUri))
+                {
+                    showSpotify(spotifyUri);
+                }
+                lastfmProgressBar.setVisibility(ProgressBar.INVISIBLE);
+                spotifyProgressBar.setVisibility(ProgressBar.INVISIBLE);
             }
-            listView.setAdapter(podcastsAdapter);
-            if (spotifyUri!=null && !"".equals(spotifyUri))
-            {
-                showSpotify(spotifyUri);
-            }
-            lastfmProgressBar.setVisibility(ProgressBar.INVISIBLE);
-            spotifyProgressBar.setVisibility(ProgressBar.INVISIBLE);
         }
     }
 
@@ -261,12 +265,15 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     private void showSpotify(String uri)
     {
         WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        StringBuilder embed = new StringBuilder();
-        embed.append("<html><body style=\"text-align=\"center\"><iframe src=\"");
-        embed.append(uri);
-        embed.append("\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe></body></html>");
-        webView.loadData(embed.toString() , "text/html" , "utf-8");
+        if (webView!=null)
+        {
+            webView.getSettings().setJavaScriptEnabled(true);
+            StringBuilder embed = new StringBuilder();
+            embed.append("<html><body style=\"text-align=\"center\"><iframe src=\"");
+            embed.append(uri);
+            embed.append("\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe></body></html>");
+            webView.loadData(embed.toString() , "text/html" , "utf-8");
+        }
     }
 
     @Override
