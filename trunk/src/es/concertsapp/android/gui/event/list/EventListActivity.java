@@ -257,6 +257,7 @@ public class EventListActivity extends MenuFragmentActivity
      */
     public void botonBuscar()
     {
+        MyLocation.cancelSearch();
         if (USE_GEOCODER_DESAMBIGUATION && latlonSearch!=null)
         {
             eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
@@ -286,7 +287,12 @@ public class EventListActivity extends MenuFragmentActivity
     	    }
     	};
     	MyLocation myLocation = new MyLocation();
-    	myLocation.getLocation(this, locationResult);
+        //si devuelve false es que no hay gps activao ni nada
+    	if (!myLocation.getLocation(this, locationResult))
+        {
+            DialogUtils.showErrorDialog(this,R.string.location_error);
+            ((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("");
+        }
     }
 
     public void hideAllFooters()

@@ -206,7 +206,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             super.onPreExecute();
             lastfmProgressBar.setVisibility(ProgressBar.VISIBLE);
             spotifyProgressBar.setVisibility(ProgressBar.VISIBLE);
-            getListView().getEmptyView().setVisibility(View.INVISIBLE);
+            try
+            {
+                getListView().getEmptyView().setVisibility(View.INVISIBLE);
+            }
+            catch (Throwable e){/*Si la lista no existe nos comemos la excepcion*/}
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
@@ -233,7 +237,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         @Override
         protected void onPostExecute(final Channel result)
         {
-            getListView().getEmptyView().setVisibility(View.VISIBLE);
+            try
+            {
+                getListView().getEmptyView().setVisibility(View.VISIBLE);
+            }
+            catch (Throwable e){/*Si la lista no existe nos comemos la excepcion*/}
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else

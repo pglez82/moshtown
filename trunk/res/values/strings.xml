@@ -53,4 +53,5 @@
     <string name="error_dialog_title">Error</string>
     <string name="lastfm_error">Se ha producido un error con last.fm. Pruebe más tarde.</string>
     <string name="connection_error">Hay problemas con tu conexión a internet.</string>
+    <string name="location_error">Activa el GPS o el A-GPS pedazo de alicate</string>
 </resources>

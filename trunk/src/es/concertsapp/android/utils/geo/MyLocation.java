@@ -49,11 +49,14 @@ public class MyLocation
     //Hora a la que hemos cacheado la posición
     private static long cachedTime;
 
+    //Singleton
+    private static MyLocation myLocation;
+
     public static boolean getLocation(Context context, LocationResult locationResult)
     {
         Log.d(LOG_TAG,"Lanzando una nueva petición al gps");
-        MyLocation location = new MyLocation();
-        return location.getInternalLocation(context,locationResult);
+        myLocation = new MyLocation();
+        return myLocation.getInternalLocation(context,locationResult);
     }
 
     public static boolean getCachedLocation(Context context, LocationResult locationResult)
@@ -68,10 +71,27 @@ public class MyLocation
         else
         {
             Log.d(LOG_TAG,"Lanzando una nueva petición al gps");
-            MyLocation myLocation = new MyLocation();
+            myLocation = new MyLocation();
             return myLocation.getInternalLocation(context,locationResult);
         }
 
+    }
+
+    public static void cancelSearch()
+    {
+        if (myLocation!=null)
+            myLocation.cancelSearchInternal();
+    }
+
+    public void cancelSearchInternal()
+    {
+        if (timer1!=null)
+            timer1.cancel();
+        if (lm!=null)
+        {
+            lm.removeUpdates(locationListenerGps);
+            lm.removeUpdates(locationListenerNetwork);
+        }
     }
 
     /**

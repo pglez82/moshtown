@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class BandTab2Fragment extends Fragment
     private static final String LOG_TAG="BANDTAB2FRAGMENT";
     private ArtistDTO artistDTO;
     private Throwable backgroundError=null;
+    private ProgressBar eventsProgressBar;
 	
 	static class ArtistEventHolder 
 	{
@@ -135,6 +137,7 @@ public class BandTab2Fragment extends Fragment
         protected void onPreExecute()
         {
             super.onPreExecute();
+            eventsProgressBar.setVisibility(View.VISIBLE);
             backgroundError=null;
         }
 
@@ -158,6 +161,7 @@ public class BandTab2Fragment extends Fragment
 		@Override
 		protected void onPostExecute(final List<ArtistEventDTO> result) 
 		{
+            eventsProgressBar.setVisibility(View.INVISIBLE);
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else
@@ -213,6 +217,10 @@ public class BandTab2Fragment extends Fragment
             ListView listView1 = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
             View header = inflater.inflate(R.layout.list_band_events_header,null);
             listView1.addHeaderView(header);
+            header.setVisibility(View.VISIBLE);
+
+            eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
+
             new DonwloadEventsBandTask(listView1).execute(artistName);
         }
         catch (Throwable e)
