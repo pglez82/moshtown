@@ -216,7 +216,7 @@ public class BandTab2Fragment extends Fragment
             // Cargamos los eventos del artista
             ListView listView1 = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
             View header = inflater.inflate(R.layout.list_band_events_header,null);
-            listView1.addHeaderView(header);
+            listView1.addHeaderView(header,null,false);
             header.setVisibility(View.VISIBLE);
 
             eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);

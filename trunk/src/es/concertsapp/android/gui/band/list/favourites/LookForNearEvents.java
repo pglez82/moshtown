@@ -34,8 +34,13 @@ public class LookForNearEvents
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
         this.favouritesActivity = favouritesActivity;
-        favouritesActivity.getProgressBar().setProgress(0);
-        favouritesActivity.getProgressBar().setVisibility(ProgressBar.VISIBLE);
+        //Mostramos la barra de progreso
+        if (favouritesActivity!=null && favouritesActivity.getProgressBar()!=null)
+        {
+            favouritesActivity.getProgressBar().setProgress(0);
+            favouritesActivity.getProgressBar().setVisibility(ProgressBar.VISIBLE);
+        }
+
         if (locationStored==null)
         {
             try

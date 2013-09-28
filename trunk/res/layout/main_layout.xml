@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/background">
 
     <Button
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Conciertos"
+            android:text="SHOWS"
+            android:textSize="30sp"
+            android:textColor="#4a0012"
+            android:paddingTop="14dp"
             android:id="@+id/buttonConciertos"
-            />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/boton1inicio"
+            android:layout_marginTop="40dp"/>
+    <ImageView
+            android:id="@+id/puntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/puntos"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/buttonConciertos"
+            android:layout_marginTop="25dp"/>
 
     <Button
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grupos"
+            android:text="BANDS"
             android:id="@+id/buttonGrupos"
-            android:layout_gravity="center"/>
-</LinearLayout>
+            android:textSize="30sp"
+            android:textColor="#4a0012"
+            android:paddingBottom="20dp"
+            android:background="@drawable/boton2inicio"
+            android:layout_below="@+id/puntos"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+    <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/buttonGrupos"
+            android:layout_marginTop="25dp"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastfm"
+            android:background="@drawable/lastfmicon"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+</RelativeLayout>
