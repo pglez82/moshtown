@@ -11,14 +11,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by pablo on 28/09/13.
+ * Esta clase de utilidad sirve para establecer fuentes que no están en el sistema. En este caso la
+ * roboto no está para androids viejos, por tanto hay que incluirla en el paquete. Cacheamos las fuentes
+ * para no tener que estar cargandolas de fichero cada vez que se la pongamos a un componente
  */
 public class FontUtils
 {
+    /**
+     * Fuentes disponibles para nuestra aplicación.
+     */
     public enum FontType
     {
-        ROBOTO_CONDENSED("fonts/Roboto-Condensed.ttf"),
-        ROBOTO("PRUEBA");
+        ROBOTO_CONDENSED("fonts/Roboto-Condensed.ttf");
 
         private String fontPath;
 
@@ -33,6 +37,7 @@ public class FontUtils
         }
     }
 
+    //Mapa con las fuentes cacheadas
     private static Map<FontType,Typeface> fontInstances = new HashMap<FontType,Typeface>();
 
     public static void setRobotoFont (Context context, View view, FontType fontType)
