@@ -29,6 +29,7 @@ public class LookForNearEvents
     private LookForNearEventsTask lookForNearEventsTask;
     //Cuando el usuario entra a la pantalla se lanza la busqueda, pero no siempre. Solo si han pasado x minutos
 
+    private List<ArtistDTO> alreadyLookedUp=new ArrayList<ArtistDTO>();
     private Throwable backgroundError=null;
 
     private void updateProgressBar(int visibility, int percent)
@@ -105,18 +106,29 @@ public class LookForNearEvents
                 int proccessed = 0;
                 for (ArtistDTO artistDTO : favouriteBands)
                 {
-                    artistDTO.setNearEvents(false);
-                    List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
-                    for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
+                    int index=alreadyLookedUp.indexOf(artistDTO);
+                    if (index<0)
                     {
-                        double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
-                        if (distance< ConfValues.NEAR_EVENT_DISTANCE)
+                        artistDTO.setNearEvents(false);
+                        List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
+                        for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
                         {
-                            artistDTO.setNearEvents(true);
-                            publishProgress();
-                            break;
+                            double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
+                            if (distance< ConfValues.NEAR_EVENT_DISTANCE)
+                            {
+                                artistDTO.setNearEvents(true);
+                                publishProgress();
+                                break;
+                            }
                         }
+                        alreadyLookedUp.add(artistDTO);
                     }
+                    else
+                    {
+                        artistDTO.setNearEvents(alreadyLookedUp.get(index).isNearEvents());
+                        publishProgress();
+                    }
+
                     //Actualizamos la barra d eprogreso
                     updateProgressBar(ProgressBar.VISIBLE,(((++proccessed)*80)/number)+20);
                 }

@@ -3,6 +3,8 @@ package es.concertsapp.android.gui.band.detail;
 
 //import android.app.ActionBar;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -40,7 +42,15 @@ public class BandInfoActivity extends MenuFragmentActivity
         catch (Throwable e)
         {
             Log.e(LOG_TAG,"Error obteniendo la info del artista",e);
-            UnexpectedErrorHandler.handleUnexpectedError(this,e);
+            UnexpectedErrorHandler.handleUnexpectedError(this,e, new AlertDialog.OnDismissListener()
+            {
+                @Override
+                public void onDismiss(DialogInterface dialogInterface)
+                {
+                    finish();
+                }
+            });
+            return;
         }
         BandSectionsPageAdapter bandSectionsPageAdapter = new BandSectionsPageAdapter(getSupportFragmentManager(), artistName, artistDTO);
 		

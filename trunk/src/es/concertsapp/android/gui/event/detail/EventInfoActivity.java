@@ -1,5 +1,7 @@
 package es.concertsapp.android.gui.event.detail;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -112,9 +114,16 @@ public class EventInfoActivity extends MenuFragmentActivity
         }
         catch(Throwable e)
         {
-            Log.e(LOG_TAG,"Se ha producido un error obteniendo la info del artista",e);
-            UnexpectedErrorHandler.handleUnexpectedError(this,e);
-            DialogUtils.showErrorDialog(this,R.string.lastfm_error);
+            Log.e(LOG_TAG, "Se ha producido un error obteniendo la info del artista", e);
+            //Si se produce un error aquí volvemos a la actividad anterior
+            UnexpectedErrorHandler.handleUnexpectedError(this, e, new AlertDialog.OnDismissListener()
+            {
+                @Override
+                public void onDismiss(DialogInterface dialogInterface)
+                {
+                    finish();
+                }
+            });
         }
 	}
 

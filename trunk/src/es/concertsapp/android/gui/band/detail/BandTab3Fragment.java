@@ -1,6 +1,7 @@
 package es.concertsapp.android.gui.band.detail;
 
 
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -37,6 +38,9 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     private String artistName;
 
     private Throwable backgroundError=null;
+
+    //Indica si ha habido un cambio de configuración
+    private boolean configurationChanged = false;
 
     //Barras de progreso
     private ProgressBar lastfmProgressBar;
@@ -297,9 +301,16 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     public void onStop()
     {
         super.onStop();
-        if (SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
+        if (!configurationChanged && SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
         {
             DialogUtils.showToast(this.getActivity(), Toast.LENGTH_LONG,R.string.toast_player);
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        configurationChanged = true;
     }
 }
