@@ -6,6 +6,7 @@ import android.view.Window;
 
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
+import es.concertsapp.android.utils.MyAppParameters;
 
 /**
  * Created by pablo on 6/07/13.
@@ -49,6 +50,15 @@ public class BandMainActivity extends MenuFragmentActivity
 
             }
         });
+
+        //si nos llega a que fragmento hay que ir, lo ponemos
+        Bundle extras = getIntent().getExtras();
+        if (extras!=null)
+        {
+            Integer fragmentId=extras.getInt(MyAppParameters.FRAGMENTID);
+            if (fragmentId!=null)
+                mViewPager.setCurrentItem(fragmentId);
+        }
 
     }
 }

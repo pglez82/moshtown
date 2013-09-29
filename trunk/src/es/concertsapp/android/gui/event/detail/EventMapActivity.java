@@ -24,16 +24,19 @@ public class EventMapActivity extends MenuFragmentActivity
         setContentView(R.layout.event_map);
 
         Bundle extras = getIntent().getExtras();
-        double eventLat=extras.getDouble(MyAppParameters.EVENTLAT);
-        double eventLon=extras.getDouble(MyAppParameters.EVENTLON);
-        String eventPlaceName = extras.getString(MyAppParameters.EVENT_PLACE_NAME);
+        if (extras!=null)
+        {
+            double eventLat=extras.getDouble(MyAppParameters.EVENTLAT);
+            double eventLon=extras.getDouble(MyAppParameters.EVENTLON);
+            String eventPlaceName = extras.getString(MyAppParameters.EVENT_PLACE_NAME);
 
-        LatLng pos = new LatLng(eventLat,eventLon);
-        GoogleMap googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
-        googleMap.addMarker(new MarkerOptions()
-                .position(pos)
-                .title(eventPlaceName));
+            LatLng pos = new LatLng(eventLat,eventLon);
+            GoogleMap googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
+            googleMap.addMarker(new MarkerOptions()
+                    .position(pos)
+                    .title(eventPlaceName));
+        }
     }
 
 

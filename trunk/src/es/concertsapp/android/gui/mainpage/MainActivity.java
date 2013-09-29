@@ -5,10 +5,12 @@ package es.concertsapp.android.gui.mainpage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;

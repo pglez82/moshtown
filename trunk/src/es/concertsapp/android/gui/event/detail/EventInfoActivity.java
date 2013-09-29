@@ -107,11 +107,6 @@ public class EventInfoActivity extends MenuFragmentActivity
                         i.putExtra(MyAppParameters.BANDID, bands[position-1]);
                         startActivity(i);
                     }
-                    else if (position==0)
-                    {
-                        //nos pulsaron en la cabera
-                    }
-
                 }
         });
         }

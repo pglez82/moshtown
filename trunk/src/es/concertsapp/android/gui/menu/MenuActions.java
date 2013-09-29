@@ -46,6 +46,11 @@ public class MenuActions
                 myIntent = new Intent(activity, BandMainActivity.class);
                 activity.startActivity(myIntent);
                 return true;
+            case R.id.menu_favouritebands:
+                myIntent = new Intent(activity, BandMainActivity.class);
+                myIntent.putExtra(MyAppParameters.FRAGMENTID, 1);
+                activity.startActivity(myIntent);
+                return true;
             case R.id.menu_close:
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);

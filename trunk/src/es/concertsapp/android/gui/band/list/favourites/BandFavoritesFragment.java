@@ -36,6 +36,9 @@ public class BandFavoritesFragment extends ListFragment
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
+        favouriteBandsStore = FavouriteBandsStore.getInstance(this);
+        favouriteBandsStore.startNearEventBandSearch();
     }
 
     @Override
@@ -43,8 +46,6 @@ public class BandFavoritesFragment extends ListFragment
     {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.band_favorites_list, container, false);
-
-
         return rootView;
     }
 
@@ -52,9 +53,8 @@ public class BandFavoritesFragment extends ListFragment
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
-        favouriteBandsStore = FavouriteBandsStore.getInstance(this);
-        favouriteBandsStore.startNearEventBandSearch();
+
+
     }
 
     @Override
@@ -162,7 +162,7 @@ public class BandFavoritesFragment extends ListFragment
             if (artistDTO.isNearEvents())
                 holder.bandsearchName.setBackgroundColor(Color.RED);
             else
-                holder.bandsearchName.setBackgroundColor(Color.BLACK);
+                holder.bandsearchName.setBackgroundColor(Color.TRANSPARENT);
 
             imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
             return row;

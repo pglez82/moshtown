@@ -27,19 +27,24 @@ public class LookForNearEvents
     private BandFavoritesFragment favouritesActivity;
     private Location locationStored = null;
     private LookForNearEventsTask lookForNearEventsTask;
+    //Cuando el usuario entra a la pantalla se lanza la busqueda, pero no siempre. Solo si han pasado x minutos
 
-    private List<ArtistDTO> alreadyLookedUp=new ArrayList<ArtistDTO>();
     private Throwable backgroundError=null;
+
+    private void updateProgressBar(int visibility, int percent)
+    {
+        if (favouritesActivity!=null && favouritesActivity.getProgressBar()!=null)
+        {
+            favouritesActivity.getProgressBar().setProgress(percent);
+            favouritesActivity.getProgressBar().setVisibility(visibility);
+        }
+    }
 
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
         this.favouritesActivity = favouritesActivity;
         //Mostramos la barra de progreso
-        if (favouritesActivity!=null && favouritesActivity.getProgressBar()!=null)
-        {
-            favouritesActivity.getProgressBar().setProgress(0);
-            favouritesActivity.getProgressBar().setVisibility(ProgressBar.VISIBLE);
-        }
+        updateProgressBar(ProgressBar.VISIBLE,0);
 
         if (locationStored==null)
         {
@@ -54,7 +59,7 @@ public class LookForNearEvents
                         {
                             locationStored = location;
                             lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
-                            favouritesActivity.getProgressBar().setProgress(20);
+                            updateProgressBar(ProgressBar.VISIBLE,20);
                             lookForNearEventsTask.execute(artistToLookUp);
                         }
                     }
@@ -62,6 +67,7 @@ public class LookForNearEvents
             }
             catch (Throwable e)
             {
+                //Todo: Revisar si este throawle aquí es necesario porque me estoy comiendo todas las excepciones
             }
         }
         else
@@ -99,31 +105,20 @@ public class LookForNearEvents
                 int proccessed = 0;
                 for (ArtistDTO artistDTO : favouriteBands)
                 {
-                    int index=alreadyLookedUp.indexOf(artistDTO);
-                    if (index<0)
+                    artistDTO.setNearEvents(false);
+                    List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
+                    for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
                     {
-                        artistDTO.setNearEvents(false);
-                        List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
-                        for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
+                        double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
+                        if (distance< ConfValues.NEAR_EVENT_DISTANCE)
                         {
-                            double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
-                            if (distance< ConfValues.NEAR_EVENT_DISTANCE)
-                            {
-                                artistDTO.setNearEvents(true);
-                                publishProgress();
-                                break;
-                            }
+                            artistDTO.setNearEvents(true);
+                            publishProgress();
+                            break;
                         }
-                        alreadyLookedUp.add(artistDTO);
                     }
-                    else
-                    {
-                        artistDTO.setNearEvents(alreadyLookedUp.get(index).isNearEvents());
-                        publishProgress();
-                    }
-
                     //Actualizamos la barra d eprogreso
-                    favouritesActivity.getProgressBar().setProgress((((++proccessed)*80)/number)+20);
+                    updateProgressBar(ProgressBar.VISIBLE,(((++proccessed)*80)/number)+20);
                 }
             }
             catch (Throwable e)
@@ -145,7 +140,7 @@ public class LookForNearEvents
         protected void onPostExecute(Void aVoid)
         {
             super.onPostExecute(aVoid);
-            favouritesActivity.getProgressBar().setVisibility(ProgressBar.INVISIBLE);
+            updateProgressBar(ProgressBar.INVISIBLE,0);
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(favouritesActivity.getActivity(),backgroundError);
         }

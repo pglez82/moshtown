@@ -21,8 +21,6 @@ import java.util.List;
 
 import de.umass.lastfm.Channel;
 import de.umass.lastfm.Item;
-import es.concertsapp.android.component.ExpandablePanel;
-import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.DialogUtils;
@@ -30,13 +28,11 @@ import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.lastfm.api.connector.LastFmApiConnector;
-import es.lastfm.api.connector.exception.LastFmException;
 
 
 public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerStatusChangedListener
 {
     private static final String LOG_TAG = "BANDTAB3FRAGMENT";
-    private Channel podcasts;
     private String spotifyUri;
     private String artistName;
 
@@ -62,8 +58,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View rootView = inflater.inflate(R.layout.activity_band_info_t3,container, false);
-        return rootView;
+        return inflater.inflate(R.layout.activity_band_info_t3,container, false);
     }
 
     @Override
@@ -210,7 +205,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             {
                 getListView().getEmptyView().setVisibility(View.INVISIBLE);
             }
-            catch (Throwable e){/*Si la lista no existe nos comemos la excepcion*/}
+            catch (Throwable e)
+            {
+                //Todo: a la espera de una solución mejor. A veces casca porque la vista no está creada. No entiendo porqué puede ser esto, siempre debería de estar
+                /*Si la lista no existe nos comemos la excepcion*/
+            }
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
@@ -218,11 +217,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         protected Channel doInBackground(String... params)
         {
             LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();
-            podcasts=null;
+            Channel podcasts = null;
             try
             {
                 Log.d(LOG_TAG,"Lanzamos la petición a last.fm para las canciones y el spotify");
-                podcasts=lastFmApiConnector.getArtistPodcast(params[0]);
+                podcasts =lastFmApiConnector.getArtistPodcast(params[0]);
                 spotifyUri=lastFmApiConnector.getSpotifyUri(params[0]);
                 Log.d(LOG_TAG,"Finalizada la petición, devolviendo resultados");
             }

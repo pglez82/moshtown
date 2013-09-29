@@ -10,19 +10,21 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SHOWS"
+            android:text="@string/button_shows"
             android:textSize="30sp"
             android:textColor="#4a0012"
             android:paddingTop="14dp"
             android:id="@+id/buttonConciertos"
             android:layout_centerHorizontal="true"
             android:background="@drawable/boton1inicio"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            />
     <ImageView
             android:id="@+id/puntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/puntos"
+            android:contentDescription="@string/puntos_description"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/buttonConciertos"
             android:layout_marginTop="25dp"/>
@@ -30,7 +32,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BANDS"
+            android:text="@string/button_bands"
             android:id="@+id/buttonGrupos"
             android:textSize="30sp"
             android:textColor="#4a0012"
@@ -56,5 +58,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="false"
             android:layout_alignParentRight="false"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/lastfm_description"/>
 </RelativeLayout>

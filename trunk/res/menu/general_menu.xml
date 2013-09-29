@@ -4,19 +4,27 @@
     <item android:id="@+id/menu_searchevents"
           android:title="@string/menu_searchevents" >
     </item>
-    <item android:id="@+id/menu_searchbands"
-          android:title="@string/menu_searchbands" >
+    <item android:id="@+id/menu_bands"
+          android:title="@string/menu_bands" >
+        <menu>
+            <item android:id="@+id/menu_searchbands"
+                 android:title="@string/menu_searchbands" >
+            </item>
+            <item android:id="@+id/menu_favouritebands"
+                  android:title="@string/menu_favouritebands" >
+            </item>
+        </menu>
     </item>
     <item android:id="@+id/menu_close"
           android:title="@string/menu_close" >
     </item>
     <item android:id="@+id/menu_player"
-          android:title="Reproductor...">
+          android:title="@string/menu_rep">
         <menu>
             <item android:id="@+id/menu_stop"
-                    android:title="Parar"></item>
+                    android:title="@string/menu_repstop"></item>
             <item android:id="@+id/menu_show"
-                  android:title="Mostrar"></item>
+                  android:title="@string/menu_repmostrar"></item>
         </menu>
     </item>
 

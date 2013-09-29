@@ -15,7 +15,7 @@
     <Button
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="SHOWS"
+            android:text="@string/button_shows"
             android:textSize="30sp"
             android:textColor="#4a0012"
             android:id="@+id/buttonConciertos"
@@ -27,13 +27,14 @@
             android:id="@+id/puntos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/puntos_description"
             android:src="@drawable/puntoslandscape"
             android:layout_gravity="center_vertical"/>
 
     <Button
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:text="BANDS"
+            android:text="@string/button_bands"
             android:id="@+id/buttonGrupos"
             android:textSize="30sp"
             android:textColor="#4a0012"
@@ -55,7 +56,6 @@
             android:background="@drawable/lastfmicon"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-
-            />
+            android:contentDescription="@string/lastfm_description"/>
 
 </RelativeLayout>

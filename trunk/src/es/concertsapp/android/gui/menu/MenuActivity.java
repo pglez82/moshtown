@@ -1,6 +1,8 @@
 package es.concertsapp.android.gui.menu;
 
 import android.app.Activity;
+import android.graphics.PixelFormat;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,6 +11,13 @@ import android.view.MenuItem;
  */
 public class MenuActivity extends Activity
 {
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        getWindow().setFormat(PixelFormat.RGBA_8888);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
