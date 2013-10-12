@@ -311,14 +311,6 @@ public class EventPageAdapter extends BaseAdapter
         return true;
     }
 
-    public AsyncTask.Status getAsyncTaskStatus()
-    {
-        if (loadingTask!=null)
-            return loadingTask.getStatus();
-        return null;
-    }
-    
-    
     //Clase para cachear las views en las que meter la info.
     static class EventHolder {
 		ImageView eventImageView;

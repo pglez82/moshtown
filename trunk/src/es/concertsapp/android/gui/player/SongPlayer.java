@@ -18,6 +18,7 @@ import de.umass.lastfm.Item;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.UnexpectedErrorHandler;
 
 /**
  * Created by pablo on 21/09/13.
@@ -125,11 +126,11 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
                 listener.playerStatusChanged();
             updateNotification(bandPlaying,songPlaying,context);
 
-        } catch (Throwable e) {
+        } catch (Throwable e)
+        {
             Log.e(LOG_TAG, "Error arrancando una canción", e);
-            if (listener!=null)
-                listener.playerStatusChanged();
-            updateNotification(bandPlaying,songPlaying,context);
+            UnexpectedErrorHandler.handleUnexpectedError(context, e);
+
         }
     }
 

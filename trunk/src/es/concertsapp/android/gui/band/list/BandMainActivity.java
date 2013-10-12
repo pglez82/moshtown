@@ -21,8 +21,8 @@ public class BandMainActivity extends MenuFragmentActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.band_main_layout);
 
         //Recibimos el id de la banda

@@ -227,7 +227,6 @@ public class BandTab2Fragment extends Fragment
         {
             Log.e(LOG_TAG, "Se ha producido un error al obtener la info detallada del artista");
             UnexpectedErrorHandler.handleUnexpectedError(this.getActivity(),e);
-            DialogUtils.showErrorDialog(this.getActivity(),R.string.lastfm_error);
         }
 		return rootView;
 	}

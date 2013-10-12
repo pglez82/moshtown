@@ -80,12 +80,13 @@ public class BandListFragment extends ListFragment
         super.onViewCreated(view, savedInstanceState);
         if (searchBandTask!=null)
         {
-            searchBandTask.setListView(getListView());
-            getListView().addFooterView(loadingFooter);
-            getListView().addFooterView(noResultsFooter);
-            getListView().setAdapter(searchBandTask.getSearchBandsAdapter());
-            getListView().removeFooterView(loadingFooter);
-            getListView().removeFooterView(noResultsFooter);
+            ListView listView = getListView();
+            searchBandTask.updateListView(listView);
+            listView.addFooterView(loadingFooter);
+            listView.addFooterView(noResultsFooter);
+            listView.setAdapter(searchBandTask.getSearchBandsAdapter());
+            listView.removeFooterView(loadingFooter);
+            listView.removeFooterView(noResultsFooter);
             showFooter(activeFooter);
         }
 
@@ -192,20 +193,7 @@ public class BandListFragment extends ListFragment
 		private List<ArtistDTO> listBands;
 		private SearchBandsAdapter searchBandsAdapter;
 
-        public void notifyNewFavorites()
-        {
-            searchBandsAdapter.notifyDataSetChanged();
-        }
 
-        public SearchBandsAdapter getSearchBandsAdapter()
-        {
-            return searchBandsAdapter;
-        }
-
-        public void setListView(ListView listView)
-        {
-            this.listView = listView;
-        }
 
         //Adapter para mostrar los datos cargados por este hilo
 		public class SearchBandsAdapter extends BaseAdapter
@@ -311,7 +299,32 @@ public class BandListFragment extends ListFragment
 			this.listView = listView;
 		}
 
+        public void updateListView(ListView listView)
+        {
+            this.listView=listView;
+            listView.setAdapter(this.searchBandsAdapter);
+            listView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+                    Intent i = new Intent(getActivity(),BandInfoActivity.class);
 
+                    ArtistDTO artistDTO = listBands.get(position);
+                    i.putExtra(MyAppParameters.BANDID, artistDTO.getArtistName());
+                    startActivity(i);
+                }
+            });
+        }
+
+        public void notifyNewFavorites()
+        {
+            searchBandsAdapter.notifyDataSetChanged();
+        }
+
+        public SearchBandsAdapter getSearchBandsAdapter()
+        {
+            return searchBandsAdapter;
+        }
 
 		@Override
 		protected Void doInBackground(String... params) 
@@ -353,19 +366,8 @@ public class BandListFragment extends ListFragment
 
             showFooter(ListFooters.LOADING);
 			this.searchBandsAdapter = new SearchBandsAdapter();
-			listView.setAdapter(this.searchBandsAdapter);
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
-			listView.setOnItemClickListener(new OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int position, long arg3) {
-					Intent i = new Intent(getActivity(),BandInfoActivity.class);
-
-					ArtistDTO artistDTO = listBands.get(position);
-					i.putExtra(MyAppParameters.BANDID, artistDTO.getArtistName());
-					startActivity(i);
-				}
-			});
+            updateListView(listView);
             notifyNewFavorites();
 		}
 		

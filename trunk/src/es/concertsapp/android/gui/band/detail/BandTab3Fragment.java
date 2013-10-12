@@ -42,6 +42,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     //Indica si ha habido un cambio de configuración
     private boolean configurationChanged = false;
 
+    private DonwloadPodcastsTask downloadPodcastTask;
+
     //Barras de progreso
     private ProgressBar lastfmProgressBar;
     private ProgressBar spotifyProgressBar;
@@ -56,7 +58,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private void retrieveInformation(String artistName)
     {
-        new DonwloadPodcastsTask(getListView()).execute(artistName);
+        downloadPodcastTask = new DonwloadPodcastsTask(getListView());
+        downloadPodcastTask.execute(artistName);
     }
 
     @Override
@@ -73,6 +76,24 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         artistName = args.getString(MyAppParameters.BANDID);
         lastfmProgressBar=(ProgressBar)view.findViewById(R.id.progressbarlastfm);
         spotifyProgressBar=(ProgressBar)view.findViewById(R.id.progressbarspotify);
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        Log.d(LOG_TAG,"Destruido el fragmento");
+        if (downloadPodcastTask!=null)
+        {
+            Log.d(LOG_TAG,"Cancelamos el hilo de buscar spotify y canciones de last.fm porque hemos destruido el fragmento");
+            downloadPodcastTask.cancel(true);
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
         retrieveInformation(artistName);
     }
 
@@ -240,23 +261,21 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         @Override
         protected void onPostExecute(final Channel result)
         {
-            try
+            if (!isCancelled())
             {
-                getListView().getEmptyView().setVisibility(View.VISIBLE);
-            }
-            catch (Throwable e){/*Si la lista no existe nos comemos la excepcion*/}
-            if (backgroundError!=null)
-                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
-            else
-            {
-                PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
-                listView.setAdapter(podcastsAdapter);
-                if (spotifyUri!=null && !"".equals(spotifyUri))
+                if (backgroundError!=null)
+                    UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
+                else
                 {
-                    showSpotify(spotifyUri);
+                    PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
+                    listView.setAdapter(podcastsAdapter);
+                    if (spotifyUri!=null && !"".equals(spotifyUri))
+                    {
+                        showSpotify(spotifyUri);
+                    }
+                    lastfmProgressBar.setVisibility(ProgressBar.INVISIBLE);
+                    spotifyProgressBar.setVisibility(ProgressBar.INVISIBLE);
                 }
-                lastfmProgressBar.setVisibility(ProgressBar.INVISIBLE);
-                spotifyProgressBar.setVisibility(ProgressBar.INVISIBLE);
             }
         }
     }
@@ -290,6 +309,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     @Override
     public void onDestroyView()
     {
+        Log.d(LOG_TAG,"Destruida la vista");
         super.onDestroyView();
         SongPlayer.getInstance().setListener(null);
     }

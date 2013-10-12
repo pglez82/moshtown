@@ -2,6 +2,7 @@ package es.concertsapp.android.gui.event.list;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -132,8 +133,20 @@ public class EventListActivity extends MenuFragmentActivity
         if (USE_GEOCODER_DESAMBIGUATION)
         {
             loadListPlacesSearched();
+
+            //ATENCION: Para que no saliese el dropdown del autocomplete cuando dabamos la vuelta a la pantalla he tenido
+            //que salvar yo a mano el valor del autocompletetextview y restaurarlo para que en ese momento no tenga adapter
+            //y por tanto no salga el dropdown
+            if (savedInstanceState!=null)
+            {
+                String value=savedInstanceState.getString("editciudadvalue");
+                searchTextView.setAdapter(null);
+                searchTextView.setText(value);
+            }
             placesAutoCompleteAdapter = new PlacesAutoCompleteAdapter(this,R.layout.city_list_result_layout,listPlacesSearched);
             searchTextView.setAdapter(placesAutoCompleteAdapter);
+            searchTextView.dismissDropDown();
+
             //Listener cuando se selecciona un elemento de la lista desplegable de lugares
             searchTextView.setOnItemClickListener(new OnItemClickListener()
             {
@@ -145,7 +158,7 @@ public class EventListActivity extends MenuFragmentActivity
                     latlonSearch = place.getLatLon();
                     eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
                     //Salvamos la lista de sitios buscados
-                    latlonSearch=null;
+                    latlonSearch = null;
                     saveListPlacesSearched(place);
                 }
             });
@@ -181,9 +194,16 @@ public class EventListActivity extends MenuFragmentActivity
                 return false;
             }
         });
-
-
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        final AutoCompleteTextView searchTextView = (AutoCompleteTextView)findViewById(R.id.editCiudad);
+        outState.putString("editciudadvalue",searchTextView.getText().toString());
+    }
+
 
 
     private ListView getListView()
@@ -319,7 +339,7 @@ public class EventListActivity extends MenuFragmentActivity
         hideAllFooters();
         if (footer==EventListActivityRetained.ListFooters.LOADING)
         {
-            getListView().addFooterView(loadingFooter,null,false);
+            getListView().addFooterView(loadingFooter, null, false);
             loadingFooter.setVisibility(View.VISIBLE);
         }
         else if (footer==EventListActivityRetained.ListFooters.NO_RESULTS)

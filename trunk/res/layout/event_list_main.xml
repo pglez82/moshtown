@@ -11,6 +11,7 @@
             android:id="@+id/editCiudad"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
+            android:saveEnabled="false"
             android:hint="@string/edit_ciudad_hint"
             />
 
