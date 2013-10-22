@@ -19,6 +19,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.utils.DateFormater;
@@ -209,9 +210,11 @@ public class BandTab2Fragment extends Fragment
             ((TextView) rootView.findViewById(R.id.detailedbandname)).setText(artistName);
 
             // Cargamos la imagen
-            ImageView artistImageView = (ImageView) rootView.findViewById(R.id.detailedbandimage);
-            ImageDownloader imageDownloader = ImageDownloader.getInstance();
-            imageDownloader.download(artistDTO.getImageURL(ImageSize.LARGE),artistImageView);
+            LastFmImageView artistImageView = (LastFmImageView)rootView.findViewById(R.id.detailedbandimage);
+            artistImageView.setLastFmImageSource(artistDTO);
+            //ImageView artistImageView = (ImageView) rootView.findViewById(R.id.detailedbandimage);
+            //ImageDownloader imageDownloader = ImageDownloader.getInstance();
+            //imageDownloader.download(artistDTO.getImageURL(ImageSize.LARGE),artistImageView);
 
             // Cargamos los eventos del artista
             ListView listView1 = (ListView) rootView.findViewById(R.id.detailedbandlistevents);

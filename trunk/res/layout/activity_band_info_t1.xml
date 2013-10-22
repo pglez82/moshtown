@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingBottom="@dimen/activity_vertical_margin"
@@ -15,14 +16,16 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp" />
 
-    <ImageView
+    <es.concertsapp.android.component.LastFmImageView
         android:id="@+id/detailedbandimage"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailedbandname"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:contentDescription="@string/imagen_evento" />
+        android:contentDescription="@string/imagen_evento"
+        example:maxLastFmImageHeight="150"
+        />
 
     <Button
             android:id="@+id/addFavouriteBandDetail"

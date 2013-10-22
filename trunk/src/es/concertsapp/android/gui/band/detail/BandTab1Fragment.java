@@ -14,16 +14,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Collection;
 
-import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
-import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
@@ -77,9 +75,10 @@ public class BandTab1Fragment extends Fragment
                 ((TextView)rootView.findViewById(R.id.detailedbandname)).setText(artistDTO.getArtistName());
 
                 //Cargamos la imagen
-                ImageView artistImageView = (ImageView)rootView.findViewById(R.id.detailedbandimage);
-                ImageDownloader imageDownloader = ImageDownloader.getInstance();
-                imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), artistImageView);
+                LastFmImageView artistImageView = (LastFmImageView)rootView.findViewById(R.id.detailedbandimage);
+                artistImageView.setLastFmImageSource(artistDTO);
+                //ImageDownloader imageDownloader = ImageDownloader.getInstance();
+                //imageDownloader.download(artistDTO.getImageURL(ImageSizeReq.getImageSizeForImageView(artistImageView)), artistImageView);
 
                 //Tags del artista
                 TextView tagsTextView = ((TextView)rootView.findViewById(R.id.detailedbandtags));

@@ -58,7 +58,7 @@ public class ImageDownloader {
     
     //Adoptamos el patrón singleton para que solo pueda existir una instancia de esta clase
     private static ImageDownloader INSTANCE = new ImageDownloader();
-    
+
     // El constructor privado no permite que se genere un constructor por defecto
     // (con mismo modificador de acceso que la definición de la clase) 
     private ImageDownloader() 
@@ -80,18 +80,57 @@ public class ImageDownloader {
      * @param imageView The ImageView to bind the downloaded image to.
      */
     public void download(String url, ImageView imageView) {
-    	Log.d(LOG_TAG, "Descargando una imagen: "+url);
+    	download(url,imageView,null);
+    }
+
+    public void download(String url, ImageView imageView, Dimension maxDim) {
+        Log.d(LOG_TAG, "Descargando una imagen: "+url);
         //resetPurgeTimer();
         Bitmap bitmap = getBitmapFromCache(url);
 
         if (bitmap == null) {
-        	Log.d(LOG_TAG, "Descargandola nueva: "+url);
-            forceDownload(url, imageView);
+            Log.d(LOG_TAG, "Descargandola nueva: "+url);
+            forceDownload(url, imageView,maxDim);
         } else {
-        	Log.d(LOG_TAG, "Ya está descargada: "+url);
+            Log.d(LOG_TAG, "Ya está descargada: "+url);
             cancelPotentialDownload(url, imageView);
+            if (maxDim!=null)
+                bitmap = cropBitmap(bitmap,maxDim);
             imageView.setImageBitmap(bitmap);
         }
+    }
+
+
+    /**
+     * Corta la imagen para redimensionarla a su altura máxima, ajustandola perfectamente en anchura
+     * @param original imagen original
+     * @param maxDim por un lado, la altura máxima, por otro la anchura de la imagen
+     * @return nuevo bitmap
+     */
+    private Bitmap cropBitmap(Bitmap original,Dimension maxDim)
+    {
+        int x=0, y=0, width=0;
+        if (original.getHeight()>maxDim.getHeigh())
+        {
+            float factor = maxDim.getFixedWidth() / (float) original.getWidth();
+            Bitmap scaled = Bitmap.createScaledBitmap(original, maxDim.getFixedWidth(), (int) (original.getHeight() * factor), false);
+            y=(scaled.getHeight()/2)-(maxDim.getHeigh()/2);
+            x=0;
+            width=scaled.getWidth();
+            Bitmap retorno= Bitmap.createBitmap(scaled,x,y,width,maxDim.getHeigh());
+            /*try {
+                File file = new File(Environment.getExternalStorageDirectory().toString(),"prueba.png");
+                FileOutputStream out = new FileOutputStream(file);
+                retorno.compress(Bitmap.CompressFormat.PNG, 90, out);
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }*/
+
+            return retorno;
+        }
+
+        return original;
     }
 
     /*
@@ -106,7 +145,7 @@ public class ImageDownloader {
      * Same as download but the image is always downloaded and the cache is not used.
      * Kept private at the moment as its interest is not clear.
      */
-    private void forceDownload(String url, ImageView imageView) {
+    private void forceDownload(String url, ImageView imageView, Dimension maxDim) {
         // State sanity: url is guaranteed to never be null in DownloadedDrawable and cache keys.
         if (url == null) {
             imageView.setImageDrawable(null);
@@ -123,12 +162,12 @@ public class ImageDownloader {
 
                 case NO_DOWNLOADED_DRAWABLE:
                     imageView.setMinimumHeight(156);
-                    BitmapDownloaderTask task = new BitmapDownloaderTask(imageView);
+                    BitmapDownloaderTask task = new BitmapDownloaderTask(imageView,maxDim);
                     task.execute(url);
                     break;
 
                 case CORRECT:
-                    task = new BitmapDownloaderTask(imageView);
+                    task = new BitmapDownloaderTask(imageView,maxDim);
                     DownloadedDrawable downloadedDrawable = new DownloadedDrawable(task);
                     imageView.setImageDrawable(downloadedDrawable);
                     imageView.setMinimumHeight(156);
@@ -256,9 +295,11 @@ public class ImageDownloader {
      */
     class BitmapDownloaderTask extends AsyncTask<String, Void, Bitmap> {
         private String url;
+        private Dimension maxDim;
         private final WeakReference<ImageView> imageViewReference;
 
-        public BitmapDownloaderTask(ImageView imageView) {
+        public BitmapDownloaderTask(ImageView imageView, Dimension maxDim) {
+            this.maxDim = maxDim;
             imageViewReference = new WeakReference<ImageView>(imageView);
         }
 
@@ -288,6 +329,9 @@ public class ImageDownloader {
                 // Change bitmap only if this process is still associated with it
                 // Or if we don't use any bitmap to task association (NO_DOWNLOADED_DRAWABLE mode)
                 if ((this == bitmapDownloaderTask) || (mode != Mode.CORRECT)) {
+                    if (maxDim!=null)
+                        bitmap = cropBitmap(bitmap,maxDim);
+
                     imageView.setImageBitmap(bitmap);
                 }
             }
@@ -307,8 +351,7 @@ public class ImageDownloader {
 
         public DownloadedDrawable(BitmapDownloaderTask bitmapDownloaderTask) {
             super(Color.BLACK);
-            bitmapDownloaderTaskReference =
-                new WeakReference<BitmapDownloaderTask>(bitmapDownloaderTask);
+            bitmapDownloaderTaskReference = new WeakReference<BitmapDownloaderTask>(bitmapDownloaderTask);
         }
 
         public BitmapDownloaderTask getBitmapDownloaderTask() {
