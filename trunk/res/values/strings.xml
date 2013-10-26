@@ -8,6 +8,7 @@
     <string name="button_bands">BANDS</string>
     <string name="puntos_description">Imagen separadora</string>
     <string name="lastfm_description">Condiciones legales de LASTFM</string>
+    <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
     
     <!--Listado de conciertos-->
     <string name="list_loading">Cargando ...</string>
