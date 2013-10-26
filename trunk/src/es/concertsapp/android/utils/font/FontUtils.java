@@ -22,7 +22,8 @@ public class FontUtils
      */
     public enum FontType
     {
-        ROBOTO_CONDENSED("fonts/Roboto-Condensed.ttf");
+        ROBOTO_CONDENSED("fonts/Roboto-Condensed.ttf"),
+        ROBOTO_BOLD("fonts/Roboto-Bold.ttf");
 
         private String fontPath;
 

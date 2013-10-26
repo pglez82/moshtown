@@ -53,17 +53,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="eaa453fd-cc03-4f70-8383-386f16e59637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_lastfmbackground.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-ldpi/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/logo.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fonts/Roboto-Bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fonts/Roboto-Condensed.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/intro_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/intro_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/intro_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/intro_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/intro_mancha1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/intro_mancha1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/intro_mancha1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/intro_mancha1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/intro_mancha2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/intro_mancha2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/intro_mancha2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/intro_mancha2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/intro_puntos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/intro_puntos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/intro_puntos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/intro_puntos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/logo_as.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/logo_as.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/logo_as.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/logo_as_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/logo_as_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/logo_as_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/logo_as_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/logo_as_pressed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/band_favorites_list.xml" afterPath="$PROJECT_DIR$/res/layout/band_favorites_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/band_list.xml" afterPath="$PROJECT_DIR$/res/layout/band_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_list_main.xml" afterPath="$PROJECT_DIR$/res/layout/event_list_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_layout.xml" afterPath="$PROJECT_DIR$/res/layout/main_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-land/main_layout.xml" afterPath="$PROJECT_DIR$/res/layout-land/main_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PageList.iws" />
@@ -223,13 +241,8 @@
       <file leaf-file-name="main_layout.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="37" selection-start="3380" selection-end="3380" vertical-scroll-proportion="-15.5" vertical-offset="812" max-vertical-offset="1515">
-              <folding>
-                <element signature="e#746#767#0" expanded="true" />
-                <element signature="e#1237#1259#0" expanded="true" />
-                <element signature="e#1912#1940#0" expanded="true" />
-                <element signature="e#2284#2306#0" expanded="true" />
-              </folding>
+            <state line="76" column="39" selection-start="3221" selection-end="3227" vertical-scroll-proportion="-7.3076925" vertical-offset="950" max-vertical-offset="1515">
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -240,16 +253,16 @@
       <file leaf-file-name="button_shows_bands_textcolor.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+            <state line="6" column="0" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="36" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="870">
+            <state line="63" column="85" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.70198673" vertical-offset="131" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
@@ -258,7 +271,7 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="51" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+            <state line="10" column="51" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1140">
               <folding />
             </state>
           </provider>
@@ -267,7 +280,7 @@
       <file leaf-file-name="band_favorites_list.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/band_favorites_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="405">
+            <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
@@ -279,7 +292,7 @@
       <file leaf-file-name="band_list.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="585">
+            <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-1.5384616" vertical-offset="20" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -288,22 +301,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout-land/main_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="39" selection-start="1764" selection-end="1764" vertical-scroll-proportion="-13.961538" vertical-offset="357" max-vertical-offset="975">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_list_main.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="event_list_main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="39" selection-start="2527" selection-end="2527" vertical-scroll-proportion="1.4607558" vertical-offset="0" max-vertical-offset="1335">
+            <state line="75" column="47" selection-start="2840" selection-end="2840" vertical-scroll-proportion="-13.653846" vertical-offset="770" max-vertical-offset="1335">
               <folding>
                 <element signature="e#791#811#0" expanded="true" />
                 <element signature="e#1159#1185#0" expanded="true" />
@@ -316,19 +317,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="button_lastfmbackground.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/drawable/button_lastfmbackground.xml">
+      <file leaf-file-name="FontUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="112" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+            <state line="25" column="42" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LastFmImageView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/component/LastFmImageView.java">
+      <file leaf-file-name="fondo_buscador.9.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/fondo_buscador.9.png">
+          <provider selected="true" editor-type-id="ninepatcheditor">
+            <state />
+          </provider>
+          <provider editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="button_lastfmbackground.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/button_lastfmbackground.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="36" selection-start="3014" selection-end="3014" vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="1470">
+            <state line="3" column="112" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -348,7 +359,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/images/Dimension.java" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/component/LastFmImageView.java" />
         <option value="$PROJECT_DIR$/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_band_info_t1.xml" />
@@ -357,13 +367,14 @@
         <option value="$PROJECT_DIR$/res/layout/band_favorites_list.xml" />
         <option value="$PROJECT_DIR$/res/layout/band_list.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/layout-land/main_layout.xml" />
         <option value="$PROJECT_DIR$/res/drawable/button_logolastfm.xml" />
         <option value="$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml" />
         <option value="$PROJECT_DIR$/res/drawable/button_lastfmbackground.xml" />
         <option value="$PROJECT_DIR$/res/layout/main_layout.xml" />
         <option value="$PROJECT_DIR$/res/layout/event_list_main.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -417,7 +428,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Production">
           <PATH>
@@ -442,6 +452,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -764,6 +775,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-xhdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="drawable-mdpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -782,7 +811,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-ldpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -981,7 +1064,7 @@
       <option name="DEPLOY" value="true" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="androidapi17" />
+      <option name="PREFERRED_AVD" value="androidapi8" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -1110,7 +1193,11 @@
       <created>1382474251126</created>
       <updated>1382474251126</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="cambiando el layout...">
+      <created>1382788147143</created>
+      <updated>1382788147143</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1143,28 +1230,28 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36354166" sideWeight="0.4903846" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5109375" sideWeight="0.4903846" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3024948" sideWeight="0.5174242" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42923078" sideWeight="0.7295455" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3926282" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1390625" sideWeight="0.5222672" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1953125" sideWeight="0.5245642" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16839917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22972973" sideWeight="0.86742425" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258547" sideWeight="0.86742425" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1390625" sideWeight="0.47638327" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1953125" sideWeight="0.47543582" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1933472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="341" y="359" width="683" height="313" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3024948" sideWeight="0.5174242" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1212,26 +1299,13 @@
     <MESSAGE value="0.37" />
     <MESSAGE value="0.38" />
     <MESSAGE value="implementado el aspecto de hacer el crop de las imagenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementado el aspecto de hacer el crop de las imagenes" />
+    <MESSAGE value="cambiando el layout..." />
+    <option name="LAST_COMMIT_MESSAGE" value="cambiando el layout..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/images/Dimension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_band_info_t1.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="93" selection-start="130" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1005">
@@ -1275,17 +1349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/band_favorites_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="585">
+        <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
@@ -1298,23 +1362,6 @@
         <state line="10" column="51" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="36" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-land/main_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="39" selection-start="1764" selection-end="1764" vertical-scroll-proportion="-13.961538" vertical-offset="357" max-vertical-offset="975">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml">
@@ -1331,15 +1378,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/fondo_buscador.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-land/main_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="39" selection-start="1764" selection-end="1764" vertical-scroll-proportion="0.57168144" vertical-offset="397" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="39" selection-start="225" selection-end="225" vertical-scroll-proportion="-1.5384616" vertical-offset="20" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="37" selection-start="3380" selection-end="3380" vertical-scroll-proportion="-15.5" vertical-offset="812" max-vertical-offset="1515">
-          <folding>
-            <element signature="e#746#767#0" expanded="true" />
-            <element signature="e#1237#1259#0" expanded="true" />
-            <element signature="e#1912#1940#0" expanded="true" />
-            <element signature="e#2284#2306#0" expanded="true" />
-          </folding>
+        <state line="76" column="39" selection-start="3221" selection-end="3227" vertical-scroll-proportion="-7.3076925" vertical-offset="950" max-vertical-offset="1515">
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -1348,7 +1418,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="39" selection-start="2527" selection-end="2527" vertical-scroll-proportion="1.4607558" vertical-offset="0" max-vertical-offset="1335">
+        <state line="75" column="47" selection-start="2840" selection-end="2840" vertical-scroll-proportion="-13.653846" vertical-offset="770" max-vertical-offset="1335">
           <folding>
             <element signature="e#791#811#0" expanded="true" />
             <element signature="e#1159#1185#0" expanded="true" />
@@ -1358,6 +1428,20 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="42" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="85" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.70198673" vertical-offset="131" max-vertical-offset="870">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

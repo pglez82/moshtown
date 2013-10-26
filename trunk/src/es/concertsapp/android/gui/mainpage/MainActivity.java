@@ -43,7 +43,7 @@ public class MainActivity extends MenuActivity
 		catch (Throwable e){};
 
         TextView sloganTextView = (TextView)findViewById(R.id.text_slogan);
-        FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTO_CONDENSED);
+        FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTO_BOLD);
 
         Button buttonConcerts = (Button)findViewById(R.id.buttonConciertos);
         buttonConcerts.setOnClickListener(new View.OnClickListener() {
