@@ -71,7 +71,10 @@ public class EventPageAdapter extends BaseAdapter
     	{
             backgroundError = null;
     		if (!isCancelled())
+            {
     			lastFmApiConnector.setEventSearchListeners(null, this);
+                eventListActivityRetained.setProgressBarVisibility(View.VISIBLE);
+            }
     	}
     	
 		@Override
@@ -143,11 +146,13 @@ public class EventPageAdapter extends BaseAdapter
 			if (!isCancelled())
 			{
 				Log.d(LOG_TAG,"El hilo ha acabado por ahora..., actualizando el footer");
+                eventListActivityRetained.setProgressBarVisibility(View.INVISIBLE);
 				eventListActivityRetained.hideAllFooters();
 				if (result)
 				{
 					Log.d(LOG_TAG,"Todavía hay más posibles resultados así que sacamos el boton en el footer");
-					eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.LOAD_MORE);
+					//eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.LOAD_MORE);
+                    eventListActivityRetained.setLoadMoreVisibility(View.VISIBLE);
 				}
 			}
 
@@ -155,6 +160,7 @@ public class EventPageAdapter extends BaseAdapter
             if (listEvents.isEmpty())
             {
                 eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.NO_RESULTS);
+                eventListActivityRetained.setProgressBarVisibility(View.INVISIBLE);
             }
 		}
 		
@@ -208,8 +214,6 @@ public class EventPageAdapter extends BaseAdapter
     	imageDownloader.clearCache();
     	lastFmApiConnector =  LastFmApiConnectorFactory.getNewInstance();
 
-        
-        eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.LOADING);
         //Si ya existe una búsqueda haciendose hay que cancelarla
         cancelCurrentSearch();
         loadingTask = new LoadingTask();
@@ -238,7 +242,6 @@ public class EventPageAdapter extends BaseAdapter
     
     public void continueEventSearch()
     {
-    	eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.LOADING);
     	new LoadingTask().execute();
     }
 

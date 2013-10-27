@@ -52,6 +52,10 @@ public class MyLocation
     //Singleton
     private static MyLocation myLocation;
 
+    private MyLocation()
+    {
+    }
+
     public static boolean getLocation(Context context, LocationResult locationResult)
     {
         Log.d(LOG_TAG,"Lanzando una nueva petición al gps");
@@ -83,7 +87,7 @@ public class MyLocation
             myLocation.cancelSearchInternal();
     }
 
-    public void cancelSearchInternal()
+    private void cancelSearchInternal()
     {
         if (timer1!=null)
             timer1.cancel();
@@ -111,6 +115,7 @@ public class MyLocation
         cachedName=nam;
         cachedTime=getTimeInMinutes();
     }
+
 
     private boolean getInternalLocation(Context context, LocationResult result) {
         this.context = context;

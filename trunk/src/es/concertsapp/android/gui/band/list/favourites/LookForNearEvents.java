@@ -24,7 +24,7 @@ import es.lastfm.api.connector.dto.ArtistEventDTO;
 public class LookForNearEvents
 {
     private static final String LOG_TAG="LOOKFORNEAREVENTS";
-    private BandFavoritesFragment favouritesActivity;
+    private BandFavoritesFragment favoritesFragment;
     private Location locationStored = null;
     private LookForNearEventsTask lookForNearEventsTask;
     //Cuando el usuario entra a la pantalla se lanza la busqueda, pero no siempre. Solo si han pasado x minutos
@@ -34,16 +34,16 @@ public class LookForNearEvents
 
     private void updateProgressBar(int visibility, int percent)
     {
-        if (favouritesActivity!=null && favouritesActivity.getProgressBar()!=null)
+        if (favoritesFragment !=null && favoritesFragment.getProgressBar()!=null)
         {
-            favouritesActivity.getProgressBar().setProgress(percent);
-            favouritesActivity.getProgressBar().setVisibility(visibility);
+            favoritesFragment.getProgressBar().setProgress(percent);
+            favoritesFragment.getProgressBar().setVisibility(visibility);
         }
     }
 
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
-        this.favouritesActivity = favouritesActivity;
+        this.favoritesFragment = favouritesActivity;
         //Mostramos la barra de progreso
         updateProgressBar(ProgressBar.VISIBLE,0);
 
@@ -154,7 +154,7 @@ public class LookForNearEvents
             super.onPostExecute(aVoid);
             updateProgressBar(ProgressBar.INVISIBLE,0);
             if (backgroundError!=null)
-                UnexpectedErrorHandler.handleUnexpectedError(favouritesActivity.getActivity(),backgroundError);
+                UnexpectedErrorHandler.handleUnexpectedError(favoritesFragment.getActivity(),backgroundError);
         }
 
 

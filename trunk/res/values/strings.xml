@@ -11,14 +11,13 @@
     <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
     
     <!--Listado de conciertos-->
-    <string name="list_loading">Cargando ...</string>
     <string name="list_noresults">No hay bolos e-burros</string>
     <string name="buscar_text">Buscar</string>
     <string name="listMoreButton_text">Cargar más eventos</string>
     <string name="gps_button">GPS</string>
     <string name="no_location_info_title">Error</string>
     <string name="no_location_info_text">No se ha podido determinar la posición</string>
-    <string name="edit_ciudad_hint">Introduce una ciudad</string>
+    <string name="edit_ciudad_hint">WHERE?</string>
     
     <!--Actividad del evento-->
     <string name="imagen_evento">Imagen del evento</string>

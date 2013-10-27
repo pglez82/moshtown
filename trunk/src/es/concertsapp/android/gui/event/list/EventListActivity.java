@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.location.Location;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
@@ -17,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -68,6 +72,7 @@ public class EventListActivity extends MenuFragmentActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_list_main);
 
@@ -116,6 +121,19 @@ public class EventListActivity extends MenuFragmentActivity
             @Override
             public void onClick(View v) {
                 botonBuscar();
+            }
+        });
+
+        //Pasamos las referencias a la retained
+        eventListActivityRetained.setProgressBar((ProgressBar) findViewById(R.id.progressbareventlist));
+        eventListActivityRetained.setLoadMoreView(findViewById(R.id.loadmoreelement));
+        View loadMoreElement = findViewById(R.id.loadmoreelement);
+        loadMoreElement.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                botonListMore();
             }
         });
 
@@ -296,6 +314,7 @@ public class EventListActivity extends MenuFragmentActivity
      */
     public void getPosition(final View view)
     {
+        eventListActivityRetained.setProgressBarVisibility(View.VISIBLE);
     	((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("Buscando...");
     	LocationResult locationResult = new LocationResult(){
     		@Override
@@ -306,9 +325,9 @@ public class EventListActivity extends MenuFragmentActivity
     			runOnUiThread(new ReturnFromLocation(view.getContext(), location, name));
     	    }
     	};
-    	MyLocation myLocation = new MyLocation();
+
         //si devuelve false es que no hay gps activao ni nada
-    	if (!myLocation.getLocation(this, locationResult))
+    	if (!MyLocation.getLocation(this, locationResult))
         {
             DialogUtils.showErrorDialog(this,R.string.location_error);
             ((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("");
@@ -337,28 +356,10 @@ public class EventListActivity extends MenuFragmentActivity
     public void updateFooters(EventListActivityRetained.ListFooters footer)
     {
         hideAllFooters();
-        if (footer==EventListActivityRetained.ListFooters.LOADING)
-        {
-            getListView().addFooterView(loadingFooter, null, false);
-            loadingFooter.setVisibility(View.VISIBLE);
-        }
-        else if (footer==EventListActivityRetained.ListFooters.NO_RESULTS)
+        if (footer==EventListActivityRetained.ListFooters.NO_RESULTS)
         {
             getListView().addFooterView(noResultsFooter,null,false);
             noResultsFooter.setVisibility(View.VISIBLE);
-        }
-        else if (footer== EventListActivityRetained.ListFooters.LOAD_MORE)
-        {
-            getListView().addFooterView(buttonMoreFooter);
-            buttonMoreFooter.setVisibility(View.VISIBLE);
-            Button listMoreButton = (Button)findViewById(R.id.listMoreButton);
-            listMoreButton.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    botonListMore();
-                }
-            });
         }
     }
 
@@ -378,6 +379,7 @@ public class EventListActivity extends MenuFragmentActivity
 
     public void botonListMore()
     {
+        eventListActivityRetained.setLoadMoreVisibility(View.INVISIBLE);
     	eventListActivityRetained.getEventPageAdapter().continueEventSearch();
     }
     
