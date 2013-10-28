@@ -40,9 +40,15 @@
           <theme>@android:style/Theme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/res/layout/item_row.xml">
+        <config>
+          <device>3.2in HVGA slider (ADP1)</device>
+          <theme>@android:style/Theme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/res/layout/main_layout.xml">
         <config>
-          <device>Nexus One</device>
+          <device>3.2in QVGA (ADP2)</device>
           <theme>@android:style/Theme</theme>
         </config>
       </layout>
@@ -53,24 +59,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="eaa453fd-cc03-4f70-8383-386f16e59637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_gps_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fonts/Roboto-Light.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/date" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/fondo_lista_ciudad.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_gps_normal.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_gps_normal.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_gps_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_lupa.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_lupa.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_lupa.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_x.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/clear.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/gps.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_gps_normal_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_gps_normal_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_gps_normal_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_gps_normal_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_gps_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_gps_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_gps_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_gps_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_lupa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_lupa_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_lupa_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_lupa_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_lupa_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_x_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_x_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_x_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_x_pulsado.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/mancha_barra.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/mancha_lista.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_gps_animation.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_gps_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_lupa_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/button_x_image.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Condensed.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_gps_normal.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/search.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/DateFormater.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/date/DateFormater.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab2Fragment.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab2Fragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivityRetained.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivityRetained.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/favourites/LookForNearEvents.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/favourites/LookForNearEvents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/MyLocation.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/MyLocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/MyApplication.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/MyApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/PlacesAutoCompleteAdapter.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/PlacesAutoCompleteAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/city_list_result_layout.xml" afterPath="$PROJECT_DIR$/res/layout/city_list_result_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_list_main.xml" afterPath="$PROJECT_DIR$/res/layout/event_list_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_row.xml" afterPath="$PROJECT_DIR$/res/layout/item_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_layout.xml" afterPath="$PROJECT_DIR$/res/layout/main_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values-es/strings.xml" afterPath="$PROJECT_DIR$/res/values-es/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PageList.iws" />
@@ -120,37 +156,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/player/SongPlayer.java" line="72" class="es.concertsapp.android.gui.player.SongPlayer" package="es.concertsapp.android.gui.player">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/images/ImageDownloader.java" line="111" class="es.concertsapp.android.utils.images.ImageDownloader" package="es.concertsapp.android.utils.images">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/images/ImageDownloader.java" line="122" class="es.concertsapp.android.utils.images.ImageDownloader" package="es.concertsapp.android.utils.images">
+      <breakpoint url="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/date/DateFormater.java" line="29" class="es.concertsapp.android.utils.date.DateFormater" package="es.concertsapp.android.utils.date">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -212,43 +218,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/main_layout.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="50" selection-start="1272" selection-end="1672" vertical-scroll-proportion="12.961538" vertical-offset="937" max-vertical-offset="1515">
-              <folding>
-                <element signature="e#1237#1259#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventListActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="378" column="0" selection-start="13970" selection-end="13970" vertical-scroll-proportion="0.0" vertical-offset="4449" max-vertical-offset="5550">
-              <folding>
-                <element signature="e#5342#5509#0" expanded="true" />
-                <element signature="e#5498#5499#0" expanded="true" />
-                <element signature="e#5745#5888#0" expanded="true" />
-                <element signature="e#5877#5878#0" expanded="true" />
-                <element signature="e#11998#12359#0" expanded="true" />
-                <element signature="e#12351#12352#0" expanded="true" />
-                <element signature="e#12535#12558#0" expanded="true" />
-                <element signature="e#15546#15577#0" expanded="true" />
-                <element signature="e#15579#15609#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EventPageAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="39" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="444" max-vertical-offset="4590">
+            <state line="297" column="31" selection-start="9766" selection-end="9766" vertical-scroll-proportion="0.0" vertical-offset="3786" max-vertical-offset="4695">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="24" selection-start="420" selection-end="420" vertical-scroll-proportion="0.21582733" vertical-offset="0" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -257,65 +239,76 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="42" selection-start="911" selection-end="911" vertical-scroll-proportion="-9.961538" vertical-offset="26" max-vertical-offset="1125">
+            <state line="0" column="0" selection-start="0" selection-end="3298" vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventListActivityRetained.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivityRetained.java">
+      <file leaf-file-name="item_row.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/item_row.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="33" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2025">
-              <folding>
-                <element signature="e#1386#1387#0" expanded="true" />
-                <element signature="e#1425#1426#0" expanded="true" />
-              </folding>
+            <state line="24" column="47" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="720">
+              <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout-land/main_layout.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyApplication.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/MyApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="28" selection-start="642" selection-end="642" vertical-scroll-proportion="-10.384615" vertical-offset="0" max-vertical-offset="975">
+            <state line="58" column="0" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BandInfoActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandInfoActivity.java">
+      <file leaf-file-name="BandTab2Fragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab2Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="68" selection-start="1457" selection-end="1513" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="870">
+            <state line="119" column="85" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="3585">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event_list_main.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LastFmImageView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/component/LastFmImageView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="41" selection-start="3274" selection-end="3274" vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="1470">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_list_main.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="46" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-8.576923" vertical-offset="242" max-vertical-offset="1740">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="17" column="8" selection-start="612" selection-end="612" vertical-scroll-proportion="-7.076923" vertical-offset="71" max-vertical-offset="1650">
-              <folding>
-                <element signature="e#807#827#0" expanded="true" />
-                <element signature="e#1233#1259#0" expanded="true" />
-                <element signature="e#1885#1906#0" expanded="true" />
-              </folding>
+        </entry>
+      </file>
+      <file leaf-file-name="LastFmImageSizeCalc.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../NetBeansProjects/LastFmApiConnector/src/es/lastfm/api/utils/LastFmImageSizeCalc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1065">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BandTab1Fragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab1Fragment.java">
+      <file leaf-file-name="DateFormater.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/date/DateFormater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="4" selection-start="1198" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2085">
+            <state line="32" column="21" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="975">
               <folding />
             </state>
           </provider>
@@ -335,22 +328,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/band_favorites_list.xml" />
-        <option value="$PROJECT_DIR$/res/layout/band_list.xml" />
-        <option value="$PROJECT_DIR$/res/layout-land/main_layout.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/button_logolastfm.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/button_lastfmbackground.xml" />
-        <option value="$PROJECT_DIR$/res/layout/main_layout.xml" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/font/FontUtils.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/favourites/LookForNearEvents.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/MyLocation.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivityRetained.java" />
+        <option value="$PROJECT_DIR$/res/drawable/ic_lupa_image.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/button_gps_image.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/button_gps_annimation.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/button_gps_animation.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/PlacesAutoCompleteAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/city_list_result_layout.xml" />
+        <option value="$PROJECT_DIR$/res/layout/main_layout.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/MyApplication.java" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab2Fragment.java" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/date/DateFormater.java" />
+        <option value="$PROJECT_DIR$/res/layout/item_row.xml" />
         <option value="$PROJECT_DIR$/res/layout/event_list_main.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java" />
+        <option value="$PROJECT_DIR$/res/values-es/strings.xml" />
       </list>
     </option>
   </component>
@@ -500,33 +493,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="geo" />
+              <option name="myItemId" value="date" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,6 +516,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainpage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -607,10 +600,6 @@
               <option name="myItemId" value="event" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="detail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -627,88 +616,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="band" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="list" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="band" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="detail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HxCPunkapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -723,6 +630,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-es" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -848,7 +773,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HxCPunkapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -881,7 +842,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="show.migrate.to.gradle.popup" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="713" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="435" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="446" />
   </component>
   <component name="RecentsManager">
@@ -895,10 +856,33 @@
       <recent name="$PROJECT_DIR$/res/layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/drawable-mdpi/prueba" />
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.HxCPunkapp">
+    <configuration default="false" name="DateFormater" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.concertsapp.android.utils.date.DateFormater" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="HxCPunkapp" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="All in PageList" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="PageList" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1048,7 +1032,7 @@
       <option name="DEPLOY" value="true" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="androidapi8" />
+      <option name="PREFERRED_AVD" value="androidapi17" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -1061,13 +1045,15 @@
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Android Application.HxCPunkapp" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in PageList" />
+      <item index="1" class="java.lang.String" itemvalue="Application.DateFormater" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in PageList" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in PageList" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.DateFormater" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in PageList" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -1185,7 +1171,19 @@
       <created>1382825816129</created>
       <updated>1382825816129</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="cambiando el layout...">
+      <created>1382871361114</created>
+      <updated>1382871361114</updated>
+    </task>
+    <task id="LOCAL-00015" summary="cambiando el layout...">
+      <created>1382963589118</created>
+      <updated>1382963589118</updated>
+    </task>
+    <task id="LOCAL-00016" summary="cambiando el layout...">
+      <created>1382963643673</created>
+      <updated>1382963643673</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1218,25 +1216,25 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2984375" sideWeight="0.4903846" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30235043" sideWeight="0.5174242" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42923078" sideWeight="0.7295455" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3926282" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1953125" sideWeight="0.525268" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16773504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258547" sideWeight="0.86742425" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48854166" sideWeight="0.4903846" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22863248" sideWeight="0.5174242" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42841882" sideWeight="0.7295455" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3926282" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1953125" sideWeight="0.525268" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16773504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5117521" sideWeight="0.86742425" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1953125" sideWeight="0.474732" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.203125" sideWeight="0.474732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="341" y="359" width="683" height="313" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1244,31 +1242,31 @@
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3926282" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327212" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30307466" sideWeight="0.6025641" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32692307" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.203125" sideWeight="0.474732" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.041666668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="341" y="359" width="683" height="313" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796487" sideWeight="0.9583333" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5174242" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3974359" sideWeight="0.7295455" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253205" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48247078" sideWeight="0.86742425" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2984375" sideWeight="0.4903846" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22863248" sideWeight="0.5174242" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42841882" sideWeight="0.7295455" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1953125" sideWeight="0.525268" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16773504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2361111" sideWeight="0.86742425" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1294,150 +1292,124 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/favourites/LookForNearEvents.java">
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="27" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="2265">
+        <state line="150" column="96" selection-start="6018" selection-end="6018" vertical-scroll-proportion="0.0" vertical-offset="1059" max-vertical-offset="5040">
           <folding>
-            <element signature="e#2000#2625#0" expanded="true" />
-            <element signature="e#2606#2607#0" expanded="true" />
+            <element signature="e#6305#7028#0" expanded="false" />
+            <element signature="e#7013#7014#0" expanded="false" />
+            <element signature="e#12745#12768#0" expanded="false" />
+            <element signature="e#14796#14827#0" expanded="false" />
+            <element signature="e#14829#14859#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/MyLocation.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/main_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="35" selection-start="2853" selection-end="2853" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="4095">
+        <state line="6" column="36" selection-start="218" selection-end="246" vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="1500">
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_band_info_t2.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/images/Dimension.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="50" selection-start="1563" selection-end="1584" vertical-scroll-proportion="-20.192308" vertical-offset="0" max-vertical-offset="810">
+        <state line="5" column="13" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/images/ImageDownloader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="20" selection-start="3043" selection-end="3043" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="6495">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandMainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/component/LastFmImageView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="709" selection-end="769" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="960">
+        <state line="87" column="41" selection-start="3274" selection-end="3274" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NetBeansProjects/LastFmApiConnector/src/es/lastfm/api/utils/LastFmImageSizeCalc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/MyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.0" vertical-offset="131" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab2Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="12" selection-start="7478" selection-end="7562" vertical-scroll-proportion="-12.692307" vertical-offset="2505" max-vertical-offset="3105">
+        <state line="119" column="85" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="3105">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_band_info_t1.xml">
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-8/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="578" column="16" selection-start="24793" selection-end="24793" vertical-scroll-proportion="0.33333334" vertical-offset="8412" max-vertical-offset="10230" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-18/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2660" column="0" selection-start="110720" selection-end="110720" vertical-scroll-proportion="0.33267716" vertical-offset="37751" max-vertical-offset="74655" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/utils/date/DateFormater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="21" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="47" selection-start="916" selection-end="916" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab1Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="4" selection-start="1198" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2085">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandInfoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="68" selection-start="1457" selection-end="1513" vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-land/main_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="28" selection-start="642" selection-end="642" vertical-scroll-proportion="-10.384615" vertical-offset="0" max-vertical-offset="975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="50" selection-start="1272" selection-end="1672" vertical-scroll-proportion="12.961538" vertical-offset="937" max-vertical-offset="1515">
-          <folding>
-            <element signature="e#1237#1259#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventPageAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="39" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" vertical-offset="444" max-vertical-offset="4590">
+        <state line="297" column="31" selection-start="9766" selection-end="9766" vertical-scroll-proportion="0.0" vertical-offset="3786" max-vertical-offset="4695">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="378" column="0" selection-start="13970" selection-end="13970" vertical-scroll-proportion="0.0" vertical-offset="4449" max-vertical-offset="5550">
-          <folding>
-            <element signature="e#5342#5509#0" expanded="true" />
-            <element signature="e#5498#5499#0" expanded="true" />
-            <element signature="e#5745#5888#0" expanded="true" />
-            <element signature="e#5877#5878#0" expanded="true" />
-            <element signature="e#11998#12359#0" expanded="true" />
-            <element signature="e#12351#12352#0" expanded="true" />
-            <element signature="e#12535#12558#0" expanded="true" />
-            <element signature="e#15546#15577#0" expanded="true" />
-            <element signature="e#15579#15609#0" expanded="true" />
-          </folding>
+        <state line="31" column="46" selection-start="1251" selection-end="1251" vertical-scroll-proportion="-8.576923" vertical-offset="242" max-vertical-offset="1740">
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="911" selection-end="911" vertical-scroll-proportion="-9.961538" vertical-offset="26" max-vertical-offset="1125">
+        <state line="0" column="0" selection-start="0" selection-end="3298" vertical-scroll-proportion="0.0" vertical-offset="430" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivityRetained.java">
+    <entry file="file://$PROJECT_DIR$/res/values-es/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2025">
-          <folding>
-            <element signature="e#1386#1387#0" expanded="true" />
-            <element signature="e#1425#1426#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/boton2inicio.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="17" column="8" selection-start="612" selection-end="612" vertical-scroll-proportion="-7.076923" vertical-offset="71" max-vertical-offset="1575">
-          <folding>
-            <element signature="e#807#827#0" expanded="true" />
-            <element signature="e#1233#1259#0" expanded="true" />
-            <element signature="e#1885#1906#0" expanded="true" />
-          </folding>
+        <state line="10" column="24" selection-start="420" selection-end="420" vertical-scroll-proportion="0.21582733" vertical-offset="0" max-vertical-offset="1125">
+          <folding />
         </state>
       </provider>
     </entry>

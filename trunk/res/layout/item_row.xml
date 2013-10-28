@@ -2,41 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:background="#ffffff"
+    android:minHeight="60dp">
 
-    <ImageView
-        android:id="@+id/eventImageView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+    <TextView
+        android:id="@+id/eventDate"
+        android:layout_width="72dp"
+        android:layout_height="fill_parent"
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/imagen_evento"
+        android:layout_marginRight="12dp"
+        android:lines="2"
+        android:background="@drawable/mancha_lista"
+        android:gravity="center_horizontal|center_vertical"
          />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="5dp" >
+        android:layout_gravity="center_vertical"
+            >
 
         <TextView
             android:id="@+id/concertlistinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="#000000"/>
 
         <TextView
             android:id="@+id/placelistinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/datelistinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp" />
-
-
+            android:textSize="12sp"
+            android:textColor="#808080"/>
     </LinearLayout>
 
 </LinearLayout>

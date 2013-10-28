@@ -3,6 +3,7 @@ package es.concertsapp.android.gui.event.list;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.AnimationDrawable;
 import android.location.Location;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.geo.LatitudeLongitude;
 import es.concertsapp.android.utils.geo.MyLocation;
 import es.concertsapp.android.utils.geo.MyLocation.LocationResult;
@@ -45,15 +47,13 @@ import es.lastfm.api.connector.dto.EventDTO;
 public class EventListActivity extends MenuFragmentActivity
 {
     static final String LOG_TAG = "EVENTLISTACTIVITY";
+
+    //Adapter para devolver el listado de ciudades ante una búsqueda en la caja de ciudades
     private PlacesAutoCompleteAdapter placesAutoCompleteAdapter;
 
-    private EventListActivityRetained eventListActivityRetained;
 
-    //Elemento de cargando... en el footer
-    private View loadingFooter;
-    private View noResultsFooter;
-    //Elemento de cargar más en el footer
-    private View buttonMoreFooter;
+    //Datos de la actividad que queremos salvar ante un cambio de configuración
+    private EventListActivityRetained eventListActivityRetained;
 
     //Lista de lugares ya buscados
     private List<PlaceInterface> listPlacesSearched;
@@ -86,24 +86,8 @@ public class EventListActivity extends MenuFragmentActivity
             fm.beginTransaction().add(eventListActivityRetained, "eventlistfragment").commit();
         }
 
-        loadingFooter = getLayoutInflater().inflate(R.layout.loading_row, null);
-        buttonMoreFooter = getLayoutInflater().inflate(R.layout.buttonmore_layout,null);
-        noResultsFooter = getLayoutInflater().inflate(R.layout.no_results_footer,null);
-
-        getListView().addFooterView(loadingFooter,null,false);
-        getListView().addFooterView(buttonMoreFooter);
-        getListView().addFooterView(noResultsFooter,null,false);
-
-        noResultsFooter.setEnabled(false);
-        loadingFooter.setEnabled(false);
-        loadingFooter.setVisibility(View.GONE);
-        buttonMoreFooter.setVisibility(View.GONE);
-        noResultsFooter.setVisibility(View.GONE);
-
         getListView().setAdapter(eventListActivityRetained.getEventPageAdapter());
-        getListView().removeFooterView(loadingFooter);
-        getListView().removeFooterView(buttonMoreFooter);
-        getListView().removeFooterView(noResultsFooter);
+
         //Listener en los elementos de la lista para ir al detalle del evento
         getListView().setOnItemClickListener(new OnItemClickListener()
         {
@@ -126,8 +110,10 @@ public class EventListActivity extends MenuFragmentActivity
 
         //Pasamos las referencias a la retained
         eventListActivityRetained.setProgressBar((ProgressBar) findViewById(R.id.progressbareventlist));
-        eventListActivityRetained.setLoadMoreView(findViewById(R.id.loadmoreelement));
+
         View loadMoreElement = findViewById(R.id.loadmoreelement);
+        FontUtils.setRobotoFont(this,loadMoreElement, FontUtils.FontType.ROBOTO_LIGHT);
+        eventListActivityRetained.setLoadMoreView(loadMoreElement);
         loadMoreElement.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -138,6 +124,7 @@ public class EventListActivity extends MenuFragmentActivity
         });
 
         final AutoCompleteTextView searchTextView = (AutoCompleteTextView)findViewById(R.id.editCiudad);
+        FontUtils.setRobotoFont(this,searchTextView, FontUtils.FontType.ROBOTO_LIGHT);
 
         ImageButton positionButton = (ImageButton)findViewById(R.id.positionButon);
         positionButton.setOnClickListener(new OnClickListener() {
@@ -172,6 +159,7 @@ public class EventListActivity extends MenuFragmentActivity
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
                 {
                     searchTextView.dismissDropDown();
+                    searchTextView.setSelection(0);
                     PlaceInterface place = placesAutoCompleteAdapter.getItem(i);
                     latlonSearch = place.getLatLon();
                     eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
@@ -308,14 +296,36 @@ public class EventListActivity extends MenuFragmentActivity
     }
 
 
+    private void showGpsAnimation(boolean show)
+    {
+        ImageButton gpsButton = (ImageButton) findViewById(R.id.positionButon);
+        if (show)
+        {
+            gpsButton.setBackgroundResource(R.drawable.button_gps_animation);
+            AnimationDrawable animation = (AnimationDrawable) gpsButton.getBackground();
+            animation.start();
+        }
+        else
+        {
+            AnimationDrawable animation = (AnimationDrawable) gpsButton.getBackground();
+            if (animation!=null)
+                animation.stop();
+            gpsButton.setBackgroundResource(R.drawable.button_gps_image);
+        }
+
+    }
+
     /**
      * Obtiene la posición a partir del gps o de la red con un hilo a parte.
      * @param view
      */
     public void getPosition(final View view)
     {
-        eventListActivityRetained.setProgressBarVisibility(View.VISIBLE);
-    	((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("Buscando...");
+        eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
+        //Comenzamos la animación del gps
+        showGpsAnimation(true);
+
+        //((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("Buscando...");
     	LocationResult locationResult = new LocationResult(){
     		@Override
     	    public void locationFound(Location location,String name)
@@ -330,36 +340,8 @@ public class EventListActivity extends MenuFragmentActivity
     	if (!MyLocation.getLocation(this, locationResult))
         {
             DialogUtils.showErrorDialog(this,R.string.location_error);
+            showGpsAnimation(false);
             ((AutoCompleteTextView)findViewById(R.id.editCiudad)).setText("");
-        }
-    }
-
-    public void hideAllFooters()
-    {
-        if (loadingFooter.getVisibility()==View.VISIBLE)
-        {
-            getListView().removeFooterView(loadingFooter);
-            loadingFooter.setVisibility(View.GONE);
-        }
-        if (noResultsFooter.getVisibility()==View.VISIBLE)
-        {
-            getListView().removeFooterView(noResultsFooter);
-            noResultsFooter.setVisibility(View.GONE);
-        }
-        if (buttonMoreFooter.getVisibility()==View.VISIBLE)
-        {
-            getListView().removeFooterView(buttonMoreFooter);
-            buttonMoreFooter.setVisibility(View.GONE);
-        }
-    }
-
-    public void updateFooters(EventListActivityRetained.ListFooters footer)
-    {
-        hideAllFooters();
-        if (footer==EventListActivityRetained.ListFooters.NO_RESULTS)
-        {
-            getListView().addFooterView(noResultsFooter,null,false);
-            noResultsFooter.setVisibility(View.VISIBLE);
         }
     }
 
@@ -379,7 +361,7 @@ public class EventListActivity extends MenuFragmentActivity
 
     public void botonListMore()
     {
-        eventListActivityRetained.setLoadMoreVisibility(View.INVISIBLE);
+        eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
     	eventListActivityRetained.getEventPageAdapter().continueEventSearch();
     }
     
@@ -404,6 +386,7 @@ public class EventListActivity extends MenuFragmentActivity
 		@Override
 		public void run() 
 		{
+            showGpsAnimation(false);
             AutoCompleteTextView text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
 			if (location!=null)
 	    	{
@@ -416,18 +399,14 @@ public class EventListActivity extends MenuFragmentActivity
                 text.setFocusableInTouchMode(true);
                 text.dismissDropDown();
     	    	eventListActivityRetained.getEventPageAdapter().startEventSearch(location.getLatitude(), location.getLongitude());
-    	    	//Deberíamos también poner el nombre de donde buscamos para informar al usuario de cual es la ubicación
 	    	}
 	    	else
 	    	{
 	    		DialogUtils.showMessageDialog(context, R.string.no_location_info_title, R.string.no_location_info_text);
+                eventListActivityRetained.hideAllElements();
                 text.setText("");
 	    	}	
 		}
     	
     }
-
-
-    
-    
 }

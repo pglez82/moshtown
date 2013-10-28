@@ -2,9 +2,11 @@ package es.concertsapp.android.gui.event.list;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -14,6 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.geo.PlaceInterface;
 import es.concertsapp.android.utils.geo.impl.GooglePlacesApi;
 
@@ -26,6 +29,8 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
     private GooglePlacesApi googlePlacesApi = new GooglePlacesApi();
     private int normalResultView;
     private List<PlaceInterface> listPlacesSearched;
+
+    private int dropDownFontColorVisited = Color.parseColor("#808080");
 
     public PlacesAutoCompleteAdapter(Context context, int normalResultView,List<PlaceInterface> listPlacesSearched) {
         super(context, normalResultView);
@@ -105,10 +110,15 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
         PlaceInterface place = this.getItem(position);
         TextView textView = (TextView)convertView;
         textView.setText(place.getPlaceName());
+
         if (listPlacesSearched.contains(place))
-            textView.setBackgroundColor(Color.argb(50,50,0,0));
+        {
+            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTO_BOLD);
+            textView.setTextColor(dropDownFontColorVisited);
+        }
         else
-            textView.setBackgroundColor(Color.WHITE);
+            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTO_LIGHT);
+
         return convertView;
     }
 

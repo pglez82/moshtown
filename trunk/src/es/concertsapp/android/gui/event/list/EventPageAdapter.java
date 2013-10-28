@@ -1,8 +1,8 @@
 package es.concertsapp.android.gui.event.list;
 
 
-import android.content.Context;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,17 +14,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
-import es.concertsapp.android.utils.DateFormater;
-import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyApplication;
+import es.concertsapp.android.utils.date.DateFormater;
+import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewEventAvaibleListener;
 import es.lastfm.api.connector.dto.EventDTO;
-import es.lastfm.api.connector.exception.LastFmException;
 
 
 public class EventPageAdapter extends BaseAdapter
@@ -40,6 +39,13 @@ public class EventPageAdapter extends BaseAdapter
     private String ciudad;
     private double lat,lon;
     private boolean coordinates;
+
+    //TODO: Sacar estos colores de los estilos
+    private static String letraGris = "<span><font color=\"#808080\">";
+    private static String letraBlanco = "<span><font color=\"#ffffff\">";
+
+
+    private DateFormater dateFormater = DateFormater.getInstance(MyApplication.getLocale());
 
     //Variable que indica si se produjo algún error (si !=null) en el proceso en segundo plano. On background
     //no puede mostrar el error porque no puede tocar la ui. Eso hay que hacerlo en el postexecute
@@ -73,7 +79,7 @@ public class EventPageAdapter extends BaseAdapter
     		if (!isCancelled())
             {
     			lastFmApiConnector.setEventSearchListeners(null, this);
-                eventListActivityRetained.setProgressBarVisibility(View.VISIBLE);
+                eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
             }
     	}
     	
@@ -146,21 +152,19 @@ public class EventPageAdapter extends BaseAdapter
 			if (!isCancelled())
 			{
 				Log.d(LOG_TAG,"El hilo ha acabado por ahora..., actualizando el footer");
-                eventListActivityRetained.setProgressBarVisibility(View.INVISIBLE);
-				eventListActivityRetained.hideAllFooters();
+                eventListActivityRetained.hideAllElements();
 				if (result)
 				{
 					Log.d(LOG_TAG,"Todavía hay más posibles resultados así que sacamos el boton en el footer");
 					//eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.LOAD_MORE);
-                    eventListActivityRetained.setLoadMoreVisibility(View.VISIBLE);
+                    eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.MORE_RESULTS);
 				}
 			}
 
             //Si no hay ningún evento lo indicamos
             if (listEvents.isEmpty())
             {
-                eventListActivityRetained.showFooter(EventListActivityRetained.ListFooters.NO_RESULTS);
-                eventListActivityRetained.setProgressBarVisibility(View.INVISIBLE);
+                eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.NO_RESULTS);
             }
 		}
 		
@@ -282,8 +286,7 @@ public class EventPageAdapter extends BaseAdapter
 			holder = new EventHolder();
 			holder.concertListInfo=(TextView)convertView.findViewById(R.id.concertlistinfo);
 		    holder.placeListInfo=(TextView)convertView.findViewById(R.id.placelistinfo);
-		    holder.dateListInfo=(TextView)convertView.findViewById(R.id.datelistinfo);
-		    holder.eventImageView=(ImageView)convertView.findViewById(R.id.eventImageView);
+		    holder.eventDate =(TextView)convertView.findViewById(R.id.eventDate);
 			convertView.setTag(holder);
     	}
     	else
@@ -294,15 +297,18 @@ public class EventPageAdapter extends BaseAdapter
        
     	//Mostramos el elemento
         EventDTO event = (EventDTO)this.getItem(position);
-	    
+
 	    holder.concertListInfo.setText( event.getEventTitle());
+        FontUtils.setRobotoFont(eventListActivity,holder.concertListInfo, FontUtils.FontType.ROBOTO_BOLD);
 	   	holder.placeListInfo.setText(event.getEventPlace());
-	    holder.dateListInfo.setText(DateFormater.formatDate(event.getEventDate()));
-	    StringBuilder stringBuilderTags = new StringBuilder();
-	    for (String tag : event.getTags())
-	    	stringBuilderTags.append(tag).append(',');
-    	imageDownloader.download(event.getImageURL(ImageSize.MEDIUM), holder.eventImageView);
-		            
+        FontUtils.setRobotoFont(eventListActivity,holder.placeListInfo, FontUtils.FontType.ROBOTO_LIGHT);
+        String[] day = dateFormater.formatDay(event.getEventDate());
+        String[] month = dateFormater.formatMonth(event.getEventDate());
+        StringBuilder sb = new StringBuilder();
+        sb.append(letraGris+day[0]).append("</span>").append(letraBlanco).append(day[1]).append("</span><br/>").append(letraBlanco).append(month[0]).append("</span>").append(letraGris).append(month[1]).append("</span>");
+	    holder.eventDate.setText(Html.fromHtml(sb.toString()));
+        FontUtils.setRobotoFont(eventListActivity, holder.eventDate, FontUtils.FontType.ROBOTO_BOLD);
+
         return convertView;
     }
 
@@ -316,7 +322,7 @@ public class EventPageAdapter extends BaseAdapter
 
     //Clase para cachear las views en las que meter la info.
     static class EventHolder {
-		ImageView eventImageView;
+		TextView eventDate;
 		TextView placeListInfo;
 		TextView dateListInfo;
 		TextView concertListInfo;

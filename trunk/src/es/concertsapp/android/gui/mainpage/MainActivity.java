@@ -52,7 +52,7 @@ public class MainActivity extends MenuActivity
                 buttonConciertos(v);
             }
         });
-        FontUtils.setRobotoFont(this,buttonConcerts, FontUtils.FontType.ROBOTO_CONDENSED);
+        FontUtils.setRobotoFont(this,buttonConcerts, FontUtils.FontType.ROBOTO_LIGHT);
 
         Button buttonBands = (Button)findViewById(R.id.buttonGrupos);
         buttonBands.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +61,7 @@ public class MainActivity extends MenuActivity
                 buttonBands(v);
             }
         });
-        FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTO_CONDENSED);
+        FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTO_LIGHT);
 	}
 
     private void buttonConciertos(View v)

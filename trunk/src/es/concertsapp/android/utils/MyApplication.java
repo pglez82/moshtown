@@ -10,6 +10,8 @@ import org.acra.ReportField;
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 
+import java.util.Locale;
+
 import es.concertsapp.android.gui.R;
 
 /**
@@ -48,6 +50,11 @@ public class MyApplication extends Application
          */
         ACRA.init(this);
         MyApplication.context = getApplicationContext();
+    }
+
+    public static Locale getLocale()
+    {
+        return context.getResources().getConfiguration().locale;
     }
 
     public static Context getAppContext() {

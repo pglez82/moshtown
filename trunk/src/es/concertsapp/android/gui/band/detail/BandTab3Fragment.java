@@ -326,11 +326,4 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             DialogUtils.showToast(this.getActivity(), Toast.LENGTH_LONG,R.string.toast_player);
         }
     }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-        configurationChanged = true;
-    }
 }

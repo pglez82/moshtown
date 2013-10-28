@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.band.list.BandListFragment;
 
 /**
  * La filosofía de esta clase es evitar la volatilidad de las activitis cuando se produce un cambio
@@ -19,9 +20,11 @@ import es.concertsapp.android.gui.R;
  */
 public class EventListActivityRetained extends Fragment
 {
-    public enum ListFooters
+    public enum ListElementsOnlyOneVisible
     {
-        NO_RESULTS
+        NO_RESULTS,
+        LOADING,
+        MORE_RESULTS
     }
 
     private static final String LOG_TAG="EVENTLISTACTIVITYRETAINED";
@@ -29,14 +32,10 @@ public class EventListActivityRetained extends Fragment
     private EventPageAdapter eventPageAdapter;
     private EventListActivity eventListActivity;
 
-    //Indica que footer está activo. Hay que almacenarlo aquí porque esta clase es la que perdura
-    //mientras que la activity desaparece
-    private ListFooters activeFooter;
+    //Solo hay un elemento visible al mismo tiempo
+    private ListElementsOnlyOneVisible visibleElement;
 
-    private int progressBarVisibility;
     private ProgressBar progressBar;
-
-    private int loadMoreVisibility;
     private View loadMoreView;
 
     public EventPageAdapter getEventPageAdapter()
@@ -47,9 +46,7 @@ public class EventListActivityRetained extends Fragment
     public EventListActivityRetained()
     {
         eventPageAdapter = new EventPageAdapter(eventListActivity, this, R.layout.item_row, R.layout.loading_row);
-        activeFooter=null;
-        progressBarVisibility = View.INVISIBLE;
-        loadMoreVisibility = View.INVISIBLE;
+        visibleElement=null;
     }
 
     @Override
@@ -59,33 +56,14 @@ public class EventListActivityRetained extends Fragment
         setRetainInstance(true);
     }
 
-    /*****************METODOS PARA MANEJAR LA PROGRESS BAR***********************/
-    //Cuando se recrea la activity debido a un cambio de configuración se llama a este método
-    //En esta clase (que no cambia nunca), mantenemos el estado de la progress bar para restaurarla
     public void setProgressBar(ProgressBar progressBar)
     {
         this.progressBar = progressBar;
-        this.progressBar.setVisibility(progressBarVisibility);
     }
-
-    public void setProgressBarVisibility(int progressBarVisibility)
-    {
-        Log.d(LOG_TAG, "Estableciendo la visibilidad de la progress bar a " + progressBarVisibility);
-        this.progressBarVisibility = progressBarVisibility;
-        progressBar.setVisibility(progressBarVisibility);
-    }
-    /****************************************************************************/
 
     public void setLoadMoreView(View loadMoreView)
     {
         this.loadMoreView = loadMoreView;
-        this.loadMoreView.setVisibility(loadMoreVisibility);
-    }
-
-    public void setLoadMoreVisibility(int loadMoreVisibility)
-    {
-        this.loadMoreVisibility = loadMoreVisibility;
-        this.loadMoreView.setVisibility(loadMoreVisibility);
     }
 
     /**
@@ -105,8 +83,7 @@ public class EventListActivityRetained extends Fragment
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-        if (eventListActivity!=null)
-            eventListActivity.updateFooters(activeFooter);
+        showElement(visibleElement);
     }
 
     /**
@@ -119,19 +96,30 @@ public class EventListActivityRetained extends Fragment
         eventListActivity = null;
     }
 
-    public void showFooter(ListFooters footer)
+    public void showElement(ListElementsOnlyOneVisible element)
     {
-        hideAllFooters();
-        activeFooter=footer;
-        if (eventListActivity!=null)
-            eventListActivity.updateFooters(activeFooter);
+        hideAllElements();
+        visibleElement=element;
+        if (visibleElement!=null)
+        {
+            switch (visibleElement)
+            {
+                case LOADING:
+                    progressBar.setVisibility(View.VISIBLE);
+                    break;
+                case MORE_RESULTS:
+                    loadMoreView.setVisibility(View.VISIBLE);
+                    break;
+
+            }
+        }
     }
 
-    public void hideAllFooters()
+    public void hideAllElements()
     {
-        activeFooter=null;
-        if (eventListActivity!=null)
-            eventListActivity.updateFooters(activeFooter);
+        visibleElement=null;
+        progressBar.setVisibility(View.INVISIBLE);
+        loadMoreView.setVisibility(View.INVISIBLE);
     }
 
 }

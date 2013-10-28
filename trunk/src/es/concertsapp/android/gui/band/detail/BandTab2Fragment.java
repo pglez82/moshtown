@@ -11,23 +11,20 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.List;
 
-import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
-import es.concertsapp.android.utils.DateFormater;
-import es.concertsapp.android.utils.DialogUtils;
+import es.concertsapp.android.utils.MyApplication;
+import es.concertsapp.android.utils.date.DateFormater;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
-import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.dto.ArtistEventDTO;
@@ -122,7 +119,7 @@ public class BandTab2Fragment extends Fragment
 
 				ArtistEventDTO artistEventDTO = (ArtistEventDTO)this.getItem(position);
 				holder.bandconcertlistinfo.setText(artistEventDTO.getEventTitle());
-				holder.banddatelistinfo.setText(DateFormater.formatDate(artistEventDTO.getStartDate()));
+				holder.banddatelistinfo.setText(DateFormater.getInstance(MyApplication.getLocale()).formatDate(artistEventDTO.getStartDate()));
 				holder.bandplacelistinfo.setText(artistEventDTO.getEventPlace());
 
 				return row;
