@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+              xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:background="@drawable/list_clicked_color"
+              android:minHeight="60dp"
+              android:paddingLeft="12dp"
+              android:paddingRight="12dp"
+              android:gravity="center_vertical">
 
-    <Button
+    <ImageButton
             android:id="@+id/favouriteImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_vertical|left"
             android:contentDescription="@string/imagen_banda"
-            android:maxHeight="34dp"
-            android:maxWidth="34dp"
             android:focusable="false"
+            android:background="@drawable/ic_estrella_off"
+            android:layout_marginRight="6dp"
             />
 
-    <ImageView
-        android:id="@+id/bandsearchImageView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_vertical"
-        android:contentDescription="@string/imagen_banda"
-        android:maxHeight="34dp"
-        android:maxWidth="34dp" />
+    <es.concertsapp.android.component.LastFmImageView
+            android:id="@+id/bandsearchImageView"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/imagen_banda"
+            example:maxLastFmImageHeight="48"
 
+
+            />
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="5dp" >
-
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            >
         <TextView
             android:id="@+id/bandsearchName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_weight="1"/>
+</LinearLayout>
 </LinearLayout>

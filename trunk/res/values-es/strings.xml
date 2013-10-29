@@ -17,7 +17,7 @@
     <string name="gps_button">GPS</string>
     <string name="no_location_info_title">Error</string>
     <string name="no_location_info_text">No se ha podido determinar la posición</string>
-    <string name="edit_ciudad_hint">WHERE?</string>
+    <string name="edit_ciudad_hint">DÓNDE?</string>
 
     <!--Actividad del evento-->
     <string name="imagen_evento">Imagen del evento</string>
@@ -30,7 +30,7 @@
     <string name="no_tickets_available">No hay información sobre tickets</string>
 
     <!--Actividad listado de grupos-->
-    <string name="edit_banda_hint">Introduce un grupo</string>
+    <string name="edit_banda_hint">QUIÉN?</string>
     <string name="buscarbanda_text">Buscar</string>
     <string name="bandeventsheadertext">Lista de conciertos</string>
     <string name="imagen_banda">Añadir a favoritos</string>

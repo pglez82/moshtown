@@ -30,7 +30,7 @@
     <string name="no_tickets_available">No hay información sobre tickets</string>
 
     <!--Actividad listado de grupos-->
-    <string name="edit_banda_hint">Introduce un grupo</string>
+    <string name="edit_banda_hint">WHO?</string>
     <string name="buscarbanda_text">Buscar</string>
     <string name="bandeventsheadertext">Lista de conciertos</string>
     <string name="imagen_banda">Añadir a favoritos</string>

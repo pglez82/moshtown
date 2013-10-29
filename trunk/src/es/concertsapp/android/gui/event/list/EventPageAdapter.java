@@ -183,7 +183,7 @@ public class EventPageAdapter extends BaseAdapter
 		
     }  
     
-    public EventPageAdapter(EventListActivity eventListActivity, EventListActivityRetained eventListActivityRetained, int itemRowResID, int loadingRowResID)
+    public EventPageAdapter(EventListActivity eventListActivity, EventListActivityRetained eventListActivityRetained, int itemRowResID)
     { 
         this.eventListActivity = eventListActivity;
         this.eventListActivityRetained = eventListActivityRetained;

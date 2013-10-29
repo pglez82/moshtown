@@ -45,7 +45,7 @@ public class EventListActivityRetained extends Fragment
 
     public EventListActivityRetained()
     {
-        eventPageAdapter = new EventPageAdapter(eventListActivity, this, R.layout.item_row, R.layout.loading_row);
+        eventPageAdapter = new EventPageAdapter(eventListActivity, this, R.layout.item_row);
         visibleElement=null;
     }
 

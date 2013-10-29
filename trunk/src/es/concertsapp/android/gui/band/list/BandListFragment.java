@@ -15,42 +15,36 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
-import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewArtistAvaibleListener;
 import es.lastfm.api.connector.dto.ArtistDTO;
-import es.lastfm.api.connector.exception.LastFmException;
 
 public class BandListFragment extends ListFragment
 {
     static final String LOG_TAG = "BANDLISTFRAGMENT";
-    public enum ListFooters
-    {
-        LOADING,
-        NO_RESULTS
-    }
 
 	//Hilo para cargar las bandas
 	private SearchBandsTask searchBandTask;
-	//Elemento cargando
-	private View loadingFooter;
-    private View noResultsFooter;
-    private ListFooters activeFooter;
+
+    private ProgressBar progressBar;
 
     private FavouriteBandsStore favouriteBandsStore;
 
@@ -69,8 +63,6 @@ public class BandListFragment extends ListFragment
     {
         super.onCreate(savedInstanceState);    
         View rootView = inflater.inflate(R.layout.band_list, container, false);
-        loadingFooter = inflater.inflate(R.layout.loading_row, null);
-        noResultsFooter = inflater.inflate(R.layout.no_results_footer,null);
         return rootView;
     }
 
@@ -82,13 +74,9 @@ public class BandListFragment extends ListFragment
         {
             ListView listView = getListView();
             searchBandTask.updateListView(listView);
-            listView.addFooterView(loadingFooter);
-            listView.addFooterView(noResultsFooter);
             listView.setAdapter(searchBandTask.getSearchBandsAdapter());
-            listView.removeFooterView(loadingFooter);
-            listView.removeFooterView(noResultsFooter);
-            showFooter(activeFooter);
         }
+        progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
 
     }
 
@@ -98,7 +86,7 @@ public class BandListFragment extends ListFragment
 		super.onActivityCreated(savedInstanceState);
 		//Asociamos el botón con su evento
 		
-		Button buscarButon = (Button)this.getActivity().findViewById(R.id.buscarBandaButon);
+		ImageButton buscarButon = (ImageButton)this.getActivity().findViewById(R.id.buscarBandaButon);
         buscarButon.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -106,7 +94,7 @@ public class BandListFragment extends ListFragment
 			}
 		});
 
-        EditText searchTextView = (EditText)this.getActivity().findViewById(R.id.editBanda);
+        final EditText searchTextView = (EditText)this.getActivity().findViewById(R.id.editBanda);
         searchTextView.setOnKeyListener(new View.OnKeyListener()
         {
             public boolean onKey(View v, int keyCode, KeyEvent event)
@@ -123,7 +111,16 @@ public class BandListFragment extends ListFragment
             }
         });
 
-
+        //Listener del botón de borrar
+        ImageButton imageButton = (ImageButton)this.getActivity().findViewById(R.id.buttonClear);
+        imageButton.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                searchTextView.setText("");
+            }
+        });
 	}
 	
 	/*
@@ -144,46 +141,11 @@ public class BandListFragment extends ListFragment
 		}
 	}
 
-    public void showFooter(ListFooters footer)
-    {
-        hideAllFooters();
-        activeFooter=footer;
-        if (activeFooter==ListFooters.LOADING)
-        {
-            Log.d(LOG_TAG, "Activando el footer loading");
-            getListView().addFooterView(loadingFooter,null,false);
-            loadingFooter.setVisibility(View.VISIBLE);
-        }
-        else if (activeFooter==ListFooters.NO_RESULTS)
-        {
-            Log.d(LOG_TAG, "Activando el footer no results");
-            getListView().addFooterView(noResultsFooter,null,false);
-            noResultsFooter.setVisibility(View.VISIBLE);
-        }
-    }
-
-    public void hideAllFooters()
-    {
-        Log.d(LOG_TAG, "Ocultando todos los footers. El footer activo es: " + activeFooter);
-        ListView listView = getListView();
-        if (activeFooter==ListFooters.LOADING)
-        {
-            listView.removeFooterView(loadingFooter);
-            loadingFooter.setVisibility(View.GONE);
-        }
-        if (activeFooter==ListFooters.NO_RESULTS)
-        {
-            listView.removeFooterView(noResultsFooter);
-            noResultsFooter.setVisibility(View.GONE);
-        }
-        activeFooter=null;
-    }
-	
-	static class BandSearchHolder 
+	static class BandSearchHolder
 	{
-		ImageView bandsearchImageView;
+		LastFmImageView bandsearchImageView;
 		TextView bandsearchName;
-        Button favouriteButton;
+        ImageButton favouriteButton;
 	}
 	
 	public class SearchBandsTask extends AsyncTask<String, ArtistDTO, Void> implements NewArtistAvaibleListener
@@ -230,9 +192,9 @@ public class BandListFragment extends ListFragment
 				return position;
 			}
 
-            private void setAddFavouriteButton(final Button button, final int position)
+            private void setAddFavouriteButton(final ImageButton button, final int position)
             {
-                button.setBackgroundResource(R.drawable.favourite);
+                button.setBackgroundResource(R.drawable.ic_estrella_off);
                 button.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -243,9 +205,9 @@ public class BandListFragment extends ListFragment
 
             }
 
-            private void setRemoveFavouriteButton(final Button button,final int position)
+            private void setRemoveFavouriteButton(final ImageButton button,final int position)
             {
-                button.setBackgroundResource(R.drawable.nofavourite);
+                button.setBackgroundResource(R.drawable.ic_estrella_on);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -266,7 +228,7 @@ public class BandListFragment extends ListFragment
 					row = inflater.inflate(R.layout.item_searchband_row, parent, false);
 
 					holder = new BandSearchHolder();
-					holder.bandsearchImageView =(ImageView)row.findViewById(R.id.bandsearchImageView);
+					holder.bandsearchImageView =(LastFmImageView)row.findViewById(R.id.bandsearchImageView);
 					holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
 
 
@@ -277,7 +239,7 @@ public class BandListFragment extends ListFragment
 
                 //Este trozo de codigo se tiene que ejecutar siempre porque los datos se pueden actualizar
                 //en los dos fragmentos y así se sincroniza la cosa bien
-                holder.favouriteButton=(Button)row.findViewById(R.id.favouriteImageView);
+                holder.favouriteButton=(ImageButton)row.findViewById(R.id.favouriteImageView);
                 if (favouriteBandsStore.getFavouriteBands().contains(getItem(position)))
                 {
                     setRemoveFavouriteButton(holder.favouriteButton,position);
@@ -288,8 +250,10 @@ public class BandListFragment extends ListFragment
                 }
 
 				ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
+                FontUtils.setRobotoFont(getActivity(),holder.bandsearchName, FontUtils.FontType.ROBOTO_BOLD);
 				holder.bandsearchName.setText(artistDTO.getArtistName());
-				imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
+				//imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
+                holder.bandsearchImageView.setLastFmImageSource(artistDTO);
 				return row;
 			}
 		}
@@ -364,7 +328,7 @@ public class BandListFragment extends ListFragment
             errorBackground=null;
 			this.listBands=new ArrayList<ArtistDTO>();
 
-            showFooter(ListFooters.LOADING);
+            progressBar.setVisibility(View.VISIBLE);
 			this.searchBandsAdapter = new SearchBandsAdapter();
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
             updateListView(listView);
@@ -376,12 +340,13 @@ public class BandListFragment extends ListFragment
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
+            progressBar.setVisibility(View.INVISIBLE);
             if (errorBackground!=null)
-                UnexpectedErrorHandler.handleUnexpectedError(getActivity(),errorBackground);
+                UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())
-                showFooter(ListFooters.NO_RESULTS);
-            else
-                hideAllFooters();
+            {
+                //TODO: Sacar un mensaje de que no hay resultados
+            }
 		}
 
 		@Override
