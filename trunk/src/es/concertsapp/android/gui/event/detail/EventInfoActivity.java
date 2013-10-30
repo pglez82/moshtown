@@ -30,7 +30,6 @@ import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.DetailedEventDTO;
-import es.lastfm.api.connector.exception.LastFmException;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
 

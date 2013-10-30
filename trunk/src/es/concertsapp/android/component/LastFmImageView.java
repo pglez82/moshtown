@@ -3,6 +3,7 @@ package es.concertsapp.android.component;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
@@ -10,6 +11,7 @@ import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.utils.images.Dimension;
 import es.concertsapp.android.utils.images.ImageDownloader;
+import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.dto.LastFmImageSourceI;
 import es.lastfm.api.utils.LastFmImageSizeCalc;
 
@@ -30,6 +32,8 @@ public class LastFmImageView extends ImageView
     //Altura máxima. sino está definida debería de ser cero. Sino se define, no cortamos nada,
     //Si se define y la altura máxima es mayor que esta, hay que cortar la imagen
     private Dimension maxDim;
+
+    private static final String LOG_TAG="LASTFMIMAGEVIEW";
 
     public LastFmImageView(Context context, AttributeSet attrs)
     {
@@ -66,6 +70,8 @@ public class LastFmImageView extends ImageView
     public void setLastFmImageSource(LastFmImageSourceI lastFmImageSourceI)
     {
         this.lastFmImageSourceI = lastFmImageSourceI;
+        //TODO: HAY QEU REVISAR A FONDO ESTA PARTE, PORQUE TEMO QUE SE ESTÉN DESCARGANDO DEMASIADAS IMAGENES
+        downloadImage();
     }
 
     private void setWidth(int newWidth)
@@ -84,8 +90,10 @@ public class LastFmImageView extends ImageView
     {
         if (lastFmImageSourceI!=null)
         {
+
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
             ImageSize imageSize=LastFmImageSizeCalc.getOptimunImageSize(width);
+            String imageUrl = lastFmImageSourceI.getImageURL(imageSize);
             imageDownloader.download(lastFmImageSourceI.getImageURL(imageSize), this,maxDim);
         }
     }

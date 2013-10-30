@@ -1,6 +1,5 @@
 package es.concertsapp.android.gui.player;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -10,8 +9,6 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import de.umass.lastfm.Item;
@@ -25,10 +22,6 @@ import es.concertsapp.android.utils.UnexpectedErrorHandler;
  */
 public class SongPlayer implements MediaPlayer.OnPreparedListener
 {
-
-
-
-
     public interface PlayerStatusChangedListener
     {
         public void playerStatusChanged();

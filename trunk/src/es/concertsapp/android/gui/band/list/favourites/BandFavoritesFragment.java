@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -91,7 +90,7 @@ public class BandFavoritesFragment extends ListFragment
     {
         ImageView bandsearchImageView;
         TextView bandsearchName;
-        ImageButton favouriteButton;
+        ImageView favouriteButton;
     }
 
     private class FavoriteBandsAdapter extends BaseAdapter
@@ -141,7 +140,7 @@ public class BandFavoritesFragment extends ListFragment
                 holder = new BandSearchHolder();
                 holder.bandsearchImageView =(ImageView)row.findViewById(R.id.bandsearchImageView);
                 holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
-                holder.favouriteButton=(ImageButton)row.findViewById(R.id.favouriteImageView);
+                holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
                 holder.favouriteButton.setBackgroundResource(R.drawable.nofavourite);
 
 

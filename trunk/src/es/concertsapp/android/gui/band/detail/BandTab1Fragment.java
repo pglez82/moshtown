@@ -25,7 +25,6 @@ import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
-import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 

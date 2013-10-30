@@ -110,7 +110,7 @@ public class ImageDownloader {
     private Bitmap cropBitmap(Bitmap original,Dimension maxDim)
     {
         int x=0, y=0, width=0;
-        if (original.getHeight()>maxDim.getHeigh())
+        if (original!=null && original.getHeight()>maxDim.getHeigh())
         {
             float factor = maxDim.getFixedWidth() / (float) original.getWidth();
             Bitmap scaled = Bitmap.createScaledBitmap(original, maxDim.getFixedWidth(), (int) (original.getHeight() * factor), false);
@@ -350,7 +350,7 @@ public class ImageDownloader {
         private final WeakReference<BitmapDownloaderTask> bitmapDownloaderTaskReference;
 
         public DownloadedDrawable(BitmapDownloaderTask bitmapDownloaderTask) {
-            super(Color.BLACK);
+            super(Color.WHITE);
             bitmapDownloaderTaskReference = new WeakReference<BitmapDownloaderTask>(bitmapDownloaderTask);
         }
 

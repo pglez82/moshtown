@@ -2,7 +2,6 @@ package es.concertsapp.android.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 import org.acra.ACRA;
 

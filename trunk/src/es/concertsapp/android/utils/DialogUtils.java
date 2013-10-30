@@ -1,7 +1,6 @@
 package es.concertsapp.android.utils;
 
 import android.app.AlertDialog;
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
@@ -20,15 +19,21 @@ public class DialogUtils
      * @param context contexto
      * @param title título
      * @param text texto
+     * @param onDismissListener Listener para ejecutar una vez que se da a aceptar en el botón del díalogo.
+     *                          Normalmente utilizaremos esto para volver a la pantalla anterior si estabamos intentando
+     *                          abrir una pantalla nueva y se ha producido un error.
      */
 	public static void showMessageDialog(Context context, int title,int text,AlertDialog.OnDismissListener onDismissListener)
 	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		builder.setMessage(text).setTitle(title);
-		AlertDialog dialog = builder.create();
-        if (onDismissListener!=null)
-            dialog.setOnDismissListener(onDismissListener);
-		dialog.show();
+        if (context!=null)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage(text).setTitle(title);
+            AlertDialog dialog = builder.create();
+            if (onDismissListener!=null)
+                dialog.setOnDismissListener(onDismissListener);
+            dialog.show();
+        }
 	}
 
     public static void showMessageDialog(Context context, int title,int text)

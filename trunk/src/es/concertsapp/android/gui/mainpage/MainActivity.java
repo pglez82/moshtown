@@ -3,14 +3,10 @@ package es.concertsapp.android.gui.mainpage;
 
 //import android.app.ActionBar;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
@@ -40,7 +36,7 @@ public class MainActivity extends MenuActivity
             version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             textViewVersion.setText(version);
 		}
-		catch (Throwable e){};
+		catch (Throwable e){}
 
         TextView sloganTextView = (TextView)findViewById(R.id.text_slogan);
         FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTO_BOLD);

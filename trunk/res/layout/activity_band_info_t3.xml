@@ -44,7 +44,7 @@
                     android:layout_gravity="right|top"/>
             <ListView android:id="@id/android:list"
                       android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
+                      android:layout_height="0dip"
                       android:layout_weight="1"
                       android:drawSelectorOnTop="false"/>
             <TextView android:id="@id/android:empty"

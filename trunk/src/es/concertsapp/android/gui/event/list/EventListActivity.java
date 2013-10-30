@@ -2,10 +2,8 @@ package es.concertsapp.android.gui.event.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
 import android.location.Location;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -16,12 +14,10 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -321,7 +317,7 @@ public class EventListActivity extends MenuFragmentActivity
      */
     public void getPosition(final View view)
     {
-        eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
+
         //Comenzamos la animación del gps
         showGpsAnimation(true);
 
@@ -390,6 +386,7 @@ public class EventListActivity extends MenuFragmentActivity
             AutoCompleteTextView text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
 			if (location!=null)
 	    	{
+                eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
 				//Lanzamos la búsqueda para esta localizacion
     	    	Log.d(LOG_TAG,"Latitud y long devuelta...buscando eventos"+location);
                 text.setFocusable(false);

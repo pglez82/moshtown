@@ -8,17 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import es.concertsapp.android.gui.R;
-import es.concertsapp.android.utils.MyApplication;
-import es.concertsapp.android.utils.date.DateFormater;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
+import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.date.DateFormater;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;

@@ -3,13 +3,10 @@ package es.concertsapp.android.gui.event.list;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
-import es.concertsapp.android.gui.band.list.BandListFragment;
 
 /**
  * La filosofía de esta clase es evitar la volatilidad de las activitis cuando se produce un cambio

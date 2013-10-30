@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,6 +22,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
@@ -78,23 +77,16 @@ public class BandListFragment extends ListFragment
         }
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
 
-    }
-
-    @Override
-	public void onActivityCreated(Bundle savedInstanceState) 
-	{
-		super.onActivityCreated(savedInstanceState);
-		//Asociamos el botón con su evento
-		
-		ImageButton buscarButon = (ImageButton)this.getActivity().findViewById(R.id.buscarBandaButon);
+        ImageButton buscarButon = (ImageButton)view.findViewById(R.id.buscarBandaButon);
         buscarButon.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				searchBands(v);
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                searchBands(v);
+            }
+        });
 
-        final EditText searchTextView = (EditText)this.getActivity().findViewById(R.id.editBanda);
+        final EditText searchTextView = (EditText)view.findViewById(R.id.editBanda);
+        FontUtils.setRobotoFont(getActivity(),searchTextView, FontUtils.FontType.ROBOTO_LIGHT);
         searchTextView.setOnKeyListener(new View.OnKeyListener()
         {
             public boolean onKey(View v, int keyCode, KeyEvent event)
@@ -112,7 +104,7 @@ public class BandListFragment extends ListFragment
         });
 
         //Listener del botón de borrar
-        ImageButton imageButton = (ImageButton)this.getActivity().findViewById(R.id.buttonClear);
+        ImageButton imageButton = (ImageButton)view.findViewById(R.id.buttonClear);
         imageButton.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -121,8 +113,9 @@ public class BandListFragment extends ListFragment
                 searchTextView.setText("");
             }
         });
-	}
-	
+
+    }
+
 	/*
 	 * Función que se ejecuta cuando se pulsa el botón buscar
 	 */
@@ -145,7 +138,7 @@ public class BandListFragment extends ListFragment
 	{
 		LastFmImageView bandsearchImageView;
 		TextView bandsearchName;
-        ImageButton favouriteButton;
+        ImageView favouriteButton;
 	}
 	
 	public class SearchBandsTask extends AsyncTask<String, ArtistDTO, Void> implements NewArtistAvaibleListener
@@ -192,9 +185,9 @@ public class BandListFragment extends ListFragment
 				return position;
 			}
 
-            private void setAddFavouriteButton(final ImageButton button, final int position)
+            private void setAddFavouriteButton(final ImageView button, final int position)
             {
-                button.setBackgroundResource(R.drawable.ic_estrella_off);
+                button.setBackgroundResource(R.drawable.button_estrella_off_image);
                 button.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -205,9 +198,9 @@ public class BandListFragment extends ListFragment
 
             }
 
-            private void setRemoveFavouriteButton(final ImageButton button,final int position)
+            private void setRemoveFavouriteButton(final ImageView button,final int position)
             {
-                button.setBackgroundResource(R.drawable.ic_estrella_on);
+                button.setBackgroundResource(R.drawable.button_estrella_on_image);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -230,8 +223,7 @@ public class BandListFragment extends ListFragment
 					holder = new BandSearchHolder();
 					holder.bandsearchImageView =(LastFmImageView)row.findViewById(R.id.bandsearchImageView);
 					holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
-
-
+                    holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
 					row.setTag(holder);
 				} else {
 					holder = (BandSearchHolder) row.getTag();
@@ -239,7 +231,7 @@ public class BandListFragment extends ListFragment
 
                 //Este trozo de codigo se tiene que ejecutar siempre porque los datos se pueden actualizar
                 //en los dos fragmentos y así se sincroniza la cosa bien
-                holder.favouriteButton=(ImageButton)row.findViewById(R.id.favouriteImageView);
+
                 if (favouriteBandsStore.getFavouriteBands().contains(getItem(position)))
                 {
                     setRemoveFavouriteButton(holder.favouriteButton,position);
@@ -272,7 +264,6 @@ public class BandListFragment extends ListFragment
                 public void onItemClick(AdapterView<?> arg0, View arg1,
                                         int position, long arg3) {
                     Intent i = new Intent(getActivity(),BandInfoActivity.class);
-
                     ArtistDTO artistDTO = listBands.get(position);
                     i.putExtra(MyAppParameters.BANDID, artistDTO.getArtistName());
                     startActivity(i);
