@@ -276,7 +276,7 @@ public class EventPageAdapter extends BaseAdapter
     
     public View getView(int position, View convertView, ViewGroup parent) 
     {
-    	EventHolder holder = null;
+    	EventHolder holder;
     	if (convertView == null)
     	{
 	        LayoutInflater inflater = LayoutInflater.from(eventListActivity);
@@ -304,7 +304,7 @@ public class EventPageAdapter extends BaseAdapter
         String[] day = dateFormater.formatDay(event.getEventDate());
         String[] month = dateFormater.formatMonth(event.getEventDate());
         StringBuilder sb = new StringBuilder();
-        sb.append(letraGris+day[0]).append("</span>").append(letraBlanco).append(day[1]).append("</span><br/>").append(letraBlanco).append(month[0]).append("</span>").append(letraGris).append(month[1]).append("</span>");
+        sb.append(letraGris).append(day[0]).append("</span>").append(letraBlanco).append(day[1]).append("</span><br/>").append(letraBlanco).append(month[0]).append("</span>").append(letraGris).append(month[1]).append("</span>");
 	    holder.eventDate.setText(Html.fromHtml(sb.toString()));
         FontUtils.setRobotoFont(eventListActivity, holder.eventDate, FontUtils.FontType.ROBOTO_BOLD);
 

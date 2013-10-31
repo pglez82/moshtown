@@ -20,14 +20,14 @@ public class LastFmApiConnectorFactory
 	public static LastFmApiConnector getInstance()
 	{
 		if (lastFmApiConnector == null)
-			lastFmApiConnector = new LastFmApiConnector(lastFmTags, new ConfValues());
+			lastFmApiConnector = new LastFmApiConnector(lastFmTags, new ConfValues(), MyApplication.getLocale());
 		
 		return lastFmApiConnector;
 	}
 	
 	public static LastFmApiConnector getNewInstance()
 	{
-		lastFmApiConnector = new LastFmApiConnector(lastFmTags, new ConfValues());
+		lastFmApiConnector = new LastFmApiConnector(lastFmTags, new ConfValues(), MyApplication.getLocale());
 		return lastFmApiConnector;
 	}
 

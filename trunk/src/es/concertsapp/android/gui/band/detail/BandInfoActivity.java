@@ -33,7 +33,7 @@ public class BandInfoActivity extends MenuFragmentActivity
 		Bundle extras = getIntent().getExtras();
 		artistName= extras != null ? extras.getString(MyAppParameters.BANDID) : null;
         Integer fragment= extras != null ? extras.getInt(MyAppParameters.FRAGMENTID) : 0;
-        ArtistDTO artistDTO = null;
+        ArtistDTO artistDTO;
         try
         {
             LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();

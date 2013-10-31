@@ -16,6 +16,7 @@
 
 package es.concertsapp.android.utils.images;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.graphics.drawable.Drawable;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.ImageView;
 
 import org.apache.http.HttpEntity;
@@ -41,6 +43,8 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
+
+import es.concertsapp.android.utils.MyApplication;
 
 /**
  * This helper class download images from the Internet and binds those with the provided ImageView.
@@ -109,15 +113,23 @@ public class ImageDownloader {
      */
     private Bitmap cropBitmap(Bitmap original,Dimension maxDim)
     {
-        int x=0, y=0, width=0;
+        int x, y, width;
         if (original!=null && original.getHeight()>maxDim.getHeigh())
         {
             float factor = maxDim.getFixedWidth() / (float) original.getWidth();
+
             Bitmap scaled = Bitmap.createScaledBitmap(original, maxDim.getFixedWidth(), (int) (original.getHeight() * factor), false);
-            y=(scaled.getHeight()/2)-(maxDim.getHeigh()/2);
+
+            //Convertimos los DIP a pixeles
+            Resources r = MyApplication.getAppResources();
+            int maxHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, maxDim.getHeigh(), r.getDisplayMetrics());
+
+            //y=(scaled.getHeight()/2)-(maxHeight/2);
+            y=0;
+
             x=0;
             width=scaled.getWidth();
-            Bitmap retorno= Bitmap.createBitmap(scaled,x,y,width,maxDim.getHeigh());
+
             /*try {
                 File file = new File(Environment.getExternalStorageDirectory().toString(),"prueba.png");
                 FileOutputStream out = new FileOutputStream(file);
@@ -127,19 +139,11 @@ public class ImageDownloader {
                 e.printStackTrace();
             }*/
 
-            return retorno;
+            return Bitmap.createBitmap(scaled,x,y,width,maxHeight);
         }
 
         return original;
     }
-
-    /*
-     * Same as download but the image is always downloaded and the cache is not used.
-     * Kept private at the moment as its interest is not clear.
-       private void forceDownload(String url, ImageView view) {
-          forceDownload(url, view, null);
-       }
-     */
 
     /**
      * Same as download but the image is always downloaded and the cache is not used.

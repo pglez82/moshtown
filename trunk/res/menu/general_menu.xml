@@ -22,9 +22,11 @@
           android:title="@string/menu_rep">
         <menu>
             <item android:id="@+id/menu_stop"
-                    android:title="@string/menu_repstop"></item>
+                    android:title="@string/menu_repstop">
+            </item>
             <item android:id="@+id/menu_show"
-                  android:title="@string/menu_repmostrar"></item>
+                  android:title="@string/menu_repmostrar">
+            </item>
         </menu>
     </item>
 

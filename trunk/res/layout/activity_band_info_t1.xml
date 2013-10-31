@@ -40,6 +40,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailedbandimage"
         android:textSize="12sp" />
+    <ProgressBar
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressbarsimilarband"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/detailedbandtags"
+            android:layout_above="@+id/similarartists"/>
     <ListView
         android:id="@+id/similarartists"
         android:layout_width="match_parent"

@@ -28,7 +28,6 @@ public class BandFavoritesFragment extends ListFragment
 {
     private static final String LOG_TAG="BANDFAVORITESFRAGMENT";
     private FavouriteBandsStore favouriteBandsStore;
-    private FavoriteBandsAdapter favouriteBandsAdapter;
     private ProgressBar progressBar;
 
     @Override
@@ -61,7 +60,7 @@ public class BandFavoritesFragment extends ListFragment
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-        favouriteBandsAdapter = new FavoriteBandsAdapter();
+        FavoriteBandsAdapter favouriteBandsAdapter = new FavoriteBandsAdapter();
         //Cargamos la lista de bandas de disco
         getListView().setAdapter(favouriteBandsAdapter);
         favouriteBandsStore.addAdapterToNotify(favouriteBandsAdapter);
@@ -131,7 +130,7 @@ public class BandFavoritesFragment extends ListFragment
         public View getView(final int position, View convertView, ViewGroup parent)
         {
             View row = convertView;
-            BandSearchHolder holder = null;
+            BandSearchHolder holder;
 
             if (row == null) {
                 LayoutInflater inflater = (getActivity()).getLayoutInflater();

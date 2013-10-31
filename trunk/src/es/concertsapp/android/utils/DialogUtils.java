@@ -66,6 +66,7 @@ public class DialogUtils
 
     public static void showToast(Context context, int duration, int message)
     {
+        @SuppressWarnings("MagicConstant")
         Toast toast = Toast.makeText(context, message ,duration);
         toast.show();
 

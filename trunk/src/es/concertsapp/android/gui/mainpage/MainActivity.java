@@ -14,6 +14,7 @@ import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
 import es.concertsapp.android.gui.menu.MenuActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
+import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.tags.PunkTags;
 
@@ -58,6 +59,9 @@ public class MainActivity extends MenuActivity
             }
         });
         FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTO_LIGHT);
+
+        //Actualizo el locale cada vez que entramos al main de la aplicación
+        MyApplication.lookUpLocate();
 	}
 
     private void buttonConciertos(View v)

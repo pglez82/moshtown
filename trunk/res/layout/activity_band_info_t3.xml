@@ -50,7 +50,7 @@
             <TextView android:id="@id/android:empty"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      android:text="Este grupo no tiene canciones disponibles en LAST.FM"/>
+                      android:text="@string/no_lastfm_songs"/>
         </LinearLayout>
         </es.concertsapp.android.component.ExpandablePanel>
 

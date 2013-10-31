@@ -44,6 +44,7 @@ public class BandListFragment extends ListFragment
 	private SearchBandsTask searchBandTask;
 
     private ProgressBar progressBar;
+    private int progressBarState=View.INVISIBLE;
 
     private FavouriteBandsStore favouriteBandsStore;
 
@@ -61,8 +62,7 @@ public class BandListFragment extends ListFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)     
     {
         super.onCreate(savedInstanceState);    
-        View rootView = inflater.inflate(R.layout.band_list, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.band_list, container, false);
     }
 
     @Override
@@ -76,6 +76,7 @@ public class BandListFragment extends ListFragment
             listView.setAdapter(searchBandTask.getSearchBandsAdapter());
         }
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
+        progressBar.setVisibility(progressBarState);
 
         ImageButton buscarButon = (ImageButton)view.findViewById(R.id.buscarBandaButon);
         buscarButon.setOnClickListener(new OnClickListener() {
@@ -134,6 +135,15 @@ public class BandListFragment extends ListFragment
 		}
 	}
 
+    private void setProgressBarState(int progressBarState)
+    {
+        if (progressBar!=null)
+        {
+            progressBar.setVisibility(progressBarState);
+            this.progressBarState = progressBarState;
+        }
+    }
+
 	static class BandSearchHolder
 	{
 		LastFmImageView bandsearchImageView;
@@ -153,14 +163,6 @@ public class BandListFragment extends ListFragment
         //Adapter para mostrar los datos cargados por este hilo
 		public class SearchBandsAdapter extends BaseAdapter
 		{	
-			
-			private ImageDownloader imageDownloader;
-			
-			public SearchBandsAdapter()
-			{
-				imageDownloader=ImageDownloader.getInstance();
-			}
-
 			@Override
 			public int getCount() 
 			{
@@ -214,7 +216,7 @@ public class BandListFragment extends ListFragment
 			public View getView(final int position, View convertView, ViewGroup parent)
 			{
 				View row = convertView;
-				BandSearchHolder holder = null;
+				BandSearchHolder holder;
 
 				if (row == null) {
 					LayoutInflater inflater = (getActivity()).getLayoutInflater();
@@ -231,8 +233,8 @@ public class BandListFragment extends ListFragment
 
                 //Este trozo de codigo se tiene que ejecutar siempre porque los datos se pueden actualizar
                 //en los dos fragmentos y así se sincroniza la cosa bien
-
-                if (favouriteBandsStore.getFavouriteBands().contains(getItem(position)))
+                ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
+                if (favouriteBandsStore.getFavouriteBands().contains(artistDTO))
                 {
                     setRemoveFavouriteButton(holder.favouriteButton,position);
                 }
@@ -241,7 +243,7 @@ public class BandListFragment extends ListFragment
                     setAddFavouriteButton(holder.favouriteButton,position);
                 }
 
-				ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
+
                 FontUtils.setRobotoFont(getActivity(),holder.bandsearchName, FontUtils.FontType.ROBOTO_BOLD);
 				holder.bandsearchName.setText(artistDTO.getArtistName());
 				//imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
@@ -302,7 +304,6 @@ public class BandListFragment extends ListFragment
 
 		@Override
 		protected void onProgressUpdate(ArtistDTO... values) {
-			// TODO Auto-generated method stub
 			super.onProgressUpdate(values);
 			if (!isCancelled())
 			{
@@ -319,7 +320,7 @@ public class BandListFragment extends ListFragment
             errorBackground=null;
 			this.listBands=new ArrayList<ArtistDTO>();
 
-            progressBar.setVisibility(View.VISIBLE);
+            setProgressBarState(View.VISIBLE);
 			this.searchBandsAdapter = new SearchBandsAdapter();
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
             updateListView(listView);
@@ -331,7 +332,7 @@ public class BandListFragment extends ListFragment
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-            progressBar.setVisibility(View.INVISIBLE);
+            setProgressBarState(View.INVISIBLE);
             if (errorBackground!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())

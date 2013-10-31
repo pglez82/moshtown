@@ -102,7 +102,7 @@ public class BandTab2Fragment extends Fragment
 			public View getView(int position, View convertView, ViewGroup parent) 
 			{
 				View row = convertView;
-				ArtistEventHolder holder = null;
+				ArtistEventHolder holder;
 
 				if (row == null) {
 					LayoutInflater inflater = (getActivity()).getLayoutInflater();

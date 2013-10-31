@@ -17,7 +17,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_mundo"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="6dp"/>
+                android:layout_marginLeft="6dp"
+                android:contentDescription="@string/ic_mundo_description"/>
 
         <EditText
             android:id="@+id/editBanda"
@@ -39,7 +40,8 @@
                 android:background="@drawable/button_lupa_image"
                 android:text="@string/buscar_text"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="6dp"/>
+                android:layout_marginLeft="6dp"
+                android:contentDescription="@string/button_lupa_description"/>
 
         <ImageButton
                 android:id="@+id/buttonClear"
@@ -48,7 +50,8 @@
                 android:background="@drawable/button_x_image"
                 android:layout_gravity="center_vertical|right"
                 android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"/>
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_x_image_description"/>
     </LinearLayout>
 
     <ListView
@@ -83,7 +86,8 @@
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="6dp"/>
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_lastfm_description"/>
     </RelativeLayout>
 </LinearLayout>
 

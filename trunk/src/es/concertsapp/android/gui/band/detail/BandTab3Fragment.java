@@ -187,7 +187,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             public View getView(int position, View convertView, ViewGroup parent)
             {
                 View row = convertView;
-                PodcastHolder holder = null;
+                PodcastHolder holder;
 
                 if (row == null) {
                     LayoutInflater inflater = (getActivity()).getLayoutInflater();

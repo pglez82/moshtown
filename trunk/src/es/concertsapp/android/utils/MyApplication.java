@@ -2,6 +2,7 @@ package es.concertsapp.android.utils;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -37,6 +38,7 @@ import es.concertsapp.android.gui.R;
 public class MyApplication extends Application
 {
     private static Context context;
+    private static Locale usedLocale;
 
 
     public void onCreate(){
@@ -52,27 +54,26 @@ public class MyApplication extends Application
         MyApplication.context = getApplicationContext();
     }
 
-    public static Locale getLocale()
-    {
-        return context.getResources().getConfiguration().locale;
-    }
-
     public static Context getAppContext() {
         return MyApplication.context;
     }
 
-    /**
-     * Método para saber si tenemos conexión a internet.
-     * @return true si hay internet, falso en caso contrario
-     */
-    public boolean isOnline()
+    public static Resources getAppResources()
     {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        }
-        return false;
+        return context.getResources();
+    }
+
+
+    public static void lookUpLocate()
+    {
+        usedLocale = new Locale(context.getResources().getString(R.string.locale));
+    }
+
+    public static Locale getLocale()
+    {
+        if (usedLocale==null)
+            usedLocale = new Locale(context.getResources().getString(R.string.locale));
+
+        return usedLocale;
     }
 }

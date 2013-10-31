@@ -37,6 +37,7 @@ public class LookForNearEvents
         if (favoritesFragment !=null && favoritesFragment.getProgressBar()!=null)
         {
             favoritesFragment.getProgressBar().setProgress(percent);
+            //noinspection MagicConstant
             favoritesFragment.getProgressBar().setVisibility(visibility);
         }
     }

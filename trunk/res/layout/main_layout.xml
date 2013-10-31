@@ -13,7 +13,8 @@
             android:src="@drawable/intro_logo"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/intro_logo_description"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -90,6 +91,7 @@
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="6dp"/>
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/lastfm_description"/>
     </RelativeLayout>
 </RelativeLayout>
