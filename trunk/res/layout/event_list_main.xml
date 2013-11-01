@@ -65,6 +65,7 @@
                 android:contentDescription="@string/button_x_image_description"/>
     </LinearLayout>
 
+
     <ListView
             android:id="@+id/list_main_events"
             android:layout_width="fill_parent"
@@ -75,6 +76,13 @@
             android:fadingEdge="none"
             >
     </ListView>
+    <TextView android:id="@+id/list_main_events_noresults"
+              android:layout_width="fill_parent"
+              android:layout_height="0dp"
+              android:gravity="top"
+              android:layout_gravity="top"
+              android:layout_weight="1"
+              android:text="@string/list_noresults" />
 
     <RelativeLayout
             android:layout_width="fill_parent"

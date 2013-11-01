@@ -133,7 +133,7 @@ public class BandTab1Fragment extends Fragment
 
     private void setAddFavouriteButton(final Button button, final ArtistDTO artist)
     {
-        button.setBackgroundResource(R.drawable.favourite);
+        button.setBackgroundResource(R.drawable.ic_estrella_on);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,7 +146,7 @@ public class BandTab1Fragment extends Fragment
 
     private void setRemoveFavouriteButton(final Button button, final ArtistDTO artist)
     {
-        button.setBackgroundResource(R.drawable.nofavourite);
+        button.setBackgroundResource(R.drawable.ic_estrella_off);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

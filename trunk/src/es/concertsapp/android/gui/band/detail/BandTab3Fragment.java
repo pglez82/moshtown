@@ -1,6 +1,7 @@
 package es.concertsapp.android.gui.band.detail;
 
 
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -75,6 +76,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         artistName = args.getString(MyAppParameters.BANDID);
         lastfmProgressBar=(ProgressBar)view.findViewById(R.id.progressbarlastfm);
         spotifyProgressBar=(ProgressBar)view.findViewById(R.id.progressbarspotify);
+        retrieveInformation(artistName);
     }
 
     @Override
@@ -87,13 +89,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             downloadPodcastTask.cancel(true);
         }
         super.onDestroy();
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState)
-    {
-        super.onActivityCreated(savedInstanceState);
-        retrieveInformation(artistName);
     }
 
     private void showPlayButton(final ImageButton imageButton,final Item song)
@@ -122,6 +117,13 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                 showPlayButton(imageButton,song);
             }
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        configurationChanged = true;
     }
 
     @Override
@@ -225,15 +227,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             super.onPreExecute();
             lastfmProgressBar.setVisibility(ProgressBar.VISIBLE);
             spotifyProgressBar.setVisibility(ProgressBar.VISIBLE);
-            try
-            {
-                getListView().getEmptyView().setVisibility(View.INVISIBLE);
-            }
-            catch (Throwable e)
-            {
-                //Todo: a la espera de una solución mejor. A veces casca porque la vista no está creada. No entiendo porqué puede ser esto, siempre debería de estar
-                /*Si la lista no existe nos comemos la excepcion*/
-            }
+            getListView().getEmptyView().setVisibility(View.INVISIBLE);
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
@@ -323,6 +317,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         if (!configurationChanged && SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
         {
             DialogUtils.showToast(this.getActivity(), Toast.LENGTH_LONG,R.string.toast_player);
+            configurationChanged = false;
         }
     }
 }

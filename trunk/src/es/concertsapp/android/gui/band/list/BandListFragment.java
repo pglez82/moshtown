@@ -75,6 +75,11 @@ public class BandListFragment extends ListFragment
             searchBandTask.updateListView(listView);
             listView.setAdapter(searchBandTask.getSearchBandsAdapter());
         }
+        else
+        {
+            getListView().getEmptyView().setVisibility(View.INVISIBLE);
+        }
+
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
         progressBar.setVisibility(progressBarState);
 
@@ -144,7 +149,17 @@ public class BandListFragment extends ListFragment
         }
     }
 
-	static class BandSearchHolder
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        if (searchBandTask!=null)
+        {
+            searchBandTask.cancel(true);
+        }
+    }
+
+    static class BandSearchHolder
 	{
 		LastFmImageView bandsearchImageView;
 		TextView bandsearchName;
@@ -321,10 +336,12 @@ public class BandListFragment extends ListFragment
 			this.listBands=new ArrayList<ArtistDTO>();
 
             setProgressBarState(View.VISIBLE);
+
 			this.searchBandsAdapter = new SearchBandsAdapter();
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
             updateListView(listView);
             notifyNewFavorites();
+            listView.getEmptyView().setVisibility(View.INVISIBLE);
 		}
 		
 		
@@ -337,7 +354,7 @@ public class BandListFragment extends ListFragment
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())
             {
-                //TODO: Sacar un mensaje de que no hay resultados
+                listView.getEmptyView().setVisibility(View.VISIBLE);
             }
 		}
 

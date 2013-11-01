@@ -24,8 +24,6 @@ public class EventListActivityRetained extends Fragment
         MORE_RESULTS
     }
 
-    private static final String LOG_TAG="EVENTLISTACTIVITYRETAINED";
-
     private EventPageAdapter eventPageAdapter;
     private EventListActivity eventListActivity;
 
@@ -34,6 +32,7 @@ public class EventListActivityRetained extends Fragment
 
     private ProgressBar progressBar;
     private View loadMoreView;
+    private View emptyView;
 
     public EventPageAdapter getEventPageAdapter()
     {
@@ -61,6 +60,11 @@ public class EventListActivityRetained extends Fragment
     public void setLoadMoreView(View loadMoreView)
     {
         this.loadMoreView = loadMoreView;
+    }
+
+    public void setEmptyView(View emptyView)
+    {
+        this.emptyView  = emptyView;
     }
 
     /**
@@ -107,6 +111,10 @@ public class EventListActivityRetained extends Fragment
                 case MORE_RESULTS:
                     loadMoreView.setVisibility(View.VISIBLE);
                     break;
+                case NO_RESULTS:
+                    eventListActivity.getListView().setVisibility(View.GONE);
+                    emptyView.setVisibility(View.VISIBLE);
+                    break;
 
             }
         }
@@ -115,8 +123,11 @@ public class EventListActivityRetained extends Fragment
     public void hideAllElements()
     {
         visibleElement=null;
+        emptyView.setVisibility(View.GONE);
+        eventListActivity.getListView().setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
         loadMoreView.setVisibility(View.INVISIBLE);
+
     }
 
 }

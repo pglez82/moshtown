@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -32,21 +33,12 @@ public class LookForNearEvents
     private List<ArtistDTO> alreadyLookedUp=new ArrayList<ArtistDTO>();
     private Throwable backgroundError=null;
 
-    private void updateProgressBar(int visibility, int percent)
-    {
-        if (favoritesFragment !=null && favoritesFragment.getProgressBar()!=null)
-        {
-            favoritesFragment.getProgressBar().setProgress(percent);
-            //noinspection MagicConstant
-            favoritesFragment.getProgressBar().setVisibility(visibility);
-        }
-    }
 
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
         this.favoritesFragment = favouritesActivity;
         //Mostramos la barra de progreso
-        updateProgressBar(ProgressBar.VISIBLE,0);
+        favoritesFragment.setProgressBarState(View.VISIBLE);
 
         if (locationStored==null)
         {
@@ -61,7 +53,6 @@ public class LookForNearEvents
                         {
                             locationStored = location;
                             lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
-                            updateProgressBar(ProgressBar.VISIBLE,20);
                             lookForNearEventsTask.execute(artistToLookUp);
                         }
                     }
@@ -129,9 +120,6 @@ public class LookForNearEvents
                         artistDTO.setNearEvents(alreadyLookedUp.get(index).isNearEvents());
                         publishProgress();
                     }
-
-                    //Actualizamos la barra d eprogreso
-                    updateProgressBar(ProgressBar.VISIBLE,(((++proccessed)*80)/number)+20);
                 }
             }
             catch (Throwable e)
@@ -153,7 +141,7 @@ public class LookForNearEvents
         protected void onPostExecute(Void aVoid)
         {
             super.onPostExecute(aVoid);
-            updateProgressBar(ProgressBar.INVISIBLE,0);
+            favoritesFragment.setProgressBarState(View.INVISIBLE);
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(favoritesFragment.getActivity(),backgroundError);
         }

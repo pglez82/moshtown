@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -82,10 +83,11 @@ public class EventListActivity extends MenuFragmentActivity
             fm.beginTransaction().add(eventListActivityRetained, "eventlistfragment").commit();
         }
 
-        getListView().setAdapter(eventListActivityRetained.getEventPageAdapter());
+        ListView listView = getListView();
+        listView.setAdapter(eventListActivityRetained.getEventPageAdapter());
 
         //Listener en los elementos de la lista para ir al detalle del evento
-        getListView().setOnItemClickListener(new OnItemClickListener()
+        listView.setOnItemClickListener(new OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3)
@@ -96,6 +98,9 @@ public class EventListActivity extends MenuFragmentActivity
                 startActivity(i);
             }
         });
+
+        eventListActivityRetained.setEmptyView(findViewById(R.id.list_main_events_noresults));
+
         ImageButton buscarButon = (ImageButton)findViewById(R.id.buscarButon);
         buscarButon.setOnClickListener(new OnClickListener() {
             @Override
@@ -208,7 +213,7 @@ public class EventListActivity extends MenuFragmentActivity
 
 
 
-    private ListView getListView()
+    public ListView getListView()
     {
         return (ListView)findViewById(R.id.list_main_events);
     }

@@ -43,6 +43,7 @@
     <string name="ic_mundo_description">Bola de mundo</string>
     <string name="button_lupa_description">Pincha aquí para buscar grupos</string>
     <string name="button_x_image_description">Pincha aquí para borrar la caja de búsqueda</string>
+    <string name="list_bands_noresults">No se ha encontrado ningún grupo</string>
 
     <!--Actividad de un grupo-->
     <string name="title_activity_band_info">Información del grupo</string>

@@ -16,9 +16,6 @@ import es.concertsapp.android.utils.MyAppParameters;
  */
 public class BandMainActivity extends MenuFragmentActivity
 {
-    private BandMainActivitySectionsPageAdapter bandMainActivitySectionsPageAdapter;
-    private ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
@@ -26,10 +23,10 @@ public class BandMainActivity extends MenuFragmentActivity
         setContentView(R.layout.band_main_layout);
 
         //Recibimos el id de la banda
-        bandMainActivitySectionsPageAdapter = new BandMainActivitySectionsPageAdapter(getSupportFragmentManager());
+        BandMainActivitySectionsPageAdapter bandMainActivitySectionsPageAdapter = new BandMainActivitySectionsPageAdapter(getSupportFragmentManager());
 
         //Añadimos el adaptador para cambiar entre páginas de desplazamiento horizontal
-        mViewPager = (ViewPager) findViewById(R.id.bandpager);
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.bandpager);
         mViewPager.setAdapter(bandMainActivitySectionsPageAdapter);
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -56,8 +53,7 @@ public class BandMainActivity extends MenuFragmentActivity
         if (extras!=null)
         {
             Integer fragmentId=extras.getInt(MyAppParameters.FRAGMENTID);
-            if (fragmentId!=null)
-                mViewPager.setCurrentItem(fragmentId);
+            mViewPager.setCurrentItem(fragmentId);
         }
 
     }

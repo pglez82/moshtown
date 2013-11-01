@@ -29,15 +29,14 @@ public class BandFavoritesFragment extends ListFragment
     private static final String LOG_TAG="BANDFAVORITESFRAGMENT";
     private FavouriteBandsStore favouriteBandsStore;
     private ProgressBar progressBar;
+    private int progressBarState=View.INVISIBLE;;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
-        favouriteBandsStore = FavouriteBandsStore.getInstance(this);
-        favouriteBandsStore.startNearEventBandSearch();
+
     }
 
     @Override
@@ -52,8 +51,10 @@ public class BandFavoritesFragment extends ListFragment
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-
-
+        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
+        progressBar.setVisibility(progressBarState);
+        favouriteBandsStore = FavouriteBandsStore.getInstance(this);
+        favouriteBandsStore.startNearEventBandSearch();
     }
 
     @Override
@@ -80,9 +81,13 @@ public class BandFavoritesFragment extends ListFragment
         });
     }
 
-    public ProgressBar getProgressBar()
+    public void setProgressBarState(int progressBarState)
     {
-        return progressBar;
+        if (progressBar!=null)
+        {
+            progressBar.setVisibility(progressBarState);
+            this.progressBarState = progressBarState;
+        }
     }
 
     static class BandSearchHolder
@@ -134,13 +139,12 @@ public class BandFavoritesFragment extends ListFragment
 
             if (row == null) {
                 LayoutInflater inflater = (getActivity()).getLayoutInflater();
-                row = inflater.inflate(R.layout.item_searchband_row, parent, false);
+                row = inflater.inflate(R.layout.item_favourites_row, parent, false);
 
                 holder = new BandSearchHolder();
                 holder.bandsearchImageView =(ImageView)row.findViewById(R.id.bandsearchImageView);
                 holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
                 holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
-                holder.favouriteButton.setBackgroundResource(R.drawable.nofavourite);
 
 
                 row.setTag(holder);

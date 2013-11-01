@@ -30,7 +30,7 @@
     <Button
             android:id="@+id/addFavouriteBandDetail"
             android:layout_alignParentRight="true"
-            android:background="@drawable/favourite"
+            android:background="@drawable/ic_estrella_on"
             android:layout_width="32dp"
             android:layout_height="32dp"/>
 
