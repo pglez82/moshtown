@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyApplication;
@@ -40,7 +42,7 @@ public class MainActivity extends MenuActivity
 		catch (Throwable e){}
 
         TextView sloganTextView = (TextView)findViewById(R.id.text_slogan);
-        FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTO_BOLD);
+        FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
 
         Button buttonConcerts = (Button)findViewById(R.id.buttonConciertos);
         buttonConcerts.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +51,7 @@ public class MainActivity extends MenuActivity
                 buttonConciertos(v);
             }
         });
-        FontUtils.setRobotoFont(this,buttonConcerts, FontUtils.FontType.ROBOTO_LIGHT);
+        FontUtils.setRobotoFont(this,buttonConcerts, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
         Button buttonBands = (Button)findViewById(R.id.buttonGrupos);
         buttonBands.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +60,18 @@ public class MainActivity extends MenuActivity
                 buttonBands(v);
             }
         });
-        FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTO_LIGHT);
+        FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+
+        ImageButton imageButton = (ImageButton)findViewById(R.id.button_logolastfm);
+        imageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(MainActivity.this, LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         //Actualizo el locale cada vez que entramos al main de la aplicación
         MyApplication.lookUpLocate();

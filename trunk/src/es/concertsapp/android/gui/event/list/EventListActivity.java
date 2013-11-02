@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -113,7 +112,7 @@ public class EventListActivity extends MenuFragmentActivity
         eventListActivityRetained.setProgressBar((ProgressBar) findViewById(R.id.progressbareventlist));
 
         View loadMoreElement = findViewById(R.id.loadmoreelement);
-        FontUtils.setRobotoFont(this,loadMoreElement, FontUtils.FontType.ROBOTO_LIGHT);
+        FontUtils.setRobotoFont(this,loadMoreElement, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         eventListActivityRetained.setLoadMoreView(loadMoreElement);
         loadMoreElement.setOnClickListener(new OnClickListener()
         {
@@ -125,7 +124,7 @@ public class EventListActivity extends MenuFragmentActivity
         });
 
         final AutoCompleteTextView searchTextView = (AutoCompleteTextView)findViewById(R.id.editCiudad);
-        FontUtils.setRobotoFont(this,searchTextView, FontUtils.FontType.ROBOTO_LIGHT);
+        FontUtils.setRobotoFont(this,searchTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
         ImageButton positionButton = (ImageButton)findViewById(R.id.positionButon);
         positionButton.setOnClickListener(new OnClickListener() {

@@ -111,11 +111,11 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
 
         if (listPlacesSearched.contains(place))
         {
-            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTO_BOLD);
+            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             textView.setTextColor(dropDownFontColorVisited);
         }
         else
-            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTO_LIGHT);
+            FontUtils.setRobotoFont(this.getContext(),textView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
         return convertView;
     }

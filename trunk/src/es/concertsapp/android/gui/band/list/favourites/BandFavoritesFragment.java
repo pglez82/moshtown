@@ -9,27 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.utils.MyAppParameters;
-import es.concertsapp.android.utils.images.ImageDownloader;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.dto.ArtistDTO;
 
-/**
- * Created by pablo on 6/07/13.
- */
 public class BandFavoritesFragment extends ListFragment
 {
-    private static final String LOG_TAG="BANDFAVORITESFRAGMENT";
     private FavouriteBandsStore favouriteBandsStore;
     private ProgressBar progressBar;
-    private int progressBarState=View.INVISIBLE;;
+    private int progressBarState=View.INVISIBLE;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -43,14 +38,14 @@ public class BandFavoritesFragment extends ListFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        View rootView = inflater.inflate(R.layout.band_favorites_list, container, false);
-        return rootView;
+        return inflater.inflate(R.layout.band_favorites_list, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+        FontUtils.setRobotoFont(this.getActivity(),getActivity().findViewById(R.id.mis_favoritos_title), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
         progressBar.setVisibility(progressBarState);
         favouriteBandsStore = FavouriteBandsStore.getInstance(this);
@@ -85,6 +80,7 @@ public class BandFavoritesFragment extends ListFragment
     {
         if (progressBar!=null)
         {
+            //noinspection MagicConstant
             progressBar.setVisibility(progressBarState);
             this.progressBarState = progressBarState;
         }
@@ -92,37 +88,23 @@ public class BandFavoritesFragment extends ListFragment
 
     static class BandSearchHolder
     {
-        ImageView bandsearchImageView;
-        TextView bandsearchName;
+        LastFmImageView bandImageView;
+        TextView favoriteName;
         ImageView favouriteButton;
     }
 
     private class FavoriteBandsAdapter extends BaseAdapter
     {
-
-        private ImageDownloader imageDownloader;
-
-        public FavoriteBandsAdapter()
-        {
-            imageDownloader=ImageDownloader.getInstance();
-        }
-
         @Override
         public int getCount()
         {
-            synchronized (favouriteBandsStore)
-            {
-                return favouriteBandsStore.getFavouriteBands().size();
-            }
+            return favouriteBandsStore.getFavouriteBands().size();
         }
 
         @Override
         public Object getItem(int position)
         {
-            synchronized (favouriteBandsStore)
-            {
-                return favouriteBandsStore.getFavouriteBands().get(position);
-            }
+            return favouriteBandsStore.getFavouriteBands().get(position);
         }
 
         @Override
@@ -140,14 +122,14 @@ public class BandFavoritesFragment extends ListFragment
             if (row == null) {
                 LayoutInflater inflater = (getActivity()).getLayoutInflater();
                 row = inflater.inflate(R.layout.item_favourites_row, parent, false);
-
                 holder = new BandSearchHolder();
-                holder.bandsearchImageView =(ImageView)row.findViewById(R.id.bandsearchImageView);
-                holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
-                holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
-
-
-                row.setTag(holder);
+                if (row!=null)
+                {
+                    holder.bandImageView =(LastFmImageView)row.findViewById(R.id.bandImageView);
+                    holder.favoriteName = (TextView)row.findViewById(R.id.bandsearchName);
+                    holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
+                    row.setTag(holder);
+                }
             } else {
                 holder = (BandSearchHolder) row.getTag();
             }
@@ -160,14 +142,16 @@ public class BandFavoritesFragment extends ListFragment
             });
 
             ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
-            holder.bandsearchName.setText(artistDTO.getArtistName());
+            holder.favoriteName.setText(artistDTO.getArtistName());
+            FontUtils.setRobotoFont(getActivity(), holder.favoriteName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
 
             if (artistDTO.isNearEvents())
-                holder.bandsearchName.setBackgroundColor(Color.RED);
+                holder.favoriteName.setBackgroundColor(Color.RED);
             else
-                holder.bandsearchName.setBackgroundColor(Color.TRANSPARENT);
+                holder.favoriteName.setBackgroundColor(Color.TRANSPARENT);
 
-            imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
+            //last.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
+            holder.bandImageView.setLastFmImageSource(artistDTO);
             return row;
         }
     }

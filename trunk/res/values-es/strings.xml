@@ -2,7 +2,7 @@
 <resources>
     <!--Generales-->
     <string name="locale">es</string>
-    <string name="app_name">HxCPunkapp</string>
+    <string name="app_name">MoshTown</string>
 
     <!--Página principal de entrada-->
     <string name="button_shows">SHOWS</string>

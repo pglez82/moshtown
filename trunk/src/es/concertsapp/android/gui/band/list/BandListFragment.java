@@ -22,7 +22,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
@@ -31,7 +30,6 @@ import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.font.FontUtils;
-import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewArtistAvaibleListener;
 import es.lastfm.api.connector.dto.ArtistDTO;
@@ -92,7 +90,7 @@ public class BandListFragment extends ListFragment
         });
 
         final EditText searchTextView = (EditText)view.findViewById(R.id.editBanda);
-        FontUtils.setRobotoFont(getActivity(),searchTextView, FontUtils.FontType.ROBOTO_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),searchTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         searchTextView.setOnKeyListener(new View.OnKeyListener()
         {
             public boolean onKey(View v, int keyCode, KeyEvent event)
@@ -259,7 +257,7 @@ public class BandListFragment extends ListFragment
                 }
 
 
-                FontUtils.setRobotoFont(getActivity(),holder.bandsearchName, FontUtils.FontType.ROBOTO_BOLD);
+                FontUtils.setRobotoFont(getActivity(),holder.bandsearchName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
 				holder.bandsearchName.setText(artistDTO.getArtistName());
 				//imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
                 holder.bandsearchImageView.setLastFmImageSource(artistDTO);

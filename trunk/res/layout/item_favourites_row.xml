@@ -22,7 +22,7 @@
             />
 
     <es.concertsapp.android.component.LastFmImageView
-            android:id="@+id/bandsearchImageView"
+            android:id="@+id/bandImageView"
             android:layout_width="64dp"
             android:layout_height="48dp"
             android:contentDescription="@string/imagen_banda"
