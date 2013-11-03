@@ -55,6 +55,20 @@ public class LookForNearEvents
                             lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
                             lookForNearEventsTask.execute(artistToLookUp);
                         }
+                        else
+                        {
+                            if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
+                            {
+                                favouritesActivity.getActivity().runOnUiThread(new Runnable()
+                                {
+                                    @Override
+                                    public void run()
+                                    {
+                                        favoritesFragment.setProgressBarState(View.INVISIBLE);
+                                    }
+                                });
+                            }
+                        }
                     }
                 });
             }

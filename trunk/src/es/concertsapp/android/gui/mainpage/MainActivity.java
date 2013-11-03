@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import es.concertsapp.android.component.LetterSpacingTextView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
@@ -41,8 +42,10 @@ public class MainActivity extends MenuActivity
 		}
 		catch (Throwable e){}
 
-        TextView sloganTextView = (TextView)findViewById(R.id.text_slogan);
+        LetterSpacingTextView sloganTextView = (LetterSpacingTextView)findViewById(R.id.text_slogan);
         FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
+        sloganTextView.setLetterSpacing(6);
+        sloganTextView.setText(R.string.slogan_text);
 
         Button buttonConcerts = (Button)findViewById(R.id.buttonConciertos);
         buttonConcerts.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +75,8 @@ public class MainActivity extends MenuActivity
                 startActivity(myIntent);
             }
         });
+
+
 
         //Actualizo el locale cada vez que entramos al main de la aplicación
         MyApplication.lookUpLocate();

@@ -22,7 +22,7 @@
             android:layout_height="0dip"
             android:layout_weight="1"
             android:divider="@color/gray"
-            android:dividerHeight="4dp"
+            android:dividerHeight="1dp"
             android:cacheColorHint="#00000000">
         </ListView>
 

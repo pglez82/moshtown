@@ -12,19 +12,19 @@
             android:id="@+id/intro_logo"
             android:src="@drawable/intro_logo"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="51dp"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/intro_logo_description"/>
 
-    <TextView
+    <es.concertsapp.android.component.LetterSpacingTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/slogan_text"
             android:id="@+id/text_slogan"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="11dp"
             android:textColor="@android:color/black"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/intro_logo"/>
 
@@ -32,11 +32,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_shows"
-            android:textSize="40sp"
+            android:textSize="32sp"
             android:textColor="@drawable/button_shows_bands_textcolor"
             android:id="@+id/buttonConciertos"
             android:background="@drawable/intro_mancha1"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="42dp"
             android:layout_gravity="center_horizontal"
             android:layout_below="@+id/text_slogan"
             android:layout_centerHorizontal="true"/>
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/intro_puntos"
             android:contentDescription="@string/puntos_description"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/buttonConciertos"/>
@@ -56,11 +56,11 @@
             android:layout_height="wrap_content"
             android:text="@string/button_bands"
             android:id="@+id/buttonGrupos"
-            android:textSize="40sp"
+            android:textSize="32sp"
             android:textColor="@drawable/button_shows_bands_textcolor"
             android:background="@drawable/intro_mancha2"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:layout_below="@+id/puntos"
             android:layout_centerHorizontal="true"/>
 
