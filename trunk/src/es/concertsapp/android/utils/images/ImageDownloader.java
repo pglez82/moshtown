@@ -123,7 +123,11 @@ public class ImageDownloader {
             //Convertimos los DIP a pixeles
             Resources r = MyApplication.getAppResources();
             int maxHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, maxDim.getHeigh(), r.getDisplayMetrics());
-
+            if (maxHeight>scaled.getHeight())
+            {
+                Log.d(LOG_TAG,"La imagen recortada debería tener de altura "+maxHeight+" pero le vamos a poner la maxima de la foto "+scaled.getHeight());
+                maxHeight=scaled.getHeight();
+            }
             //y=(scaled.getHeight()/2)-(maxHeight/2);
             y=0;
 

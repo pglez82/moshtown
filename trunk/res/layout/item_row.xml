@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="72dp"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:contentDescription="@string/imagen_evento"
         android:layout_marginRight="12dp"

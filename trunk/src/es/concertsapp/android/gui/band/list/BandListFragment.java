@@ -26,6 +26,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
@@ -118,6 +119,16 @@ public class BandListFragment extends ListFragment
             }
         });
 
+        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
+        lastfmButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
 	/*

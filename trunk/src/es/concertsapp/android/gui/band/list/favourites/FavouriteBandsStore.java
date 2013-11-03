@@ -74,7 +74,7 @@ public class FavouriteBandsStore
 
     /**
      * Añade a disco bandas favoritas
-     * @param artistDTO
+     * @param artistDTO artita que vamos a añadir a favoritos.
      */
     public synchronized void addFavouriteBand(ArtistDTO artistDTO)
     {
@@ -87,6 +87,10 @@ public class FavouriteBandsStore
         lookForNearEvents.lookForNearEvents(context,favouritesActivity,this,temp);
     }
 
+    /**
+     * Borra un artista de favoritos.
+     * @param artistDTO artista a borrar.
+     */
     public synchronized void removeFavouriteBand(ArtistDTO artistDTO)
     {
         favouriteBands.remove(artistDTO);

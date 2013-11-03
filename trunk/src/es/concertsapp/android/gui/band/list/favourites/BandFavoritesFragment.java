@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.dto.ArtistDTO;
@@ -50,6 +52,16 @@ public class BandFavoritesFragment extends ListFragment
         progressBar.setVisibility(progressBarState);
         favouriteBandsStore = FavouriteBandsStore.getInstance(this);
         favouriteBandsStore.startNearEventBandSearch();
+        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
+        lastfmButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override

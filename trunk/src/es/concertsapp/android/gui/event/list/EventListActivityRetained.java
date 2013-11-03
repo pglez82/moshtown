@@ -123,11 +123,10 @@ public class EventListActivityRetained extends Fragment
     public void hideAllElements()
     {
         visibleElement=null;
-        emptyView.setVisibility(View.GONE);
-        eventListActivity.getListView().setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.INVISIBLE);
-        loadMoreView.setVisibility(View.INVISIBLE);
-
+        if (emptyView!=null) emptyView.setVisibility(View.GONE);
+        if (eventListActivity!=null && eventListActivity.getListView()!=null) eventListActivity.getListView().setVisibility(View.VISIBLE);
+        if (progressBar!=null) progressBar.setVisibility(View.INVISIBLE);
+        if (loadMoreView!=null) loadMoreView.setVisibility(View.INVISIBLE);
     }
 
 }
