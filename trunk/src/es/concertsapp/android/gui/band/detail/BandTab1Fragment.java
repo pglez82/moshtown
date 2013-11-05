@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import es.concertsapp.android.component.LastFmImageView;
@@ -38,11 +39,12 @@ public class BandTab1Fragment extends Fragment
 {
     private static final String LOG_TAG="BANDTAB1FRAGMENT";
     private FavouriteBandsStore favouriteBandsStore;
-	private String[] similarBands;
     private ArtistDTO artistDTO;
 
     private Throwable backgroundError=null;
     private ProgressBar similarArtistsProgressBar;
+    //Hilo para bajar los artistas similares
+    private DownloadSimilarArtists downloadSimilarArtists;
 
     @SuppressWarnings("unused")
     public BandTab1Fragment()
@@ -84,23 +86,29 @@ public class BandTab1Fragment extends Fragment
                 //Cargamos la imagen
                 LastFmImageView artistImageView = (LastFmImageView)rootView.findViewById(R.id.detailedbandimage);
                 artistImageView.setLastFmImageSource(artistDTO);
-                //ImageDownloader imageDownloader = ImageDownloader.getInstance();
-                //imageDownloader.download(artistDTO.getImageURL(ImageSizeReq.getImageSizeForImageView(artistImageView)), artistImageView);
 
                 //Tags del artista
                 TextView tagsTextView = ((TextView)rootView.findViewById(R.id.detailedbandtags));
-                StringBuilder stringBuilder = new StringBuilder("Tags:");
-                for (String tag : artistDTO.getArtistTags())
-                    stringBuilder.append(tag).append(',');
-                tagsTextView.setText(stringBuilder.toString());
+                StringBuilder sb = new StringBuilder();
+                Iterator<String> tags = artistDTO.getArtistTags().iterator();
+                while (tags.hasNext())
+                {
+                    sb.append(tags.next());
+                    if (tags.hasNext()) sb.append(", ");
+                }
+                tagsTextView.setText(sb.toString());
 
                 similarArtistsProgressBar = (ProgressBar)rootView.findViewById(R.id.progressbarsimilarband);
 
                 //Cargamos los artistas similares
                 ListView listviewSimilarBands = (ListView) rootView.findViewById(R.id.similarartists);
-                View header = inflater.inflate(R.layout.list_similarbands_header, null);
-                listviewSimilarBands.addHeaderView(header,null,false);
-                new DownloadSimilarArtists(listviewSimilarBands).execute();
+                if (downloadSimilarArtists==null)
+                {
+                    downloadSimilarArtists = new DownloadSimilarArtists(listviewSimilarBands);
+                    downloadSimilarArtists.execute();
+                }
+                else
+                    downloadSimilarArtists.updateListView(listviewSimilarBands);
 
                 //Handler del botón de añadir favorito
                 Button buttonFavorite = (Button)rootView.findViewById(R.id.addFavouriteBandDetail);
@@ -166,6 +174,24 @@ public class BandTab1Fragment extends Fragment
     {
         //Donde se van a cargar los datos
         private ListView listView;
+        private SimilarArtistsAdapter similarBandsAdapter;
+
+        public synchronized void updateListView(ListView listView)
+        {
+            this.listView = listView;
+            this.listView.setAdapter(similarBandsAdapter);
+            this.listView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+                    Intent i = new Intent(getActivity(),BandInfoActivity.class);
+
+                    ArtistDTO similarArtist = (ArtistDTO)similarBandsAdapter.getItem(position);
+                    i.putExtra(MyAppParameters.BANDID, similarArtist.getArtistName());
+                    startActivity(i);
+                }
+            });
+        }
 
         //Adapter para mostrar los datos cargados por este hilo
         private class SimilarArtistsAdapter extends BaseAdapter
@@ -263,21 +289,20 @@ public class BandTab1Fragment extends Fragment
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else
             {
-                SimilarArtistsAdapter bandEventsAdapter = new SimilarArtistsAdapter(result);
-
-                listView.setAdapter(bandEventsAdapter);
-                listView.setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1,
-                                            int position, long arg3) {
-                        Intent i = new Intent(getActivity(),BandInfoActivity.class);
-
-                        ArtistDTO similarArtist = result.get(position-1);
-                        i.putExtra(MyAppParameters.BANDID, similarArtist.getArtistName());
-                        startActivity(i);
-                    }
-                });
+                similarBandsAdapter = new SimilarArtistsAdapter(result);
+                updateListView(listView);
             }
         }
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        Log.d(LOG_TAG,"Destruido el fragmento");
+        if (downloadSimilarArtists!=null)
+        {
+            downloadSimilarArtists.cancel(true);
+        }
+        super.onDestroy();
     }
 }

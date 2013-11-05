@@ -121,17 +121,21 @@ public class ExpandablePanel extends LinearLayout
         int mContentHeight = spaceAvailable();
         if (mExpanded) {
             a = new ExpandAnimation(mContentHeight, mCollapsedHeight);
+            a.setDuration(mAnimationDuration);
+            mContent.startAnimation(a);
             for (OnExpandListener mListener : mListeners)
                 mListener.onCollapse(getId(), mHandle, mContent);
         }
         else
         {
             a = new ExpandAnimation(mCollapsedHeight, mContentHeight);
+            a.setDuration(mAnimationDuration);
+            mContent.startAnimation(a);
             for (OnExpandListener mListener : mListeners)
                 mListener.onExpand(getId(), mHandle, mContent);
         }
-        a.setDuration(mAnimationDuration);
-        mContent.startAnimation(a);
+        mContent.invalidate();
+        mHandle.invalidate();
         mExpanded = !mExpanded;
     }
 

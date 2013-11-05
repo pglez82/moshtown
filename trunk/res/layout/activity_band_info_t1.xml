@@ -1,70 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/detailedbandname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+                android:background="@color/white"
+                android:orientation="vertical">
+    <LinearLayout
+            android:layout_height="0dp"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
-    <es.concertsapp.android.component.LastFmImageView
-        android:id="@+id/detailedbandimage"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/detailedbandname"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:contentDescription="@string/imagen_evento"
-        example:maxLastFmImageHeight="150"
-        />
 
-    <Button
-            android:id="@+id/addFavouriteBandDetail"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/ic_estrella_on"
-            android:layout_width="32dp"
-            android:layout_height="32dp"/>
-
-    <TextView
-        android:id="@+id/detailedbandtags"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/detailedbandimage"
-        android:textSize="12sp" />
-    <ProgressBar
-            style="@android:style/Widget.ProgressBar.Small"
-            android:layout_width="wrap_content"
+    <RelativeLayout
+            android:id="@+id/bandandfavourite"
             android:layout_height="wrap_content"
-            android:id="@+id/progressbarsimilarband"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/detailedbandtags"
-            android:layout_above="@+id/similarartists"/>
-    <ListView
-        android:id="@+id/similarartists"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignLeft="@+id/detailedbandname"
-        android:layout_below="@+id/detailedbandtags"
-        android:headerDividersEnabled="true" >
-    </ListView>
+            android:layout_width="fill_parent"
+            >
+    <es.concertsapp.android.component.LastFmImageView
+            android:id="@+id/detailedbandimage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imagen_evento"
+            example:maxLastFmImageHeight="150"
+            android:minHeight="150dp"
+            android:layout_alignParentTop="true"/>
+    <RelativeLayout
+            android:id="@+id/bandnameandfavourite"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_alignBottom="@+id/detailedbandimage">
+        <TextView
+                android:id="@+id/detailedbandname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="The New Ones"
+                android:textColor="@color/white"
+                android:background="@color/gray"
+                android:paddingLeft="6dp"
+                android:layout_centerVertical="true"/>
+        <Button
+                android:id="@+id/addFavouriteBandDetail"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_estrella_on"
+                android:layout_width="42dp"
+                android:layout_height="42dp"/>
+
+    </RelativeLayout>
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/detailedbanddescription"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignLeft="@+id/similarartists"
-        android:layout_below="@+id/similarartists"
-        android:layout_marginTop="14dp"
-        android:textSize="12sp" 
-        android:scrollbars = "vertical"/>
+            android:id="@+id/detailedbandtags"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
 
-</RelativeLayout>
+    <es.concertsapp.android.component.ExpandablePanelGroup
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:id="@+id/panelgroup1"
+                       >
+        <es.concertsapp.android.component.ExpandablePanel
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:id="@+id/expandablepanelbio"
+            example:handle="@+id/biopanelbutton"
+            example:content="@+id/contentbio"
+            example:collapsedHeight="0dip"
+            example:animationDuration="1000"
+            android:layout_alignParentLeft="false"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentTop="false"
+            >
+        <TextView
+                android:id="@id/biopanelbutton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/bio_text"
+                android:background="@drawable/mancha_barra"
+                android:textColor="@color/white"
+                android:gravity="left|center_vertical"/>
+        <LinearLayout
+                android:id="@id/contentbio"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/detailedbanddescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:scrollbars = "vertical"/>
+        </LinearLayout>
+    </es.concertsapp.android.component.ExpandablePanel>
+        <es.concertsapp.android.component.ExpandablePanel
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/expandablepanelrelated"
+                example:handle="@+id/biopanelbutton"
+                example:content="@+id/contentbio"
+                example:collapsedHeight="0dip"
+                example:animationDuration="1000"
+                android:layout_alignParentLeft="false"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="false"
+                >
+            <TextView
+                    android:id="@id/biopanelbutton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:background="@drawable/mancha_barra"
+                    android:text="@string/relatedartists_text"
+                    android:gravity="left|center_vertical"/>
+            <LinearLayout
+                    android:id="@id/contentbio"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical">
+                <ListView
+                        android:id="@+id/similarartists"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:headerDividersEnabled="true" >
+                </ListView>
+            </LinearLayout>
+        </es.concertsapp.android.component.ExpandablePanel>
+</es.concertsapp.android.component.ExpandablePanelGroup>
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:id="@+id/iniciopie"
+            android:background="#4d4d4d"
+            >
+        <ProgressBar
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressbarsimilarband"
+                android:layout_alignParentLeft="true"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_logolastfm"
+                android:background="@drawable/button_lastfmbackground"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_lastfm_description"/>
+    </RelativeLayout>
+
+</LinearLayout>

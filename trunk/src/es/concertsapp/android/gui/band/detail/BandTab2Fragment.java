@@ -28,6 +28,7 @@ import es.concertsapp.android.utils.date.DateFormater;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.dto.ArtistEventDTO;
+import es.lastfm.api.connector.dto.EventDTO;
 import es.lastfm.api.connector.exception.LastFmException;
 
 public class BandTab2Fragment extends Fragment 
@@ -36,6 +37,7 @@ public class BandTab2Fragment extends Fragment
     private ArtistDTO artistDTO;
     private Throwable backgroundError=null;
     private ProgressBar eventsProgressBar;
+    private DonwloadEventsBandTask downDonwloadEventsBandTask;
 	
 	static class ArtistEventHolder 
 	{
@@ -63,6 +65,24 @@ public class BandTab2Fragment extends Fragment
 	{	
 		//Donde se van a cargar los datos
 		private ListView listView;
+        private BandEventsAdapter bandEventsAdapter;
+
+        public synchronized void updateListView(ListView listView)
+        {
+            this.listView = listView;
+            this.listView.setAdapter(bandEventsAdapter);
+            this.listView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1,
+                                        int position, long arg3) {
+                    Intent i = new Intent(getActivity(),EventInfoActivity.class);
+
+                    ArtistEventDTO bandEvent = (ArtistEventDTO)bandEventsAdapter.getItem(position-1);
+                    i.putExtra(MyAppParameters.EVENTID, bandEvent.getEventId());
+                    startActivity(i);
+                }
+            });
+        }
 		
 		//Adapter para mostrar los datos cargados por este hilo
 		private class BandEventsAdapter extends BaseAdapter
@@ -164,20 +184,8 @@ public class BandTab2Fragment extends Fragment
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else
             {
-                BandEventsAdapter bandEventsAdapter = new BandEventsAdapter(result);
-
-                listView.setAdapter(bandEventsAdapter);
-                listView.setOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1,
-                            int position, long arg3) {
-                        Intent i = new Intent(getActivity(),EventInfoActivity.class);
-
-                        ArtistEventDTO artistEventDTO = result.get(position-1);
-                        i.putExtra(MyAppParameters.EVENTID, artistEventDTO.getEventId());
-                        startActivity(i);
-                    }
-                });
+                bandEventsAdapter = new BandEventsAdapter(result);
+                updateListView(listView);
             }
 		}
 	}
@@ -214,14 +222,22 @@ public class BandTab2Fragment extends Fragment
             //imageDownloader.download(artistDTO.getImageURL(ImageSize.LARGE),artistImageView);
 
             // Cargamos los eventos del artista
-            ListView listView1 = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
+            ListView listView = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
             View header = inflater.inflate(R.layout.list_band_events_header,null);
-            listView1.addHeaderView(header,null,false);
+            listView.addHeaderView(header,null,false);
             header.setVisibility(View.VISIBLE);
 
             eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
 
-            new DonwloadEventsBandTask(listView1).execute(artistName);
+            if (downDonwloadEventsBandTask==null)
+            {
+                downDonwloadEventsBandTask = new DonwloadEventsBandTask(listView);
+                downDonwloadEventsBandTask.execute(artistName);
+            }
+            else
+            {
+                downDonwloadEventsBandTask.updateListView(listView);
+            }
         }
         catch (Throwable e)
         {
@@ -230,4 +246,15 @@ public class BandTab2Fragment extends Fragment
         }
 		return rootView;
 	}
+
+    @Override
+    public void onDestroy()
+    {
+        Log.d(LOG_TAG,"Destruido el fragmento");
+        if (downDonwloadEventsBandTask!=null)
+        {
+            downDonwloadEventsBandTask.cancel(true);
+        }
+        super.onDestroy();
+    }
 }

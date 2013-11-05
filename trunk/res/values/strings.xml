@@ -45,18 +45,17 @@
     <string name="button_x_image_description">Pincha aquí para borrar la caja de búsqueda</string>
     <string name="list_bands_noresults">No se ha encontrado ningún grupo</string>
 
-    <!--Actividad listado de grupos-->
+    <!--Actividad listado de favoritos-->
     <string name="mis_favoritos_title">MIS FAVORITOS</string>
 
     <!--Actividad de un grupo-->
     <string name="title_activity_band_info">Información del grupo</string>
+    <string name="bio_text">BIO</string>
+    <string name="relatedartists_text">RELATED ARTISTS</string>
     <string name="playstop_text">Reproducir, parar</string>
     <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
     <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm</string>
     <string name="play_description">Pulsa aquí para reproducir o parar una canción</string>
-
-	<!--Bandas similares-->
-	<string name="similarbandsheadertext">Bandas similares</string>
 
     <!--Condiciones last.fm-->
     <string name="lastfm_conditions">Moshtown access to and use of the API and the Last.fm Data is subject to the terms API Terms of Service as posted on the Last.fm Site at http://www.lastfm.es/api/tos and updated from time to time, of the Last.fm Site Terms of Use as posted on the Last.fm Site at http://www.last.fm/legal/terms and updated from time to time and the Last.fm Privacy Policy as posted on the Last.fm Site at http://www.last.fm/legal/terms and updated from time to time.</string>

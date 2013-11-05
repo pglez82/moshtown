@@ -22,6 +22,8 @@ import java.util.List;
 
 import de.umass.lastfm.Channel;
 import de.umass.lastfm.Item;
+import es.concertsapp.android.component.ExpandablePanel;
+import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.DialogUtils;
@@ -34,7 +36,7 @@ import es.lastfm.api.connector.LastFmApiConnector;
 public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerStatusChangedListener
 {
     private static final String LOG_TAG = "BANDTAB3FRAGMENT";
-    private String spotifyUri;
+
     private String artistName;
 
     private Throwable backgroundError=null;
@@ -47,6 +49,10 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     //Barras de progreso
     private ProgressBar lastfmProgressBar;
     private ProgressBar spotifyProgressBar;
+    private int lastfmProgressBarStatus;
+    private int spotifyProgressBarStatus;
+
+    private ExpandablePanel expandablePanelSpotify;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -58,8 +64,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private void retrieveInformation(String artistName)
     {
-        downloadPodcastTask = new DonwloadPodcastsTask(getListView());
-        downloadPodcastTask.execute(artistName);
+
     }
 
     @Override
@@ -76,7 +81,31 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         artistName = args.getString(MyAppParameters.BANDID);
         lastfmProgressBar=(ProgressBar)view.findViewById(R.id.progressbarlastfm);
         spotifyProgressBar=(ProgressBar)view.findViewById(R.id.progressbarspotify);
-        retrieveInformation(artistName);
+        expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
+        spotifyProgressBar.setVisibility(spotifyProgressBarStatus);
+        lastfmProgressBar.setVisibility(lastfmProgressBarStatus);
+        ListView listView = getListView();
+        if (downloadPodcastTask==null)
+        {
+            downloadPodcastTask = new DonwloadPodcastsTask(listView);
+            downloadPodcastTask.execute(artistName);
+        }
+        else
+        {
+            downloadPodcastTask.updateListView(listView);
+        }
+    }
+
+    public void setLastFmProgressBarVisibility(int visibility)
+    {
+        this.lastfmProgressBarStatus = visibility;
+        lastfmProgressBar.setVisibility(lastfmProgressBarStatus);
+    }
+
+    public void setSpotifyProgressBarVisibility(int visibility)
+    {
+        this.spotifyProgressBarStatus = visibility;
+        spotifyProgressBar.setVisibility(spotifyProgressBarStatus);
     }
 
     @Override
@@ -142,6 +171,23 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     {
         //Donde se van a cargar los datos
         private ListView listView;
+        private PodcastsAdapter podcastsAdapter;
+        private String spotifyUri;
+
+        public synchronized void updateListView(ListView listView)
+        {
+            this.listView = listView;
+            this.listView.setAdapter(podcastsAdapter);
+            if (spotifyUri!=null && !"".equals(spotifyUri))
+            {
+                showSpotify(spotifyUri);
+                if (podcastsAdapter.isEmpty())
+                {
+                    if (!expandablePanelSpotify.isExpanded())
+                        expandablePanelSpotify.tooglePanel();
+                }
+            }
+        }
 
         //Adapter para mostrar los datos cargados por este hilo
         private class PodcastsAdapter extends BaseAdapter
@@ -225,9 +271,9 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         protected void onPreExecute()
         {
             super.onPreExecute();
-            lastfmProgressBar.setVisibility(ProgressBar.VISIBLE);
-            spotifyProgressBar.setVisibility(ProgressBar.VISIBLE);
-            getListView().getEmptyView().setVisibility(View.INVISIBLE);
+            setLastFmProgressBarVisibility(ProgressBar.VISIBLE);
+            setSpotifyProgressBarVisibility(ProgressBar.VISIBLE);
+            listView.getEmptyView().setVisibility(View.INVISIBLE);
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
 
@@ -260,14 +306,10 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                     UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
                 else
                 {
-                    PodcastsAdapter podcastsAdapter = new PodcastsAdapter(result);
-                    listView.setAdapter(podcastsAdapter);
-                    if (spotifyUri!=null && !"".equals(spotifyUri))
-                    {
-                        showSpotify(spotifyUri);
-                    }
-                    lastfmProgressBar.setVisibility(ProgressBar.INVISIBLE);
-                    spotifyProgressBar.setVisibility(ProgressBar.INVISIBLE);
+                    podcastsAdapter = new PodcastsAdapter(result);
+                    updateListView(listView);
+                    setLastFmProgressBarVisibility(ProgressBar.INVISIBLE);
+                    setSpotifyProgressBarVisibility(ProgressBar.INVISIBLE);
                 }
             }
         }
@@ -285,7 +327,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         SongPlayer.getInstance().stopSong(getActivity());
     }
 
-    private void showSpotify(String uri)
+    private synchronized void showSpotify(String uri)
     {
         WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
         if (webView!=null)
