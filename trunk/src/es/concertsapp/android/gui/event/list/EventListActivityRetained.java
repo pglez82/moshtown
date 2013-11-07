@@ -39,6 +39,10 @@ public class EventListActivityRetained extends Fragment
         return eventPageAdapter;
     }
 
+    public EventListActivityRetained()
+    {
+    }
+
     public EventListActivityRetained(EventListActivity eventListActivity)
     {
         this.eventListActivity = eventListActivity;

@@ -11,6 +11,7 @@ public class DateFormater
     private SimpleDateFormat year;
     private SimpleDateFormat daynumber;
     private SimpleDateFormat daytext;
+    private SimpleDateFormat dateEvent;
     private Locale currentLocale;
 
     private static DateFormater instance;
@@ -30,6 +31,7 @@ public class DateFormater
             instance.year = new SimpleDateFormat("yy",locale);
             instance.daytext = new SimpleDateFormat("EEE",locale);
             instance.daynumber = new SimpleDateFormat("dd",locale);
+            instance.dateEvent = new SimpleDateFormat("EEE dd MMM yy kk:mm aa");
         }
 
         return instance;
@@ -54,5 +56,10 @@ public class DateFormater
         result[0]=daytext.format(date).toUpperCase();
         result[1]=daynumber.format(date);
         return result;
+    }
+
+    public String formatDateEvent(Date date)
+    {
+        return dateEvent.format(date).toUpperCase();
     }
 }

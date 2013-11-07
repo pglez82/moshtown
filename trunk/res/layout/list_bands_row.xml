@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
- 	android:id="@+id/listbandstext"  
-    android:paddingTop="2dip" 
-    android:paddingBottom="3dip" 
-    android:textSize="16sp"
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-    /> 
+        android:id="@+id/listbandstext"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:paddingLeft="12dp"
+        android:background="@color/white"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:textColor="@color/gray3"/>

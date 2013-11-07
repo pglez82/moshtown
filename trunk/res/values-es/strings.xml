@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Generales-->
-    <string name="locale">es</string>
+    <string name="locale">en</string>
     <string name="app_name">MoshTown</string>
+    <string name="button_lastfm_description">Pulsa aquí para acceder a las condiciones legales de last.fm</string>
+
 
     <!--Página principal de entrada-->
     <string name="button_shows">SHOWS</string>
@@ -10,6 +12,7 @@
     <string name="puntos_description">Imagen separadora</string>
     <string name="lastfm_description">Condiciones legales de LASTFM</string>
     <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
+    <string name="intro_logo_description">Logo de MoshTown</string>
 
     <!--Listado de conciertos-->
     <string name="list_noresults">No hay bolos e-burros</string>
@@ -18,11 +21,15 @@
     <string name="gps_button">GPS</string>
     <string name="no_location_info_title">Error</string>
     <string name="no_location_info_text">No se ha podido determinar la posición</string>
-    <string name="edit_ciudad_hint">DÓNDE?</string>
+    <string name="edit_ciudad_hint">WHERE?</string>
+    <string name="more_events_question">Quiés más? Pincha aquí</string>
+    <string name="button_gps_description">Pulsa aquí para buscar conciertos cerca de ti</string>
+    <string name="button_lupa2_description">Pulsa aquí para buscar conciertos</string>
 
     <!--Actividad del evento-->
     <string name="imagen_evento">Imagen del evento</string>
-    <string name="bandsheadertext">Lista de grupos</string>
+    <string name="infoheadertext">INFO</string>
+    <string name="bandsheadertext">BANDS</string>
     <string name="calendarbuttontext">Calendario</string>
     <string name="mapabuttontext">Mapa</string>
     <string name="no_calendar_title">Error</string>
@@ -30,14 +37,30 @@
     <string name="no_tickets_available">No hay información sobre tickets</string>
 
     <!--Actividad listado de grupos-->
-    <string name="edit_banda_hint">QUIÉN?</string>
+    <string name="edit_banda_hint">WHO?</string>
     <string name="buscarbanda_text">Buscar</string>
-    <string name="bandeventsheadertext">Lista de conciertos</string>
+    <string name="bandeventsheadertext">NEXT SHOWS</string>
     <string name="imagen_banda">Añadir a favoritos</string>
+    <string name="ic_mundo_description">Bola de mundo</string>
+    <string name="button_lupa_description">Pincha aquí para buscar grupos</string>
+    <string name="button_x_image_description">Pincha aquí para borrar la caja de búsqueda</string>
+    <string name="list_bands_noresults">No se ha encontrado ningún grupo</string>
+
+    <!--Actividad listado de favoritos-->
+    <string name="mis_favoritos_title">MIS FAVORITOS</string>
 
     <!--Actividad de un grupo-->
+    <string name="bio_text">BIO</string>
+    <string name="relatedartists_text">RELATED ARTISTS</string>
     <string name="playstop_text">Reproducir, parar</string>
     <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
+    <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm</string>
+    <string name="play_description">Pulsa aquí para reproducir o parar una canción</string>
+    <string name="lastfm_title">LAST.FM</string>
+    <string name="spotify_title">SPOTIFY</string>
+
+    <!--Condiciones last.fm-->
+    <string name="lastfm_conditions">Moshtown access to and use of the API and the Last.fm Data is subject to the terms API Terms of Service as posted on the Last.fm Site at http://www.lastfm.es/api/tos and updated from time to time, of the Last.fm Site Terms of Use as posted on the Last.fm Site at http://www.last.fm/legal/terms and updated from time to time and the Last.fm Privacy Policy as posted on the Last.fm Site at http://www.last.fm/legal/terms and updated from time to time.</string>
 
     <!--Menu-->
     <string name="menu_searchevents">Buscar conciertos</string>

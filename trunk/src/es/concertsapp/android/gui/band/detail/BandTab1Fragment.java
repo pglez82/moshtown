@@ -16,6 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
@@ -122,6 +124,40 @@ public class BandTab1Fragment extends Fragment
                 {
                     setAddFavouriteButton(buttonFavorite,artistDTO);
                 }
+
+                ExpandablePanel expandablePanelBio = (ExpandablePanel)rootView.findViewById(R.id.expandablepanelbio);
+                final ImageView flechaBio = (ImageView)rootView.findViewById(R.id.flechaBio);
+                expandablePanelBio.addOnExpandListener(new ExpandablePanel.OnExpandListener()
+                {
+                    @Override
+                    public void onExpand(int id, View handle, View content)
+                    {
+                        flechaBio.setImageResource(R.drawable.ic_flecha_arriba);
+                    }
+
+                    @Override
+                    public void onCollapse(int id, View handle, View content)
+                    {
+                        flechaBio.setImageResource(R.drawable.ic_flecha_abajo);
+                    }
+                });
+
+                ExpandablePanel expandablePanelRelated = (ExpandablePanel)rootView.findViewById(R.id.expandablepanelrelated);
+                final ImageView flechaRelated = (ImageView)rootView.findViewById(R.id.flechaRelated);
+                expandablePanelRelated.addOnExpandListener(new ExpandablePanel.OnExpandListener()
+                {
+                    @Override
+                    public void onExpand(int id, View handle, View content)
+                    {
+                        flechaRelated.setImageResource(R.drawable.ic_flecha_arriba);
+                    }
+
+                    @Override
+                    public void onCollapse(int id, View handle, View content)
+                    {
+                        flechaRelated.setImageResource(R.drawable.ic_flecha_abajo);
+                    }
+                });
 
 
                 //Cargamos la descripción

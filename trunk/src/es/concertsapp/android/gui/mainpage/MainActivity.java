@@ -29,9 +29,6 @@ public class MainActivity extends MenuActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        //Inicializamos el api de last.fm
-        LastFmApiConnectorFactory.initilize(new PunkTags());
-
         setContentView(R.layout.main_layout);
 		
 		try

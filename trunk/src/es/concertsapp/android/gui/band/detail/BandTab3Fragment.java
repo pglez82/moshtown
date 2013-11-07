@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 
 
@@ -80,6 +82,45 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         progressBarStreaming=(ProgressBar)view.findViewById(R.id.progressbarstreaming);
         expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
         progressBarStreaming.setVisibility(progressBarStreamingStatus);
+
+        //Establecemos las fuentes
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.lastfmpanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.spotifypanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+
+        ExpandablePanel expandablePanelLast = (ExpandablePanel)view.findViewById(R.id.expandablepanellastfm);
+        final ImageView flechaLast = (ImageView)view.findViewById(R.id.flechaLast);
+        expandablePanelLast.addOnExpandListener(new ExpandablePanel.OnExpandListener()
+        {
+            @Override
+            public void onExpand(int id, View handle, View content)
+            {
+                flechaLast.setImageResource(R.drawable.ic_flecha_arriba);
+            }
+
+            @Override
+            public void onCollapse(int id, View handle, View content)
+            {
+                flechaLast.setImageResource(R.drawable.ic_flecha_abajo);
+            }
+        });
+
+        ExpandablePanel expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
+        final ImageView flechaSpotify = (ImageView)view.findViewById(R.id.flechaSpotify);
+        expandablePanelSpotify.addOnExpandListener(new ExpandablePanel.OnExpandListener()
+        {
+            @Override
+            public void onExpand(int id, View handle, View content)
+            {
+                flechaSpotify.setImageResource(R.drawable.ic_flecha_arriba);
+            }
+
+            @Override
+            public void onCollapse(int id, View handle, View content)
+            {
+                flechaSpotify.setImageResource(R.drawable.ic_flecha_abajo);
+            }
+        });
+
         ListView listView = getListView();
         if (downloadPodcastTask==null)
         {
@@ -90,6 +131,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         {
             downloadPodcastTask.updateListView(listView);
         }
+
+
     }
 
     public void setStreamingProgressBarVisibility(int visibility)
@@ -241,6 +284,10 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
                 Item songLastfm = (Item)this.getItem(position);
                 holder.song.setText(songLastfm.getTitle());
+
+                //Establecemos la fuente
+                FontUtils.setRobotoFont(getActivity(),holder.song, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+
                 //Miramos que canción se está reproduciendo
                 Item songPlaying = SongPlayer.getInstance().getSongPlaying();
                 if (songPlaying!=null && songPlaying.getTitle().equals(songLastfm.getTitle()))

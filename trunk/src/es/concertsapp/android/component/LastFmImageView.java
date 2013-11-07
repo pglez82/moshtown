@@ -12,6 +12,7 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.utils.images.Dimension;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.dto.ArtistDTO;
+import es.lastfm.api.connector.dto.DetailedEventDTO;
 import es.lastfm.api.connector.dto.LastFmImageSourceI;
 import es.lastfm.api.utils.LastFmImageSizeCalc;
 
@@ -93,7 +94,12 @@ public class LastFmImageView extends ImageView
 
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
             ImageSize imageSize=LastFmImageSizeCalc.getOptimunImageSize(width);
-            imageDownloader.download(lastFmImageSourceI.getImageURL(imageSize), this,maxDim);
+            //TODO: La chambonada más grande del siglo por culpa de los de last.fm
+            if (lastFmImageSourceI instanceof DetailedEventDTO)
+                imageSize = ImageSize.EXTRALARGE;
+            String imageUrl = lastFmImageSourceI.getImageURL(imageSize);
+            if (imageUrl != null)
+                imageDownloader.download(imageUrl, this,maxDim);
         }
     }
 }

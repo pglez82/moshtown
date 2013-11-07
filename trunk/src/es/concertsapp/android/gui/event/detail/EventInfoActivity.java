@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -20,18 +21,20 @@ import java.util.Collection;
 
 import de.umass.lastfm.Event;
 import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.date.DateFormater;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.DetailedEventDTO;
-import it.sephiroth.android.library.imagezoom.ImageViewTouch;
-import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
 
 public class EventInfoActivity extends MenuFragmentActivity
 {
@@ -39,6 +42,7 @@ public class EventInfoActivity extends MenuFragmentActivity
 	private LastFmApiConnector lastFmApiConnector;
 	private String[] bands;
 	private DetailedEventDTO detailedEventDTO;
+    private DateFormater dateFormater = DateFormater.getInstance(MyApplication.getLocale());
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -57,14 +61,16 @@ public class EventInfoActivity extends MenuFragmentActivity
             detailedEventDTO=lastFmApiConnector.getDetailedInfoEvent(eventid);
             ((TextView)findViewById(R.id.detailedconcertname)).setText(detailedEventDTO.getTitle());
             //Bandas que tocan
-            ListView listBandsView = (ListView) findViewById(R.id.detailedlistbands);
-            View header = getLayoutInflater().inflate(R.layout.list_bands_header, null);
-            listBandsView.addHeaderView(header,null,false);
+            ListView listBandsView = (ListView) findViewById(R.id.listbandsevent);
             Collection<String> listBands = detailedEventDTO.getArtists();
             bands = new String[listBands.size()];
             listBands.toArray(bands);
             ArrayAdapter<String> arrayAdapter =  new ArrayAdapter<String>(this,R.layout.list_bands_row, bands);
             listBandsView.setAdapter(arrayAdapter);
+
+            //Fecha del evento
+            TextView textViewFechaEvent = (TextView)findViewById(R.id.fechaevent);
+            textViewFechaEvent.setText(dateFormater.formatDateEvent(detailedEventDTO.getStartDate()));
 
             //Información sobre los tickets
             String linkText="";
@@ -86,14 +92,16 @@ public class EventInfoActivity extends MenuFragmentActivity
             }
 
             //Imagen del concierto
-            ImageViewTouch eventImageView = (ImageViewTouch)findViewById(R.id.detailedEventImage);
+            /*ImageViewTouch eventImageView = (ImageViewTouch)findViewById(R.id.detailedEventImage);
             eventImageView.setDisplayType( ImageViewTouchBase.DisplayType.FIT_IF_BIGGER );
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
-            imageDownloader.download(detailedEventDTO.getImageURL(ImageSize.LARGE), eventImageView);
+            imageDownloader.download(detailedEventDTO.getImageURL(ImageSize.LARGE), eventImageView);*/
+            LastFmImageView eventImageView = (LastFmImageView)findViewById(R.id.detailedEventImage);
+            eventImageView.setLastFmImageSource(detailedEventDTO);
 
-            TextView descTextView = (TextView)findViewById(R.id.detailedconcertdesc);
-            descTextView.setMovementMethod(new ScrollingMovementMethod());
-            descTextView.setText(Html.fromHtml(detailedEventDTO.getDescription()));
+
+            TextView mapinfoevent = (TextView)findViewById(R.id.mapinfoevent);
+            mapinfoevent.setText(detailedEventDTO.getEventPlace());
 
             //Establecemos el listener para cuando nos pinchen en una banda del listado
             listBandsView.setOnItemClickListener(new OnItemClickListener()
@@ -105,11 +113,18 @@ public class EventInfoActivity extends MenuFragmentActivity
                     {
                         Intent i = new Intent(EventInfoActivity.this, BandInfoActivity.class);
                         //TODO: Probablemente aqué haya que cambiar cosas para pasar un id
-                        i.putExtra(MyAppParameters.BANDID, bands[position-1]);
+                        i.putExtra(MyAppParameters.BANDID, bands[position]);
                         startActivity(i);
                     }
                 }
-        });
+             });
+
+            FontUtils.setRobotoFont(this, findViewById(R.id.eventinfoheader), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, findViewById(R.id.eventbandsheader), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, textViewFechaEvent, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
+            FontUtils.setRobotoFont(this, mapinfoevent, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, linkTickets, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, findViewById(R.id.listbandstext), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         }
         catch(Throwable e)
         {
