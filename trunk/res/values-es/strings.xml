@@ -22,7 +22,6 @@
 
     <!--Actividad del evento-->
     <string name="imagen_evento">Imagen del evento</string>
-    <string name="title_activity_concert_info">Información del concierto</string>
     <string name="bandsheadertext">Lista de grupos</string>
     <string name="calendarbuttontext">Calendario</string>
     <string name="mapabuttontext">Mapa</string>
@@ -37,7 +36,6 @@
     <string name="imagen_banda">Añadir a favoritos</string>
 
     <!--Actividad de un grupo-->
-    <string name="title_activity_band_info">Información del grupo</string>
     <string name="playstop_text">Reproducir, parar</string>
     <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
 

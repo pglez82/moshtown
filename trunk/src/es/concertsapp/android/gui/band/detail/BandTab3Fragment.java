@@ -47,10 +47,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     private DonwloadPodcastsTask downloadPodcastTask;
 
     //Barras de progreso
-    private ProgressBar lastfmProgressBar;
-    private ProgressBar spotifyProgressBar;
-    private int lastfmProgressBarStatus;
-    private int spotifyProgressBarStatus;
+    private ProgressBar progressBarStreaming;
+    private int progressBarStreamingStatus;
 
     private ExpandablePanel expandablePanelSpotify;
 
@@ -79,11 +77,9 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
         artistName = args.getString(MyAppParameters.BANDID);
-        lastfmProgressBar=(ProgressBar)view.findViewById(R.id.progressbarlastfm);
-        spotifyProgressBar=(ProgressBar)view.findViewById(R.id.progressbarspotify);
+        progressBarStreaming=(ProgressBar)view.findViewById(R.id.progressbarstreaming);
         expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
-        spotifyProgressBar.setVisibility(spotifyProgressBarStatus);
-        lastfmProgressBar.setVisibility(lastfmProgressBarStatus);
+        progressBarStreaming.setVisibility(progressBarStreamingStatus);
         ListView listView = getListView();
         if (downloadPodcastTask==null)
         {
@@ -96,16 +92,10 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         }
     }
 
-    public void setLastFmProgressBarVisibility(int visibility)
+    public void setStreamingProgressBarVisibility(int visibility)
     {
-        this.lastfmProgressBarStatus = visibility;
-        lastfmProgressBar.setVisibility(lastfmProgressBarStatus);
-    }
-
-    public void setSpotifyProgressBarVisibility(int visibility)
-    {
-        this.spotifyProgressBarStatus = visibility;
-        spotifyProgressBar.setVisibility(spotifyProgressBarStatus);
+        this.progressBarStreamingStatus = visibility;
+        progressBarStreaming.setVisibility(progressBarStreamingStatus);
     }
 
     @Override
@@ -122,7 +112,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private void showPlayButton(final ImageButton imageButton,final Item song)
     {
-        imageButton.setBackgroundResource(R.drawable.play);
+        imageButton.setBackgroundResource(R.drawable.ic_play);
         imageButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -136,7 +126,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private void showStopButton(final ImageButton imageButton,final Item song)
     {
-        imageButton.setBackgroundResource(R.drawable.stop);
+        imageButton.setBackgroundResource(R.drawable.ic_stop);
         imageButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -271,8 +261,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         protected void onPreExecute()
         {
             super.onPreExecute();
-            setLastFmProgressBarVisibility(ProgressBar.VISIBLE);
-            setSpotifyProgressBarVisibility(ProgressBar.VISIBLE);
+            setStreamingProgressBarVisibility(ProgressBar.VISIBLE);
             listView.getEmptyView().setVisibility(View.INVISIBLE);
             Log.d(LOG_TAG,"Arrancamos el hilo de buscar canciones del grupo");
         }
@@ -308,8 +297,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                 {
                     podcastsAdapter = new PodcastsAdapter(result);
                     updateListView(listView);
-                    setLastFmProgressBarVisibility(ProgressBar.INVISIBLE);
-                    setSpotifyProgressBarVisibility(ProgressBar.INVISIBLE);
+                    setStreamingProgressBarVisibility(ProgressBar.INVISIBLE);
                 }
             }
         }
@@ -334,7 +322,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         {
             webView.getSettings().setJavaScriptEnabled(true);
             StringBuilder embed = new StringBuilder();
-            embed.append("<html><body style=\"text-align=\"center\"><iframe src=\"");
+            embed.append("<html><head><style>body{margin:0;margin-left:-7px}</style></head><body><iframe src=\"");
             embed.append(uri);
             embed.append("\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe></body></html>");
             webView.loadData(embed.toString() , "text/html" , "utf-8");

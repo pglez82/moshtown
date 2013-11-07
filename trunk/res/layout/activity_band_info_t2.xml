@@ -1,49 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-        >
 
-   <TextView
-        android:id="@+id/detailedbandname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
 
-    <es.concertsapp.android.component.LastFmImageView
-            android:id="@+id/detailedbandimage"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_height="0dp"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/detailedbandname"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/imagen_evento"
-            example:maxLastFmImageHeight="150"
-            />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+        <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+
+                >
 
 
-    <ProgressBar
-            style="@android:style/Widget.ProgressBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressbareventsband"
-            android:layout_alignParentRight="true"
-            android:layout_above="@+id/detailedbandlistevents"/>
-    <ListView
-        android:id="@+id/detailedbandlistevents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/detailedbandimage"
-        android:headerDividersEnabled="true"
-        >
-    </ListView>
+            <es.concertsapp.android.component.LastFmImageView
+                    android:id="@+id/detailedbandimage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/imagen_evento"
+                    example:maxLastFmImageHeight="150"
+                    android:minHeight="150dp"
+                    android:layout_alignParentTop="true"/>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_flecha_derecha"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_flecha_izquierda"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"/>
 
-</RelativeLayout>
+
+            <TextView
+                    android:id="@+id/detailedbandname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="18dp"
+                    android:textSize="22sp"
+                    android:text="The New Ones"
+                    android:textColor="@color/white"
+                    android:background="@drawable/mancha_transparente"
+                    android:layout_marginBottom="6dp"
+                    android:layout_alignBottom="@+id/detailedbandimage"/>
+
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/nextshowstitle"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:textSize="18sp"
+                android:paddingLeft="12dp"
+                android:background="@drawable/barra_estrecha"
+                android:textColor="@color/white"
+                android:text="@string/bandeventsheadertext"/>
+        <ListView
+                android:id="@+id/detailedbandlistevents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/gray4"
+                android:dividerHeight="0.6dp"
+                >
+        </ListView>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:id="@+id/iniciopie"
+            android:background="#4d4d4d"
+            >
+
+        <ProgressBar
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressbareventsband"
+                android:layout_alignParentLeft="true"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"/>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_logolastfm"
+                android:background="@drawable/button_lastfmbackground"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_lastfm_description"/>
+    </RelativeLayout>
+</LinearLayout>

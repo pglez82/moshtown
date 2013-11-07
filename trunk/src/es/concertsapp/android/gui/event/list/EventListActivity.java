@@ -79,7 +79,7 @@ public class EventListActivity extends MenuFragmentActivity
         // If the Fragment is non-null, then it is currently being
         // retained across a configuration change.
         if (eventListActivityRetained == null) {
-            eventListActivityRetained = new EventListActivityRetained();
+            eventListActivityRetained = new EventListActivityRetained(this);
             fm.beginTransaction().add(eventListActivityRetained, "eventlistfragment").commit();
         }
 

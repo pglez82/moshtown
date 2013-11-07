@@ -40,15 +40,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".event.detail.EventInfoActivity"
-            android:label="@string/title_activity_concert_info" >
+            android:name=".event.detail.EventInfoActivity">
         </activity>
         <!-- <meta-data -->
         <!-- android:name="com.google.android.maps.v2.API_KEY" -->
         <!-- android:value="AIzaSyDtXr3zXYg_-cYwjTtduH8fLilO4n5ZShQ"/> -->
         <activity
-            android:name=".band.detail.BandInfoActivity"
-            android:label="@string/title_activity_band_info" >
+            android:name=".band.detail.BandInfoActivity">
         </activity>
     </application>
 

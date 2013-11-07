@@ -30,6 +30,7 @@ import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.exception.LastFmException;
@@ -81,7 +82,8 @@ public class BandTab1Fragment extends Fragment
             }
             if (rootView!=null)
             {
-                ((TextView)rootView.findViewById(R.id.detailedbandname)).setText(artistDTO.getArtistName());
+                TextView detailedBandName = ((TextView)rootView.findViewById(R.id.detailedbandname));
+                detailedBandName.setText(artistDTO.getArtistName());
 
                 //Cargamos la imagen
                 LastFmImageView artistImageView = (LastFmImageView)rootView.findViewById(R.id.detailedbandimage);
@@ -127,6 +129,14 @@ public class BandTab1Fragment extends Fragment
                 descTextView.setText(Html.fromHtml(artistDTO.getSummary()));
                 descTextView.setMovementMethod(new ScrollingMovementMethod());
                 descTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
+                //Establecemos las fuentes
+                FontUtils.setRobotoFont(getActivity(),detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+                FontUtils.setRobotoFont(getActivity(),descTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+                FontUtils.setRobotoFont(getActivity(),tagsTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
+                FontUtils.setRobotoFont(getActivity(),rootView.findViewById(R.id.biopanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+                FontUtils.setRobotoFont(getActivity(),rootView.findViewById(R.id.relatedpanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+
             }
 
         }
@@ -141,7 +151,7 @@ public class BandTab1Fragment extends Fragment
 
     private void setAddFavouriteButton(final Button button, final ArtistDTO artist)
     {
-        button.setBackgroundResource(R.drawable.ic_estrella_on);
+        button.setBackgroundResource(R.drawable.ic_estrella_grupos_off);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,7 +164,7 @@ public class BandTab1Fragment extends Fragment
 
     private void setRemoveFavouriteButton(final Button button, final ArtistDTO artist)
     {
-        button.setBackgroundResource(R.drawable.ic_estrella_off);
+        button.setBackgroundResource(R.drawable.ic_estrella_grupos_on);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -245,6 +255,7 @@ public class BandTab1Fragment extends Fragment
                 }
 
                 ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
+                FontUtils.setRobotoFont(getActivity(),holder.bandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
                 holder.bandName.setText(artistDTO.getArtistName());
 
                 return row;

@@ -20,11 +20,13 @@ import java.util.List;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
+import es.concertsapp.android.gui.event.list.EventListHelper;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.date.DateFormater;
+import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.dto.ArtistEventDTO;
@@ -38,13 +40,8 @@ public class BandTab2Fragment extends Fragment
     private Throwable backgroundError=null;
     private ProgressBar eventsProgressBar;
     private DonwloadEventsBandTask downDonwloadEventsBandTask;
-	
-	static class ArtistEventHolder 
-	{
-		TextView bandconcertlistinfo;
-		TextView bandplacelistinfo;
-		TextView banddatelistinfo;
-	}
+
+    private EventListHelper eventListHelper;
 
     public BandTab2Fragment()
     {
@@ -122,26 +119,23 @@ public class BandTab2Fragment extends Fragment
 			public View getView(int position, View convertView, ViewGroup parent) 
 			{
 				View row = convertView;
-				ArtistEventHolder holder;
+				EventListHelper.EventHolder holder;
 
 				if (row == null) {
 					LayoutInflater inflater = (getActivity()).getLayoutInflater();
-					row = inflater.inflate(R.layout.item_band_event_row, parent, false);
+					row = inflater.inflate(R.layout.item_row, parent, false);
 
-					holder = new ArtistEventHolder();
-					holder.bandconcertlistinfo = (TextView)row.findViewById(R.id.bandconcertlistinfo);
-					holder.bandplacelistinfo = (TextView) row.findViewById(R.id.bandplacelistinfo);
-					holder.banddatelistinfo = (TextView) row.findViewById(R.id.banddatelistinfo);
+					holder = new EventListHelper.EventHolder();
+                    holder.concertListInfo=(TextView)row.findViewById(R.id.concertlistinfo);
+                    holder.placeListInfo=(TextView)row.findViewById(R.id.placelistinfo);
+                    holder.eventDate =(TextView)row.findViewById(R.id.eventDate);
 					row.setTag(holder);
 				} else {
-					holder = (ArtistEventHolder) row.getTag();
+					holder = (EventListHelper.EventHolder) row.getTag();
 				}
 
 				ArtistEventDTO artistEventDTO = (ArtistEventDTO)this.getItem(position);
-				holder.bandconcertlistinfo.setText(artistEventDTO.getEventTitle());
-				holder.banddatelistinfo.setText(DateFormater.getInstance(MyApplication.getLocale()).formatDate(artistEventDTO.getStartDate()));
-				holder.bandplacelistinfo.setText(artistEventDTO.getEventPlace());
-
+                eventListHelper.loadInfoEvent(getActivity(),holder,artistEventDTO);
 				return row;
 			}
 		}
@@ -195,6 +189,7 @@ public class BandTab2Fragment extends Fragment
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        eventListHelper = new EventListHelper(getActivity());
     }
 
     @Override
@@ -212,22 +207,23 @@ public class BandTab2Fragment extends Fragment
                 LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();
                 artistDTO = lastFmApiConnector.getArtistInfo(artistName);
             }
-            ((TextView) rootView.findViewById(R.id.detailedbandname)).setText(artistName);
+            TextView  detailedBandName = ((TextView) rootView.findViewById(R.id.detailedbandname));
+            detailedBandName.setText(artistName);
 
             // Cargamos la imagen
             LastFmImageView artistImageView = (LastFmImageView)rootView.findViewById(R.id.detailedbandimage);
             artistImageView.setLastFmImageSource(artistDTO);
-            //ImageView artistImageView = (ImageView) rootView.findViewById(R.id.detailedbandimage);
-            //ImageDownloader imageDownloader = ImageDownloader.getInstance();
-            //imageDownloader.download(artistDTO.getImageURL(ImageSize.LARGE),artistImageView);
 
             // Cargamos los eventos del artista
             ListView listView = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
-            View header = inflater.inflate(R.layout.list_band_events_header,null);
-            listView.addHeaderView(header,null,false);
-            header.setVisibility(View.VISIBLE);
-
             eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
+
+            TextView nextshowstitle = (TextView)rootView.findViewById(R.id.nextshowstitle);
+
+            //Establecemos las fuentes
+            FontUtils.setRobotoFont(getActivity(), detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(getActivity(), nextshowstitle, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(getActivity(),rootView.findViewById(R.id.nextshowstitle),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
             if (downDonwloadEventsBandTask==null)
             {
@@ -238,6 +234,8 @@ public class BandTab2Fragment extends Fragment
             {
                 downDonwloadEventsBandTask.updateListView(listView);
             }
+
+
         }
         catch (Throwable e)
         {

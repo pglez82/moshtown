@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import es.concertsapp.android.gui.R;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.geo.PlaceInterface;
 import es.concertsapp.android.utils.geo.impl.GooglePlacesApi;
@@ -28,12 +29,13 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
     private int normalResultView;
     private List<PlaceInterface> listPlacesSearched;
 
-    private int dropDownFontColorVisited = Color.parseColor("#808080");
+    private int dropDownFontColorVisited;
 
     public PlacesAutoCompleteAdapter(Context context, int normalResultView,List<PlaceInterface> listPlacesSearched) {
         super(context, normalResultView);
         this.normalResultView = normalResultView;
         this.listPlacesSearched = listPlacesSearched;
+        dropDownFontColorVisited = context.getResources().getColor(R.color.gray3);
     }
 
     @Override

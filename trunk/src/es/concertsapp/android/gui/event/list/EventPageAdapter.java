@@ -39,12 +39,7 @@ public class EventPageAdapter extends BaseAdapter
     private double lat,lon;
     private boolean coordinates;
 
-    //TODO: Sacar estos colores de los estilos
-    private static String letraGris = "<span><font color=\"#808080\">";
-    private static String letraBlanco = "<span><font color=\"#ffffff\">";
-
-
-    private DateFormater dateFormater = DateFormater.getInstance(MyApplication.getLocale());
+    private EventListHelper eventListHelper;
 
     //Variable que indica si se produjo algún error (si !=null) en el proceso en segundo plano. On background
     //no puede mostrar el error porque no puede tocar la ui. Eso hay que hacerlo en el postexecute
@@ -189,6 +184,7 @@ public class EventPageAdapter extends BaseAdapter
 		this.itemRowResID = itemRowResID;
         listEvents = new ArrayList<EventDTO>();
         imageDownloader=ImageDownloader.getInstance();
+        eventListHelper = new EventListHelper(eventListActivity);
     }
 
     public void setEventListActivity(EventListActivity context)
@@ -276,13 +272,13 @@ public class EventPageAdapter extends BaseAdapter
     
     public View getView(int position, View convertView, ViewGroup parent) 
     {
-    	EventHolder holder;
+    	EventListHelper.EventHolder holder;
     	if (convertView == null)
     	{
 	        LayoutInflater inflater = LayoutInflater.from(eventListActivity);
 			convertView = inflater.inflate(itemRowResID, parent, false);
 			
-			holder = new EventHolder();
+			holder = new EventListHelper.EventHolder();
 			holder.concertListInfo=(TextView)convertView.findViewById(R.id.concertlistinfo);
 		    holder.placeListInfo=(TextView)convertView.findViewById(R.id.placelistinfo);
 		    holder.eventDate =(TextView)convertView.findViewById(R.id.eventDate);
@@ -290,24 +286,13 @@ public class EventPageAdapter extends BaseAdapter
     	}
     	else
     	{
-			holder = (EventHolder) convertView.getTag();
+			holder = (EventListHelper.EventHolder) convertView.getTag();
 		}
 		
        
     	//Mostramos el elemento
         EventDTO event = (EventDTO)this.getItem(position);
-
-	    holder.concertListInfo.setText( event.getEventTitle());
-        FontUtils.setRobotoFont(eventListActivity,holder.concertListInfo, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
-	   	holder.placeListInfo.setText(event.getEventPlace());
-        FontUtils.setRobotoFont(eventListActivity,holder.placeListInfo, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-        String[] day = dateFormater.formatDay(event.getEventDate());
-        String[] month = dateFormater.formatMonth(event.getEventDate());
-        StringBuilder sb = new StringBuilder();
-        sb.append(letraGris).append(day[0]).append("</span>").append(letraBlanco).append(day[1]).append("</span><br/>").append(letraBlanco).append(month[0]).append("</span>").append(letraGris).append(month[1]).append("</span>");
-	    holder.eventDate.setText(Html.fromHtml(sb.toString()));
-        FontUtils.setRobotoFont(eventListActivity, holder.eventDate, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
-
+        eventListHelper.loadInfoEvent(eventListActivity,holder,event);
         return convertView;
     }
 
@@ -318,14 +303,4 @@ public class EventPageAdapter extends BaseAdapter
     public boolean  isEnabled(int position) {
         return true;
     }
-
-    //Clase para cachear las views en las que meter la info.
-    static class EventHolder {
-		TextView eventDate;
-		TextView placeListInfo;
-		TextView dateListInfo;
-		TextView concertListInfo;
-	}
-    
-    
 }
