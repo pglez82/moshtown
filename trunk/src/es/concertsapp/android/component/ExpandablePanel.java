@@ -3,9 +3,11 @@ package es.concertsapp.android.component;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.HashSet;
@@ -21,7 +23,7 @@ import es.concertsapp.android.gui.R;
  */
 public class ExpandablePanel extends LinearLayout
 {
-
+    private static final String LOG_TAG="EXPANDABLEPANEL";
     private final int mHandleId;
     private final int mContentId;
 
@@ -119,6 +121,7 @@ public class ExpandablePanel extends LinearLayout
     {
         Animation a;
         int mContentHeight = spaceAvailable();
+        Log.d(LOG_TAG, "El expandable panel tiene como espacio disponible: "+mContentHeight);
         if (mExpanded) {
             a = new ExpandAnimation(mContentHeight, mCollapsedHeight);
             a.setDuration(mAnimationDuration);
@@ -159,6 +162,25 @@ public class ExpandablePanel extends LinearLayout
         public boolean willChangeBounds() {
             return true;
         }
+    }
+
+    public void addDefaultImageToggleListener(final ImageView imageView,final int expandido, final int colapsado)
+    {
+        addOnExpandListener(new ExpandablePanel.OnExpandListener()
+        {
+            @Override
+            public void onExpand(int id, View handle, View content)
+            {
+                imageView.setImageResource(expandido);
+            }
+
+            @Override
+            public void onCollapse(int id, View handle, View content)
+            {
+                imageView.setImageResource(colapsado);
+            }
+        });
+
     }
 
 

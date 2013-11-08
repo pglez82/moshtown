@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="32dp"
-              android:background="@color/white"
+              android:background="@drawable/list_clicked_color"
               android:gravity="center_vertical"
               android:paddingLeft="12dp">
     <TextView

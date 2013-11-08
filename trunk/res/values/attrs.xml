@@ -8,5 +8,6 @@
     </declare-styleable>
     <declare-styleable name="LastFmImageView">
         <attr name="maxLastFmImageHeight" format="integer"/>
+        <attr name="showprogress" format="boolean"/>
     </declare-styleable>
 </resources>

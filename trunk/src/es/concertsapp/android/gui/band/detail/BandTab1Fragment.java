@@ -16,6 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -29,6 +30,7 @@ import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
@@ -106,6 +108,8 @@ public class BandTab1Fragment extends Fragment
 
                 //Cargamos los artistas similares
                 ListView listviewSimilarBands = (ListView) rootView.findViewById(R.id.similarartists);
+                TextView noResults = (TextView)rootView.findViewById(R.id.listsimilarnoresults);
+                listviewSimilarBands.setEmptyView(noResults);
                 if (downloadSimilarArtists==null)
                 {
                     downloadSimilarArtists = new DownloadSimilarArtists(listviewSimilarBands);
@@ -166,8 +170,20 @@ public class BandTab1Fragment extends Fragment
                 descTextView.setMovementMethod(new ScrollingMovementMethod());
                 descTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
+                ImageButton imageButton = (ImageButton)rootView.findViewById(R.id.button_logolastfm);
+                imageButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                        startActivity(myIntent);
+                    }
+                });
+
                 //Establecemos las fuentes
                 FontUtils.setRobotoFont(getActivity(),detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+                FontUtils.setRobotoFont(getActivity(),noResults, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
                 FontUtils.setRobotoFont(getActivity(),descTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
                 FontUtils.setRobotoFont(getActivity(),tagsTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
                 FontUtils.setRobotoFont(getActivity(),rootView.findViewById(R.id.biopanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
@@ -307,6 +323,7 @@ public class BandTab1Fragment extends Fragment
         protected void onPreExecute()
         {
             super.onPreExecute();
+            listView.getEmptyView().setVisibility(View.INVISIBLE);
             similarArtistsProgressBar.setVisibility(View.VISIBLE);
             backgroundError=null;
         }
@@ -338,6 +355,8 @@ public class BandTab1Fragment extends Fragment
             {
                 similarBandsAdapter = new SimilarArtistsAdapter(result);
                 updateListView(listView);
+                if (result==null || result.isEmpty())
+                    listView.getEmptyView().setVisibility(View.VISIBLE);
             }
         }
     }

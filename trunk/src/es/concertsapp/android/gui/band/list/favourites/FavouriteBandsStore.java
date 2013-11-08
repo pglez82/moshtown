@@ -28,7 +28,7 @@ public class FavouriteBandsStore
     private Context context;
     private List<BaseAdapter> notifyToAdapters= new ArrayList<BaseAdapter>();
     private LookForNearEvents lookForNearEvents = new LookForNearEvents();
-    private BandFavoritesFragment favouritesActivity;
+    private BandFavoritesFragment favouritesFragment;
 
     private FavouriteBandsStore()
     {
@@ -45,7 +45,7 @@ public class FavouriteBandsStore
     {
         if (!favouriteBands.isEmpty())
         {
-            lookForNearEvents.lookForNearEvents(context,favouritesActivity,this,favouriteBands);
+            lookForNearEvents.lookForNearEvents(context, favouritesFragment,this,favouriteBands);
         }
     }
 
@@ -57,7 +57,7 @@ public class FavouriteBandsStore
         }
 
         if (favouritesActivit!=null)
-            singleton.favouritesActivity = favouritesActivit;
+            singleton.favouritesFragment = favouritesActivit;
 
         return singleton;
     }
@@ -84,7 +84,8 @@ public class FavouriteBandsStore
         //Creamos una lista de solo uno para buscar solo de este
         List<ArtistDTO> temp = new ArrayList<ArtistDTO>(1);
         temp.add(artistDTO);
-        lookForNearEvents.lookForNearEvents(context,favouritesActivity,this,temp);
+        if (favouritesFragment!=null)
+            lookForNearEvents.lookForNearEvents(context, favouritesFragment,this,temp);
     }
 
     /**

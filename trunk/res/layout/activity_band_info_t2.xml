@@ -19,7 +19,7 @@
             android:paddingTop="@dimen/activity_vertical_margin">
 
         <RelativeLayout
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_width="fill_parent"
 
                 >
@@ -28,10 +28,12 @@
             <es.concertsapp.android.component.LastFmImageView
                     android:id="@+id/detailedbandimage"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:contentDescription="@string/imagen_evento"
                     example:maxLastFmImageHeight="150"
+                    example:showprogress="true"
                     android:minHeight="150dp"
+
                     android:layout_alignParentTop="true"/>
             <ImageView
                     android:layout_height="wrap_content"
@@ -56,7 +58,7 @@
                     android:text="The New Ones"
                     android:textColor="@color/white"
                     android:background="@drawable/mancha_transparente"
-                    android:layout_marginBottom="6dp"
+                    android:layout_alignParentBottom="false"
                     android:layout_alignBottom="@+id/detailedbandimage"/>
 
         </RelativeLayout>
@@ -76,8 +78,15 @@
                 android:layout_height="wrap_content"
                 android:divider="@color/gray"
                 android:dividerHeight="0.6dp"
+                android:fadingEdge="none"
                 >
         </ListView>
+        <TextView android:id="@+id/listsimilarnoresults"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="top"
+                  android:layout_gravity="top"
+                  android:text="@string/bandevents_noresults" />
     </LinearLayout>
 
     <RelativeLayout

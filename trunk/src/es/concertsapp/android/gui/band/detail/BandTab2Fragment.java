@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.event.list.EventListHelper;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.MyApplication;
@@ -74,7 +76,7 @@ public class BandTab2Fragment extends Fragment
                                         int position, long arg3) {
                     Intent i = new Intent(getActivity(),EventInfoActivity.class);
 
-                    ArtistEventDTO bandEvent = (ArtistEventDTO)bandEventsAdapter.getItem(position-1);
+                    ArtistEventDTO bandEvent = (ArtistEventDTO)bandEventsAdapter.getItem(position);
                     i.putExtra(MyAppParameters.EVENTID, bandEvent.getEventId());
                     startActivity(i);
                 }
@@ -150,6 +152,7 @@ public class BandTab2Fragment extends Fragment
         {
             super.onPreExecute();
             eventsProgressBar.setVisibility(View.VISIBLE);
+            listView.getEmptyView().setVisibility(View.INVISIBLE);
             backgroundError=null;
         }
 
@@ -179,6 +182,8 @@ public class BandTab2Fragment extends Fragment
             else
             {
                 bandEventsAdapter = new BandEventsAdapter(result);
+                if (result==null || result.isEmpty())
+                    listView.getEmptyView().setVisibility(View.VISIBLE);
                 updateListView(listView);
             }
 		}
@@ -216,9 +221,22 @@ public class BandTab2Fragment extends Fragment
 
             // Cargamos los eventos del artista
             ListView listView = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
+            TextView emptyView = (TextView) rootView.findViewById(R.id.listsimilarnoresults);
+            listView.setEmptyView(emptyView);
             eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
 
             TextView nextshowstitle = (TextView)rootView.findViewById(R.id.nextshowstitle);
+
+            ImageButton imageButton = (ImageButton)rootView.findViewById(R.id.button_logolastfm);
+            imageButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                    startActivity(myIntent);
+                }
+            });
 
             //Establecemos las fuentes
             FontUtils.setRobotoFont(getActivity(), detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

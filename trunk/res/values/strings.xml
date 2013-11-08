@@ -29,6 +29,7 @@
     <string name="imagen_evento">Imagen del evento</string>
     <string name="infoheadertext">INFO</string>
     <string name="bandsheadertext">BANDS</string>
+    <string name="posterheadertext">POSTER</string>
     <string name="calendarbuttontext">Calendario</string>
     <string name="mapabuttontext">Mapa</string>
     <string name="ticketimagedescription">Imagen descriptiva de un ticket</string>
@@ -56,6 +57,8 @@
     <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
     <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm</string>
     <string name="play_description">Pulsa aquí para reproducir o parar una canción</string>
+    <string name="similar_noresults">No hemos podido encontrar artistas relacionados para este grupo</string>
+    <string name="bandevents_noresults">Este grupo no tiene conciertos próximos</string>
     <string name="lastfm_title">LAST.FM</string>
     <string name="spotify_title">SPOTIFY</string>
 

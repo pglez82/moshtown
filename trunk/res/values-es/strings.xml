@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Generales-->
-    <string name="locale">en</string>
+    <string name="locale">es</string>
     <string name="app_name">MoshTown</string>
     <string name="button_lastfm_description">Pulsa aquí para acceder a las condiciones legales de last.fm</string>
 

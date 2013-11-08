@@ -2,10 +2,16 @@ package es.concertsapp.android.component;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.gui.R;
@@ -33,6 +39,10 @@ public class LastFmImageView extends ImageView
     //Altura máxima. sino está definida debería de ser cero. Sino se define, no cortamos nada,
     //Si se define y la altura máxima es mayor que esta, hay que cortar la imagen
     private Dimension maxDim;
+
+    //Si se debería mostrar el progreso al cargar la foto o no. Si se muestra TIENE que estar en un relativeLayout
+    private boolean showprogress;
+    private ProgressBar progressBar;
 
     private static final String LOG_TAG="LASTFMIMAGEVIEW";
 
@@ -64,15 +74,17 @@ public class LastFmImageView extends ImageView
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LastFmImageView, 0, 0);
         //int maxWidth = a.getInteger(R.styleable.LastFmImageView_maxLastFmImageWidth,0);
         int maxHeight = a.getInteger(R.styleable.LastFmImageView_maxLastFmImageHeight,0);
+        showprogress = a.getBoolean(R.styleable.LastFmImageView_showprogress,false);
         if (maxHeight!=0)
             maxDim = new Dimension(0,maxHeight);
+
     }
 
     public void setLastFmImageSource(LastFmImageSourceI lastFmImageSourceI)
     {
         this.lastFmImageSourceI = lastFmImageSourceI;
         //TODO: HAY QEU REVISAR A FONDO ESTA PARTE, PORQUE TEMO QUE SE ESTÉN DESCARGANDO DEMASIADAS IMAGENES
-        downloadImage();
+        //downloadImage();
     }
 
     private void setWidth(int newWidth)
@@ -92,14 +104,36 @@ public class LastFmImageView extends ImageView
         if (lastFmImageSourceI!=null)
         {
 
+            //Aquí se sustituye a si mismo por un progrees bar?
+            if (showprogress)
+            {
+                progressBar = new ProgressBar(getContext());
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.getHeight()/3,this.getHeight()/3);
+                layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL,1);
+                layoutParams.addRule(RelativeLayout.CENTER_VERTICAL,1);
+                RelativeLayout parentLayout = (RelativeLayout)this.getParent();
+                this.setVisibility(INVISIBLE);
+                parentLayout.addView(progressBar,layoutParams);
+            }
+
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
             ImageSize imageSize=LastFmImageSizeCalc.getOptimunImageSize(width);
-            //TODO: La chambonada más grande del siglo por culpa de los de last.fm
-            if (lastFmImageSourceI instanceof DetailedEventDTO)
-                imageSize = ImageSize.EXTRALARGE;
             String imageUrl = lastFmImageSourceI.getImageURL(imageSize);
             if (imageUrl != null)
                 imageDownloader.download(imageUrl, this,maxDim);
         }
+    }
+
+    @Override
+    public void setImageBitmap(Bitmap bm)
+    {
+        super.setImageBitmap(bm);
+        if (showprogress)
+        {
+            RelativeLayout layout = (RelativeLayout)this.getParent();
+            layout.removeView(progressBar);
+            this.setVisibility(VISIBLE);
+        }
+
     }
 }

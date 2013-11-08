@@ -19,13 +19,13 @@
 
     <RelativeLayout
             android:id="@+id/bandandfavourite"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_width="fill_parent"
             >
     <es.concertsapp.android.component.LastFmImageView
             android:id="@+id/detailedbandimage"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:contentDescription="@string/imagen_evento"
             example:maxLastFmImageHeight="150"
             android:minHeight="150dp"
@@ -177,6 +177,13 @@
                         android:dividerHeight="0.6dp"
                         android:fadingEdge="none">
                 </ListView>
+                <TextView android:id="@+id/listsimilarnoresults"
+                          android:layout_width="fill_parent"
+                          android:layout_height="0dp"
+                          android:gravity="top"
+                          android:layout_gravity="top"
+                          android:layout_weight="1"
+                          android:text="@string/similar_noresults" />
             </LinearLayout>
         </es.concertsapp.android.component.ExpandablePanel>
 </es.concertsapp.android.component.ExpandablePanelGroup>

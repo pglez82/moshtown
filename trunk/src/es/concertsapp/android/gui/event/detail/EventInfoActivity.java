@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,9 +23,11 @@ import java.util.Collection;
 
 import de.umass.lastfm.Event;
 import de.umass.lastfm.ImageSize;
+import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -35,6 +39,8 @@ import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.DetailedEventDTO;
+import it.sephiroth.android.library.imagezoom.ImageViewTouch;
+import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
 
 public class EventInfoActivity extends MenuFragmentActivity
 {
@@ -59,7 +65,8 @@ public class EventInfoActivity extends MenuFragmentActivity
         try
         {
             detailedEventDTO=lastFmApiConnector.getDetailedInfoEvent(eventid);
-            ((TextView)findViewById(R.id.detailedconcertname)).setText(detailedEventDTO.getTitle());
+            TextView detailConcertName =  ((TextView)findViewById(R.id.detailedconcertname));
+            detailConcertName.setText(detailedEventDTO.getTitle());
             //Bandas que tocan
             ListView listBandsView = (ListView) findViewById(R.id.listbandsevent);
             Collection<String> listBands = detailedEventDTO.getArtists();
@@ -91,13 +98,36 @@ public class EventInfoActivity extends MenuFragmentActivity
                 linkTickets.setText(R.string.no_tickets_available);
             }
 
+
+            ExpandablePanel expandablePanelBio = (ExpandablePanel)findViewById(R.id.expandablepaneleventinfo);
+            final ImageView flechaBio = (ImageView)findViewById(R.id.flechaeventinfo);
+            expandablePanelBio.addOnExpandListener(new ExpandablePanel.OnExpandListener()
+            {
+                @Override
+                public void onExpand(int id, View handle, View content)
+                {
+                    flechaBio.setImageResource(R.drawable.ic_flecha_arriba);
+                }
+
+                @Override
+                public void onCollapse(int id, View handle, View content)
+                {
+                    flechaBio.setImageResource(R.drawable.ic_flecha_abajo);
+                }
+            });
+
+            ExpandablePanel expandablePanelEventInfo = (ExpandablePanel)findViewById(R.id.expandablepaneleventinfo);
+            expandablePanelEventInfo.addDefaultImageToggleListener((ImageView)findViewById(R.id.flechaeventinfo),R.drawable.ic_flecha_arriba, R.drawable.ic_flecha_abajo);
+            ExpandablePanel expandablePanelEventBands = (ExpandablePanel)findViewById(R.id.expandablepaneleventbands);
+            expandablePanelEventBands.addDefaultImageToggleListener((ImageView)findViewById(R.id.flechaeventbands),R.drawable.ic_flecha_arriba, R.drawable.ic_flecha_abajo);
+            ExpandablePanel expandablePanelEventPoster = (ExpandablePanel)findViewById(R.id.expandablepaneleventposter);
+            expandablePanelEventPoster.addDefaultImageToggleListener((ImageView)findViewById(R.id.flechaeventPOSTER),R.drawable.ic_flecha_arriba, R.drawable.ic_flecha_abajo);
+
             //Imagen del concierto
-            /*ImageViewTouch eventImageView = (ImageViewTouch)findViewById(R.id.detailedEventImage);
+            ImageViewTouch eventImageView = (ImageViewTouch)findViewById(R.id.detailedEventImage);
             eventImageView.setDisplayType( ImageViewTouchBase.DisplayType.FIT_IF_BIGGER );
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
-            imageDownloader.download(detailedEventDTO.getImageURL(ImageSize.LARGE), eventImageView);*/
-            LastFmImageView eventImageView = (LastFmImageView)findViewById(R.id.detailedEventImage);
-            eventImageView.setLastFmImageSource(detailedEventDTO);
+            imageDownloader.download(detailedEventDTO.getImageURL(ImageSize.EXTRALARGE), eventImageView);
 
 
             TextView mapinfoevent = (TextView)findViewById(R.id.mapinfoevent);
@@ -109,18 +139,29 @@ public class EventInfoActivity extends MenuFragmentActivity
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3)
                 {
-                    if (position>0)
-                    {
-                        Intent i = new Intent(EventInfoActivity.this, BandInfoActivity.class);
-                        //TODO: Probablemente aqué haya que cambiar cosas para pasar un id
-                        i.putExtra(MyAppParameters.BANDID, bands[position]);
-                        startActivity(i);
-                    }
+                    Intent i = new Intent(EventInfoActivity.this, BandInfoActivity.class);
+                    //TODO: Probablemente aqué haya que cambiar cosas para pasar un id
+                    i.putExtra(MyAppParameters.BANDID, bands[position]);
+                    startActivity(i);
                 }
              });
 
-            FontUtils.setRobotoFont(this, findViewById(R.id.eventinfoheader), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-            FontUtils.setRobotoFont(this, findViewById(R.id.eventbandsheader), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            ImageButton imageButton = (ImageButton)findViewById(R.id.button_logolastfm);
+            imageButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent myIntent = new Intent(EventInfoActivity.this, LegalConditionsActivity.class);
+                    startActivity(myIntent);
+                }
+            });
+
+
+            FontUtils.setRobotoFont(this, findViewById(R.id.eventinfopanelbutton), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, findViewById(R.id.eventbandspanelbutton), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, findViewById(R.id.eventposterpanelbutton), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, detailConcertName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, textViewFechaEvent, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, mapinfoevent, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, linkTickets, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

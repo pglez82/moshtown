@@ -1,6 +1,7 @@
 package es.concertsapp.android.gui.band.detail;
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import de.umass.lastfm.Item;
 import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -82,6 +84,17 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         progressBarStreaming=(ProgressBar)view.findViewById(R.id.progressbarstreaming);
         expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
         progressBarStreaming.setVisibility(progressBarStreamingStatus);
+
+        ImageButton imageButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
+        imageButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         //Establecemos las fuentes
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.lastfmpanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
