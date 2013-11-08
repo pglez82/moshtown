@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:background="@drawable/fondo_titulo_conciertos"
-            android:text="Concierto prueba"
+            android:maxLines="4"
             android:textSize="22sp"
             android:paddingTop="12dp"
             android:paddingLeft="12dp"
@@ -85,6 +85,7 @@
                     android:layout_height="32dp"
                     android:layout_width="fill_parent"
                     android:orientation="horizontal"
+                    android:background="@drawable/list_clicked_color"
                     android:onClick="buttonAddCalendar">
 
                 <ImageButton
@@ -110,6 +111,7 @@
                     android:layout_height="32dp"
                     android:layout_width="fill_parent"
                     android:orientation="horizontal"
+                    android:background="@drawable/list_clicked_color"
                     android:onClick="buttonShowMap">
 
                 <ImageButton

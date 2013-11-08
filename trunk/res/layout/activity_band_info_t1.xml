@@ -27,6 +27,7 @@
             android:layout_width="fill_parent"
             android:layout_height="150dp"
             android:contentDescription="@string/imagen_evento"
+            example:showprogress="true"
             example:maxLastFmImageHeight="150"
             android:minHeight="150dp"
             android:layout_alignParentTop="true"/>
