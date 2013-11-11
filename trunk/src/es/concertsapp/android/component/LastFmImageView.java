@@ -84,7 +84,7 @@ public class LastFmImageView extends ImageView
     {
         this.lastFmImageSourceI = lastFmImageSourceI;
         //TODO: HAY QEU REVISAR A FONDO ESTA PARTE, PORQUE TEMO QUE SE ESTÉN DESCARGANDO DEMASIADAS IMAGENES
-        //downloadImage();
+        downloadImage();
     }
 
     private void setWidth(int newWidth)

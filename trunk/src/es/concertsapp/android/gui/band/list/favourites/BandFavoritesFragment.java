@@ -27,13 +27,13 @@ public class BandFavoritesFragment extends ListFragment
     private FavouriteBandsStore favouriteBandsStore;
     private ProgressBar progressBar;
     private int progressBarState=View.INVISIBLE;
+    private FavoriteBandsAdapter favouriteBandsAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-
     }
 
     @Override
@@ -47,31 +47,22 @@ public class BandFavoritesFragment extends ListFragment
     public void onViewCreated(View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+
         FontUtils.setRobotoFont(this.getActivity(),getActivity().findViewById(R.id.mis_favoritos_title), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
         progressBar.setVisibility(progressBarState);
-        favouriteBandsStore = FavouriteBandsStore.getInstance(this);
-        favouriteBandsStore.startNearEventBandSearch();
-        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
-        lastfmButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
-    }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState)
-    {
-        super.onActivityCreated(savedInstanceState);
-        FavoriteBandsAdapter favouriteBandsAdapter = new FavoriteBandsAdapter();
         //Cargamos la lista de bandas de disco
+
+        if (favouriteBandsStore==null && favouriteBandsAdapter==null)
+        {
+            favouriteBandsStore = FavouriteBandsStore.getInstance(this);
+            favouriteBandsAdapter = new FavoriteBandsAdapter();
+            favouriteBandsStore.addAdapterToNotify(favouriteBandsAdapter);
+            favouriteBandsStore.startNearEventBandSearch();
+        }
         getListView().setAdapter(favouriteBandsAdapter);
-        favouriteBandsStore.addAdapterToNotify(favouriteBandsAdapter);
+
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -84,6 +75,19 @@ public class BandFavoritesFragment extends ListFragment
                 i.putExtra(MyAppParameters.BANDID, artistDTO.getArtistName());
                 i.putExtra(MyAppParameters.FRAGMENTID, 1);
                 startActivity(i);
+            }
+        });
+
+
+
+        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
+        lastfmButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                startActivity(myIntent);
             }
         });
     }

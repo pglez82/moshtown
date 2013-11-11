@@ -318,10 +318,13 @@ public class EventListActivity extends MenuFragmentActivity
         }
         else
         {
-            AnimationDrawable animation = (AnimationDrawable) gpsButton.getBackground();
-            if (animation!=null)
-                animation.stop();
-            gpsButton.setBackgroundResource(R.drawable.button_gps_image);
+            if (gpsButton.getBackground() != null && gpsButton.getBackground() instanceof AnimationDrawable)
+            {
+                AnimationDrawable animation = (AnimationDrawable) gpsButton.getBackground();
+                if (animation!=null)
+                    animation.stop();
+                gpsButton.setBackgroundResource(R.drawable.button_gps_image);
+            }
         }
 
     }
