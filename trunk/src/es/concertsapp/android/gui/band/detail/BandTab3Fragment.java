@@ -45,14 +45,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
 
     private Throwable backgroundError=null;
 
-    //Indica si ha habido un cambio de configuración
-    private boolean configurationChanged = false;
-
     private DonwloadPodcastsTask downloadPodcastTask;
 
     //Barras de progreso
     private ProgressBar progressBarStreaming;
-    private int progressBarStreamingStatus;
+    private int progressBarStreamingStatus=View.INVISIBLE;
 
     private ExpandablePanel expandablePanelSpotify;
 
@@ -62,11 +59,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         SongPlayer.getInstance().setListener(this);
-    }
-
-    private void retrieveInformation(String artistName)
-    {
-
     }
 
     @Override
@@ -135,14 +127,21 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         });
 
         ListView listView = getListView();
-        if (downloadPodcastTask==null)
+        if (!artistName.contains("&"))
         {
-            downloadPodcastTask = new DonwloadPodcastsTask(listView);
-            downloadPodcastTask.execute(artistName);
+            if (downloadPodcastTask==null)
+            {
+                downloadPodcastTask = new DonwloadPodcastsTask(listView);
+                downloadPodcastTask.execute(artistName);
+            }
+            else
+            {
+                downloadPodcastTask.updateListView(listView);
+            }
         }
         else
         {
-            downloadPodcastTask.updateListView(listView);
+
         }
 
 
@@ -166,7 +165,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         super.onDestroy();
     }
 
-    private void showPlayButton(final ImageButton imageButton,final Item song)
+    private void showPlayButton(final ImageButton imageButton,final Item song,final DonwloadPodcastsTask.PodcastsAdapter podcastAdapter)
     {
         imageButton.setBackgroundResource(R.drawable.ic_play);
         imageButton.setOnClickListener(new View.OnClickListener()
@@ -175,12 +174,13 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             public void onClick(View view)
             {
                 playSong(song);
-                showStopButton(imageButton,song);
+                showStopButton(imageButton,song,podcastAdapter);
+                podcastAdapter.notifyDataSetChanged();
             }
         });
     }
 
-    private void showStopButton(final ImageButton imageButton,final Item song)
+    private void showStopButton(final ImageButton imageButton,final Item song,final DonwloadPodcastsTask.PodcastsAdapter podcastAdapter)
     {
         imageButton.setBackgroundResource(R.drawable.ic_stop);
         imageButton.setOnClickListener(new View.OnClickListener()
@@ -189,16 +189,10 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             public void onClick(View view)
             {
                 stopSong();
-                showPlayButton(imageButton,song);
+                showPlayButton(imageButton,song,podcastAdapter);
+                podcastAdapter.notifyDataSetChanged();
             }
         });
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-        configurationChanged = true;
     }
 
     @Override
@@ -227,7 +221,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             if (spotifyUri!=null && !"".equals(spotifyUri))
             {
                 showSpotify(spotifyUri);
-                if (podcastsAdapter.isEmpty())
+                if (podcastsAdapter==null || podcastsAdapter.isEmpty())
                 {
                     if (!expandablePanelSpotify.isExpanded())
                         expandablePanelSpotify.tooglePanel();
@@ -304,9 +298,9 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                 //Miramos que canción se está reproduciendo
                 Item songPlaying = SongPlayer.getInstance().getSongPlaying();
                 if (songPlaying!=null && songPlaying.getTitle().equals(songLastfm.getTitle()))
-                    showStopButton(holder.playstopButton,songLastfm);
+                    showStopButton(holder.playstopButton,songLastfm,podcastsAdapter);
                 else
-                    showPlayButton(holder.playstopButton,songLastfm);
+                    showPlayButton(holder.playstopButton,songLastfm,podcastsAdapter);
 
                 return row;
             }
@@ -395,19 +389,9 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         Log.d(LOG_TAG,"Destruida la vista");
         super.onDestroyView();
         SongPlayer.getInstance().setListener(null);
-    }
-
-    /**
-     * Cuando el usuario sale de la pantalla le avisamos de que puede controlar el reproductor desde el menu
-     */
-    @Override
-    public void onStop()
-    {
-        super.onStop();
-        if (!configurationChanged && SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
+        if (SongPlayer.getInstance().isPlaying() && artistName.equals(SongPlayer.getInstance().getBandPlaying()))
         {
             DialogUtils.showToast(this.getActivity(), Toast.LENGTH_LONG,R.string.toast_player);
-            configurationChanged = false;
         }
     }
 }

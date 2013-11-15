@@ -41,6 +41,7 @@ public class BandTab2Fragment extends Fragment
     private ArtistDTO artistDTO;
     private Throwable backgroundError=null;
     private ProgressBar eventsProgressBar;
+    private int eventsProgressBarState = View.INVISIBLE;
     private DonwloadEventsBandTask downDonwloadEventsBandTask;
 
     private EventListHelper eventListHelper;
@@ -65,11 +66,13 @@ public class BandTab2Fragment extends Fragment
 		//Donde se van a cargar los datos
 		private ListView listView;
         private BandEventsAdapter bandEventsAdapter;
+        private int noElementsVisibility = View.INVISIBLE;
 
         public synchronized void updateListView(ListView listView)
         {
             this.listView = listView;
             this.listView.setAdapter(bandEventsAdapter);
+            this.listView.getEmptyView().setVisibility(noElementsVisibility);
             this.listView.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1,
@@ -81,6 +84,12 @@ public class BandTab2Fragment extends Fragment
                     startActivity(i);
                 }
             });
+        }
+
+        public synchronized void setNoElementsVisibility(int visibility)
+        {
+            noElementsVisibility = visibility;
+            listView.getEmptyView().setVisibility(noElementsVisibility);
         }
 		
 		//Adapter para mostrar los datos cargados por este hilo
@@ -151,8 +160,8 @@ public class BandTab2Fragment extends Fragment
         protected void onPreExecute()
         {
             super.onPreExecute();
-            eventsProgressBar.setVisibility(View.VISIBLE);
-            listView.getEmptyView().setVisibility(View.INVISIBLE);
+            setProgressBarVisibility(View.VISIBLE);
+            setNoElementsVisibility(View.INVISIBLE);
             backgroundError=null;
         }
 
@@ -183,7 +192,7 @@ public class BandTab2Fragment extends Fragment
             {
                 bandEventsAdapter = new BandEventsAdapter(result);
                 if (result==null || result.isEmpty())
-                    listView.getEmptyView().setVisibility(View.VISIBLE);
+                    setNoElementsVisibility(View.VISIBLE);
                 updateListView(listView);
             }
 		}
@@ -224,6 +233,7 @@ public class BandTab2Fragment extends Fragment
             TextView emptyView = (TextView) rootView.findViewById(R.id.listsimilarnoresults);
             listView.setEmptyView(emptyView);
             eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
+            eventsProgressBar.setVisibility(eventsProgressBarState);
 
             TextView nextshowstitle = (TextView)rootView.findViewById(R.id.nextshowstitle);
 
@@ -262,6 +272,12 @@ public class BandTab2Fragment extends Fragment
         }
 		return rootView;
 	}
+
+    public void setProgressBarVisibility(int visibility)
+    {
+        this.eventsProgressBarState = visibility;
+        eventsProgressBar.setVisibility(eventsProgressBarState);
+    }
 
     @Override
     public void onDestroy()

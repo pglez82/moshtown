@@ -28,6 +28,13 @@ public class ConfValues implements LastFmApiConfiguration
     //no tenga tags
     public static final int MAX_ARTISTS_EVENT_TAGS = 1;
 
+    //Número de minutos que tienen que pasar antes de coger una ubicación nueva si pedimos la cacheada
+    public static final int TIME_POSITION_EXPIRES = 10;
+
+    //Número de minutos que tienen que pasar para que la información sobre los conciertos de favoritos esté
+    //obsoleta
+    public static final int TIME_FAVOURITE_CONCERTS_EXPIRES = 1;
+
     @Override
     public int getMaxTopTagsArtist()
     {

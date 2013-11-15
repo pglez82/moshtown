@@ -158,16 +158,6 @@ public class BandListFragment extends ListFragment
         }
     }
 
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        if (searchBandTask!=null)
-        {
-            searchBandTask.cancel(true);
-        }
-    }
-
     static class BandSearchHolder
 	{
 		LastFmImageView bandsearchImageView;

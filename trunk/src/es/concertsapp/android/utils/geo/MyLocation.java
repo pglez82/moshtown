@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import es.concertsapp.android.conf.ConfValues;
+
 /**
  * Clase que se encarga de obtener en un hilo la ubicación a través del gps o de la red.
  * Lo que hace esta clase es ver si está disponible el gps o el agps. Se lanza la petición tanto al
@@ -34,8 +36,7 @@ public class MyLocation
 {
     //geo fix -6.074386 43.387055
     private static final String LOG_TAG = "MYLOCATION";
-    //Número de minutos que tienen que pasar antes de coger una ubicación nueva si pedimos la cacheada
-    private static final int TIME_POSITION_EXPIRES = 10;
+
     private Timer timer1;
     private LocationManager lm;
     private LocationResult locationResult;
@@ -66,7 +67,7 @@ public class MyLocation
     public static boolean getCachedLocation(Context context, LocationResult locationResult)
     {
 
-        if (cachedLoc!=null && (getTimeInMinutes()-cachedTime<TIME_POSITION_EXPIRES))
+        if (cachedLoc!=null && (getTimeInMinutes()-cachedTime< ConfValues.TIME_POSITION_EXPIRES))
         {
             Log.d(LOG_TAG,"Devolviendo la posición cacheada");
             locationResult.locationFound(cachedLoc,cachedName);

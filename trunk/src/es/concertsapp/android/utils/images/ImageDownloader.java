@@ -118,7 +118,13 @@ public class ImageDownloader {
         {
             float factor = maxDim.getFixedWidth() / (float) original.getWidth();
 
-            Bitmap scaled = Bitmap.createScaledBitmap(original, maxDim.getFixedWidth(), (int) (original.getHeight() * factor), false);
+            int w =  maxDim.getFixedWidth();
+            int h = (int) (original.getHeight() * factor);
+            Bitmap scaled;
+            if (w>0 && h>0)
+                scaled = Bitmap.createScaledBitmap(original,w,h, false);
+            else
+                scaled = original;
 
             //Convertimos los DIP a pixeles
             Resources r = MyApplication.getAppResources();

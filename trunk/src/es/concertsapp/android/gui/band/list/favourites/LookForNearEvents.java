@@ -8,7 +8,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -26,13 +29,26 @@ public class LookForNearEvents
 {
     private static final String LOG_TAG="LOOKFORNEAREVENTS";
     private BandFavoritesFragment favoritesFragment;
-    private Location locationStored = null;
     private LookForNearEventsTask lookForNearEventsTask;
-    //Cuando el usuario entra a la pantalla se lanza la busqueda, pero no siempre. Solo si han pasado x minutos
 
-    private List<ArtistDTO> alreadyLookedUp=new ArrayList<ArtistDTO>();
+    //Este timer está creado para borrar la lista de artistas ya buscados cada x minutos
+    private Timer timer;
+
+    private List<ArtistDTO> alreadyLookedUp=Collections.synchronizedList(new ArrayList());
     private Throwable backgroundError=null;
 
+    public LookForNearEvents()
+    {
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                alreadyLookedUp.clear();
+            }
+        },0,ConfValues.TIME_FAVOURITE_CONCERTS_EXPIRES*1000*60);
+    }
 
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
@@ -40,47 +56,38 @@ public class LookForNearEvents
         //Mostramos la barra de progreso
         favoritesFragment.setProgressBarState(View.VISIBLE);
 
-        if (locationStored==null)
+        try
         {
-            try
+            MyLocation.getCachedLocation(context,new MyLocation.LocationResult()
             {
-                MyLocation.getCachedLocation(context,new MyLocation.LocationResult()
+                @Override
+                public void locationFound(Location location, String name)
                 {
-                    @Override
-                    public void locationFound(Location location, String name)
+                    if (location!=null)
                     {
-                        if (location!=null)
+                        lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
+                        lookForNearEventsTask.execute(artistToLookUp);
+                    }
+                    else
+                    {
+                        if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
                         {
-                            locationStored = location;
-                            lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
-                            lookForNearEventsTask.execute(artistToLookUp);
-                        }
-                        else
-                        {
-                            if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
+                            favouritesActivity.getActivity().runOnUiThread(new Runnable()
                             {
-                                favouritesActivity.getActivity().runOnUiThread(new Runnable()
+                                @Override
+                                public void run()
                                 {
-                                    @Override
-                                    public void run()
-                                    {
-                                        favoritesFragment.setProgressBarState(View.INVISIBLE);
-                                    }
-                                });
-                            }
+                                    favoritesFragment.setProgressBarState(View.INVISIBLE);
+                                }
+                            });
                         }
                     }
-                });
-            }
-            catch (Throwable e)
-            {
-                //Todo: Revisar si este throawle aquí es necesario porque me estoy comiendo todas las excepciones
-            }
+                }
+            });
         }
-        else
+        catch (Throwable e)
         {
-            lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,locationStored);
-            lookForNearEventsTask.execute(artistToLookUp);
+            //Todo: Revisar si este throawle aquí es necesario porque me estoy comiendo todas las excepciones
         }
     }
 

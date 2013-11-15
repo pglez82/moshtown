@@ -47,7 +47,11 @@ public class BandTab1Fragment extends Fragment
     private ArtistDTO artistDTO;
 
     private Throwable backgroundError=null;
+
     private ProgressBar similarArtistsProgressBar;
+    private int similarArtistsProgressBarState=View.INVISIBLE;
+
+
     //Hilo para bajar los artistas similares
     private DownloadSimilarArtists downloadSimilarArtists;
 
@@ -105,6 +109,7 @@ public class BandTab1Fragment extends Fragment
                 tagsTextView.setText(sb.toString());
 
                 similarArtistsProgressBar = (ProgressBar)rootView.findViewById(R.id.progressbarsimilarband);
+                similarArtistsProgressBar.setVisibility(similarArtistsProgressBarState);
 
                 //Cargamos los artistas similares
                 ListView listviewSimilarBands = (ListView) rootView.findViewById(R.id.similarartists);
@@ -201,6 +206,14 @@ public class BandTab1Fragment extends Fragment
         return rootView;
     }
 
+    public void setProgressBarVisibility(int visibility)
+    {
+        this.similarArtistsProgressBarState = visibility;
+        similarArtistsProgressBar.setVisibility(similarArtistsProgressBarState);
+    }
+
+
+
     private void setAddFavouriteButton(final Button button, final ArtistDTO artist)
     {
         button.setBackgroundResource(R.drawable.ic_estrella_grupos_off);
@@ -237,11 +250,13 @@ public class BandTab1Fragment extends Fragment
         //Donde se van a cargar los datos
         private ListView listView;
         private SimilarArtistsAdapter similarBandsAdapter;
+        private int noElementsVisibility=View.INVISIBLE;
 
         public synchronized void updateListView(ListView listView)
         {
             this.listView = listView;
             this.listView.setAdapter(similarBandsAdapter);
+            this.listView.getEmptyView().setVisibility(noElementsVisibility);
             this.listView.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1,
@@ -253,6 +268,12 @@ public class BandTab1Fragment extends Fragment
                     startActivity(i);
                 }
             });
+        }
+
+        public synchronized void setNoElementsVisibility(int visibility)
+        {
+            noElementsVisibility = visibility;
+            listView.getEmptyView().setVisibility(noElementsVisibility);
         }
 
         //Adapter para mostrar los datos cargados por este hilo
@@ -323,8 +344,8 @@ public class BandTab1Fragment extends Fragment
         protected void onPreExecute()
         {
             super.onPreExecute();
-            listView.getEmptyView().setVisibility(View.INVISIBLE);
-            similarArtistsProgressBar.setVisibility(View.VISIBLE);
+            setNoElementsVisibility(View.INVISIBLE);
+            setProgressBarVisibility(View.VISIBLE);
             backgroundError=null;
         }
 
@@ -348,7 +369,7 @@ public class BandTab1Fragment extends Fragment
         @Override
         protected void onPostExecute(final List<ArtistDTO> result)
         {
-            similarArtistsProgressBar.setVisibility(View.INVISIBLE);
+            setProgressBarVisibility(View.INVISIBLE);
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else
@@ -356,7 +377,7 @@ public class BandTab1Fragment extends Fragment
                 similarBandsAdapter = new SimilarArtistsAdapter(result);
                 updateListView(listView);
                 if (result==null || result.isEmpty())
-                    listView.getEmptyView().setVisibility(View.VISIBLE);
+                    setNoElementsVisibility(View.VISIBLE);
             }
         }
     }
