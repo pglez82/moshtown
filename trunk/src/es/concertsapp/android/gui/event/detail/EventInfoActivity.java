@@ -133,6 +133,9 @@ public class EventInfoActivity extends MenuFragmentActivity
             TextView mapinfoevent = (TextView)findViewById(R.id.mapinfoevent);
             mapinfoevent.setText(detailedEventDTO.getEventPlace());
 
+            TextView mapinfoeventaddress = (TextView)findViewById(R.id.mapinfoeventaddress);
+            mapinfoeventaddress.setText(detailedEventDTO.getAddress());
+
             //Establecemos el listener para cuando nos pinchen en una banda del listado
             listBandsView.setOnItemClickListener(new OnItemClickListener()
             {
@@ -164,6 +167,7 @@ public class EventInfoActivity extends MenuFragmentActivity
             FontUtils.setRobotoFont(this, detailConcertName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, textViewFechaEvent, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, mapinfoevent, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, mapinfoeventaddress, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, linkTickets, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, findViewById(R.id.listbandstext), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         }

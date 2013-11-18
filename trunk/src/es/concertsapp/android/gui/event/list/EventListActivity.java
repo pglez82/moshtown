@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -113,7 +114,7 @@ public class EventListActivity extends MenuFragmentActivity
         eventListActivityRetained.setProgressBar((ProgressBar) findViewById(R.id.progressbareventlist));
 
         View loadMoreElement = findViewById(R.id.loadmoreelement);
-        FontUtils.setRobotoFont(this,loadMoreElement, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(this,loadMoreElement, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
         eventListActivityRetained.setLoadMoreView(loadMoreElement);
         loadMoreElement.setOnClickListener(new OnClickListener()
         {
@@ -163,6 +164,16 @@ public class EventListActivity extends MenuFragmentActivity
             searchTextView.setAdapter(placesAutoCompleteAdapter);
             searchTextView.dismissDropDown();
 
+            searchTextView.setOnTouchListener(new View.OnTouchListener()
+            {
+                @Override
+                public boolean onTouch(View v, MotionEvent event)
+                {
+                    searchTextView.showDropDown();
+                    return false;
+                }
+            });
+
             //Listener cuando se selecciona un elemento de la lista desplegable de lugares
             searchTextView.setOnItemClickListener(new OnItemClickListener()
             {
@@ -189,7 +200,7 @@ public class EventListActivity extends MenuFragmentActivity
             public void onClick(View view)
             {
                 searchTextView.setText("");
-                latlonSearch=null;
+                latlonSearch = null;
             }
         });
 

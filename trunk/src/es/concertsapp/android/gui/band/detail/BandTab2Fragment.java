@@ -185,7 +185,7 @@ public class BandTab2Fragment extends Fragment
 		@Override
 		protected void onPostExecute(final List<ArtistEventDTO> result) 
 		{
-            eventsProgressBar.setVisibility(View.INVISIBLE);
+            setProgressBarVisibility(View.INVISIBLE);
             if (backgroundError!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(),backgroundError);
             else

@@ -32,6 +32,7 @@
     <string name="posterheadertext">POSTER</string>
     <string name="calendarbuttontext">Calendario</string>
     <string name="mapabuttontext">Mapa</string>
+    <string name="map_title">MAP</string>
     <string name="ticketimagedescription">Imagen descriptiva de un ticket</string>
     <string name="no_calendar_title">Error</string>
     <string name="no_calendar_message">No se ha podido iniciar el calendario</string>

@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import es.concertsapp.android.conf.ConfValues;
@@ -82,7 +83,7 @@ public class FavouriteBandsStore
         notifyAdapters();
         saveFavouriteBandsToDisk();
         //Creamos una lista de solo uno para buscar solo de este
-        List<ArtistDTO> temp = new ArrayList<ArtistDTO>(1);
+        List<ArtistDTO> temp = Collections.synchronizedList(new ArrayList<ArtistDTO>(1));
         temp.add(artistDTO);
         if (favouritesFragment!=null)
             lookForNearEvents.lookForNearEvents(context, favouritesFragment,this,temp);
@@ -134,7 +135,7 @@ public class FavouriteBandsStore
         {
             FileInputStream fis = context.openFileInput(ConfValues.FILENAME_FAVORITES);
             ObjectInputStream is = new ObjectInputStream(fis);
-            favouriteBands = (ArrayList<ArtistDTO>) is.readObject();
+            favouriteBands = Collections.synchronizedList((ArrayList<ArtistDTO>) is.readObject());
             is.close();
             fis.close();
         }
@@ -147,7 +148,7 @@ public class FavouriteBandsStore
         {
             if (favouriteBands==null)
             {
-                favouriteBands = new ArrayList<ArtistDTO>();
+                favouriteBands = Collections.synchronizedList(new ArrayList<ArtistDTO>());
             }
         }
     }

@@ -10,6 +10,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -24,7 +25,7 @@ import es.concertsapp.android.utils.geo.impl.GooglePlacesApi;
  */
 public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> implements Filterable
 {
-    private List<PlaceInterface> listPlaces;
+    private List<PlaceInterface> listPlaces=new ArrayList<PlaceInterface>();
     private GooglePlacesApi googlePlacesApi = new GooglePlacesApi();
     private int normalResultView;
     private List<PlaceInterface> listPlacesSearched;
@@ -35,6 +36,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
         super(context, normalResultView);
         this.normalResultView = normalResultView;
         this.listPlacesSearched = listPlacesSearched;
+        listPlaces.addAll(listPlacesSearched);
         dropDownFontColorVisited = context.getResources().getColor(R.color.gray3);
     }
 
@@ -77,6 +79,11 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<PlaceInterface> impl
                         filterResults.values = listPlaces;
                         filterResults.count = listPlaces.size();
                     }
+                }
+                else
+                {
+                    listPlaces=new ArrayList<PlaceInterface>();
+                    listPlaces.addAll(listPlacesSearched);
                 }
                 return filterResults;
             }

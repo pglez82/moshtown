@@ -11,6 +11,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.font.FontUtils;
 
 /**
  * Created by pablo on 31/08/13.
@@ -23,6 +24,7 @@ public class EventMapActivity extends MenuFragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_map);
 
+        FontUtils.setRobotoFont(this,findViewById(R.id.maptitle), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         Bundle extras = getIntent().getExtras();
         if (extras!=null)
         {

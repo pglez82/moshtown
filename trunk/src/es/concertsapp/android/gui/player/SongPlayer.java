@@ -156,7 +156,7 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
         {
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(context)
-                            .setSmallIcon(R.drawable.ic_play)
+                            .setSmallIcon(R.drawable.ic_principal)
                             .setContentTitle(band)
                             .setContentText(song.getTitle())
                             .setOngoing(true);

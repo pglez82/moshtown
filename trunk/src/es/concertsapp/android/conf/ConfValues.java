@@ -15,7 +15,7 @@ public class ConfValues implements LastFmApiConfiguration
 
     //Máximo número de ciudades almacenadas como favoritos en la búsqueda de eventos (se resaltan en
     //las sugerencias
-    public static final int MAX_CITIES_STORED = 3;
+    public static final int MAX_CITIES_STORED = 5;
 
     //Distancia para considerar un concierto cercano (de momento solo para marcar que artistas favoritos
     //tienen conciertos cerca
