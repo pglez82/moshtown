@@ -76,6 +76,8 @@
     <string name="menu_repmostrar">Mostrar</string>
     <string name="menu_close">Salir</string>
 
+    <!--Texto de las notificaciones-->
+    <string name="notification_stop">Detener</string>
 
     <!--ACRA-->
     <string name="acradialogtext">Voy a mandar esta info al Chon directamente. Escribe aquí algo si crees que me puede ayudar con el fallo</string>

@@ -205,8 +205,8 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
             mBuilder.setContentIntent(resultPendingIntent);
 
             //Añadimos la posiblidad de cerrar el reproductor desde aquí
-            PendingIntent closePendingIntent = PendingIntent.getService(context,0,new Intent("es.concertsapp.android.gui.player.STOPPLAYER"),0);
-            mBuilder.addAction(R.drawable.ic_stop,"Prueba",closePendingIntent);
+            PendingIntent closePendingIntent = PendingIntent.getBroadcast(context,0,new Intent("es.concertsapp.android.gui.player.STOPPLAYER"),0);
+            mBuilder.addAction(R.drawable.ic_close,context.getResources().getString(R.string.notification_stop),closePendingIntent);
 
             myNotificationManager.notify(notificationId, mBuilder.build());
         }

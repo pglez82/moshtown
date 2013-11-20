@@ -115,31 +115,34 @@ public class LookForNearEvents
             {
                 List<ArtistDTO> favouriteBands = params[0];
                 LastFmApiConnector lastFmApiconnector = LastFmApiConnectorFactory.getInstance();
-                int number = favouriteBands.size();
-                int proccessed = 0;
-                for (ArtistDTO artistDTO : favouriteBands)
+                //Aunque sea una lista sincronizada hay que sincronizar iterando según la
+                //documentación de java
+                synchronized (favouriteBands)
                 {
-                    int index=alreadyLookedUp.indexOf(artistDTO);
-                    if (index<0)
+                    for (ArtistDTO artistDTO : favouriteBands)
                     {
-                        artistDTO.setNearEvents(false);
-                        List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
-                        for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
+                        int index=alreadyLookedUp.indexOf(artistDTO);
+                        if (index<0)
                         {
-                            double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
-                            if (distance< ConfValues.NEAR_EVENT_DISTANCE)
+                            artistDTO.setNearEvents(false);
+                            List<ArtistEventDTO> listArtistEventDTO = lastFmApiconnector.getArtistEvents(artistDTO.getArtistName());
+                            for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
                             {
-                                artistDTO.setNearEvents(true);
-                                publishProgress();
-                                break;
+                                double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
+                                if (distance< ConfValues.NEAR_EVENT_DISTANCE)
+                                {
+                                    artistDTO.setNearEvents(true);
+                                    publishProgress();
+                                    break;
+                                }
                             }
+                            alreadyLookedUp.add(artistDTO);
                         }
-                        alreadyLookedUp.add(artistDTO);
-                    }
-                    else
-                    {
-                        artistDTO.setNearEvents(alreadyLookedUp.get(index).isNearEvents());
-                        publishProgress();
+                        else
+                        {
+                            artistDTO.setNearEvents(alreadyLookedUp.get(index).isNearEvents());
+                            publishProgress();
+                        }
                     }
                 }
             }
