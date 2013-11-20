@@ -14,6 +14,7 @@ import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -198,7 +199,13 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
     @Override
     public void playerStatusChanged()
     {
-        ((BaseAdapter)getListView().getAdapter()).notifyDataSetChanged();
+        ListView listView = getListView();
+        if (listView!=null)
+        {
+            BaseAdapter bd = (BaseAdapter)listView.getAdapter();
+            if (bd!=null)
+                bd.notifyDataSetChanged();
+        }
     }
 
     static class PodcastHolder

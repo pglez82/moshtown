@@ -82,7 +82,8 @@ public class EventListActivityRetained extends Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         eventListActivity = (EventListActivity) activity;
-        eventPageAdapter.setEventListActivity(eventListActivity);
+        if (eventPageAdapter!=null)
+            eventPageAdapter.setEventListActivity(eventListActivity);
     }
 
     @Override

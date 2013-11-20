@@ -3,59 +3,63 @@
     <!--Generales-->
     <string name="locale">es</string>
     <string name="app_name">MoshTown</string>
-    <string name="button_lastfm_description">Pulsa aquí para acceder a las condiciones legales de last.fm</string>
+    <string name="button_lastfm_description">Pulsa aquí para acceder a las condiciones legales de nuestra aplicación</string>
 
 
     <!--Página principal de entrada-->
     <string name="button_shows">SHOWS</string>
-    <string name="button_bands">BANDS</string>
+    <string name="button_bands">BANDAS</string>
     <string name="puntos_description">Imagen separadora</string>
-    <string name="lastfm_description">Condiciones legales de LASTFM</string>
     <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
     <string name="intro_logo_description">Logo de MoshTown</string>
 
     <!--Listado de conciertos-->
-    <string name="list_noresults">No hay bolos e-burros</string>
+    <string name="list_noresults">Disculpa. No hemos encontrado conciertos. ¿En este sitio solo tocan blandengues?</string>
     <string name="buscar_text">Buscar</string>
     <string name="listMoreButton_text">Cargar más eventos</string>
     <string name="gps_button">GPS</string>
-    <string name="no_location_info_title">Error</string>
-    <string name="no_location_info_text">No se ha podido determinar la posición</string>
-    <string name="edit_ciudad_hint">WHERE?</string>
-    <string name="more_events_question">Quiés más? Pincha aquí</string>
+    <string name="no_location_info_title">Error GPS</string>
+    <string name="no_location_info_text">No se ha podido determinar tu posición</string>
+    <string name="edit_ciudad_hint">¿DÓNDE?</string>
+    <string name="more_events_question">¿Quieres más? Pincha aquí</string>
     <string name="button_gps_description">Pulsa aquí para buscar conciertos cerca de ti</string>
     <string name="button_lupa2_description">Pulsa aquí para buscar conciertos</string>
 
     <!--Actividad del evento-->
     <string name="imagen_evento">Imagen del evento</string>
     <string name="infoheadertext">INFO</string>
-    <string name="bandsheadertext">BANDS</string>
+    <string name="bandsheadertext">BANDAS</string>
+    <string name="posterheadertext">IMAGEN</string>
     <string name="calendarbuttontext">Calendario</string>
     <string name="mapabuttontext">Mapa</string>
+    <string name="map_title">MAPA</string>
+    <string name="ticketimagedescription">Imagen descriptiva de una entrada</string>
     <string name="no_calendar_title">Error</string>
     <string name="no_calendar_message">No se ha podido iniciar el calendario</string>
-    <string name="no_tickets_available">No hay información sobre tickets</string>
+    <string name="no_tickets_available">No hay información sobre venta de entradas</string>
 
     <!--Actividad listado de grupos-->
-    <string name="edit_banda_hint">WHO?</string>
+    <string name="edit_banda_hint">¿QUIÉN?</string>
     <string name="buscarbanda_text">Buscar</string>
-    <string name="bandeventsheadertext">NEXT SHOWS</string>
+    <string name="bandeventsheadertext">PRÓXIMOS CONCIERTOS</string>
     <string name="imagen_banda">Añadir a favoritos</string>
     <string name="ic_mundo_description">Bola de mundo</string>
     <string name="button_lupa_description">Pincha aquí para buscar grupos</string>
-    <string name="button_x_image_description">Pincha aquí para borrar la caja de búsqueda</string>
-    <string name="list_bands_noresults">No se ha encontrado ningún grupo</string>
+    <string name="button_x_image_description">Pincha aquí para borrar el texto de búsqueda</string>
+    <string name="list_bands_noresults">Ooops, lo sentimos. No hemos encontrado ningún grupo punk/hardcore con ese nombre.</string>
 
     <!--Actividad listado de favoritos-->
     <string name="mis_favoritos_title">MIS FAVORITOS</string>
 
     <!--Actividad de un grupo-->
     <string name="bio_text">BIO</string>
-    <string name="relatedartists_text">RELATED ARTISTS</string>
+    <string name="relatedartists_text">ARTISTAS RELACIONADOS</string>
     <string name="playstop_text">Reproducir, parar</string>
     <string name="toast_player">Vuelve al reproductor de audio a través del menú</string>
-    <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm</string>
+    <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm. Inténtalo en Spotify</string>
     <string name="play_description">Pulsa aquí para reproducir o parar una canción</string>
+    <string name="similar_noresults">Lo sentimos .No hemos encontrado ningún artista punk/hardcore relacionado.</string>
+    <string name="bandevents_noresults">No hay conciertos... de momento.</string>
     <string name="lastfm_title">LAST.FM</string>
     <string name="spotify_title">SPOTIFY</string>
 
@@ -81,9 +85,9 @@
 
     <!--Mensajes de error-->
     <string name="error_dialog_title">Error</string>
-    <string name="lastfm_error">Se ha producido un error con last.fm. Pruebe más tarde.</string>
-    <string name="connection_error">Hay problemas con tu conexión a internet.</string>
-    <string name="location_error">Activa el GPS o el A-GPS pedazo de alicate</string>
+    <string name="lastfm_error">Se ha producido un error de conexión con last.fm. Pruebe más tarde.</string>
+    <string name="connection_error">Parece que hay problemas con tu conexión a internet.</string>
+    <string name="location_error">GPS/A-GPS desactivados en tu dispositivo</string>
 
 
 </resources>

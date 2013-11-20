@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.util.List;
@@ -29,6 +31,10 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
 
     private static final String LOG_TAG = "SONGPLAYER";
     private static SongPlayer INSTANCE = new SongPlayer();
+
+    private boolean paused=false;
+    private int position;
+    private PhoneStateListener phoneStateListener;
 
     private MediaPlayer mediaPlayer;
     private Item songPlaying=null;
@@ -118,6 +124,7 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
             if (listener!=null)
                 listener.playerStatusChanged();
             updateNotification(bandPlaying,songPlaying,context);
+            createCallListener(context);
 
         } catch (Throwable e)
         {
@@ -135,6 +142,26 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
         if (listener!=null)
             listener.playerStatusChanged();
         updateNotification(bandPlaying,songPlaying,context);
+        removeCallListener(context);
+    }
+
+    public void pauseSong(Context context)
+    {
+        if (mediaPlayer !=null)
+        {
+            mediaPlayer.pause();
+            position=mediaPlayer.getCurrentPosition();
+            paused=true;
+        }
+    }
+
+    public void resumeSong(Context context)
+    {
+        if (mediaPlayer!=null && paused)
+        {
+            mediaPlayer.seekTo(position);
+            mediaPlayer.start();
+        }
     }
 
     public boolean isPlaying()
@@ -161,6 +188,7 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
                             .setContentText(song.getTitle())
                             .setOngoing(true);
 
+
             Intent notificationIntent = new Intent(context, BandInfoActivity.class);
             notificationIntent.putExtra(MyAppParameters.BANDID, getBandPlaying());
             notificationIntent.putExtra(MyAppParameters.FRAGMENTID, 2);
@@ -176,6 +204,9 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
                     );
             mBuilder.setContentIntent(resultPendingIntent);
 
+            //Añadimos la posiblidad de cerrar el reproductor desde aquí
+            PendingIntent closePendingIntent = PendingIntent.getService(context,0,new Intent("es.concertsapp.android.gui.player.STOPPLAYER"),0);
+            mBuilder.addAction(R.drawable.ic_stop,"Prueba",closePendingIntent);
 
             myNotificationManager.notify(notificationId, mBuilder.build());
         }
@@ -185,5 +216,35 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
         }
 
 
+    }
+
+    private void createCallListener(final Context context)
+    {
+        phoneStateListener = new PhoneStateListener() {
+            @Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                if (state == TelephonyManager.CALL_STATE_RINGING) {
+                    SongPlayer.getInstance().pauseSong(context);
+
+                } else if(state == TelephonyManager.CALL_STATE_IDLE) {
+                    SongPlayer.getInstance().resumeSong(context);
+                } else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
+                    SongPlayer.getInstance().pauseSong(context);
+                }
+                super.onCallStateChanged(state, incomingNumber);
+            }
+        };
+        TelephonyManager mgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if(mgr != null) {
+            mgr.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+        }
+    }
+
+    private void removeCallListener(Context context)
+    {
+        TelephonyManager mgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if(mgr != null) {
+            mgr.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
+        }
     }
 }

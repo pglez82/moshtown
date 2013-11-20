@@ -264,9 +264,13 @@ public class EventListActivity extends MenuFragmentActivity
                 listPlacesSearched = new ArrayList<PlaceInterface>();
             }
         }
-        listPlacesSearched = Collections.checkedList(listPlacesSearched,PlaceInterface.class);
     }
 
+    /**
+     * Este método salva un sitio buscado a una lista con un tamaño límite. Si se llega al límite,
+     * se borra el último. Si el elemento ya estaba, se cambia de posición y si mete en la primera.
+     * @param place sitio a guardar
+     */
     private void saveListPlacesSearched(final PlaceInterface place)
     {
         new Runnable()
@@ -276,21 +280,28 @@ public class EventListActivity extends MenuFragmentActivity
             {
                 FileOutputStream fos;
                 try {
-                    if (!listPlacesSearched.contains(place))
+                    int index = listPlacesSearched.indexOf(place);
+                    if (index==-1)
                     {
                         listPlacesSearched.add(0, place);
                         if (listPlacesSearched.size()>ConfValues.MAX_CITIES_STORED)
                         {
-                            listPlacesSearched=listPlacesSearched.subList(0,ConfValues.MAX_CITIES_STORED-1);
+                            //Hay que crear una lista porque lo que devuelve sublist no es serializable
+                            listPlacesSearched=new ArrayList<PlaceInterface>(listPlacesSearched.subList(0,ConfValues.MAX_CITIES_STORED));
                             placesAutoCompleteAdapter.setListPlacesSearched(listPlacesSearched);
                         }
-                        Context context = getListView().getContext();
-                        fos = context.openFileOutput(ConfValues.FILENAME_CITIES, Context.MODE_PRIVATE);
-                        ObjectOutputStream oos = new ObjectOutputStream(fos);
-                        oos.writeObject(listPlacesSearched);
-                        oos.close();
-                        fos.close();
                     }
+                    else
+                    {
+                        listPlacesSearched.remove(index);
+                        listPlacesSearched.add(0,place);
+                    }
+                    Context context = getListView().getContext();
+                    fos = context.openFileOutput(ConfValues.FILENAME_CITIES, Context.MODE_PRIVATE);
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(listPlacesSearched);
+                    oos.close();
+                    fos.close();
                 } catch (Throwable e)
                 {
                     e.printStackTrace();

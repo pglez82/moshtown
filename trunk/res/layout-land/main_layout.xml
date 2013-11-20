@@ -91,7 +91,7 @@
                 android:background="@drawable/button_lastfmbackground"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/lastfm_description"/>
+                android:contentDescription="@string/button_lastfm_description"/>
     </RelativeLayout>
 
 </RelativeLayout>

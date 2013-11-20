@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -14,6 +16,7 @@ import org.acra.annotation.ReportsCrashes;
 import java.util.Locale;
 
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.player.SongPlayer;
 
 /**
  * Created by pablo on 27/08/13.
@@ -76,4 +79,6 @@ public class MyApplication extends Application
 
         return usedLocale;
     }
+
+
 }

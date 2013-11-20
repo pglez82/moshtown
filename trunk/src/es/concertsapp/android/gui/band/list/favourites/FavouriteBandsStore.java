@@ -135,7 +135,7 @@ public class FavouriteBandsStore
         {
             FileInputStream fis = context.openFileInput(ConfValues.FILENAME_FAVORITES);
             ObjectInputStream is = new ObjectInputStream(fis);
-            favouriteBands = Collections.synchronizedList((ArrayList<ArtistDTO>) is.readObject());
+            favouriteBands = Collections.synchronizedList((List<ArtistDTO>) is.readObject());
             is.close();
             fis.close();
         }
