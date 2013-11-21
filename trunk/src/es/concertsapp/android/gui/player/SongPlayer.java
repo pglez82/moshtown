@@ -1,5 +1,6 @@
 package es.concertsapp.android.gui.player;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 import java.util.List;
 
@@ -181,12 +183,13 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
 
         if (songPlaying!=null)
         {
-            NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(context)
-                            .setSmallIcon(R.drawable.ic_principal)
-                            .setContentTitle(band)
-                            .setContentText(song.getTitle())
-                            .setOngoing(true);
+            RemoteViews mNotificationView = new RemoteViews(context.getPackageName(),R.layout.player_notification_view);
+            mNotificationView.setTextViewText(R.id.notTextBand,band);
+            mNotificationView.setTextViewText(R.id.notTextSong,song.getTitle());
+            //Añadimos la posiblidad de cerrar el reproductor desde aquí
+            PendingIntent closePendingIntent = PendingIntent.getBroadcast(context,0,new Intent("es.concertsapp.android.gui.player.STOPPLAYER"),0);
+            mNotificationView.setOnClickPendingIntent(R.id.notStopButton,closePendingIntent);
+
 
 
             Intent notificationIntent = new Intent(context, BandInfoActivity.class);
@@ -202,13 +205,13 @@ public class SongPlayer implements MediaPlayer.OnPreparedListener
                             0,
                             PendingIntent.FLAG_UPDATE_CURRENT
                     );
-            mBuilder.setContentIntent(resultPendingIntent);
-
-            //Añadimos la posiblidad de cerrar el reproductor desde aquí
-            PendingIntent closePendingIntent = PendingIntent.getBroadcast(context,0,new Intent("es.concertsapp.android.gui.player.STOPPLAYER"),0);
-            mBuilder.addAction(R.drawable.ic_close,context.getResources().getString(R.string.notification_stop),closePendingIntent);
-
-            myNotificationManager.notify(notificationId, mBuilder.build());
+            Notification not =
+                    new NotificationCompat.Builder(context)
+                            .setSmallIcon(R.drawable.ic_principal)
+                            .setContentIntent(resultPendingIntent)
+                            .setOngoing(true).build();
+            not.contentView=mNotificationView;
+            myNotificationManager.notify(notificationId, not);
         }
         else
         {

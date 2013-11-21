@@ -120,7 +120,10 @@ public class BandFavoritesFragment extends ListFragment
         @Override
         public Object getItem(int position)
         {
-            return favouriteBandsStore.getFavouriteBands().get(position);
+            if (favouriteBandsStore.getFavouriteBands().size()>position)
+                return favouriteBandsStore.getFavouriteBands().get(position);
+            else
+                return null;
         }
 
         @Override
@@ -158,16 +161,19 @@ public class BandFavoritesFragment extends ListFragment
             });
 
             ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
-            holder.favoriteName.setText(artistDTO.getArtistName());
-            FontUtils.setRobotoFont(getActivity(), holder.favoriteName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
+            if (artistDTO!=null)
+            {
+                holder.favoriteName.setText(artistDTO.getArtistName());
+                FontUtils.setRobotoFont(getActivity(), holder.favoriteName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
 
-            if (artistDTO.isNearEvents())
-                holder.favoriteName.setBackgroundColor(Color.RED);
-            else
-                holder.favoriteName.setBackgroundColor(Color.TRANSPARENT);
+                if (artistDTO.isNearEvents())
+                    holder.favoriteName.setBackgroundColor(Color.RED);
+                else
+                    holder.favoriteName.setBackgroundColor(Color.TRANSPARENT);
 
-            //last.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
-            holder.bandImageView.setLastFmImageSource(artistDTO);
+                //last.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
+                holder.bandImageView.setLastFmImageSource(artistDTO);
+            }
             return row;
         }
     }
