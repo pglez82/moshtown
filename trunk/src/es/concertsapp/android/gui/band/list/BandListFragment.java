@@ -27,6 +27,8 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
+import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
@@ -129,6 +131,17 @@ public class BandListFragment extends ListFragment
                 startActivity(myIntent);
             }
         });
+
+        ImageButton moshtownButton = (ImageButton)view.findViewById(R.id.button_moshtown);
+        moshtownButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
 	/*
@@ -209,6 +222,7 @@ public class BandListFragment extends ListFragment
                     public void onClick(View view) {
                         favouriteBandsStore.addFavouriteBand((ArtistDTO) getItem(position));
                         setRemoveFavouriteButton(button,position);
+                        DialogUtils.showToast(getActivity(),3,R.string.toastfavorito_text);
                     }
                 });
 

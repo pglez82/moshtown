@@ -15,7 +15,7 @@
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_mundo"
+                android:background="@drawable/ic_moshtown"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="6dp"
                 android:contentDescription="@string/ic_mundo_description"/>
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_x_image"
                 android:layout_gravity="center_vertical|right"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="3dp"
                 android:layout_marginRight="6dp"
                 android:contentDescription="@string/button_x_image_description"/>
     </LinearLayout>
@@ -90,9 +90,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
-                android:layout_alignParentRight="true"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/button_lastfm_description"/>
+                android:contentDescription="@string/button_lastfm_description"
+                android:layout_toLeftOf="@+id/button_moshtown"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_moshtown"
+                android:background="@drawable/button_moshtownbackground"
+                android:layout_marginRight="6dp"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/button_moshtown_description"/>
     </RelativeLayout>
 </LinearLayout>
 

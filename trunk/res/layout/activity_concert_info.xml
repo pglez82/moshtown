@@ -100,12 +100,20 @@
                 <TextView
                         android:id="@+id/fechaevent"
                         android:layout_height="32dp"
-                        android:layout_width="fill_parent"
+                        android:layout_width="0dp"
                         android:textSize="16sp"
                         android:text="FECHA"
+                        android:layout_weight="1"
                         android:textColor="@color/black"
                         android:gravity="center_vertical"
                         android:layout_marginLeft="12dp"/>
+                <ImageView
+                        android:id="@+id/icmas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_mas"
+                        android:text="@string/calendarbuttontext"
+                        />
             </LinearLayout>
 
             <LinearLayout
@@ -121,14 +129,15 @@
                         android:id="@+id/buttonshowmap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_mapa"
+                        android:background="@drawable/ic_mundo"
                         android:text="@string/mapabuttontext"
                         android:layout_gravity="center_vertical"
                         />
                 <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_weight="1">
                     <TextView
                             android:id="@+id/mapinfoevent"
                             android:layout_width="fill_parent"
@@ -149,6 +158,12 @@
                             />
 
                 </LinearLayout>
+                <ImageView
+                        android:id="@+id/ic_mapa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_mapa"
+                        />
             </LinearLayout>
 
             <LinearLayout
@@ -308,8 +323,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
-                android:layout_alignParentRight="true"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/button_lastfm_description"/>
+                android:contentDescription="@string/button_lastfm_description"
+                android:layout_toLeftOf="@+id/button_moshtown"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_moshtown"
+                android:background="@drawable/button_moshtownbackground"
+                android:layout_marginRight="6dp"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/button_moshtown_description"/>
     </RelativeLayout>
 </LinearLayout>

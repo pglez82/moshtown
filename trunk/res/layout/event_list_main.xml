@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_x_image"
                 android:layout_gravity="center_vertical|right"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="3dp"
                 android:layout_marginRight="6dp"
                 android:contentDescription="@string/button_x_image_description"/>
     </LinearLayout>
@@ -84,38 +84,44 @@
               android:layout_weight="1"
               android:text="@string/list_noresults" />
 
-    <RelativeLayout
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="32dp"
             android:orientation="horizontal"
             android:id="@+id/iniciopie"
             android:background="#4d4d4d"
+            android:gravity="center_vertical"
             >
         <ProgressBar
                 style="@android:style/Widget.ProgressBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/progressbareventlist"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="6dp"/>
         <TextView
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:id="@+id/loadmoreelement"
-                android:layout_alignParentLeft="false"
+                android:layout_weight="1"
                 android:text="@string/more_events_question"
-                android:layout_centerInParent="true"/>
+                android:gravity="center_horizontal"
+                />
 
         <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
-                android:layout_alignParentRight="true"
                 android:layout_marginRight="6dp"
                 android:contentDescription="@string/button_lastfm_description"/>
-    </RelativeLayout>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_moshtown"
+                android:background="@drawable/button_moshtownbackground"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_moshtown_description"/>
+    </LinearLayout>
 
 
 </LinearLayout>

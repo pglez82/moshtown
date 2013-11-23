@@ -382,6 +382,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         if (webView!=null)
         {
             webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setDomStorageEnabled(true);
             StringBuilder embed = new StringBuilder();
             embed.append("<html><head><style>body{margin:0;margin-left:-7px}</style></head><body><iframe src=\"");
             embed.append(uri);

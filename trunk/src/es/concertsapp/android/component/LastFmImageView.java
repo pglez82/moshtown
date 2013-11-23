@@ -119,8 +119,13 @@ public class LastFmImageView extends ImageView
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
             ImageSize imageSize=LastFmImageSizeCalc.getOptimunImageSize(width);
             String imageUrl = lastFmImageSourceI.getImageURL(imageSize);
-            if (imageUrl != null)
+            if (imageUrl != null && !"".equals(imageUrl))
                 imageDownloader.download(imageUrl, this,maxDim);
+            else
+            {
+                //showprogress=false;
+                //this.setImageResource(R.drawable.noimage_background);
+            }
         }
     }
 

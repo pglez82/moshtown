@@ -18,6 +18,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.dto.ArtistDTO;
@@ -90,6 +91,17 @@ public class BandFavoritesFragment extends ListFragment
                 startActivity(myIntent);
             }
         });
+
+        ImageButton moshtownButton = (ImageButton)view.findViewById(R.id.button_moshtown);
+        moshtownButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     public void setProgressBarState(int progressBarState)
@@ -104,9 +116,10 @@ public class BandFavoritesFragment extends ListFragment
 
     static class BandSearchHolder
     {
-        LastFmImageView bandImageView;
+        ImageView tocancercaImage;
         TextView favoriteName;
         ImageView favouriteButton;
+        TextView tocancercaTextView;
     }
 
     private class FavoriteBandsAdapter extends BaseAdapter
@@ -144,9 +157,10 @@ public class BandFavoritesFragment extends ListFragment
                 holder = new BandSearchHolder();
                 if (row!=null)
                 {
-                    holder.bandImageView =(LastFmImageView)row.findViewById(R.id.bandImageView);
+                    holder.tocancercaImage =(ImageView)row.findViewById(R.id.tocancercaImageView);
                     holder.favoriteName = (TextView)row.findViewById(R.id.bandsearchName);
                     holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
+                    holder.tocancercaTextView=(TextView)row.findViewById(R.id.tocancercaText);
                     row.setTag(holder);
                 }
             } else {
@@ -167,13 +181,18 @@ public class BandFavoritesFragment extends ListFragment
                 FontUtils.setRobotoFont(getActivity(), holder.favoriteName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
 
                 if (artistDTO.isNearEvents())
-                    holder.favoriteName.setBackgroundColor(Color.RED);
+                {
+                    holder.tocancercaImage.setBackgroundResource(R.drawable.ic_tocancerca_on);
+                    holder.tocancercaTextView.setVisibility(View.VISIBLE);
+                }
                 else
-                    holder.favoriteName.setBackgroundColor(Color.TRANSPARENT);
+                {
+                    holder.tocancercaImage.setBackgroundResource(R.drawable.ic_tocancerca_off);
+                    holder.tocancercaTextView.setVisibility(View.INVISIBLE);
+                }
 
-                //last.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
-                holder.bandImageView.setLastFmImageSource(artistDTO);
             }
+            FontUtils.setRobotoFont(getActivity(),holder.tocancercaTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             return row;
         }
     }

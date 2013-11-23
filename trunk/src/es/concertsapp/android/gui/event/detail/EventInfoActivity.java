@@ -28,6 +28,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -156,6 +157,17 @@ public class EventInfoActivity extends MenuFragmentActivity
                 public void onClick(View view)
                 {
                     Intent myIntent = new Intent(EventInfoActivity.this, LegalConditionsActivity.class);
+                    startActivity(myIntent);
+                }
+            });
+
+            ImageButton moshtownButton = (ImageButton)findViewById(R.id.button_moshtown);
+            moshtownButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent myIntent = new Intent(EventInfoActivity.this, MoshTownConditionsActivity.class);
                     startActivity(myIntent);
                 }
             });

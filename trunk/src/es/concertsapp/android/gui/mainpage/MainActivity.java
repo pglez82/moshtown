@@ -15,6 +15,7 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyApplication;
@@ -35,7 +36,7 @@ public class MainActivity extends MenuActivity
 		{
             TextView textViewVersion = (TextView)findViewById(R.id.version);
             version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-            textViewVersion.setText(version);
+            textViewVersion.setText(version+" Alfa");
 		}
 		catch (Throwable e){}
 
@@ -69,6 +70,17 @@ public class MainActivity extends MenuActivity
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(MainActivity.this, LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageButton imageButton2 = (ImageButton)findViewById(R.id.button_moshtown);
+        imageButton2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(MainActivity.this, MoshTownConditionsActivity.class);
                 startActivity(myIntent);
             }
         });
