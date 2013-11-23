@@ -61,26 +61,26 @@ public class LookForNearEvents
             MyLocation.getCachedLocation(context,new MyLocation.LocationResult()
             {
                 @Override
-                public void locationFound(Location location, String name)
+                public void locationFound(final Location location,final String name)
                 {
-                    if (location!=null)
+                    if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
                     {
-                        lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
-                        lookForNearEventsTask.execute(artistToLookUp);
-                    }
-                    else
-                    {
-                        if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
+                        favouritesActivity.getActivity().runOnUiThread(new Runnable()
                         {
-                            favouritesActivity.getActivity().runOnUiThread(new Runnable()
+                            @Override
+                            public void run()
                             {
-                                @Override
-                                public void run()
+                                if (location!=null)
+                                {
+                                    lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
+                                    lookForNearEventsTask.execute(artistToLookUp);
+                                }
+                                else
                                 {
                                     favoritesFragment.setProgressBarState(View.INVISIBLE);
                                 }
-                            });
-                        }
+                            }
+                        });
                     }
                 }
             });

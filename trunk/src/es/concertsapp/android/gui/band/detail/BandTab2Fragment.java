@@ -23,6 +23,7 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.event.list.EventListHelper;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.MyApplication;
@@ -244,6 +245,17 @@ public class BandTab2Fragment extends Fragment
                 public void onClick(View view)
                 {
                     Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                    startActivity(myIntent);
+                }
+            });
+
+            ImageButton imageButton2 = (ImageButton)rootView.findViewById(R.id.button_moshtown);
+            imageButton2.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
                     startActivity(myIntent);
                 }
             });

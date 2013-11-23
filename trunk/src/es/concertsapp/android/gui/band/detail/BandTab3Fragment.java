@@ -29,6 +29,7 @@ import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
+import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -85,6 +86,17 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        ImageButton imageButton2 = (ImageButton)view.findViewById(R.id.button_moshtown);
+        imageButton2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
                 startActivity(myIntent);
             }
         });

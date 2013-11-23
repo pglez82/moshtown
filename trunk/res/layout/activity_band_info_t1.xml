@@ -212,9 +212,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
-                android:layout_alignParentRight="true"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/button_lastfm_description"/>
+                android:contentDescription="@string/button_lastfm_description"
+                android:layout_toLeftOf="@+id/button_moshtown"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_moshtown"
+                android:background="@drawable/button_moshtownbackground"
+                android:layout_marginRight="6dp"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/button_moshtown_description"/>
     </RelativeLayout>
 
 </LinearLayout>
