@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -36,6 +37,7 @@ import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.font.FontUtils;
+import es.concertsapp.android.utils.spotify.SpotifyUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 
 
@@ -232,19 +234,48 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         private ListView listView;
         private PodcastsAdapter podcastsAdapter;
         private String spotifyUri;
+        private SpotifyUtils spotifyUtils = SpotifyUtils.getInstance();
 
         public synchronized void updateListView(ListView listView)
         {
             this.listView = listView;
             this.listView.setAdapter(podcastsAdapter);
-            if (spotifyUri!=null && !"".equals(spotifyUri))
+            WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
+            TextView textViewNS = (TextView)getActivity().findViewById(R.id.textSpotifyNotInstalled);
+            Button buttonNS = (Button)getActivity().findViewById(R.id.buttonSpotifyNotInstalled);
+            if (spotifyUtils.isSpotifyInstalled(getActivity()))
             {
-                showSpotify(spotifyUri);
-                if (podcastsAdapter==null || podcastsAdapter.isEmpty())
+                if (webView!=null) webView.setVisibility(View.VISIBLE);
+                if (textViewNS!=null)textViewNS.setVisibility(View.GONE);
+                if (buttonNS!=null)buttonNS.setVisibility(View.GONE);
+                if (spotifyUri!=null && !"".equals(spotifyUri))
                 {
-                    if (!expandablePanelSpotify.isExpanded())
-                        expandablePanelSpotify.tooglePanel();
+                    showSpotify(spotifyUri,webView);
+                    if (podcastsAdapter==null || podcastsAdapter.isEmpty())
+                    {
+                        if (!expandablePanelSpotify.isExpanded())
+                            expandablePanelSpotify.tooglePanel();
+                    }
                 }
+            }
+            else
+            {
+                if (webView!=null) webView.setVisibility(View.GONE);
+                if (textViewNS!=null)textViewNS.setVisibility(View.VISIBLE);
+                if (buttonNS!=null)
+                {
+                    buttonNS.setVisibility(View.VISIBLE);
+                    buttonNS.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View view)
+                        {
+                            spotifyUtils.lauchSpotifyInstall(getActivity());
+                        }
+                    });
+                }
+
+
             }
         }
 
@@ -388,9 +419,8 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         SongPlayer.getInstance().stopSong(getActivity());
     }
 
-    private synchronized void showSpotify(String uri)
+    private synchronized void showSpotify(String uri, WebView webView)
     {
-        WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
         if (webView!=null)
         {
             webView.getSettings().setJavaScriptEnabled(true);

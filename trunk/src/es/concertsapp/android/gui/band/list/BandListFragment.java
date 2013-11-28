@@ -33,6 +33,7 @@ import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.font.FontUtils;
+import es.concertsapp.android.utils.keyboard.KeyBoardUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewArtistAvaibleListener;
 import es.lastfm.api.connector.dto.ArtistDTO;
@@ -88,6 +89,7 @@ public class BandListFragment extends ListFragment
         buscarButon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 searchBands(v);
             }
         });
@@ -150,6 +152,8 @@ public class BandListFragment extends ListFragment
 	private void searchBands(View v)
 	{
 		EditText text = (EditText)this.getActivity().findViewById(R.id.editBanda);
+        //Cerramos el teclado
+        KeyBoardUtils.hideKeyboard(getActivity(),text.getWindowToken());
 		String bandName = text.getText().toString();
 		if (bandName!=null && !"".equals(bandName))
 		{

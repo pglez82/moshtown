@@ -8,7 +8,7 @@ import es.concertsapp.android.utils.geo.PlaceInterface;
 /**
  * Created by pablo on 24/08/13.
  */
-public class Place implements PlaceInterface, Serializable
+public class GooglePlacesPlace implements PlaceInterface, Serializable
 {
     private final String placeName;
     private LatitudeLongitude latlon;
@@ -19,7 +19,7 @@ public class Place implements PlaceInterface, Serializable
     //Indicamos que es transient para que no lo serialize
     private transient final GooglePlacesApi googlePlacesApi;
 
-    public Place(String placeName, String ref,GooglePlacesApi googlePlacesApi)
+    public GooglePlacesPlace(String placeName, String ref,GooglePlacesApi googlePlacesApi)
     {
         this.placeName = placeName;
         this.ref = ref;
@@ -53,7 +53,7 @@ public class Place implements PlaceInterface, Serializable
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Place place = (Place) o;
+        GooglePlacesPlace place = (GooglePlacesPlace) o;
 
         if (placeName != null ? !placeName.equals(place.placeName) : place.placeName != null)
             return false;

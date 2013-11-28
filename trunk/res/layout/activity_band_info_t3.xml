@@ -124,6 +124,21 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/spotifyWebView"/>
+                <TextView
+                        android:id="@+id/textSpotifyNotInstalled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:textColor="@color/gray4"
+                        android:text="@string/nospotify_text"
+                        android:visibility="gone"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/buttonSpotifyNotInstalled"
+                        android:text="@string/nospotify_button_text"
+                        android:visibility="gone"
+                        />
             </LinearLayout>
 
         </es.concertsapp.android.component.ExpandablePanel>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.concertsapp.android.gui"
-    android:versionCode="1"
-    android:versionName="1.0"
+    android:versionCode="2"
+    android:versionName="1.02"
     >
 
     <uses-sdk
@@ -52,7 +52,7 @@
         </activity>
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyDtXr3zXYg_-cYwjTtduH8fLilO4n5ZShQ"/>
+                android:value="AIzaSyATmFkQXliT63E_cZGzT-1HLF_bTPmdfNI"/>
 
         <activity
             android:name=".band.detail.BandInfoActivity"

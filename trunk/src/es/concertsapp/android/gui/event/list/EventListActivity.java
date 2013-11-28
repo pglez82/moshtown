@@ -41,6 +41,8 @@ import es.concertsapp.android.utils.geo.LatitudeLongitude;
 import es.concertsapp.android.utils.geo.MyLocation;
 import es.concertsapp.android.utils.geo.MyLocation.LocationResult;
 import es.concertsapp.android.utils.geo.PlaceInterface;
+import es.concertsapp.android.utils.geo.impl.GpsObtainedPlace;
+import es.concertsapp.android.utils.keyboard.KeyBoardUtils;
 import es.lastfm.api.connector.dto.EventDTO;
 
 public class EventListActivity extends MenuFragmentActivity
@@ -192,6 +194,7 @@ public class EventListActivity extends MenuFragmentActivity
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
                 {
+                    KeyBoardUtils.hideKeyboard(EventListActivity.this,searchTextView.getWindowToken());
                     searchTextView.dismissDropDown();
                     searchTextView.setSelection(0);
                     PlaceInterface place = placesAutoCompleteAdapter.getItem(i);
@@ -336,6 +339,7 @@ public class EventListActivity extends MenuFragmentActivity
         else
         {
     	    final EditText text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
+            KeyBoardUtils.hideKeyboard(this,text.getWindowToken());
             eventListActivityRetained.getEventPageAdapter().startEventSearch(text.getText().toString());
         }
     }
@@ -438,6 +442,11 @@ public class EventListActivity extends MenuFragmentActivity
             AutoCompleteTextView text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
 			if (location!=null)
 	    	{
+                //En el caso de que nos venga un nombre, lo guardamos en los últimos buscados
+                if (name!=null && !"".equals(name))
+                {
+                    saveListPlacesSearched(new GpsObtainedPlace(new LatitudeLongitude(location.getLatitude(),location.getLongitude()),name));
+                }
                 eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
 				//Lanzamos la búsqueda para esta localizacion
     	    	Log.d(LOG_TAG,"Latitud y long devuelta...buscando eventos"+location);

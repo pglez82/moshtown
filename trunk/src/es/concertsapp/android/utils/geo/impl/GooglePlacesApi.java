@@ -26,7 +26,7 @@ public class GooglePlacesApi implements PlaceAutocompleterInterface
     private static final String TYPE_DETAILS = "/details";
     private static final String OUT_JSON = "/json";
 
-    private static final String API_KEY = "AIzaSyAHFN8UuZ7tv1YSyywCBMm0ujx5ZzneLA4";
+    private static final String API_KEY = "AIzaSyDwUxo-csfddL__Q3r7thavAdVO-OqIGqU";
 
     public List<PlaceInterface> autocomplete(String text,String language) {
         List<PlaceInterface> resultList = null;
@@ -45,12 +45,12 @@ public class GooglePlacesApi implements PlaceAutocompleterInterface
             {
                 JSONArray predsJsonArray = jsonObj.getJSONArray("predictions");
 
-                // Extract the Place descriptions from the results
+                // Extract the GooglePlacesPlace descriptions from the results
                 resultList = new ArrayList<PlaceInterface>(predsJsonArray.length());
                 for (int i = 0; i < predsJsonArray.length(); i++)
                 {
-                    Place place = new Place(predsJsonArray.getJSONObject(i).getString("description"),predsJsonArray.getJSONObject(i).getString("reference"),this);
-                    resultList.add(place);
+                    GooglePlacesPlace googlePlacesPlace = new GooglePlacesPlace(predsJsonArray.getJSONObject(i).getString("description"),predsJsonArray.getJSONObject(i).getString("reference"),this);
+                    resultList.add(googlePlacesPlace);
                 }
             }
         }

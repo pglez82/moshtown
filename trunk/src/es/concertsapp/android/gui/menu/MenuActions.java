@@ -10,6 +10,7 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
+import es.concertsapp.android.gui.mainpage.MainActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.MyAppParameters;
 
@@ -38,6 +39,10 @@ public class MenuActions
     {
         Intent myIntent;
         switch (item.getItemId()) {
+            case R.id.menu_inicio:
+                myIntent = new Intent(activity, MainActivity.class);
+                activity.startActivity(myIntent);
+                return true;
             case R.id.menu_searchevents:
                 myIntent = new Intent(activity, EventListActivity.class);
                 activity.startActivity(myIntent);
