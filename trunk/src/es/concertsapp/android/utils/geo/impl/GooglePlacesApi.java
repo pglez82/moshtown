@@ -38,7 +38,7 @@ public class GooglePlacesApi implements PlaceAutocompleterInterface
             sb.append("&types=(cities)");
             sb.append("&input=" + URLEncoder.encode(text, "utf8"));
             URL url = new URL(sb.toString());
-
+            Log.d(LOG_TAG, "Lanzando "+sb.toString());
             JSonParser jSonParser = new JSonParser();
             JSONObject jsonObj = jSonParser.parseJSon(url);
             if (jsonObj != null)

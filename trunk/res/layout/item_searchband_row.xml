@@ -20,16 +20,12 @@
             android:background="@drawable/ic_estrella_off"
             android:layout_marginRight="6dp"
             />
-
-    <es.concertsapp.android.component.LastFmImageView
-            android:id="@+id/bandsearchImageView"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/imagen_banda"
-            example:maxLastFmImageHeight="48"
-
-
-            />
+        <es.concertsapp.android.component.LastFmImageView
+                android:id="@+id/bandsearchImageView"
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                example:maxLastFmImageHeight="48"
+                />
         <TextView
             android:id="@+id/bandsearchName"
             android:layout_width="0dip"

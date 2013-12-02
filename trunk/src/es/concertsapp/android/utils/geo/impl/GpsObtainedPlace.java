@@ -35,4 +35,18 @@ public class GpsObtainedPlace implements PlaceInterface, Serializable
     {
         return placeName;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null) return false;
+
+        PlaceInterface place = (PlaceInterface) o;
+
+        if (placeName != null ? !placeName.equals(place.getPlaceName()) : place.getPlaceName() != null)
+            return false;
+
+        return true;
+    }
 }

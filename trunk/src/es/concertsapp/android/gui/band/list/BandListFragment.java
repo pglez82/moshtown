@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -175,13 +176,6 @@ public class BandListFragment extends ListFragment
         }
     }
 
-    static class BandSearchHolder
-	{
-		LastFmImageView bandsearchImageView;
-		TextView bandsearchName;
-        ImageView favouriteButton;
-	}
-	
 	public class SearchBandsTask extends AsyncTask<String, ArtistDTO, Void> implements NewArtistAvaibleListener
 	{	
 		//Donde se van a cargar los datos
@@ -247,39 +241,39 @@ public class BandListFragment extends ListFragment
 			@Override
 			public View getView(final int position, View convertView, ViewGroup parent)
 			{
+                //Este getView es especial. Tuve problemas porque convertView no devuelve siempre el mismo
+                //objeto para la position determinada... intenta reciclar vistas. Ni idea de como la hace.
+                //la curestión es que eso da problemas con mi lastfmimageview que trata de bajar las imagenes
+                //y las mezcla. Como este listao siempre es pequeño, siempre creo una view nueva y pista
+                //a ver que tal
 				View row = convertView;
-				BandSearchHolder holder;
+                ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
 
-				if (row == null) {
-					LayoutInflater inflater = (getActivity()).getLayoutInflater();
-					row = inflater.inflate(R.layout.item_searchband_row, parent, false);
+                LayoutInflater inflater = (getActivity()).getLayoutInflater();
+                row = inflater.inflate(R.layout.item_searchband_row, parent, false);
 
-					holder = new BandSearchHolder();
-					holder.bandsearchImageView =(LastFmImageView)row.findViewById(R.id.bandsearchImageView);
-					holder.bandsearchName = (TextView)row.findViewById(R.id.bandsearchName);
-                    holder.favouriteButton=(ImageView)row.findViewById(R.id.favouriteImageView);
-					row.setTag(holder);
-				} else {
-					holder = (BandSearchHolder) row.getTag();
-				}
+                ImageView favouriteButton = (ImageView)row.findViewById(R.id.favouriteImageView);
+                LastFmImageView bandsearchImageView = (LastFmImageView)row.findViewById(R.id.bandsearchImageView);
+                TextView bandsearchName=(TextView)row.findViewById(R.id.bandsearchName);
 
                 //Este trozo de codigo se tiene que ejecutar siempre porque los datos se pueden actualizar
                 //en los dos fragmentos y así se sincroniza la cosa bien
-                ArtistDTO artistDTO = (ArtistDTO)this.getItem(position);
+
                 if (favouriteBandsStore.getFavouriteBands().contains(artistDTO))
                 {
-                    setRemoveFavouriteButton(holder.favouriteButton,position);
+                    setRemoveFavouriteButton(favouriteButton,position);
                 }
                 else
                 {
-                    setAddFavouriteButton(holder.favouriteButton,position);
+                    setAddFavouriteButton(favouriteButton,position);
                 }
 
 
-                FontUtils.setRobotoFont(getActivity(),holder.bandsearchName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
-				holder.bandsearchName.setText(artistDTO.getArtistName());
+                FontUtils.setRobotoFont(getActivity(),bandsearchName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
+				bandsearchName.setText(artistDTO.getArtistName());
 				//imageDownloader.download(artistDTO.getImageURL(ImageSize.MEDIUM), holder.bandsearchImageView);
-                holder.bandsearchImageView.setLastFmImageSource(artistDTO);
+
+                bandsearchImageView.setLastFmImageSource(artistDTO);
 				return row;
 			}
 		}

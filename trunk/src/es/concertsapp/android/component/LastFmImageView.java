@@ -83,8 +83,11 @@ public class LastFmImageView extends ImageView
     public void setLastFmImageSource(LastFmImageSourceI lastFmImageSourceI)
     {
         this.lastFmImageSourceI = lastFmImageSourceI;
-        //TODO: HAY QEU REVISAR A FONDO ESTA PARTE, PORQUE TEMO QUE SE ESTÉN DESCARGANDO DEMASIADAS IMAGENES
-        downloadImage();
+    }
+
+    public boolean hasLastFmImageSource()
+    {
+        return this.lastFmImageSourceI!=null;
     }
 
     private void setWidth(int newWidth)
@@ -111,6 +114,8 @@ public class LastFmImageView extends ImageView
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.getHeight()/3,this.getHeight()/3);
                 layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL,1);
                 layoutParams.addRule(RelativeLayout.CENTER_VERTICAL,1);
+                //Si da excepción aquí es porque la imagen con un show progress tiene que estar dentro de un relative layout
+                //Mirar la página de grupos, cualquiera de los dos primeros tabs
                 RelativeLayout parentLayout = (RelativeLayout)this.getParent();
                 this.setVisibility(INVISIBLE);
                 parentLayout.addView(progressBar,layoutParams);
@@ -119,12 +124,20 @@ public class LastFmImageView extends ImageView
             ImageDownloader imageDownloader = ImageDownloader.getInstance();
             ImageSize imageSize=LastFmImageSizeCalc.getOptimunImageSize(width);
             String imageUrl = lastFmImageSourceI.getImageURL(imageSize);
+            Log.d(LOG_TAG,"descargando imagen de tamaño "+imageSize.name());
             if (imageUrl != null && !"".equals(imageUrl))
+            {
                 imageDownloader.download(imageUrl, this,maxDim);
+            }
             else
             {
-                //showprogress=false;
-                //this.setImageResource(R.drawable.noimage_background);
+                if (showprogress)
+                {
+                    RelativeLayout parentLayout = (RelativeLayout)this.getParent();
+                    parentLayout.removeView(progressBar);
+                }
+                this.setVisibility(VISIBLE);
+                this.setBackgroundResource(R.drawable.noimage_background);
             }
         }
     }

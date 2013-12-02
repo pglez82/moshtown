@@ -83,14 +83,9 @@ public class EventInfoActivity extends MenuFragmentActivity
             //Información sobre los tickets
             String linkText="";
             TextView linkTickets = (TextView)findViewById(R.id.detailedconcerttickes);
-            if (detailedEventDTO.getTicketsInfo()!=null && detailedEventDTO.getTicketsInfo().size()>0)
+            if (detailedEventDTO.getDescription()!=null && !"".equals(detailedEventDTO.getDescription()))
             {
-                for (Event.TicketSupplier ticketSupplier : detailedEventDTO.getTicketsInfo())
-                {
-                    linkText += "<a href='"+ticketSupplier.getWebsite()+"'>"+ticketSupplier.getName()+"</a>";
-                }
-
-                linkTickets.setText(Html.fromHtml(linkText));
+                linkTickets.setText(Html.fromHtml(detailedEventDTO.getDescription()));
                 linkTickets.setMovementMethod(LinkMovementMethod.getInstance());
             }
             else

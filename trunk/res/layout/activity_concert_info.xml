@@ -167,7 +167,7 @@
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_height="32dp"
+                    android:layout_height="fill_parent"
                     android:layout_width="fill_parent"
                     android:orientation="horizontal">
 
@@ -182,10 +182,8 @@
                 <TextView
                         android:id="@+id/detailedconcerttickes"
                         android:layout_width="fill_parent"
-                        android:layout_height="32dp"
+                        android:layout_height="fill_parent"
                         android:textSize="14sp"
-                        android:text="Probando"
-                        android:gravity="center_vertical"
                         android:layout_marginLeft="12dp"
                         android:textColor="@color/gray3"
                         />

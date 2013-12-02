@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.concertsapp.android.gui"
-    android:versionCode="2"
-    android:versionName="1.02"
+    android:versionCode="5"
+    android:versionName="1.05"
     >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="8" />
 
+    <!--En general para acceder a internet-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--Para poder escribir los favoritos y la lista de ciudades y tb para google maps-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--Para saber el estado de la red y necesario para google maps-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--Permisos para acceder a la localización-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-    <permission android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
-    <uses-permission android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--Para google maps-->
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+
+    <!--Para detectar las llamadas cuando el reproductor está sonando-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
+    <!--Para que el acra pueda leer el log - igual hay que quitarlo-->
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
-    <uses-feature
-    android:glEsVersion="0x00020000"
-    android:required="true" />
+
+    <permission
+        android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="es.concertsapp.android.gui.permission.MAPS_RECEIVE"/>
+
+    <!--Necesario para google maps-->
+    <uses-feature android:glEsVersion="0x00020000"
+        android:required="true"/>
 
 
 
     <application android:name="es.concertsapp.android.utils.MyApplication" android:icon="@drawable/ic_principal" android:label="@string/app_name" android:allowBackup="true">
-
         <!-- <uses-library android:name="com.google.android.maps" /> -->
         <activity
             android:name="es.concertsapp.android.gui.mainpage.MainActivity"
@@ -50,9 +64,7 @@
                 android:name=".event.detail.EventMapActivity"
                 android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
-        <meta-data
-                android:name="com.google.android.maps.v2.API_KEY"
-                android:value="AIzaSyATmFkQXliT63E_cZGzT-1HLF_bTPmdfNI"/>
+
 
         <activity
             android:name=".band.detail.BandInfoActivity"
@@ -85,6 +97,7 @@
                   android:excludeFromRecents="true"
                   android:finishOnTaskLaunch="true" />
 
+        <!--Este broadcast receiver sirve para poder parar la música desde las notificaciones (ahí no tenemos acceso a la app)-->
         <receiver android:name=".player.SongPlayerBR" >
             <intent-filter>
                 <action android:name="es.concertsapp.android.gui.player.STOPPLAYER">
@@ -92,6 +105,10 @@
             </intent-filter>
         </receiver>
 
+        <!--Clave para google maps api v2-->
+        <meta-data
+                android:name="com.google.android.maps.v2.API_KEY"
+                android:value="AIzaSyDXnE07HMLujmMJ9eF3iL1KFtCi66HXcN8"/>
     </application>
 
 </manifest>

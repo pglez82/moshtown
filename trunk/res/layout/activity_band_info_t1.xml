@@ -22,42 +22,42 @@
             android:layout_height="150dp"
             android:layout_width="fill_parent"
             >
-    <es.concertsapp.android.component.LastFmImageView
-            android:id="@+id/detailedbandimage"
-            android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:contentDescription="@string/imagen_evento"
-            example:showprogress="true"
-            example:maxLastFmImageHeight="150"
-            android:minHeight="150dp"
-            android:layout_alignParentTop="true"/>
-    <RelativeLayout
-            android:id="@+id/bandnameandfavourite"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="6dp"
-            android:layout_alignBottom="@+id/detailedbandimage"
-            >
-        <TextView
-                android:id="@+id/detailedbandname"
+        <es.concertsapp.android.component.LastFmImageView
+                android:id="@+id/detailedbandimage"
                 android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:contentDescription="@string/imagen_evento"
+                example:showprogress="true"
+                example:maxLastFmImageHeight="150"
+                android:minHeight="150dp"
+                android:layout_alignParentTop="true"/>
+        <RelativeLayout
+                android:id="@+id/bandnameandfavourite"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:paddingLeft="18dp"
-                android:textSize="22sp"
-                android:layout_centerVertical="true"
-                android:background="@drawable/mancha_transparente"
-                />
-        <Button
-                android:id="@+id/addFavouriteBandDetail"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/ic_estrella_grupos_on"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"/>
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="6dp"
+                android:layout_alignBottom="@+id/detailedbandimage"
+                >
+            <TextView
+                    android:id="@+id/detailedbandname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="18dp"
+                    android:textSize="22sp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/mancha_transparente"
+                    />
+            <Button
+                    android:id="@+id/addFavouriteBandDetail"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_estrella_grupos_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
 
-    </RelativeLayout>
+        </RelativeLayout>
         <ImageView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
