@@ -184,6 +184,7 @@
                           android:gravity="top"
                           android:layout_gravity="top"
                           android:layout_weight="1"
+                          android:textColor="@color/gray4"
                           android:text="@string/similar_noresults" />
             </LinearLayout>
         </es.concertsapp.android.component.ExpandablePanel>

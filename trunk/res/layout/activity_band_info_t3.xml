@@ -74,8 +74,9 @@
                       android:drawSelectorOnTop="false"/>
             <TextView android:id="@id/android:empty"
                       android:layout_width="wrap_content"
-
                       android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:textColor="@color/gray4"
                       android:text="@string/no_lastfm_songs"/>
         </LinearLayout>
         </es.concertsapp.android.component.ExpandablePanel>
@@ -124,19 +125,29 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:id="@+id/spotifyWebView"/>
+                <TextView android:id="@+id/nosongsspotify"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/no_spotify_songs"
+                          android:textColor="@color/gray4"
+                          android:textSize="14sp"
+                        android:visibility="gone"/>
                 <TextView
                         android:id="@+id/textSpotifyNotInstalled"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="14sp"
                         android:textColor="@color/gray4"
                         android:text="@string/nospotify_text"
+                        android:layout_marginTop="15dp"
                         android:visibility="gone"/>
                 <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/buttonSpotifyNotInstalled"
                         android:text="@string/nospotify_button_text"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
                         android:visibility="gone"
                         />
             </LinearLayout>

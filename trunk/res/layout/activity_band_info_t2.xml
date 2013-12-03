@@ -86,6 +86,8 @@
                   android:layout_height="wrap_content"
                   android:gravity="top"
                   android:layout_gravity="top"
+                  android:textSize="14sp"
+                  android:textColor="@color/gray4"
                   android:text="@string/bandevents_noresults" />
     </LinearLayout>
 

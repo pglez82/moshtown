@@ -172,7 +172,11 @@ public class BandTab1Fragment extends Fragment
 
                 //Cargamos la descripción
                 TextView descTextView = ((TextView)rootView.findViewById(R.id.detailedbanddescription));
-                descTextView.setText(Html.fromHtml(artistDTO.getSummary()));
+                if (artistDTO.getSummary()!=null && !"".equals(artistDTO.getSummary()))
+                    descTextView.setText(Html.fromHtml(artistDTO.getSummary()));
+                else
+                    descTextView.setText(getString(R.string.no_bio_text));
+
                 descTextView.setMovementMethod(new ScrollingMovementMethod());
                 descTextView.setMovementMethod(LinkMovementMethod.getInstance());
 

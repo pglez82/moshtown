@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -103,7 +104,9 @@ public class EventListActivity extends MenuFragmentActivity
             }
         });
 
-        eventListActivityRetained.setEmptyView(findViewById(R.id.list_main_events_noresults));
+        TextView noResults = (TextView)findViewById(R.id.list_main_events_noresults);
+        eventListActivityRetained.setEmptyView(noResults);
+        FontUtils.setRobotoFont(this,noResults, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
         ImageButton buscarButon = (ImageButton)findViewById(R.id.buscarButon);
         buscarButon.setOnClickListener(new OnClickListener() {

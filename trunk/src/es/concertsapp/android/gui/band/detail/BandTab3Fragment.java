@@ -106,6 +106,12 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         //Establecemos las fuentes
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.lastfmpanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.spotifypanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.textSpotifyNotInstalled),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.buttonSpotifyNotInstalled),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.nosongsspotify),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        ListView listView = getListView();
+        if (listView!=null && listView.getEmptyView()!=null)
+            FontUtils.setRobotoFont(getActivity(),listView.getEmptyView(),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
         ExpandablePanel expandablePanelLast = (ExpandablePanel)view.findViewById(R.id.expandablepanellastfm);
         final ImageView flechaLast = (ImageView)view.findViewById(R.id.flechaLast);
@@ -141,7 +147,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             }
         });
 
-        ListView listView = getListView();
         if (!artistName.contains("&"))
         {
             if (downloadPodcastTask==null)
@@ -153,10 +158,6 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             {
                 downloadPodcastTask.updateListView(listView);
             }
-        }
-        else
-        {
-
         }
 
 
@@ -243,11 +244,13 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
             TextView textViewNS = (TextView)getActivity().findViewById(R.id.textSpotifyNotInstalled);
             Button buttonNS = (Button)getActivity().findViewById(R.id.buttonSpotifyNotInstalled);
+            TextView noSongsSpotify = (TextView)getActivity().findViewById(R.id.nosongsspotify);
             if (spotifyUtils.isSpotifyInstalled(getActivity()))
             {
                 if (webView!=null) webView.setVisibility(View.VISIBLE);
                 if (textViewNS!=null)textViewNS.setVisibility(View.GONE);
                 if (buttonNS!=null)buttonNS.setVisibility(View.GONE);
+                if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.GONE);
                 if (spotifyUri!=null && !"".equals(spotifyUri))
                 {
                     showSpotify(spotifyUri,webView);
@@ -257,11 +260,19 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                             expandablePanelSpotify.tooglePanel();
                     }
                 }
+                else
+                {
+                    if (webView!=null) webView.setVisibility(View.GONE);
+                    if (textViewNS!=null)textViewNS.setVisibility(View.GONE);
+                    if (buttonNS!=null)buttonNS.setVisibility(View.GONE);
+                    if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.VISIBLE);
+                }
             }
             else
             {
                 if (webView!=null) webView.setVisibility(View.GONE);
                 if (textViewNS!=null)textViewNS.setVisibility(View.VISIBLE);
+                if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.GONE);
                 if (buttonNS!=null)
                 {
                     buttonNS.setVisibility(View.VISIBLE);

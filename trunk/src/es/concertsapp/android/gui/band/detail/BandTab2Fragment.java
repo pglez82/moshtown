@@ -264,6 +264,7 @@ public class BandTab2Fragment extends Fragment
             FontUtils.setRobotoFont(getActivity(), detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(getActivity(), nextshowstitle, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(getActivity(),rootView.findViewById(R.id.nextshowstitle),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(getActivity(),emptyView,FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
             if (downDonwloadEventsBandTask==null)
             {

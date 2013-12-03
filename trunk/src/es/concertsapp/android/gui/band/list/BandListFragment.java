@@ -83,6 +83,11 @@ public class BandListFragment extends ListFragment
             getListView().getEmptyView().setVisibility(View.INVISIBLE);
         }
 
+        if (getListView()!=null && getListView().getEmptyView()!=null)
+        {
+            FontUtils.setRobotoFont(getActivity(),getListView().getEmptyView(), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        }
+
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
         progressBar.setVisibility(progressBarState);
 

@@ -81,7 +81,11 @@
               android:layout_height="0dp"
               android:gravity="top"
               android:layout_gravity="top"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
               android:layout_weight="1"
+              android:textColor="@color/gray4"
+              android:textSize="14sp"
               android:text="@string/list_noresults" />
 
     <LinearLayout

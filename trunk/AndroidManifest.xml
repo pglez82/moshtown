@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.concertsapp.android.gui"
-    android:versionCode="5"
-    android:versionName="1.05"
+    android:versionCode="6"
+    android:versionName="1.06"
     >
 
     <uses-sdk
@@ -29,7 +29,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <!--Para que el acra pueda leer el log - igual hay que quitarlo-->
-    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!--<uses-permission android:name="android.permission.READ_LOGS"/>-->
 
 
     <permission

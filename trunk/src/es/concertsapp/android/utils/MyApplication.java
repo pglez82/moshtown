@@ -31,11 +31,12 @@ import es.concertsapp.android.gui.player.SongPlayer;
         formUriBasicAuthLogin="oughtlyedgentremakeencel",
         formUriBasicAuthPassword="Cs0fAFqEPDAWW7vyq3EFc5Ro",
         mode = ReportingInteractionMode.DIALOG,
-        customReportContent = { ReportField.REPORT_ID,ReportField.INSTALLATION_ID,ReportField.PACKAGE_NAME,ReportField.BUILD,ReportField.APP_VERSION_CODE,ReportField.AVAILABLE_MEM_SIZE,ReportField.CRASH_CONFIGURATION,ReportField.DISPLAY,ReportField.USER_APP_START_DATE,ReportField.USER_CRASH_DATE,ReportField.SETTINGS_GLOBAL,ReportField.SETTINGS_SYSTEM, ReportField.USER_COMMENT, ReportField.ANDROID_VERSION, ReportField.APP_VERSION_NAME, ReportField.PHONE_MODEL, ReportField.BRAND, ReportField.STACK_TRACE, ReportField.LOGCAT},
+        /*customReportContent = { ReportField.REPORT_ID,ReportField.INSTALLATION_ID,ReportField.PACKAGE_NAME,ReportField.BUILD,ReportField.APP_VERSION_CODE,ReportField.AVAILABLE_MEM_SIZE,ReportField.CRASH_CONFIGURATION,ReportField.DISPLAY,ReportField.USER_APP_START_DATE,ReportField.USER_CRASH_DATE,ReportField.SETTINGS_GLOBAL,ReportField.SETTINGS_SYSTEM, ReportField.USER_COMMENT, ReportField.ANDROID_VERSION, ReportField.APP_VERSION_NAME, ReportField.PHONE_MODEL, ReportField.BRAND, ReportField.STACK_TRACE, ReportField.LOGCAT},*/
+        customReportContent = { ReportField.REPORT_ID,ReportField.INSTALLATION_ID,ReportField.PACKAGE_NAME,ReportField.BUILD,ReportField.APP_VERSION_CODE,ReportField.AVAILABLE_MEM_SIZE,ReportField.CRASH_CONFIGURATION,ReportField.DISPLAY,ReportField.USER_APP_START_DATE,ReportField.USER_CRASH_DATE,ReportField.SETTINGS_GLOBAL,ReportField.SETTINGS_SYSTEM, ReportField.ANDROID_VERSION, ReportField.APP_VERSION_NAME, ReportField.PHONE_MODEL, ReportField.BRAND, ReportField.STACK_TRACE},
         logcatArguments = { "-t", "200", "-v", "time", "es.concertsapp.android.gui:D"},
         resToastText = R.string.acratoasttext,
         resDialogText = R.string.acradialogtext,
-        resDialogCommentPrompt = R.string.acracomment, // optional. when defined, adds a user text field input with this text resource as a label
+        //resDialogCommentPrompt = R.string.acracomment, // optional. when defined, adds a user text field input with this text resource as a label
         resDialogOkToast = R.string.acradialogok // optional. displays a Toast message when the user accepts to send a report.
 )
 public class MyApplication extends Application
