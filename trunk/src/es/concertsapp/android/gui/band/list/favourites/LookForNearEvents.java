@@ -14,6 +14,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import es.concertsapp.android.conf.ConfValues;
+import es.concertsapp.android.gui.R;
+import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.geo.DistanceCalculator;
@@ -50,40 +52,50 @@ public class LookForNearEvents
         },0,ConfValues.TIME_FAVOURITE_CONCERTS_EXPIRES*1000*60);
     }
 
+
+
+
     public void lookForNearEvents(Context context, final BandFavoritesFragment favouritesActivity, final FavouriteBandsStore favouriteBandsStore, final List<ArtistDTO> artistToLookUp)
     {
         this.favoritesFragment = favouritesActivity;
         //Mostramos la barra de progreso
         favoritesFragment.setProgressBarState(View.VISIBLE);
 
+        MyLocation.LocationResult locationResult = new MyLocation.LocationResult()
+        {
+            @Override
+            public void locationFound(final Location location,final String name)
+            {
+                if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
+                {
+                    favouritesActivity.getActivity().runOnUiThread(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            if (location!=null)
+                            {
+                                lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
+                                lookForNearEventsTask.execute(artistToLookUp);
+                            }
+                            else
+                            {
+                                favoritesFragment.setProgressBarState(View.INVISIBLE);
+                            }
+                        }
+                    });
+                }
+            }
+        };
+
         try
         {
-            MyLocation.getCachedLocation(context,new MyLocation.LocationResult()
+            if (!MyLocation.getCachedLocation(context,locationResult))
             {
-                @Override
-                public void locationFound(final Location location,final String name)
-                {
-                    if (favouritesActivity!=null && favouritesActivity.getActivity()!=null)
-                    {
-                        favouritesActivity.getActivity().runOnUiThread(new Runnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (location!=null)
-                                {
-                                    lookForNearEventsTask = new LookForNearEventsTask(favouriteBandsStore,location);
-                                    lookForNearEventsTask.execute(artistToLookUp);
-                                }
-                                else
-                                {
-                                    favoritesFragment.setProgressBarState(View.INVISIBLE);
-                                }
-                            }
-                        });
-                    }
-                }
-            });
+                favoritesFragment.setProgressBarState(View.INVISIBLE);
+                if (favouritesActivity!=null)
+                    DialogUtils.showToast(favouritesActivity.getActivity(),2500, R.string.toastgpsenable);
+            }
         }
         catch (Throwable e)
         {

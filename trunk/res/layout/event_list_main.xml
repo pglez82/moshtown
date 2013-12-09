@@ -37,7 +37,7 @@
                 android:dropDownWidth="fill_parent"
                 android:dropDownAnchor="@id/inicialbuscador"
                 android:layout_weight="1"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="6dp"
                 android:textSize="22sp"
                 android:singleLine="true"
                 android:popupBackground="@drawable/p_google"
@@ -71,7 +71,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:divider="#00000000"
+            android:divider="@color/black"
             android:fadingEdge="none"
             android:cacheColorHint="#FFFFFF"
             >

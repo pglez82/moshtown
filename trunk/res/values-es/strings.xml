@@ -21,7 +21,7 @@
     <string name="gps_button">GPS</string>
     <string name="no_location_info_title">Error GPS</string>
     <string name="no_location_info_text">No se ha podido determinar tu posición</string>
-    <string name="edit_ciudad_hint">¿DÓNDE?</string>
+    <string name="edit_ciudad_hint">DÓNDE?</string>
     <string name="more_events_question">¿Quieres más? Pincha aquí</string>
     <string name="button_gps_description">Pulsa aquí para buscar conciertos cerca de ti</string>
     <string name="button_lupa2_description">Pulsa aquí para buscar conciertos</string>
@@ -40,7 +40,7 @@
     <string name="no_tickets_available">No hay información sobre venta de entradas</string>
 
     <!--Actividad listado de grupos-->
-    <string name="edit_banda_hint">¿QUIÉN?</string>
+    <string name="edit_banda_hint">QUIÉN?</string>
     <string name="buscarbanda_text">Buscar</string>
     <string name="bandeventsheadertext">PRÓXIMOS CONCIERTOS</string>
     <string name="imagen_banda">Añadir a favoritos</string>
@@ -54,6 +54,7 @@
     <string name="tocan_cerca_description">Tocan cerca de ti</string>
     <string name="tocancerca_text">Tocan cerca de ti.</string>
     <string name="toastfavorito_text">Accede a favoritos desde el menú o deslizando a la derecha</string>
+    <string name="toastgpsenable">Activa el GPS/AGPS si quieres ver si tus favoritos tocan cerca de ti</string>
 
     <!--Actividad de un grupo-->
     <string name="bio_text">BIO</string>
@@ -75,6 +76,7 @@
     <string name="lastfm_conditions">El acceso y utilización por parte de Moshtown de la API y los datos de Last.fm están sujetos a los Términos de Servicio de la API publicados en la web de Last.fm en http://www.lastfm.es/api/tos y actualizados periódicamente, a los Términos de Uso de la web de Last.fm publicados en la web de Last.fm en http://www.last.fm/legal/terms y actualizados periódicamente y a la Política de Privacidad de Last.fm publicada en la web de Last.fm en ttp://www.last.fm/legal/terms y actualizada periódicamente.</string>
     <string name="moshtown_conditions">Gracias por instalar Moshtown. Para cualquier duda, queja, sugerencia, o si simplemente quieres charlar con los creadores de Moshtown porque crees que son gente realmente interesante (eh... sí que lo somos) escríbenos a moshtownapp@gmail.com. Estaremos encantados de leer vuestros correos e intentaremos contestarlos todos (en la medida de lo posible). De nuevo, GRACIAS.</string>
     <string name="spotify_conditions">Este producto usa la API de Spotify pero no está avalado, certificado ni aprobado en ningún modo por Spotify. Spotify es la marca registrada del Grupo Spotify.</string>
+
     <!--Menu-->
     <string name="menu_inicio">Inicio</string>
     <string name="menu_searchevents">Buscar conciertos</string>

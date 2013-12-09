@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -225,7 +226,7 @@ public class BandListFragment extends ListFragment
                     public void onClick(View view) {
                         favouriteBandsStore.addFavouriteBand((ArtistDTO) getItem(position));
                         setRemoveFavouriteButton(button,position);
-                        DialogUtils.showToast(getActivity(),3,R.string.toastfavorito_text);
+                        DialogUtils.showToast(getActivity(), Toast.LENGTH_LONG,R.string.toastfavorito_text);
                     }
                 });
 

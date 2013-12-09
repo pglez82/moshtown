@@ -173,7 +173,7 @@ public class EventInfoActivity extends MenuFragmentActivity
             FontUtils.setRobotoFont(this, findViewById(R.id.eventposterpanelbutton), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, detailConcertName, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, textViewFechaEvent, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
-            FontUtils.setRobotoFont(this, mapinfoevent, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            FontUtils.setRobotoFont(this, mapinfoevent, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
             FontUtils.setRobotoFont(this, mapinfoeventaddress, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, linkTickets, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
             FontUtils.setRobotoFont(this, findViewById(R.id.listbandstext), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

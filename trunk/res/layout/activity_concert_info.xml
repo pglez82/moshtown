@@ -145,7 +145,7 @@
                             android:textSize="14sp"
                             android:gravity="center_vertical"
                             android:layout_marginLeft="12dp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/gray3"
                             />
                     <TextView
                             android:id="@+id/mapinfoeventaddress"

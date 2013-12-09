@@ -29,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:background="@color/black"
             android:textColor="@color/white"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="6dp"
             android:textSize="22sp"
             android:singleLine="true"/>
 
@@ -58,7 +58,7 @@
         android:id="@id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:cacheColorHint="#00000000"
+        android:cacheColorHint="@color/black"
         android:layout_weight="1"
         android:divider="@color/gray"
         android:fadingEdge="none">
