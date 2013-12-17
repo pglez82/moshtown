@@ -17,7 +17,16 @@ public class MoshTownConditionsActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aviso_moshtown_layout);
 
-        TextView textViewVersion = (TextView)findViewById(R.id.conditions_textview);
-        FontUtils.setRobotoFont(this, textViewVersion, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        try
+        {
+            TextView textViewVersion = (TextView)findViewById(R.id.version);
+            String version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            FontUtils.setRobotoFont(this, textViewVersion, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            textViewVersion.setText(version);
+        }
+        catch (Throwable e){}
+
+        TextView textViewMoshTown = (TextView)findViewById(R.id.conditions_textview);
+        FontUtils.setRobotoFont(this, textViewMoshTown, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
     }
 }

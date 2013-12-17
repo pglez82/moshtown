@@ -343,7 +343,8 @@ public class EventListActivity extends MenuFragmentActivity
         {
     	    final EditText text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
             KeyBoardUtils.hideKeyboard(this,text.getWindowToken());
-            eventListActivityRetained.getEventPageAdapter().startEventSearch(text.getText().toString());
+            if (text.getText()!=null)
+                eventListActivityRetained.getEventPageAdapter().startEventSearch(text.getText().toString());
         }
     }
 

@@ -1,8 +1,12 @@
 package es.concertsapp.android.gui.legal;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
@@ -19,14 +23,21 @@ public class LegalConditionsActivity extends MenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aviso_legal_layout);
 
-        TextView textViewVersion = (TextView)findViewById(R.id.conditions_textview);
-        FontUtils.setRobotoFont(this,textViewVersion, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        TextView textViewconditions = (TextView)findViewById(R.id.conditions_textview);
+        FontUtils.setRobotoFont(this,textViewconditions, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         TextView textViewSpotify = (TextView)findViewById(R.id.textViewSpotify);
-        FontUtils.setRobotoFont(this,textViewSpotify, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-        textViewVersion.setMovementMethod(new ScrollingMovementMethod());
+        FontUtils.setRobotoFont(this, textViewSpotify, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        textViewconditions.setMovementMethod(new ScrollingMovementMethod());
         textViewSpotify.setMovementMethod(new ScrollingMovementMethod());
-        textViewVersion.setMovementMethod(LinkMovementMethod.getInstance());
         textViewSpotify.setMovementMethod(LinkMovementMethod.getInstance());
+        ImageView imageLast = (ImageView)findViewById(R.id.im_powered_as);
+        imageLast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent link=new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.last.fm"));
+                startActivity(link);
+            }
+        });
 
     }
 }

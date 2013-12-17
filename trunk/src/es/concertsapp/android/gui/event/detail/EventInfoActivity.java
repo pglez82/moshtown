@@ -81,11 +81,15 @@ public class EventInfoActivity extends MenuFragmentActivity
             textViewFechaEvent.setText(dateFormater.formatDateEvent(detailedEventDTO.getStartDate()));
 
             //Información sobre los tickets
-            String linkText="";
+
             TextView linkTickets = (TextView)findViewById(R.id.detailedconcerttickes);
             if (detailedEventDTO.getDescription()!=null && !"".equals(detailedEventDTO.getDescription()))
             {
-                linkTickets.setText(Html.fromHtml(detailedEventDTO.getDescription()));
+                String description = detailedEventDTO.getDescription();
+                //Hay que meter un espacio detrás de cada enlace para que el enlace no llegue hasta final
+                //de linea y no sea un coñazo para el usuario
+                description=description.replace("</a>","</a> ");
+                linkTickets.setText(Html.fromHtml(description));
                 linkTickets.setMovementMethod(LinkMovementMethod.getInstance());
             }
             else

@@ -25,21 +25,12 @@ import es.lastfm.api.connector.tags.PunkTags;
 
 public class MainActivity extends MenuActivity
 {
-    private String version;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main_layout);
 		
-		try
-		{
-            TextView textViewVersion = (TextView)findViewById(R.id.version);
-            version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-            textViewVersion.setText(version+" Alfa");
-		}
-		catch (Throwable e){}
-
         LetterSpacingTextView sloganTextView = (LetterSpacingTextView)findViewById(R.id.text_slogan);
         FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
         sloganTextView.setLetterSpacing(6);

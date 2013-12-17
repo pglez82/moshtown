@@ -121,10 +121,14 @@
                 android:layout_height="fill_parent"
                 android:layout_width="fill_parent"
                 android:orientation="vertical">
-                <WebView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/spotifyWebView"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spotifybutton"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dp"
+                        android:textSize="14sp"
+                        android:text="@string/spotify_button"/>
                 <TextView android:id="@+id/nosongsspotify"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"

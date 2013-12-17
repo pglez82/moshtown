@@ -109,6 +109,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.textSpotifyNotInstalled),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.buttonSpotifyNotInstalled),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.nosongsspotify),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+        FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.spotifybutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         ListView listView = getListView();
         if (listView!=null && listView.getEmptyView()!=null)
             FontUtils.setRobotoFont(getActivity(),listView.getEmptyView(),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
@@ -241,19 +242,26 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         {
             this.listView = listView;
             this.listView.setAdapter(podcastsAdapter);
-            WebView webView = (WebView)getActivity().findViewById(R.id.spotifyWebView);
+            Button spotifyButton = (Button)getActivity().findViewById(R.id.spotifybutton);
             TextView textViewNS = (TextView)getActivity().findViewById(R.id.textSpotifyNotInstalled);
             Button buttonNS = (Button)getActivity().findViewById(R.id.buttonSpotifyNotInstalled);
             TextView noSongsSpotify = (TextView)getActivity().findViewById(R.id.nosongsspotify);
             if (spotifyUtils.isSpotifyInstalled(getActivity()))
             {
-                if (webView!=null) webView.setVisibility(View.VISIBLE);
+                if (spotifyButton!=null) spotifyButton.setVisibility(View.VISIBLE);
                 if (textViewNS!=null)textViewNS.setVisibility(View.GONE);
                 if (buttonNS!=null)buttonNS.setVisibility(View.GONE);
                 if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.GONE);
                 if (spotifyUri!=null && !"".equals(spotifyUri))
                 {
-                    showSpotify(spotifyUri,webView);
+                    spotifyButton.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View view)
+                        {
+                            SpotifyUtils.getInstance().launchSpotifyArtist(getActivity(),spotifyUri);
+                        }
+                    });
                     if (podcastsAdapter==null || podcastsAdapter.isEmpty())
                     {
                         if (!expandablePanelSpotify.isExpanded())
@@ -262,7 +270,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
                 }
                 else
                 {
-                    if (webView!=null) webView.setVisibility(View.GONE);
+                    if (spotifyButton!=null) spotifyButton.setVisibility(View.GONE);
                     if (textViewNS!=null)textViewNS.setVisibility(View.GONE);
                     if (buttonNS!=null)buttonNS.setVisibility(View.GONE);
                     if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.VISIBLE);
@@ -270,7 +278,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             }
             else
             {
-                if (webView!=null) webView.setVisibility(View.GONE);
+                if (spotifyButton!=null) spotifyButton.setVisibility(View.GONE);
                 if (textViewNS!=null)textViewNS.setVisibility(View.VISIBLE);
                 if (noSongsSpotify!=null)noSongsSpotify.setVisibility(View.GONE);
                 if (buttonNS!=null)
@@ -430,7 +438,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         SongPlayer.getInstance().stopSong(getActivity());
     }
 
-    private synchronized void showSpotify(String uri, WebView webView)
+    /*private synchronized void showSpotify(String uri, WebView webView)
     {
         if (webView!=null)
         {
@@ -442,7 +450,7 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
             embed.append("\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe></body></html>");
             webView.loadData(embed.toString() , "text/html" , "utf-8");
         }
-    }
+    }*/
 
     @Override
     public void onDestroyView()

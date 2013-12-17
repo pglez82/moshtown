@@ -17,12 +17,21 @@
             android:id="@+id/conditions_textview"
             android:layout_height="0dp"
             android:layout_width="fill_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.9"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
             android:textSize="14sp"
             android:text="@string/moshtown_conditions"
             android:textColor="@color/black"/>
+    <TextView
+            android:id="@+id/version"
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:text="Version"
+            />
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="32dp"

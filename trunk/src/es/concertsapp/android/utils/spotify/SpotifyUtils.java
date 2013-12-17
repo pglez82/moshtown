@@ -54,4 +54,9 @@ public class SpotifyUtils
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + spotifyUri)));
         }
     }
+
+    public void launchSpotifyArtist(Context context, String spotifyLink)
+    {
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(spotifyLink)));
+    }
 }
