@@ -101,22 +101,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="eaa453fd-cc03-4f70-8383-386f16e59637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/rateshare" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/rateshare/RateShareActions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/spotify_button_textcolor.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/detail/EventMapActivity.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/detail/EventMapActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/impl/GooglePlacesApi.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/impl/GooglePlacesApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/es/concertsapp/android/gui/menu/MenuActions.java" afterPath="$PROJECT_DIR$/src/es/concertsapp/android/gui/menu/MenuActions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_band_info_t3.xml" afterPath="$PROJECT_DIR$/res/layout/activity_band_info_t3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_concert_info.xml" afterPath="$PROJECT_DIR$/res/layout/activity_concert_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/menu/general_menu.xml" afterPath="$PROJECT_DIR$/res/menu/general_menu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main_layout.xml" afterPath="$PROJECT_DIR$/res/layout/main_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/band_list.xml" afterPath="$PROJECT_DIR$/res/layout/band_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard-project.txt" afterPath="$PROJECT_DIR$/proguard-project.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values-es/strings.xml" afterPath="$PROJECT_DIR$/res/values-es/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PageList.iws" />
@@ -273,15 +260,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_concert_info.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_concert_info.xml">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="63" selection-start="12316" selection-end="12316" vertical-scroll-proportion="-0.29411766" vertical-offset="3960" max-vertical-offset="5130">
+            <state line="3" column="27" selection-start="176" selection-end="176" vertical-scroll-proportion="0.083333336" vertical-offset="15" max-vertical-offset="1785">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -321,20 +305,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="borrar.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/borrar.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="34" selection-start="624" selection-end="624" vertical-scroll-proportion="-8.076923" vertical-offset="0" max-vertical-offset="375">
-              <folding>
-                <element signature="e#717#741#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="button_shows_bands_textcolor.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/drawable/button_shows_bands_textcolor.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -353,11 +323,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BandTab3Fragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="event_list_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="0" selection-start="3873" selection-end="3873" vertical-scroll-proportion="-14.423077" vertical-offset="1035" max-vertical-offset="2070">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BandTab3Fragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="66" selection-start="4227" selection-end="4227" vertical-scroll-proportion="0.45989305" vertical-offset="844" max-vertical-offset="6030">
+            <state line="109" column="66" selection-start="4227" selection-end="4227" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="6030">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="band_list.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="30" selection-start="2884" selection-end="2884" vertical-scroll-proportion="-4.0" vertical-offset="831" max-vertical-offset="1740">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BandListFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="104" column="49" selection-start="3734" selection-end="3734" vertical-scroll-proportion="-18.0" vertical-offset="480" max-vertical-offset="5070">
+              <folding>
+                <element signature="e#3830#4287#0" expanded="true" />
+                <element signature="e#4276#4277#0" expanded="true" />
+                <element signature="e#4453#4631#0" expanded="true" />
+                <element signature="e#4620#4621#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -366,30 +374,6 @@
         <entry file="file://$PROJECT_DIR$/res/layout/activity_band_info_t1.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="49" column="20" selection-start="2281" selection-end="2331" vertical-scroll-proportion="-2.745098" vertical-offset="595" max-vertical-offset="3510">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="band_favorites_list.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/band_favorites_list.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="20" selection-start="882" selection-end="882" vertical-scroll-proportion="-6.6153846" vertical-offset="143" max-vertical-offset="1050">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_favourites_row.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/item_favourites_row.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="34" selection-start="1452" selection-end="1452" vertical-scroll-proportion="-8.076923" vertical-offset="255" max-vertical-offset="975">
               <folding />
             </state>
           </provider>
@@ -433,8 +417,6 @@
         <option value="$PROJECT_DIR$/res/layout/item_row.xml" />
         <option value="$PROJECT_DIR$/res/layout/band_favorites_list.xml" />
         <option value="$PROJECT_DIR$/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/res/layout/band_list.xml" />
-        <option value="$PROJECT_DIR$/res/layout/event_list_main.xml" />
         <option value="$PROJECT_DIR$/res/layout/item_searchband_row.xml" />
         <option value="$PROJECT_DIR$/res/drawable/button_estrella_off_image.xml" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/mainpage/MainActivity.java" />
@@ -446,11 +428,9 @@
         <option value="$PROJECT_DIR$/res/layout/aviso_legal_layout.xml" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/legal/LegalConditionsActivity.java" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/utils/geo/impl/GooglePlacesApi.java" />
-        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java" />
         <option value="$PROJECT_DIR$/proguard-project.txt" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/detail/EventMapActivity.java" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/event/list/EventListActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/menu/general_menu.xml" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/menu/MenuActions.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
@@ -463,6 +443,10 @@
         <option value="$PROJECT_DIR$/res/drawable/spotify_button_textcolor.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_band_info_t3.xml" />
         <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/event_list_main.xml" />
+        <option value="$PROJECT_DIR$/res/layout/band_list.xml" />
+        <option value="$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -1022,7 +1006,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="ExportedApkPath" value="$PROJECT_DIR$/HxCPunkapp_1.11signed.apk" />
+    <property name="ExportedApkPath" value="$PROJECT_DIR$/HxCPunkapp_1.13signed.apk" />
     <property name="options.lastSelected" value="preferences.sourceCode.Java" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
@@ -1514,7 +1498,11 @@
       <created>1387310565177</created>
       <updated>1387310565177</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="1.08 Alfa">
+      <created>1387802564130</created>
+      <updated>1387802564130</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1557,7 +1545,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16287878" sideWeight="0.5115607" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22719735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6235489" sideWeight="0.86742425" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33665007" sideWeight="0.86742425" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32601535" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1802,36 +1790,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="43" selection-start="3274" selection-end="3274" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="2070">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="40" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proguard-project.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="46" selection-start="2172" selection-end="2172" vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="4" selection-start="1723" selection-end="1772" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4905">
           <folding />
         </state>
       </provider>
@@ -1858,13 +1819,6 @@
             <element signature="e#18170#18201#0" expanded="false" />
             <element signature="e#18203#18233#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="39" selection-start="121" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2000,18 +1954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/borrar.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="34" selection-start="624" selection-end="624" vertical-scroll-proportion="-8.076923" vertical-offset="0" max-vertical-offset="375">
-          <folding>
-            <element signature="e#717#741#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/mancha_transparente_spotify.9.png">
       <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
@@ -2060,7 +2002,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/detail/BandTab3Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="66" selection-start="4227" selection-end="4227" vertical-scroll-proportion="0.45989305" vertical-offset="844" max-vertical-offset="6030">
+        <state line="109" column="66" selection-start="4227" selection-end="4227" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="6030">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/event_list_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="0" selection-start="3873" selection-end="3873" vertical-scroll-proportion="-14.423077" vertical-offset="1035" max-vertical-offset="2070">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/band_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="30" selection-start="2884" selection-end="2884" vertical-scroll-proportion="-4.0" vertical-offset="831" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/es/concertsapp/android/gui/band/list/BandListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="49" selection-start="3734" selection-end="3734" vertical-scroll-proportion="-18.0" vertical-offset="480" max-vertical-offset="5070">
+          <folding>
+            <element signature="e#3830#4287#0" expanded="true" />
+            <element signature="e#4276#4277#0" expanded="true" />
+            <element signature="e#4453#4631#0" expanded="true" />
+            <element signature="e#4620#4621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="27" selection-start="176" selection-end="176" vertical-scroll-proportion="0.083333336" vertical-offset="15" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
