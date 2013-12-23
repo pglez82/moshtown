@@ -385,6 +385,8 @@ public class BandListFragment extends ListFragment
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())
                 emptyViewVisibility(View.VISIBLE);
+            else
+                emptyViewVisibility(View.GONE);
 		}
 
 		@Override
