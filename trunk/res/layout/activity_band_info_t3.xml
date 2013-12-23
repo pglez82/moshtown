@@ -43,7 +43,7 @@
 
             <TextView
                     android:id="@id/lastfmpanelbutton"
-                    android:layout_height="32dp"
+                    android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
                     android:textSize="18sp"
                     android:textColor="@color/white"
@@ -99,7 +99,7 @@
                     android:layout_width="fill_parent">
                 <TextView
                         android:id="@id/spotifypanelbutton"
-                        android:layout_height="32dp"
+                        android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:paddingLeft="12dp"
                         android:textColor="@color/white"
@@ -127,8 +127,11 @@
                         android:id="@+id/spotifybutton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="15dp"
-                        android:textSize="14sp"
-                        android:text="@string/spotify_button"/>
+                        android:textSize="18sp"
+                        android:padding="16dp"
+                        android:textColor="@drawable/spotify_button_textcolor"
+                        android:text="@string/spotify_button"
+                        android:background="@drawable/mancha_transparente_spotify"/>
                 <TextView android:id="@+id/nosongsspotify"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -148,8 +151,12 @@
                 <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/mancha_transparente_spotify"
                         android:id="@+id/buttonSpotifyNotInstalled"
                         android:text="@string/nospotify_button_text"
+                        android:textSize="18sp"
+                        android:padding="16dp"
+                        android:textColor="@drawable/spotify_button_textcolor"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="15dp"
                         android:visibility="gone"

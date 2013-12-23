@@ -59,6 +59,7 @@ public class GooglePlacesApi implements PlaceAutocompleterInterface
             Log.e(LOG_TAG, "No se han podido recoger los resultados de autocompletar", e);
         }
 
+        if (resultList==null) resultList = new ArrayList<PlaceInterface>();
         return resultList;
     }
 

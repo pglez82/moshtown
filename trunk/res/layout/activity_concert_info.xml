@@ -57,7 +57,7 @@
                 android:layout_width="fill_parent">
         <TextView
                 android:id="@id/eventinfopanelbutton"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
                 android:textSize="18sp"
                 android:textColor="@color/white"
@@ -183,6 +183,7 @@
                         android:id="@+id/detailedconcerttickes"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
+                        android:paddingTop="4dp"
                         android:textSize="14sp"
                         android:layout_marginLeft="12dp"
                         android:textColor="@color/gray3"
@@ -209,7 +210,7 @@
                 android:layout_width="fill_parent">
         <TextView
                 android:id="@id/eventbandspanelbutton"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:paddingLeft="12dp"
                 android:textColor="@color/white"
@@ -262,7 +263,7 @@
                         android:layout_width="fill_parent">
                     <TextView
                             android:id="@id/eventposterpanelbutton"
-                            android:layout_height="32dp"
+                            android:layout_height="wrap_content"
                             android:textSize="18sp"
                             android:paddingLeft="12dp"
                             android:textColor="@color/white"

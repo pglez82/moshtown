@@ -202,10 +202,18 @@ public class EventListActivity extends MenuFragmentActivity
                     searchTextView.setSelection(0);
                     PlaceInterface place = placesAutoCompleteAdapter.getItem(i);
                     latlonSearch = place.getLatLon();
-                    eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
-                    //Salvamos la lista de sitios buscados
-                    latlonSearch = null;
-                    saveListPlacesSearched(place);
+                    if (eventListActivityRetained!=null)
+                    {
+                        EventPageAdapter eventPageAdapter = eventListActivityRetained.getEventPageAdapter();
+                        if (eventPageAdapter!=null)
+                        {
+                            eventPageAdapter.startEventSearch(latlonSearch.lat, latlonSearch.lon);
+                            //Salvamos la lista de sitios buscados
+                            latlonSearch = null;
+                            saveListPlacesSearched(place);
+                        }
+                    }
+
                 }
             });
         }
@@ -343,8 +351,13 @@ public class EventListActivity extends MenuFragmentActivity
         {
     	    final EditText text = (AutoCompleteTextView)findViewById(R.id.editCiudad);
             KeyBoardUtils.hideKeyboard(this,text.getWindowToken());
-            if (text.getText()!=null)
-                eventListActivityRetained.getEventPageAdapter().startEventSearch(text.getText().toString());
+            if (text.getText()!=null && eventListActivityRetained!=null)
+            {
+                EventPageAdapter eventPageAdapter = eventListActivityRetained.getEventPageAdapter();
+                if (eventPageAdapter!=null)
+                    eventPageAdapter.startEventSearch(text.getText().toString());
+            }
+
         }
     }
 
@@ -464,9 +477,12 @@ public class EventListActivity extends MenuFragmentActivity
 	    	}
 	    	else
 	    	{
-	    		DialogUtils.showMessageDialog(context, R.string.no_location_info_title, R.string.no_location_info_text);
-                eventListActivityRetained.hideAllElements();
-                text.setText("");
+                if (!isFinishing())
+                {
+                    DialogUtils.showMessageDialog(context, R.string.no_location_info_title, R.string.no_location_info_text);
+                    eventListActivityRetained.hideAllElements();
+                    text.setText("");
+                }
 	    	}	
 		}
     	

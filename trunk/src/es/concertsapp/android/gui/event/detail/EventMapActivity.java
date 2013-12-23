@@ -1,9 +1,12 @@
 package es.concertsapp.android.gui.event.detail;
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -18,26 +21,35 @@ import es.concertsapp.android.utils.font.FontUtils;
  */
 public class EventMapActivity extends MenuFragmentActivity
 {
+    private static final String LOG_TAG = "EVENTMAPACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_map);
-
-        FontUtils.setRobotoFont(this,findViewById(R.id.maptitle), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-        Bundle extras = getIntent().getExtras();
-        if (extras!=null)
+        try
         {
-            double eventLat=extras.getDouble(MyAppParameters.EVENTLAT);
-            double eventLon=extras.getDouble(MyAppParameters.EVENTLON);
-            String eventPlaceName = extras.getString(MyAppParameters.EVENT_PLACE_NAME);
+            MapsInitializer.initialize(this);
+            setContentView(R.layout.event_map);
 
-            LatLng pos = new LatLng(eventLat,eventLon);
-            GoogleMap googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
-            googleMap.addMarker(new MarkerOptions()
-                    .position(pos)
-                    .title(eventPlaceName));
+            FontUtils.setRobotoFont(this,findViewById(R.id.maptitle), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            Bundle extras = getIntent().getExtras();
+            if (extras!=null)
+            {
+                double eventLat=extras.getDouble(MyAppParameters.EVENTLAT);
+                double eventLon=extras.getDouble(MyAppParameters.EVENTLON);
+                String eventPlaceName = extras.getString(MyAppParameters.EVENT_PLACE_NAME);
+
+                LatLng pos = new LatLng(eventLat,eventLon);
+                GoogleMap googleMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
+                googleMap.addMarker(new MarkerOptions()
+                        .position(pos)
+                        .title(eventPlaceName));
+            }
+        }
+        catch (GooglePlayServicesNotAvailableException e)
+        {
+            Log.e(LOG_TAG,"No se puede sacar el mapa",e);
         }
     }
 

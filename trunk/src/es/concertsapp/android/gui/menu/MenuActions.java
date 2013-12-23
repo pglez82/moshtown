@@ -13,6 +13,7 @@ import es.concertsapp.android.gui.event.list.EventListActivity;
 import es.concertsapp.android.gui.mainpage.MainActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
 import es.concertsapp.android.utils.MyAppParameters;
+import es.concertsapp.android.utils.rateshare.RateShareActions;
 
 /**
  * Created by pablo on 11/09/13.
@@ -72,6 +73,15 @@ public class MenuActions
                 myIntent.putExtra(MyAppParameters.BANDID, SongPlayer.getInstance().getBandPlaying());
                 myIntent.putExtra(MyAppParameters.FRAGMENTID, 2);
                 activity.startActivity(myIntent);
+                return true;
+            case R.id.rate_app:
+                RateShareActions rateShareActions = new RateShareActions();
+                rateShareActions.rateApp(activity);
+                return true;
+            case R.id.share_app:
+                RateShareActions rateShareActions2 = new RateShareActions();
+                rateShareActions2.shareApp(activity);
+                return true;
             default:
                 return false;
         }

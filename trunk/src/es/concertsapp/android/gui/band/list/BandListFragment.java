@@ -1,6 +1,7 @@
 package es.concertsapp.android.gui.band.list;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -49,6 +50,7 @@ public class BandListFragment extends ListFragment
 
     private ProgressBar progressBar;
     private int progressBarState=View.INVISIBLE;
+    private int emptyViewState=View.INVISIBLE;
 
     private FavouriteBandsStore favouriteBandsStore;
 
@@ -60,6 +62,7 @@ public class BandListFragment extends ListFragment
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         favouriteBandsStore=FavouriteBandsStore.getInstance(null);
+
     }
 
     @Override
@@ -79,14 +82,11 @@ public class BandListFragment extends ListFragment
             searchBandTask.updateListView(listView);
             listView.setAdapter(searchBandTask.getSearchBandsAdapter());
         }
-        else
-        {
-            getListView().getEmptyView().setVisibility(View.INVISIBLE);
-        }
 
         if (getListView()!=null && getListView().getEmptyView()!=null)
         {
             FontUtils.setRobotoFont(getActivity(),getListView().getEmptyView(), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
+            emptyViewVisibility(emptyViewState);
         }
 
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
@@ -172,6 +172,20 @@ public class BandListFragment extends ListFragment
 			searchBandTask.execute(bandName);
 		}
 	}
+
+    private void emptyViewVisibility(int visibility)
+    {
+        ListView listView = getListView();
+        if (listView!=null)
+        {
+            View emptyView = listView.getEmptyView();
+            if (emptyView!=null)
+            {
+                emptyView.setVisibility(visibility);
+                emptyViewState=visibility;
+            }
+        }
+    }
 
     private void setProgressBarState(int progressBarState)
     {
@@ -358,7 +372,7 @@ public class BandListFragment extends ListFragment
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
             updateListView(listView);
             notifyNewFavorites();
-            listView.getEmptyView().setVisibility(View.INVISIBLE);
+            emptyViewVisibility(View.INVISIBLE);
 		}
 		
 		
@@ -370,9 +384,7 @@ public class BandListFragment extends ListFragment
             if (errorBackground!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())
-            {
-                listView.getEmptyView().setVisibility(View.VISIBLE);
-            }
+                emptyViewVisibility(View.VISIBLE);
 		}
 
 		@Override

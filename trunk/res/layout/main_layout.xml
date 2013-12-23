@@ -39,6 +39,7 @@
             android:layout_marginTop="42dp"
             android:layout_gravity="center_horizontal"
             android:layout_below="@+id/text_slogan"
+            android:paddingBottom="2dp"
             android:layout_centerHorizontal="true"/>
     <ImageView
             android:id="@+id/puntos"

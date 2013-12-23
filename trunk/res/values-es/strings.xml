@@ -88,6 +88,15 @@
     <string name="menu_repmostrar">Mostrar</string>
     <string name="menu_close">Salir</string>
 
+    <!--Valorar y compartir app-->
+    <string name="install_market">No se pudo abrir el Android Market. Por favor instala el market</string>
+    <string name="rate_this_app">Puntúa esta app</string>
+    <string name="share_this_app">Comparte esta app</string>
+    <string name="share_via">Compartir con...</string>
+    <string name="share_title">Moshtown</string>
+    <string name="share_text">Echale un ojo a</string>
+
+
     <!--Texto de las notificaciones-->
     <string name="notification_stop">Detener</string>
 
