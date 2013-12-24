@@ -2,16 +2,20 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_inicio"
-          android:title="@string/menu_inicio" >
+          android:title="@string/menu_inicio"
+        android:icon="@drawable/ic_menu_inicio">
     </item>
     <item android:id="@+id/menu_searchevents"
-          android:title="@string/menu_searchevents" >
+          android:title="@string/menu_searchevents"
+        android:icon="@drawable/ic_menu_conciertos">
     </item>
     <item android:id="@+id/menu_bands"
-          android:title="@string/menu_bands" >
+          android:title="@string/menu_bands"
+        android:icon="@drawable/ic_menu_grupos">
         <menu>
             <item android:id="@+id/menu_searchbands"
-                 android:title="@string/menu_searchbands" >
+                 android:title="@string/menu_searchbands"
+                >
             </item>
             <item android:id="@+id/menu_favouritebands"
                   android:title="@string/menu_favouritebands" >
@@ -20,7 +24,8 @@
     </item>
 
     <item android:id="@+id/menu_player"
-          android:title="@string/menu_rep">
+          android:title="@string/menu_rep"
+        android:icon="@drawable/ic_menu_reproductor">
         <menu>
             <item android:id="@+id/menu_stop"
                     android:title="@string/menu_repstop">
@@ -32,13 +37,17 @@
     </item>
 
     <item android:id="@+id/rate_app"
-          android:title="@string/rate_this_app" >
+          android:title="@string/rate_this_app"
+        android:icon="@drawable/ic_menu_puntuar">
     </item>
     <item android:id="@+id/share_app"
-          android:title="@string/share_this_app" >
+          android:title="@string/share_this_app"
+        android:icon="@drawable/ic_menu_compartir">
     </item>
     <item android:id="@+id/menu_close"
-          android:title="@string/menu_close" >
+          android:title="@string/menu_close"
+        android:icon="@drawable/ic_menu_salir"
+        >
     </item>
 
 </menu>
