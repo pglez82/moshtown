@@ -345,7 +345,8 @@ public class EventListActivity extends MenuFragmentActivity
         MyLocation.cancelSearch();
         if (USE_GEOCODER_DESAMBIGUATION && latlonSearch!=null)
         {
-            eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
+            if (eventListActivityRetained.getEventPageAdapter()!=null)
+                eventListActivityRetained.getEventPageAdapter().startEventSearch(latlonSearch.lat, latlonSearch.lon);
         }
         else
         {

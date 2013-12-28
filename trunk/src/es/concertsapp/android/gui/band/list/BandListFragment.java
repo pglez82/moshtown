@@ -86,20 +86,13 @@ public class BandListFragment extends ListFragment
         if (getListView()!=null && getListView().getEmptyView()!=null)
         {
             FontUtils.setRobotoFont(getActivity(),getListView().getEmptyView(), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-            emptyViewVisibility(emptyViewState);
+            emptyViewVisibility(emptyViewState,getListView());
         }
 
         progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
         progressBar.setVisibility(progressBarState);
 
-        ImageButton buscarButon = (ImageButton)view.findViewById(R.id.buscarBandaButon);
-        buscarButon.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                searchBands(v);
-            }
-        });
 
         final EditText searchTextView = (EditText)view.findViewById(R.id.editBanda);
         FontUtils.setRobotoFont(getActivity(),searchTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
@@ -151,6 +144,16 @@ public class BandListFragment extends ListFragment
                 startActivity(myIntent);
             }
         });
+
+        ImageButton buscarButon = (ImageButton)view.findViewById(R.id.buscarBandaButon);
+        buscarButon.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                searchBands(v);
+            }
+        });
+
     }
 
 	/*
@@ -173,9 +176,8 @@ public class BandListFragment extends ListFragment
 		}
 	}
 
-    private void emptyViewVisibility(int visibility)
+    private void emptyViewVisibility(int visibility,ListView listView)
     {
-        ListView listView = getListView();
         if (listView!=null)
         {
             View emptyView = listView.getEmptyView();
@@ -372,7 +374,7 @@ public class BandListFragment extends ListFragment
             favouriteBandsStore.addAdapterToNotify(searchBandsAdapter);
             updateListView(listView);
             notifyNewFavorites();
-            emptyViewVisibility(View.INVISIBLE);
+            emptyViewVisibility(View.INVISIBLE,listView);
 		}
 		
 		
@@ -384,9 +386,9 @@ public class BandListFragment extends ListFragment
             if (errorBackground!=null)
                 UnexpectedErrorHandler.handleUnexpectedError(getActivity(), errorBackground);
             if (listBands==null || listBands.isEmpty())
-                emptyViewVisibility(View.VISIBLE);
+                emptyViewVisibility(View.VISIBLE,listView);
             else
-                emptyViewVisibility(View.GONE);
+                emptyViewVisibility(View.GONE,listView);
 		}
 
 		@Override

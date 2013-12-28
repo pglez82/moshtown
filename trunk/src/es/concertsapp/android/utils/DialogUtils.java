@@ -1,5 +1,6 @@
 package es.concertsapp.android.utils;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,7 +26,13 @@ public class DialogUtils
      */
 	public static void showMessageDialog(Context context, int title,int text,AlertDialog.OnDismissListener onDismissListener)
 	{
-        if (context!=null)
+        //Crequeamos primero que la actividad no esté en las últimas
+        boolean finishing = false;
+        if (context instanceof Activity)
+        {
+            finishing = ((Activity)context).isFinishing();
+        }
+        if (context!=null && !finishing )
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(text).setTitle(title);

@@ -22,6 +22,9 @@ import es.concertsapp.android.gui.player.SongPlayer;
  * Created by pablo on 27/08/13.
  *
  * Clase usada para resolver el contexto desde cualquier sitio.
+ *
+ * Para acceder al ACRA hay que entrar como:
+ * https://shdgrao.cloudant.com/acralyzer/_design/acralyzer/index.html#/dashboard/
  */
 @ReportsCrashes(
         formKey = "",

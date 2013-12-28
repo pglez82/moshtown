@@ -71,6 +71,7 @@
     <string name="spotify_title">SPOTIFY</string>
     <string name="nospotify_button_text">Instalar</string>
     <string name="nospotify_text">Para escuchar esta banda en Spotify, debes instalar la aplicación Spotify.</string>
+    <string name="spotify_button">Reproducir en Spotify</string>
 
     <!--Condiciones last.fm-->
     <string name="lastfm_conditions">El acceso y utilización por parte de Moshtown de la API y los datos de Last.fm están sujetos a los Términos de Servicio de la API publicados en la web de Last.fm en http://www.lastfm.es/api/tos y actualizados periódicamente, a los Términos de Uso de la web de Last.fm publicados en la web de Last.fm en http://www.last.fm/legal/terms y actualizados periódicamente y a la Política de Privacidad de Last.fm publicada en la web de Last.fm en ttp://www.last.fm/legal/terms y actualizada periódicamente.</string>

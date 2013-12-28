@@ -1,62 +1,48 @@
 -injars bin/classes
 
--keep class * extends java.util.ListResourceBundle {
-    protected Object[][] getContents();
+#-printseeds: Prints the un-obfuscated filenames
+-printseeds
+-printmapping mapping-used-to-retrace-exceptions.txt
+-verbose
+
+#-dontusemixedcaseclassnames: Necessary when building on windows where x.class and X.class is the same file
+-dontusemixedcaseclassnames
+
+#-repackageclasses: Adds further obfuscation, Counter-indication: classes that look for resource files in their package directories will no longer work properly if they are moved elsewhere. When in doubt, just leave the packaging untouched by not using this option.
+-repackageclasses ''
+
+#-dontskipnonpubliclibraryclasses: Counter-indication: you probably shouldn't use this option when processing code that is to be used as a library, since classes and class members that weren't designed to be public in the API may become public.
+-dontskipnonpubliclibraryclasses
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep class * extends android.view.View {
+  public <init>(android.content.Context);
+  public <init>(android.content.Context, android.util.AttributeSet);
+  public <init>(android.content.Context, android.util.AttributeSet, int);
+  public void set*(...);
+}
+-keep class * extends android.preference.Preference {
+  public <init>(android.content.Context);
+  public <init>(android.content.Context, android.util.AttributeSet);
+  public <init>(android.content.Context, android.util.AttributeSet, int);
+  public void set*(...);
+}
+# LVL License binder class
+-keep class com.android.vending.licensing.ILicensingService
+# This is necessary for LVL among others. According to proguard doc java accesses enum fields by introspection.
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+#Optimization settings
+-keepclassmembers class * {
+    <init>(...);
 }
 
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-    @ccom.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
--dontwarn com.google.android.gms.*
--ignorewarnings
-
-#ACRA specifics
-# we need line numbers in our stack traces otherwise they are pretty useless
--renamesourcefileattribute SourceFile
--keepattributes SourceFile,LineNumberTable
-
-# ACRA needs "annotations" so add this...
--keepattributes *Annotation*
-
-# keep this class so that logging will show 'ACRA' and not a obfuscated name like 'a'.
-# Note: if you are removing log messages elsewhere in this file then this isn't necessary
--keep class org.acra.ACRA {
-	*;
-}
-
-# keep this around for some enums that ACRA needs
--keep class org.acra.ReportingInteractionMode {
-    *;
-}
-
--keepnames class org.acra.sender.HttpSender$** {
-    *;
-}
-
--keepnames class org.acra.ReportField {
-    *;
-}
-
-# keep this otherwise it is removed by ProGuard
--keep public class org.acra.ErrorReporter
-{
-    public void addCustomData(java.lang.String,java.lang.String);
-    public void putCustomData(java.lang.String,java.lang.String);
-    public void removeCustomData(java.lang.String);
-}
-
-# keep this otherwise it is removed by ProGuard
--keep public class org.acra.ErrorReporter
-{
-    public void handleSilentException(java.lang.Throwable);
-}
+-optimizationpasses 7
+-allowaccessmodification
+# The -optimizations option disables some arithmetic simplifications that Dalvik 1.0 and 1.5 can't handle.
+-optimizations !code/simplification/arithmetic
