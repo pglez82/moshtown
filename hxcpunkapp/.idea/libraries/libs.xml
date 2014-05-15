@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/lastfm-java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/LastFmApiConnector.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/acra-4.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jspot.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../NetBeansProjects/LastFmApiConnector/src" />
+      <root url="file://$PROJECT_DIR$/../../NetBeansProjects/lastfm-java/src" />
+    </SOURCES>
+  </library>
+</component>

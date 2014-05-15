@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/white"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+        >
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:id="@+id/inicialbuscador"
+            android:orientation="horizontal"
+            android:background="@drawable/mancha_barra"
+            >
+
+        <ImageButton
+                android:id="@+id/positionButon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gps_button"
+                android:background="@drawable/button_gps_image"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+                android:contentDescription="@string/button_gps_description"/>
+
+        <AutoCompleteTextView
+                android:id="@+id/editCiudad"
+                android:layout_width="0dp"
+                android:layout_height="43dp"
+                android:saveEnabled="false"
+                android:hint="@string/edit_ciudad_hint"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                android:dropDownWidth="fill_parent"
+                android:dropDownAnchor="@id/inicialbuscador"
+                android:layout_weight="1"
+                android:layout_marginLeft="6dp"
+                android:textSize="22sp"
+                android:singleLine="true"
+                android:popupBackground="@drawable/p_google"
+                android:dropDownVerticalOffset="2dp"
+                />
+
+        <ImageButton
+                android:id="@+id/buscarButon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_lupa_image"
+                android:text="@string/buscar_text"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="6dp"
+                android:contentDescription="@string/button_lupa2_description"/>
+
+        <ImageButton
+                android:id="@+id/buttonClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_x_image"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_x_image_description"/>
+    </LinearLayout>
+
+
+    <ListView
+            android:id="@+id/list_main_events"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@color/black"
+            android:fadingEdge="none"
+            android:cacheColorHint="#FFFFFF"
+            >
+    </ListView>
+    <TextView android:id="@+id/list_main_events_noresults"
+              android:layout_width="fill_parent"
+              android:layout_height="0dp"
+              android:gravity="top"
+              android:layout_gravity="top"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:layout_weight="1"
+              android:textColor="@color/gray4"
+              android:textSize="14sp"
+              android:text="@string/list_noresults" />
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:id="@+id/iniciopie"
+            android:background="#4d4d4d"
+            android:gravity="center_vertical"
+            >
+        <ProgressBar
+                style="@android:style/Widget.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressbareventlist"
+                android:layout_marginLeft="6dp"/>
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:id="@+id/loadmoreelement"
+                android:layout_weight="1"
+                android:text="@string/more_events_question"
+                android:gravity="center_horizontal"
+                />
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_logolastfm"
+                android:background="@drawable/button_lastfmbackground"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_lastfm_description"/>
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_moshtown"
+                android:background="@drawable/button_moshtownbackground"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@string/button_moshtown_description"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
