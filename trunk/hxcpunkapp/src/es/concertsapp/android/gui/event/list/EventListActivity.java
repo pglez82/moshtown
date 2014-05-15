@@ -26,11 +26,11 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.event.add.EventAddActivity;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
@@ -61,6 +61,7 @@ public class EventListActivity extends MenuFragmentActivity
     private List<PlaceInterface> listPlacesSearched;
 
     private LatitudeLongitude latlonSearch;
+    private PlaceInterface lastSearch;
 
 
     
@@ -142,6 +143,17 @@ public class EventListActivity extends MenuFragmentActivity
             }
         });
 
+        ImageButton addEventButton = (ImageButton)findViewById(R.id.button_addconcert);
+        addEventButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent myIntent = new Intent(EventListActivity.this, EventAddActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         ImageButton lastfmButton = (ImageButton)findViewById(R.id.button_logolastfm);
         lastfmButton.setOnClickListener(new View.OnClickListener()
         {
@@ -205,12 +217,13 @@ public class EventListActivity extends MenuFragmentActivity
                     if (eventListActivityRetained!=null)
                     {
                         EventPageAdapter eventPageAdapter = eventListActivityRetained.getEventPageAdapter();
-                        if (eventPageAdapter!=null)
+                        if (eventPageAdapter!=null && latlonSearch!=null)
                         {
                             eventPageAdapter.startEventSearch(latlonSearch.lat, latlonSearch.lon);
                             //Salvamos la lista de sitios buscados
                             latlonSearch = null;
                             saveListPlacesSearched(place);
+                            lastSearch = place;
                         }
                     }
 
@@ -355,8 +368,17 @@ public class EventListActivity extends MenuFragmentActivity
             if (text.getText()!=null && eventListActivityRetained!=null)
             {
                 EventPageAdapter eventPageAdapter = eventListActivityRetained.getEventPageAdapter();
-                if (eventPageAdapter!=null)
-                    eventPageAdapter.startEventSearch(text.getText().toString());
+                //Comprobamos si la última búsqueda que ha hecho ha sido por latitud y longitud y no ha cambiado el texto
+                //Así evitamos que mande el texto a last fm y mandamos la lat y lon que tenemos guardada
+                if (lastSearch!=null && text.getText().toString().equals(lastSearch.getPlaceName()))
+                {
+                    if (eventPageAdapter != null)
+                        eventPageAdapter.startEventSearch(lastSearch.getLatLon().lat,lastSearch.getLatLon().lon);
+                }
+                else {
+                    if (eventPageAdapter != null)
+                        eventPageAdapter.startEventSearch(text.getText().toString());
+                }
             }
 
         }
@@ -474,7 +496,8 @@ public class EventListActivity extends MenuFragmentActivity
                 text.setFocusable(true);
                 text.setFocusableInTouchMode(true);
                 text.dismissDropDown();
-    	    	eventListActivityRetained.getEventPageAdapter().startEventSearch(location.getLatitude(), location.getLongitude());
+                if (eventListActivityRetained.getEventPageAdapter()!=null)
+    	    	    eventListActivityRetained.getEventPageAdapter().startEventSearch(location.getLatitude(), location.getLongitude());
 	    	}
 	    	else
 	    	{

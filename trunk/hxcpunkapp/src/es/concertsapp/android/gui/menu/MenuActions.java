@@ -12,6 +12,7 @@ import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
 import es.concertsapp.android.gui.mainpage.MainActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
+import es.concertsapp.android.gui.settings.SettingsActivity;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.rateshare.RateShareActions;
 
@@ -82,6 +83,9 @@ public class MenuActions
                 RateShareActions rateShareActions2 = new RateShareActions();
                 rateShareActions2.shareApp(activity);
                 return true;
+            case R.id.settings_app:
+                myIntent = new Intent(activity, SettingsActivity.class);
+                activity.startActivity(myIntent);
             default:
                 return false;
         }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:example="http://schemas.android.com/apk/res/es.concertsapp.android.gui"
-              android:layout_width="fill_parent"
-              android:layout_height="52dp"
-              android:orientation="horizontal"
-              android:background="@drawable/list_clicked_color"
-              android:paddingLeft="6dp"
-              android:paddingRight="6dp"
-              android:gravity="center_vertical">
+    android:layout_width="fill_parent"
+    android:layout_height="52dp"
+    android:orientation="horizontal"
+    android:background="@drawable/list_clicked_color"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:gravity="center_vertical">
 
     <ImageView
             android:id="@+id/tocancercaImageView"

@@ -5,14 +5,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,10 +20,8 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.Collection;
 
-import de.umass.lastfm.Event;
 import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.component.ExpandablePanel;
-import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
@@ -38,6 +35,7 @@ import es.concertsapp.android.utils.UnexpectedErrorHandler;
 import es.concertsapp.android.utils.date.DateFormater;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
+import es.concertsapp.android.utils.rateshare.RateShareActions;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.DetailedEventDTO;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
@@ -168,6 +166,15 @@ public class EventInfoActivity extends MenuFragmentActivity
                 {
                     Intent myIntent = new Intent(EventInfoActivity.this, MoshTownConditionsActivity.class);
                     startActivity(myIntent);
+                }
+            });
+
+            Button shareEventButton = (Button)findViewById(R.id.buttonshareevent);
+            shareEventButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    RateShareActions rateShareActions = new RateShareActions();
+                    rateShareActions.shareEvents(view.getContext(),detailedEventDTO);
                 }
             });
 

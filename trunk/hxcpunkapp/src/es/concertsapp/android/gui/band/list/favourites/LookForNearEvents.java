@@ -5,7 +5,6 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -138,7 +137,7 @@ public class LookForNearEvents
                         for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
                         {
                             double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
-                            if (distance< ConfValues.NEAR_EVENT_DISTANCE)
+                            if (distance< ConfValues.NEAR_EVENT_DISTANCE_FAVOURITES)
                             {
                                 artistDTO.setNearEvents(true);
                                 publishProgress();

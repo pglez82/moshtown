@@ -8,19 +8,32 @@
               android:background="@color/white"
               tools:context=".EventInfoActivity">
 
-    <TextView
-            android:id="@+id/detailedconcertname"
-            android:layout_width="fill_parent"
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/fondo_titulo_conciertos">
+        <TextView
+                android:id="@+id/detailedconcertname"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:maxLines="4"
+                android:textSize="22sp"
+                android:paddingTop="12dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="16dp"
+                />
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:background="@drawable/fondo_titulo_conciertos"
-            android:maxLines="4"
-            android:textSize="22sp"
-            android:paddingTop="12dp"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="16dp"
-            />
+            android:background="@drawable/ic_menu_compartir"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/buttonshareevent" />
+    </LinearLayout>
 
     <LinearLayout
             android:layout_height="0dp"

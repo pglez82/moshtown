@@ -112,14 +112,14 @@ public class EventListActivityRetained extends Fragment
             switch (visibleElement)
             {
                 case LOADING:
-                    progressBar.setVisibility(View.VISIBLE);
+                    if (progressBar!=null) progressBar.setVisibility(View.VISIBLE);
                     break;
                 case MORE_RESULTS:
-                    loadMoreView.setVisibility(View.VISIBLE);
+                    if (loadMoreView!=null) loadMoreView.setVisibility(View.VISIBLE);
                     break;
                 case NO_RESULTS:
-                    eventListActivity.getListView().setVisibility(View.GONE);
-                    emptyView.setVisibility(View.VISIBLE);
+                    if (eventListActivity!=null && eventListActivity.getListView()!=null) eventListActivity.getListView().setVisibility(View.GONE);
+                    if (emptyView!=null) emptyView.setVisibility(View.VISIBLE);
                     break;
 
             }

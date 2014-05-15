@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
     <item android:id="@+id/menu_inicio"
           android:title="@string/menu_inicio"
         android:icon="@drawable/ic_menu_inicio">
@@ -22,7 +23,6 @@
             </item>
         </menu>
     </item>
-
     <item android:id="@+id/menu_player"
           android:title="@string/menu_rep"
         android:icon="@drawable/ic_menu_reproductor">
@@ -43,6 +43,10 @@
     <item android:id="@+id/share_app"
           android:title="@string/share_this_app"
         android:icon="@drawable/ic_menu_compartir">
+    </item>
+    <item android:id="@+id/settings_app"
+        android:title="@string/settings_app"
+        android:icon="@drawable/ic_configuracion">
     </item>
     <item android:id="@+id/menu_close"
           android:title="@string/menu_close"

@@ -2,7 +2,6 @@ package es.concertsapp.android.gui.band.detail;
 
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -10,12 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,7 +24,6 @@ import java.util.List;
 import de.umass.lastfm.Channel;
 import de.umass.lastfm.Item;
 import es.concertsapp.android.component.ExpandablePanel;
-import es.concertsapp.android.component.ExpandablePanelGroup;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
