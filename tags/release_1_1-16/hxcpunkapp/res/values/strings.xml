@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Generales-->
+    <string name="locale">en</string>
+    <string name="app_name">MoshTown</string>
+    <string name="button_lastfm_description">Click here to access the legal terms of this app</string>
+    <string name="button_moshtown_description">Click here to access the legal terms of this app</string>
+
+
+    <!--Página principal de entrada-->
+    <string name="button_shows">GIGS</string>
+    <string name="button_bands">BANDS</string>
+    <string name="puntos_description">Separating Image</string>
+    <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
+    <string name="intro_logo_description">MoshTown Logo</string>
+
+    <!--Listado de conciertos-->
+    <string name="list_noresults">Ooops, sorry. We were unable to find any gigs in this location</string>
+    <string name="buscar_text">Search</string>
+    <string name="listMoreButton_text">Gimme more gigs!</string>
+    <string name="gps_button">GPS</string>
+    <string name="no_location_info_title">Error GPS</string>
+    <string name="no_location_info_text">Unable to determine your position</string>
+    <string name="edit_ciudad_hint">WHERE?</string>
+    <string name="more_events_question">Want more? Click here</string>
+    <string name="button_gps_description">Click here to find gigs nearby</string>
+    <string name="button_lupa2_description">Click here to search for gigs</string>
+
+    <!--Actividad del evento-->
+    <string name="imagen_evento">Gig images</string>
+    <string name="infoheadertext">INFO</string>
+    <string name="bandsheadertext">BANDS</string>
+    <string name="posterheadertext">IMAGE</string>
+    <string name="calendarbuttontext">Calendar</string>
+    <string name="mapabuttontext">Map</string>
+    <string name="map_title">MAP</string>
+    <string name="ticketimagedescription">Descriptive image of a ticket</string>
+    <string name="no_calendar_title">Error</string>
+    <string name="no_calendar_message">Unable to load calendar</string>
+    <string name="no_tickets_available">No aditional info available for this event.</string>
+
+    <!--Actividad listado de grupos-->
+    <string name="edit_banda_hint">WHO?</string>
+    <string name="buscarbanda_text">Search</string>
+    <string name="bandeventsheadertext">UPCOMING GIGS</string>
+    <string name="imagen_banda">Add to favourite bands</string>
+    <string name="ic_mundo_description">World Globe</string>
+    <string name="button_lupa_description">Click here to search for more bands</string>
+    <string name="button_x_image_description">Click here to delete the text</string>
+    <string name="list_bands_noresults">Ooops, sorry! We were unable to find any punk/hardcore band under that name.</string>
+
+    <!--Actividad listado de favoritos-->
+    <string name="mis_favoritos_title">FAVOURITE BANDS</string>
+    <string name="tocan_cerca_description">Playing nearby</string>
+    <string name="tocancerca_text">Playing nearby</string>
+    <string name="toastfavorito_text">Access your favourite bands through the main menu or sliding to the right</string>
+    <string name="toastgpsenable">Enable your GPS/AGPS to find gigs of your favourite bands nearby</string>
+
+    <!--Actividad de un grupo-->
+    <string name="bio_text">BIO</string>
+    <string name="relatedartists_text">RELATED BANDS</string>
+    <string name="no_bio_text">No bio available for this artist.</string>
+    <string name="playstop_text">Play, stop</string>
+    <string name="toast_player">Return to the track player through the main menu</string>
+    <string name="no_lastfm_songs">No tunes available in Last.fm. Why not try Spotify?</string>
+    <string name="no_spotify_songs">No tunes available in Spotify.</string>
+    <string name="play_description">Click here to play/stop a track</string>
+    <string name="similar_noresults">We are sorry. We haven\'t found any similar punk/hardcore bands.</string>
+    <string name="bandevents_noresults">No gigs... for now!</string>
+    <string name="lastfm_title">LAST.FM</string>
+    <string name="spotify_title">SPOTIFY</string>
+    <string name="nospotify_button_text">Install</string>
+    <string name="nospotify_text">To listen to this band in Spotify, you must first install the Spotify app.</string>
+    <string name="spotify_button">Play on Spotify</string>
+
+    <!--Condiciones last.fm-->
+    <string name="lastfm_conditions">Access and use by Moshtown of the API  and data from Last.fm are subjected to the Service Terms of the API as published in Last.fm\'s website http://www.lastfm.es/api/tos and they are periodically updated, to the Terms of Use of Last.fm\'s website published in Last.fm\'s website at http://www.last.fm/legal/terms y actualizados periódicamente y a la Política de Privacidad de Last.fm publicada en la web de Last.fm en ttp://www.last.fm/legal/terms and is periodically updated.</string>
+    <string name="moshtown_conditions">Thanks for installing Moshtown. Should you have any doubt, query, complaint or suggestion to make, or if you simply want to chat with the creators of Moshtown because you think they are really cool and interesting people (hey, hey, we really are!)  please write to us: moshtownapp@gmail.com. We are more than happy to read your emails and we will try to answer them all (to the best of our abilities). Again, THANKS.</string>
+    <string name="spotify_conditions">This product uses Spotify\'s API but it is not, in any way or manner, supported, certified or approved by Spotify. Spotify is the trademark of Spotify Group.</string>
+
+    <!--Menu-->
+    <string name="menu_inicio">Home</string>
+    <string name="menu_searchevents">Search for gigs</string>
+    <string name="menu_bands">Bands...</string>
+    <string name="menu_searchbands">Search for bands</string>
+    <string name="menu_favouritebands">Favourite bands</string>
+    <string name="menu_rep">Track player...</string>
+    <string name="menu_repstop">Stop</string>
+    <string name="menu_repmostrar">Show</string>
+    <string name="menu_close">Quit</string>
+
+    <!--Valorar y compartir app-->
+    <string name="install_market">Could not open Android market, please install the market app.</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="share_this_app">Share this app</string>
+    <string name="share_via">Share via...</string>
+    <string name="share_title">Moshtown</string>
+    <string name="share_text">Check this out</string>
+
+    <!--Texto de las notificaciones-->
+    <string name="notification_stop">Stop</string>
+
+    <!--ACRA-->
+    <string name="acradialogtext">Wanna send an error report to the development team?</string>
+    <string name="acratoasttext">An error occurred in MoshTown</string>
+    <string name="acradialogok">Thanks a bunch for your help!</string>
+    <!--<string name="acracomment">Any comments?</string>-->
+
+
+    <!--Mensajes de error-->
+    <string name="error_dialog_title">Error</string>
+    <string name="lastfm_error">A connection error with Last.fm has occurred. Try again later.</string>
+    <string name="connection_error">Looks like there are some problems with your Internet connection.</string>
+    <string name="location_error">GPS/A-GPS deactivated in your device</string>
+
+
+</resources>
