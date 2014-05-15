@@ -8,19 +8,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+
+import java.util.List;
 
 import es.concertsapp.android.component.LetterSpacingTextView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
+import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuActivity;
-import es.concertsapp.android.utils.LastFmApiConnectorFactory;
+import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.font.FontUtils;
-import es.lastfm.api.connector.tags.PunkTags;
 
 
 public class MainActivity extends MenuActivity
@@ -77,10 +78,38 @@ public class MainActivity extends MenuActivity
         });
 
 
+        checkIfComingFromLink();
+
+
 
         //Actualizo el locale cada vez que entramos al main de la aplicación
         MyApplication.lookUpLocate();
 	}
+
+    private void checkIfComingFromLink()
+    {
+        final Intent intent = getIntent();
+        final String action = intent.getAction();
+
+        if (intent !=null && intent.getData()!=null && Intent.ACTION_VIEW.equals(action)) {
+            final List<String> segments = intent.getData().getPathSegments();
+            if (segments!=null && segments.size() == 2) {
+                if ("events".equals(segments.get(0)))
+                {
+                    try {
+                        int eventId = Integer.parseInt(segments.get(1));
+                        Intent i = new Intent(MainActivity.this, EventInfoActivity.class);
+                        i.putExtra(MyAppParameters.EVENTID, eventId);
+                        startActivity(i);
+                    }
+                    catch (Throwable e)
+                    {
+                        //No hacemos nada, dejamos la app en la pagina principal
+                    }
+                }
+            }
+        }
+    }
 
     private void buttonConciertos(View v)
     {

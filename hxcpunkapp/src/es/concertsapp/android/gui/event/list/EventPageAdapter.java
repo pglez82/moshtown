@@ -2,26 +2,26 @@ package es.concertsapp.android.gui.event.list;
 
 
 import android.os.AsyncTask;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
-import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
-import es.concertsapp.android.utils.date.DateFormater;
-import es.concertsapp.android.utils.font.FontUtils;
 import es.concertsapp.android.utils.images.ImageDownloader;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.NewEventAvaibleListener;
+import es.lastfm.api.connector.PagedProcesedListener;
 import es.lastfm.api.connector.dto.EventDTO;
 
 
@@ -51,7 +51,6 @@ public class EventPageAdapter extends BaseAdapter
     //Número de eventos que cargamos de una tacada
 	private final int EVENTS_PER_PAGE = 8;
 	
-	private static int RADIOUS_DISTANCE=50;
 	//Se define si se busca dentro de las etiquetas de los artistas en el caso de que el evento no tenga etiquetas
 	private static boolean LOOK_ARTISTS_TAGS = true;
 	
@@ -64,7 +63,7 @@ public class EventPageAdapter extends BaseAdapter
     //Para bajar las imagenes de manera asincroncas
     private final ImageDownloader imageDownloader;
 
-    private class LoadingTask extends AsyncTask<Void, EventDTO, Boolean> implements NewEventAvaibleListener
+    private class LoadingTask extends AsyncTask<Void, EventDTO, Boolean> implements NewEventAvaibleListener, PagedProcesedListener
     {
     	@Override
     	protected void onPreExecute()
@@ -72,7 +71,7 @@ public class EventPageAdapter extends BaseAdapter
             backgroundError = null;
     		if (!isCancelled())
             {
-    			lastFmApiConnector.setEventSearchListeners(null, this);
+    			lastFmApiConnector.setEventSearchListeners(this, this);
                 eventListActivityRetained.showElement(EventListActivityRetained.ListElementsOnlyOneVisible.LOADING);
             }
     	}
@@ -84,19 +83,21 @@ public class EventPageAdapter extends BaseAdapter
 			Log.d(LOG_TAG, "Arrancando el hilo para buscar los eventos...");
 			try
         	{
+                final int eventRatiodistance = ConfValues.getIntConfigurableValue(eventListActivity,ConfValues.ConfigurableValue.EVENT_RATIO_DISTANCE);
         		do
         		{
+
         			Log.d(LOG_TAG, "Iniciando llamada al api");
         			if (coordinates)
         			{
         				Log.d(LOG_TAG,"Latitud:"+lat+" Longitud:"+lon);
-        				lastFmApiConnector.setLatLon(lat, lon,RADIOUS_DISTANCE);
+        				lastFmApiConnector.setLatLon(lat, lon, eventRatiodistance,eventRatiodistance*4);
         				lastFmApiConnector.listPagedEventsFilteredByTags(LOOK_ARTISTS_TAGS);
         			}
         			else
         			{
         				Log.d(LOG_TAG,"ciudad:"+ciudad);
-        				lastFmApiConnector.setLocation(ciudad,RADIOUS_DISTANCE);
+        				lastFmApiConnector.setLocation(ciudad,eventRatiodistance,eventRatiodistance*4);
         				lastFmApiConnector.listPagedEventsFilteredByTags(LOOK_ARTISTS_TAGS);
         			}
         			Log.d(LOG_TAG, "Api retornada:" + listEvents.size() + "/" + EVENTS_PER_PAGE*threadExecutionCounter);
@@ -125,8 +126,26 @@ public class EventPageAdapter extends BaseAdapter
 			Log.d(LOG_TAG, "Nos ha llegado un nuevo evento..."+event.getEventTitle());
 			this.publishProgress(event);
 		}
-		
-		protected void onProgressUpdate(EventDTO... progress) 
+
+        @Override
+        public void pagedProcessed(int page, int totalPages, int nuevos, int totalEventsFound, int distance)
+        {
+            final int eventRatiodistance = ConfValues.getIntConfigurableValue(eventListActivity,ConfValues.ConfigurableValue.EVENT_RATIO_DISTANCE);
+            if (totalEventsFound==0 && distance==eventRatiodistance && !lastFmApiConnector.hasMoreResults())
+            {
+                if (eventListActivity!=null)
+                {
+                    eventListActivity.runOnUiThread(new Runnable(){
+                        @Override
+                        public void run(){
+                            DialogUtils.showToast(eventListActivity, Toast.LENGTH_LONG,R.string.no_concerts_near);
+                        }
+                    });
+                }
+            }
+        }
+
+        protected void onProgressUpdate(EventDTO... progress)
 		{
 			if (!isCancelled())
 			{

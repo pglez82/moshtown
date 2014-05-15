@@ -112,6 +112,13 @@
                 />
 
         <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_addconcert"
+            android:background="@drawable/button_addgigbackground"
+            android:layout_marginRight="4dp"
+            android:contentDescription="@string/button_lastfm_description"/>
+        <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"

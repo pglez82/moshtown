@@ -26,14 +26,11 @@ import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
-import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.UnexpectedErrorHandler;
-import es.concertsapp.android.utils.date.DateFormater;
 import es.concertsapp.android.utils.font.FontUtils;
 import es.lastfm.api.connector.LastFmApiConnector;
 import es.lastfm.api.connector.dto.ArtistDTO;
 import es.lastfm.api.connector.dto.ArtistEventDTO;
-import es.lastfm.api.connector.dto.EventDTO;
 import es.lastfm.api.connector.exception.LastFmException;
 
 public class BandTab2Fragment extends Fragment 
