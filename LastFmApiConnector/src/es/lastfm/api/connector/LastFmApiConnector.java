@@ -37,29 +37,32 @@ public class LastFmApiConnector
     private static final String key = "5f7bd763af200a040f813ea280bef4b4";
     
     //Tags para esta instancia
-    private LastFmTags lastFmTags;
+    private final LastFmTags lastFmTags;
     
-    //Configuración del servicio
-    private LastFmApiConfiguration lastFmApiConfiguration;
+    //Configuraciï¿½n del servicio
+    private final LastFmApiConfiguration lastFmApiConfiguration;
     
     private String location;
     private double lat;
     private double lon;
     private boolean coordinates;
     private int distance;
+    private int maxDistance;
     
     //TamaÃ±o de pÃ¡gina de resultados
     private final static int PAGE_SIZE = 10;
     
     private int page;
     private int totalPages;
+    //Número total de eventos encontrado en esta búsqueda
+    private int totalEventsFound;
     
     //Listener que se invoca cuando se acaba de procesar una pÃ¡gina
     private PagedProcesedListener pagedProcesedListener;
     //Listener que se invoca cuando se calcula un elemento nuevo en una pÃ¡gina
     private NewEventAvaibleListener newElementAvaibleListener;
     
-    private Locale locale;
+    private final Locale locale;
     
     public LastFmApiConnector(LastFmTags lastFmTags, LastFmApiConfiguration lastFmApiConfiguration, Locale locale)
     {
@@ -68,6 +71,7 @@ public class LastFmApiConnector
         this.lastFmApiConfiguration = lastFmApiConfiguration;
         page = 1;
         totalPages = 1;
+        totalEventsFound = 0;
         coordinates = false;
         this.locale = locale;
     }
@@ -88,11 +92,15 @@ public class LastFmApiConnector
      * Establece los parÃ¡metro sde la bÃºsqueda
      * @param location string con la ciudad
      * @param distance distancia a la que se quiere buscar
+     * @param maxDistance distancia mï¿½xima a buscar (el algoritmo si no encuentra
+     * nada a una distancia la va duplicando hasta que encuentre algo o se pase esta
+     * distancia
      */
-    public void setLocation(String location, int distance) 
+    public void setLocation(String location, int distance, int maxDistance)
     {
         this.location = location;
         this.distance=distance;
+        this.maxDistance = maxDistance;
         coordinates = false;
     }
 
@@ -101,12 +109,16 @@ public class LastFmApiConnector
      * @param lat latitud
      * @param lon longitud
      * @param distance distancia a la que se quiere buscar
+     * @param maxDistance distancia mï¿½xima a buscar (el algoritmo si no encuentra
+     * nada a una distancia la va duplicando hasta que encuentre algo o se pase esta
+     * distancia
      */
-    public void setLatLon(double lat,double lon, int distance) 
+    public void setLatLon(double lat,double lon, int distance,int maxDistance)
     {
         this.lat = lat;
         this.lon = lon;
         this.distance=distance;
+        this.maxDistance = maxDistance;
         coordinates = true;
     }
     
@@ -152,7 +164,7 @@ public class LastFmApiConnector
     /**
      * Indica si un artista debe estar o no en los resultados devueltos por sus tags
      * @param artistName nombre del artista
-     * @return true si el artista tiene algún tag coincidente. falso en caso contrario
+     * @return true si el artista tiene algï¿½n tag coincidente. falso en caso contrario
      */
     private boolean filterArtistByTags(String artistName)
     {
@@ -162,10 +174,8 @@ public class LastFmApiConnector
     }
     
     /**
-     * 
      * @param analyzeArtistTags si es true, se analiza los tags del artista en el
      * caso de que no existan los tags del concierto.
-     * @return
      */
     public void listPagedEventsFilteredByTags(boolean analyzeArtistTags) throws LastFmException
     {
@@ -190,6 +200,7 @@ public class LastFmApiConnector
                     {
                         newElementAvaibleListener.newElementAvailable(eventDTO);
                         nuevos++;
+                        totalEventsFound++;
                     }
 
                 }
@@ -198,8 +209,17 @@ public class LastFmApiConnector
                 totalPages = temporalEvents.getTotalPages();  
                 if (pagedProcesedListener != null)
                 {
-                    pagedProcesedListener.pagedProcessed(page, totalPages);
+                    pagedProcesedListener.pagedProcessed(page, totalPages, nuevos, totalEventsFound,distance);
                 }
+            }
+            
+            //La idea es comprobar aquï¿½ si no hay ningï¿½n resultado y se producieron 0 pï¿½ginas. Solo entonces, lanzamos otra consulta igual
+            //pero con un radio mayor
+            if (totalEventsFound==0 && distance<=maxDistance)
+            {
+                distance=distance*2;
+                page=1; 
+                listPagedEventsFilteredByTags(analyzeArtistTags);
             }
         }
         catch (Throwable e)
@@ -240,8 +260,8 @@ public class LastFmApiConnector
         try
         {
             Artist temp = Artist.getInfo(artist, locale , null, key);
-            //Si el local es diferente del inglés tenemos que mirar si la descripción está vacía o no
-            //En el caso de que esté vacía cargar la por defecto en inglés
+            //Si el local es diferente del inglï¿½s tenemos que mirar si la descripciï¿½n estï¿½ vacï¿½a o no
+            //En el caso de que estï¿½ vacï¿½a cargar la por defecto en inglï¿½s
             if (locale!=Locale.ENGLISH)
             {
                 if (temp.getWikiSummary()==null || "".equals(temp.getWikiSummary()))
@@ -254,7 +274,7 @@ public class LastFmApiConnector
         }
         catch (Throwable e)
         {
-            throw new LastFmException("Se ha producido un error obteniendo la información del artista", e);
+            throw new LastFmException("Se ha producido un error obteniendo la informaciï¿½n del artista", e);
         }
     }
     
