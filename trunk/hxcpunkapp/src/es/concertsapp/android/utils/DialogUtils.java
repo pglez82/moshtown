@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.widget.Toast;
 
 import java.util.List;
@@ -74,9 +75,23 @@ public class DialogUtils
     public static void showToast(Context context, int duration, int message)
     {
         @SuppressWarnings("MagicConstant")
-        Toast toast = Toast.makeText(context, message ,duration);
+        Toast toast = Toast.makeText(context, message, duration);
         toast.show();
 
+    }
+
+    public static void showLongTimeToast(Context context, int seconds, int message)
+    {
+        final Toast tag = Toast.makeText(context, message,Toast.LENGTH_SHORT);
+
+        tag.show();
+
+        new CountDownTimer((seconds-1)*1000, 1000)
+        {
+            public void onTick(long millisUntilFinished) {tag.show();}
+            public void onFinish() {tag.show();}
+
+        }.start();
     }
 
 }

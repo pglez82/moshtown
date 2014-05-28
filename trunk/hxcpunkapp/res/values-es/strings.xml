@@ -111,7 +111,7 @@
     <!--Añadir concierto-->
     <!--TODO: revisar este texto-->
     <string name="add_event_title">AÑADIR CONCIERTO</string>
-    <string name="add_event_info">Para que un concierto figure en Moshtown tiene que haber sido publicado previamente en Last.fm. Last.fm es una plataforma donde, tras registrarte de manera gratuita, podrás crear eventos siempre que quieras y en cualquier parte del mundo. Recomendamos revisar cuidadosamente que todos los grupos del cartel hayan sido asociados correctamente al evento y que la dirección y localización de la sala sean las correctas. Una vez publicado en Last.fm nuestro algoritmo lo analizará y lo mostrará en Moshtown; siempre y cuando los grupos del cartel pertenezcan a la escena punk-hardcore.</string>
+    <string name="add_event_info">Para que un concierto figure en Moshtown tiene que haber sido publicado previamente en Last.fm. Last.fm es una plataforma donde, tras registrarte de manera gratuita, podrás crear eventos siempre que quieras y en cualquier parte del mundo. Recomendamos revisar cuidadosamente que todos los grupos del cartel hayan sido asociados correctamente al evento y que la dirección y localización de la sala sean las correctas. Una vez publicado en Last.fm nuestro algoritmo lo analizará y lo mostrará en Moshtown, siempre y cuando los grupos del cartel pertenezcan a la escena punk-hardcore.</string>
     <string name="add_event_link">Añadir concierto en Last.fm</string>
 
     <!--Texto de las notificaciones-->
