@@ -2247,8 +2247,8 @@ es.concertsapp.android.gui.menu.MenuActions:
 es.concertsapp.android.gui.player.SongPlayer:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.utils.DialogUtils:
-    16:16:public DialogUtils()
-    69:72:public static void showDialogWithChoices(android.content.Context,java.util.List,android.content.DialogInterface$OnClickListener)
+    17:17:public DialogUtils()
+    70:73:public static void showDialogWithChoices(android.content.Context,java.util.List,android.content.DialogInterface$OnClickListener)
 es.concertsapp.android.utils.LastFmApiConnectorFactory:
     11:11:public LastFmApiConnectorFactory()
 es.concertsapp.android.utils.MyAppParameters
@@ -2313,6 +2313,7 @@ es.lastfm.api.connector.tags.LastFmTags:
     public abstract java.lang.String getLongDescription()
 es.lastfm.api.connector.tags.PunkTags:
     34:39:public java.lang.String getLongDescription()
+es.lastfm.api.connector.tags.PunkTagsExtended
 es.lastfm.api.connector.tags.RockTags
 es.lastfm.api.connector.utils.TagUtils:
     18:18:public TagUtils()

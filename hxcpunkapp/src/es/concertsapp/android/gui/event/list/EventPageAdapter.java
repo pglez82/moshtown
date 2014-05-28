@@ -138,7 +138,7 @@ public class EventPageAdapter extends BaseAdapter
                     eventListActivity.runOnUiThread(new Runnable(){
                         @Override
                         public void run(){
-                            DialogUtils.showToast(eventListActivity, Toast.LENGTH_LONG,R.string.no_concerts_near);
+                            DialogUtils.showLongTimeToast(eventListActivity, 5,R.string.no_concerts_near);
                         }
                     });
                 }

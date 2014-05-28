@@ -26,7 +26,7 @@
     <string name="button_gps_description">Click here to find gigs nearby</string>
     <string name="button_lupa2_description">Click here to search for gigs</string>
     <!--TODO: revisar este texto-->
-    <string name="no_concerts_near">No se han encontrado conciertos cerca... Vamos a buscar un poco más lejos. Revisa la configuración de la aplicación si quieres cambiar la distancia por defecto.</string>
+    <string name="no_concerts_near">We couldn\'t find gigs nearby... Searching a little further. Check the settings page if you want to modify the search radius.</string>
 
     <!--Actividad del evento-->
     <string name="imagen_evento">Gig images</string>
@@ -81,11 +81,11 @@
     <string name="spotify_conditions">This product uses Spotify\'s API but it is not, in any way or manner, supported, certified or approved by Spotify. Spotify is the trademark of Spotify Group.</string>
 
     <!--Settings-->
-    <string name="distance_textview">RADIO DE DISTANCIA DE BÚSQUEDA</string>
+    <string name="distance_textview">SEARCH RADIUS</string>
     <string name="unit_km">Km</string>
-    <string name="unit_mill">Millas</string>
-    <string name="save_button">Guardar</string>
-    <string name="save_ok_toast">Valores de configuración guardados correctamente</string>
+    <string name="unit_mill">Miles</string>
+    <string name="save_button">Save</string>
+    <string name="save_ok_toast">Settings saved successfully</string>
 
     <!--Menu-->
     <string name="menu_inicio">Home</string>
@@ -111,9 +111,9 @@
 
     <!--Añadir concierto-->
     <!--TODO: revisar este texto-->
-    <string name="add_event_title">AÑADIR CONCIERTO</string>
-    <string name="add_event_info">Para que un concierto figure en Moshtown tiene que haber sido publicado previamente en Last.fm. Last.fm es una plataforma donde, tras registrarte de manera gratuita, podrás crear eventos siempre que quieras y en cualquier parte del mundo. Recomendamos revisar cuidadosamente que todos los grupos del cartel hayan sido asociados correctamente al evento y que la dirección y localización de la sala sean las correctas. Una vez publicado en Last.fm nuestro algoritmo lo analizará y lo mostrará en Moshtown; siempre y cuando los grupos del cartel pertenezcan a la escena punk-hardcore.</string>
-    <string name="add_event_link">Añadir concierto en Last.fm</string>
+    <string name="add_event_title">ADD CONCERT</string>
+    <string name="add_event_info">For a concert to show up in Moshtown, it must have previously been created in Last.fm. Last.fm is a platform where, after free registration, you can add events whenever, wherever. We recommend that you carefully review whether all the bands playing in the gig have been propertly linked to the event and that the address and location of the venue are correct. Once the gig has been published in Last.fm our algorithm will analyze and display it on Moshtown, if the bands belong to the punk/hardcore scene.</string>
+    <string name="add_event_link">Add concert to Last.fm</string>
 
     <!--Texto de las notificaciones-->
     <string name="notification_stop">Stop</string>

@@ -4625,12 +4625,17 @@ es.concertsapp.android.gui.settings.SettingsActivity$2 -> es.concertsapp.android
     es.concertsapp.android.gui.settings.SettingsActivity this$0 -> b
     66:68:void onClick(android.view.View) -> onClick
 es.concertsapp.android.utils.DialogUtils -> es.concertsapp.android.utils.a:
-    30:44:void showMessageDialog(android.content.Context,int,int,android.content.DialogInterface$OnDismissListener) -> a
-    48:49:void showMessageDialog(android.content.Context,int,int) -> a
-    53:54:void showErrorDialog(android.content.Context,int,android.content.DialogInterface$OnDismissListener) -> a
-    58:59:void showErrorDialog(android.content.Context,int) -> a
-    77:80:void showToast(android.content.Context,int,int) -> b
-es.concertsapp.android.utils.LastFmApiConnectorFactory -> es.concertsapp.android.utils.b:
+    31:45:void showMessageDialog(android.content.Context,int,int,android.content.DialogInterface$OnDismissListener) -> a
+    49:50:void showMessageDialog(android.content.Context,int,int) -> a
+    54:55:void showErrorDialog(android.content.Context,int,android.content.DialogInterface$OnDismissListener) -> a
+    59:60:void showErrorDialog(android.content.Context,int) -> a
+    78:81:void showToast(android.content.Context,int,int) -> b
+    85:95:void showLongTimeToast(android.content.Context,int,int) -> c
+es.concertsapp.android.utils.DialogUtils$1 -> es.concertsapp.android.utils.b:
+    android.widget.Toast val$tag -> a
+    91:91:void onTick(long) -> onTick
+    92:92:void onFinish() -> onFinish
+es.concertsapp.android.utils.LastFmApiConnectorFactory -> es.concertsapp.android.utils.c:
     es.lastfm.api.connector.tags.LastFmTags lastFmTags -> a
     es.lastfm.api.connector.LastFmApiConnector lastFmApiConnector -> b
     18:21:es.lastfm.api.connector.LastFmApiConnector getInstance() -> a
@@ -4643,7 +4648,7 @@ es.concertsapp.android.utils.MyApplication -> es.concertsapp.android.utils.MyApp
     65:65:android.content.res.Resources getAppResources() -> b
     71:72:void lookUpLocate() -> c
     76:79:java.util.Locale getLocale() -> d
-es.concertsapp.android.utils.UnexpectedErrorHandler -> es.concertsapp.android.utils.c:
+es.concertsapp.android.utils.UnexpectedErrorHandler -> es.concertsapp.android.utils.d:
     22:33:void handleUnexpectedError(android.content.Context,java.lang.Throwable,android.content.DialogInterface$OnDismissListener) -> a
     37:38:void handleUnexpectedError(android.content.Context,java.lang.Throwable) -> a
 es.concertsapp.android.utils.date.DateFormater -> es.concertsapp.android.utils.a.a:
@@ -4835,15 +4840,15 @@ es.lastfm.api.connector.LastFmApiConnector -> es.a.a.a.a:
     118:123:void setLatLon(double,double,int,int) -> a
     134:161:boolean filterEventByTags(es.lastfm.api.connector.dto.EventDTO,boolean) -> a
     171:173:boolean filterArtistByTags(java.lang.String) -> e
-    184:229:void listPagedEventsFilteredByTags(boolean) -> a
-    239:239:boolean hasMoreResults() -> a
-    249:254:es.lastfm.api.connector.dto.DetailedEventDTO getDetailedInfoEvent(int) -> a
-    262:277:es.lastfm.api.connector.dto.ArtistDTO getArtistInfo(java.lang.String) -> a
-    289:299:java.util.List getSimilarArtistsFiltered(es.lastfm.api.connector.dto.ArtistDTO) -> a
-    308:321:java.util.List getArtistEvents(java.lang.String) -> b
-    336:349:void getArtists(java.lang.String,es.lastfm.api.connector.NewArtistAvaibleListener) -> a
-    353:371:java.lang.String getSpotifyUri(java.lang.String) -> c
-    379:383:de.umass.lastfm.Channel getArtistPodcast(java.lang.String) -> d
+    184:230:void listPagedEventsFilteredByTags(boolean) -> a
+    240:240:boolean hasMoreResults() -> a
+    250:255:es.lastfm.api.connector.dto.DetailedEventDTO getDetailedInfoEvent(int) -> a
+    263:278:es.lastfm.api.connector.dto.ArtistDTO getArtistInfo(java.lang.String) -> a
+    290:300:java.util.List getSimilarArtistsFiltered(es.lastfm.api.connector.dto.ArtistDTO) -> a
+    309:322:java.util.List getArtistEvents(java.lang.String) -> b
+    337:350:void getArtists(java.lang.String,es.lastfm.api.connector.NewArtistAvaibleListener) -> a
+    354:372:java.lang.String getSpotifyUri(java.lang.String) -> c
+    380:384:de.umass.lastfm.Channel getArtistPodcast(java.lang.String) -> d
 es.lastfm.api.connector.NewArtistAvaibleListener -> es.a.a.a.b:
     void newArtistAvailable(es.lastfm.api.connector.dto.ArtistDTO) -> a
 es.lastfm.api.connector.NewEventAvaibleListener -> es.a.a.a.c:
