@@ -372,6 +372,7 @@ es.concertsapp.android.gui.R$id: int list_main_events_noresults
 es.concertsapp.android.gui.R$id: int listbandsevent
 es.concertsapp.android.gui.R$id: int listbandstext
 es.concertsapp.android.gui.R$id: int listsimilarnoresults
+es.concertsapp.android.gui.R$id: int listtags
 es.concertsapp.android.gui.R$id: int loadmoreelement
 es.concertsapp.android.gui.R$id: int map
 es.concertsapp.android.gui.R$id: int mapinfoevent
@@ -406,6 +407,7 @@ es.concertsapp.android.gui.R$id: int puntos
 es.concertsapp.android.gui.R$id: int rate_app
 es.concertsapp.android.gui.R$id: int relatedpanelbutton
 es.concertsapp.android.gui.R$id: int settings_app
+es.concertsapp.android.gui.R$id: int settings_restoredefaults
 es.concertsapp.android.gui.R$id: int settings_savebutton
 es.concertsapp.android.gui.R$id: int settings_separator_textview
 es.concertsapp.android.gui.R$id: int share_app
@@ -415,6 +417,9 @@ es.concertsapp.android.gui.R$id: int songsview
 es.concertsapp.android.gui.R$id: int songtitle
 es.concertsapp.android.gui.R$id: int spotifybutton
 es.concertsapp.android.gui.R$id: int spotifypanelbutton
+es.concertsapp.android.gui.R$id: int tagcheckbox
+es.concertsapp.android.gui.R$id: int tags_textview
+es.concertsapp.android.gui.R$id: int tagtextview
 es.concertsapp.android.gui.R$id: int textSpotifyNotInstalled
 es.concertsapp.android.gui.R$id: int textViewSpotify
 es.concertsapp.android.gui.R$id: int text_slogan
@@ -442,6 +447,7 @@ es.concertsapp.android.gui.R$layout: int item_row
 es.concertsapp.android.gui.R$layout: int item_searchband_row
 es.concertsapp.android.gui.R$layout: int item_similarartist_row
 es.concertsapp.android.gui.R$layout: int list_bands_row
+es.concertsapp.android.gui.R$layout: int list_tags_row
 es.concertsapp.android.gui.R$layout: int main_layout
 es.concertsapp.android.gui.R$layout: int player_notification_view
 es.concertsapp.android.gui.R$layout: int song_item
@@ -520,7 +526,10 @@ es.concertsapp.android.gui.R$string: int posterheadertext
 es.concertsapp.android.gui.R$string: int puntos_description
 es.concertsapp.android.gui.R$string: int rate_this_app
 es.concertsapp.android.gui.R$string: int relatedartists_text
+es.concertsapp.android.gui.R$string: int restore_ok_toast
+es.concertsapp.android.gui.R$string: int restoredefaults_button
 es.concertsapp.android.gui.R$string: int save_button
+es.concertsapp.android.gui.R$string: int save_fail_toast
 es.concertsapp.android.gui.R$string: int save_ok_toast
 es.concertsapp.android.gui.R$string: int settings_app
 es.concertsapp.android.gui.R$string: int share_event_text
@@ -533,6 +542,7 @@ es.concertsapp.android.gui.R$string: int slogan_text
 es.concertsapp.android.gui.R$string: int spotify_button
 es.concertsapp.android.gui.R$string: int spotify_conditions
 es.concertsapp.android.gui.R$string: int spotify_title
+es.concertsapp.android.gui.R$string: int tags_textview
 es.concertsapp.android.gui.R$string: int ticketimagedescription
 es.concertsapp.android.gui.R$string: int toast_player
 es.concertsapp.android.gui.R$string: int toastfavorito_text
@@ -797,6 +807,7 @@ it.sephiroth.android.library.imagezoom.R$id: int list_main_events_noresults
 it.sephiroth.android.library.imagezoom.R$id: int listbandsevent
 it.sephiroth.android.library.imagezoom.R$id: int listbandstext
 it.sephiroth.android.library.imagezoom.R$id: int listsimilarnoresults
+it.sephiroth.android.library.imagezoom.R$id: int listtags
 it.sephiroth.android.library.imagezoom.R$id: int loadmoreelement
 it.sephiroth.android.library.imagezoom.R$id: int map
 it.sephiroth.android.library.imagezoom.R$id: int mapinfoevent
@@ -831,6 +842,7 @@ it.sephiroth.android.library.imagezoom.R$id: int puntos
 it.sephiroth.android.library.imagezoom.R$id: int rate_app
 it.sephiroth.android.library.imagezoom.R$id: int relatedpanelbutton
 it.sephiroth.android.library.imagezoom.R$id: int settings_app
+it.sephiroth.android.library.imagezoom.R$id: int settings_restoredefaults
 it.sephiroth.android.library.imagezoom.R$id: int settings_savebutton
 it.sephiroth.android.library.imagezoom.R$id: int settings_separator_textview
 it.sephiroth.android.library.imagezoom.R$id: int share_app
@@ -840,6 +852,9 @@ it.sephiroth.android.library.imagezoom.R$id: int songsview
 it.sephiroth.android.library.imagezoom.R$id: int songtitle
 it.sephiroth.android.library.imagezoom.R$id: int spotifybutton
 it.sephiroth.android.library.imagezoom.R$id: int spotifypanelbutton
+it.sephiroth.android.library.imagezoom.R$id: int tagcheckbox
+it.sephiroth.android.library.imagezoom.R$id: int tags_textview
+it.sephiroth.android.library.imagezoom.R$id: int tagtextview
 it.sephiroth.android.library.imagezoom.R$id: int textSpotifyNotInstalled
 it.sephiroth.android.library.imagezoom.R$id: int textViewSpotify
 it.sephiroth.android.library.imagezoom.R$id: int text_slogan
@@ -867,6 +882,7 @@ it.sephiroth.android.library.imagezoom.R$layout: int item_row
 it.sephiroth.android.library.imagezoom.R$layout: int item_searchband_row
 it.sephiroth.android.library.imagezoom.R$layout: int item_similarartist_row
 it.sephiroth.android.library.imagezoom.R$layout: int list_bands_row
+it.sephiroth.android.library.imagezoom.R$layout: int list_tags_row
 it.sephiroth.android.library.imagezoom.R$layout: int main_layout
 it.sephiroth.android.library.imagezoom.R$layout: int player_notification_view
 it.sephiroth.android.library.imagezoom.R$layout: int song_item
@@ -945,7 +961,10 @@ it.sephiroth.android.library.imagezoom.R$string: int posterheadertext
 it.sephiroth.android.library.imagezoom.R$string: int puntos_description
 it.sephiroth.android.library.imagezoom.R$string: int rate_this_app
 it.sephiroth.android.library.imagezoom.R$string: int relatedartists_text
+it.sephiroth.android.library.imagezoom.R$string: int restore_ok_toast
+it.sephiroth.android.library.imagezoom.R$string: int restoredefaults_button
 it.sephiroth.android.library.imagezoom.R$string: int save_button
+it.sephiroth.android.library.imagezoom.R$string: int save_fail_toast
 it.sephiroth.android.library.imagezoom.R$string: int save_ok_toast
 it.sephiroth.android.library.imagezoom.R$string: int settings_app
 it.sephiroth.android.library.imagezoom.R$string: int share_event_text
@@ -958,6 +977,7 @@ it.sephiroth.android.library.imagezoom.R$string: int slogan_text
 it.sephiroth.android.library.imagezoom.R$string: int spotify_button
 it.sephiroth.android.library.imagezoom.R$string: int spotify_conditions
 it.sephiroth.android.library.imagezoom.R$string: int spotify_title
+it.sephiroth.android.library.imagezoom.R$string: int tags_textview
 it.sephiroth.android.library.imagezoom.R$string: int ticketimagedescription
 it.sephiroth.android.library.imagezoom.R$string: int toast_player
 it.sephiroth.android.library.imagezoom.R$string: int toastfavorito_text

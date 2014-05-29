@@ -1,0 +1,114 @@
+package es.concertsapp.android.gui.settings;
+
+import android.content.Context;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import es.concertsapp.android.conf.ConfValues;
+import es.concertsapp.android.utils.MyApplication;
+import es.lastfm.api.connector.tags.PunkTags;
+import es.lastfm.api.connector.tags.PunkTagsExtended;
+
+/**
+ * Created by pablo on 29/05/14.
+ */
+public class SelectedTagsStore
+{
+    private static SelectedTagsStore instance;
+    private Context context;
+    private Set<String> selectedTags;
+    private PunkTags punkTags = new PunkTags();
+    private PunkTagsExtended punkTagsExtended = new PunkTagsExtended();
+
+    private SelectedTagsStore()
+    {
+        context = MyApplication.getAppContext();
+    }
+
+    public static SelectedTagsStore getInstance()
+    {
+        if (instance==null)
+            instance = new SelectedTagsStore();
+
+        return instance;
+    }
+
+    private Set<String> loadSelectedTags()
+    {
+        Set<String> selectedTags = null;
+        try
+        {
+            FileInputStream fis = context.openFileInput(ConfValues.FILENAME_TAGS);
+            ObjectInputStream is = new ObjectInputStream(fis);
+            selectedTags = (Set<String>) is.readObject();
+            is.close();
+            fis.close();
+        }
+        catch (Throwable e)
+        {
+            e.printStackTrace();
+
+        }
+        finally
+        {
+            if (selectedTags==null)
+            {
+                selectedTags = new HashSet<String>();
+            }
+        }
+        return selectedTags;
+    }
+
+    public void saveSelectedTags(Set<String> selectedTags)
+    {
+        FileOutputStream fos;
+        try {
+            fos = context.openFileOutput(ConfValues.FILENAME_TAGS, Context.MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(selectedTags);
+            oos.close();
+            fos.close();
+            this.selectedTags=new HashSet<String>(selectedTags);
+        } catch (Throwable e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public Set<String> getSelectedTags() {
+        if (selectedTags==null)
+            selectedTags = loadSelectedTags();
+
+        //Si está vacío, devolvemos las punktags como mínimo
+        if (selectedTags.isEmpty())
+            selectedTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
+
+        return new HashSet<String>(selectedTags);
+    }
+
+    public Set<String> restoreDefaultTags()
+    {
+        selectedTags.clear();
+        selectedTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
+        saveSelectedTags(selectedTags);
+        return new HashSet<String>(selectedTags);
+    }
+
+    public String[] getAvailableTags()
+    {
+        Set<String> availableTags = new HashSet<String>();
+
+        availableTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
+        availableTags.addAll(Arrays.asList(punkTagsExtended.getWorkingTags()));
+        return availableTags.toArray(new String[availableTags.size()]);
+    }
+
+
+}
