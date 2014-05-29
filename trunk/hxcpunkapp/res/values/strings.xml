@@ -85,7 +85,11 @@
     <string name="unit_km">Km</string>
     <string name="unit_mill">Miles</string>
     <string name="save_button">Save</string>
+    <string name="restoredefaults_button">Defaults</string>
     <string name="save_ok_toast">Settings saved successfully</string>
+    <string name="tags_textview">TAGS</string>
+    <string name="save_fail_toast">You must select at least one tag</string>
+    <string name="restore_ok_toast">Default values restored successfully</string>
 
     <!--Menu-->
     <string name="menu_inicio">Home</string>

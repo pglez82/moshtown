@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="52dp"
+    android:orientation="horizontal"
+    android:background="@drawable/list_clicked_color"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:gravity="center_vertical">
+
+    <CheckBox
+        android:id="@+id/tagcheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|left"
+        />
+
+    <TextView
+        android:id="@+id/tagtextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>

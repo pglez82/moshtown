@@ -84,7 +84,11 @@
     <string name="unit_km">Km</string>
     <string name="unit_mill">Millas</string>
     <string name="save_button">Guardar</string>
+    <string name="restoredefaults_button">Por defecto</string>
     <string name="save_ok_toast">Valores de configuración guardados correctamente</string>
+    <string name="tags_textview">TAGS</string>
+    <string name="save_fail_toast">Debes seleccionar al menos un tag</string>
+    <string name="restore_ok_toast">Valores por defecto restaurados correctamente</string>
 
     <!--Menu-->
     <string name="menu_inicio">Inicio</string>

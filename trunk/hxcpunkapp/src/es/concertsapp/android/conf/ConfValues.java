@@ -18,6 +18,8 @@ public class ConfValues implements LastFmApiConfiguration
     public static final String FILENAME_CITIES = "cities.hxa";
     //Archivo de configuración
     public static final String FILENAME_CONF = "configuration.hxa";
+    //Archivo con las tags seleccionadas
+    public static final String FILENAME_TAGS = "tags.hxa";
 
     //Máximo número de ciudades almacenadas como favoritos en la búsqueda de eventos (se resaltan en
     //las sugerencias
@@ -92,6 +94,12 @@ public class ConfValues implements LastFmApiConfiguration
                 configurableValue.setActualValue(configurableValue.getDefaultValue());
             }
         }
+        return (Integer)configurableValue.getActualValue();
+    }
+
+    public static int restoreIntConfigurationValue(Context context, ConfigurableValue configurableValue)
+    {
+        setIntConfigurationValue(context,configurableValue,(Integer)configurableValue.getDefaultValue());
         return (Integer)configurableValue.getActualValue();
     }
 

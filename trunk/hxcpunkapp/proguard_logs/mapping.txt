@@ -3883,20 +3883,21 @@ es.concertsapp.android.component.LetterSpacingTextView -> es.concertsapp.android
     45:45:java.lang.CharSequence getText() -> getText
     49:63:void applyLetterSpacing() -> a
 es.concertsapp.android.conf.ConfValues -> es.concertsapp.android.a.a:
-    48:48:int getMaxTopTagsArtist() -> a
-    54:54:int getMaxArtistsEventTags() -> b
-    85:95:int getIntConfigurableValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> a
-    100:105:void setIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue,int) -> a
+    50:50:int getMaxTopTagsArtist() -> a
+    56:56:int getMaxArtistsEventTags() -> b
+    87:97:int getIntConfigurableValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> a
+    102:103:int restoreIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> b
+    108:113:void setIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue,int) -> a
 es.concertsapp.android.conf.ConfValues$ConfigurableValue -> es.concertsapp.android.a.b:
     es.concertsapp.android.conf.ConfValues$ConfigurableValue EVENT_RATIO_DISTANCE -> a
     java.lang.Object defaultValue -> b
     java.lang.Object actualValue -> c
     es.concertsapp.android.conf.ConfValues$ConfigurableValue[] $VALUES -> d
-    58:58:es.concertsapp.android.conf.ConfValues$ConfigurableValue[] values() -> values
-    58:58:es.concertsapp.android.conf.ConfValues$ConfigurableValue valueOf(java.lang.String) -> valueOf
-    70:70:java.lang.Object getDefaultValue() -> a
-    74:74:java.lang.Object getActualValue() -> b
-    78:79:void setActualValue(java.lang.Object) -> a
+    60:60:es.concertsapp.android.conf.ConfValues$ConfigurableValue[] values() -> values
+    60:60:es.concertsapp.android.conf.ConfValues$ConfigurableValue valueOf(java.lang.String) -> valueOf
+    72:72:java.lang.Object getDefaultValue() -> a
+    76:76:java.lang.Object getActualValue() -> b
+    80:81:void setActualValue(java.lang.Object) -> a
 es.concertsapp.android.gui.R -> es.concertsapp.android.gui.a:
 es.concertsapp.android.gui.R$styleable -> es.concertsapp.android.gui.b:
     int[] ExpandablePanel -> ExpandablePanel
@@ -4606,24 +4607,61 @@ es.concertsapp.android.gui.player.SongPlayer$PlayerStatusChangedListener -> es.c
     void playerStatusChanged() -> B
 es.concertsapp.android.gui.player.SongPlayerBR -> es.concertsapp.android.gui.player.SongPlayerBR:
     14:15:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+es.concertsapp.android.gui.settings.SelectedTagsStore -> es.concertsapp.android.gui.settings.a:
+    es.concertsapp.android.gui.settings.SelectedTagsStore instance -> a
+    android.content.Context context -> b
+    java.util.Set selectedTags -> c
+    es.lastfm.api.connector.tags.PunkTags punkTags -> d
+    es.lastfm.api.connector.tags.PunkTagsExtended punkTagsExtended -> e
+    37:40:es.concertsapp.android.gui.settings.SelectedTagsStore getInstance() -> a
+    45:66:java.util.Set loadSelectedTags() -> e
+    73:83:void saveSelectedTags(java.util.Set) -> a
+    86:93:java.util.Set getSelectedTags() -> b
+    98:101:java.util.Set restoreDefaultTags() -> c
+    106:110:java.lang.String[] getAvailableTags() -> d
 es.concertsapp.android.gui.settings.SettingsActivity -> es.concertsapp.android.gui.settings.SettingsActivity:
     double MILLA_KM -> a
     int MIN_KM -> b
     int MAX_KM -> c
-    27:70:void onCreate(android.os.Bundle) -> onCreate
-    74:77:void updateLabels(android.widget.SeekBar,int,android.widget.TextView,android.widget.TextView) -> a
-    19:19:void access$000(es.concertsapp.android.gui.settings.SettingsActivity,android.widget.SeekBar,int,android.widget.TextView,android.widget.TextView) -> a
-es.concertsapp.android.gui.settings.SettingsActivity$1 -> es.concertsapp.android.gui.settings.a:
+    es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter tagsAdapter -> d
+    40:113:void onCreate(android.os.Bundle) -> onCreate
+    117:120:void updateLabels(android.widget.SeekBar,int,android.widget.TextView,android.widget.TextView) -> a
+    31:31:void access$000(es.concertsapp.android.gui.settings.SettingsActivity,android.widget.SeekBar,int,android.widget.TextView,android.widget.TextView) -> a
+    31:31:es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter access$100(es.concertsapp.android.gui.settings.SettingsActivity) -> a
+es.concertsapp.android.gui.settings.SettingsActivity$1 -> es.concertsapp.android.gui.settings.b:
     android.widget.TextView val$distanceKmTextView -> a
     android.widget.TextView val$distanceMiTextView -> b
     es.concertsapp.android.gui.settings.SettingsActivity this$0 -> c
-    49:50:void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
-    55:55:void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
-    60:60:void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
-es.concertsapp.android.gui.settings.SettingsActivity$2 -> es.concertsapp.android.gui.settings.b:
+    66:67:void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+    72:72:void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    77:77:void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+es.concertsapp.android.gui.settings.SettingsActivity$2 -> es.concertsapp.android.gui.settings.c:
     android.widget.SeekBar val$distanceSeekBar -> a
     es.concertsapp.android.gui.settings.SettingsActivity this$0 -> b
-    66:68:void onClick(android.view.View) -> onClick
+    83:93:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.settings.SettingsActivity$3 -> es.concertsapp.android.gui.settings.d:
+    android.widget.SeekBar val$distanceSeekBar -> a
+    android.widget.TextView val$distanceKmTextView -> b
+    android.widget.TextView val$distanceMiTextView -> c
+    es.concertsapp.android.gui.settings.SettingsActivity this$0 -> d
+    99:103:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter -> es.concertsapp.android.gui.settings.e:
+    java.util.List availableTags -> b
+    java.util.Set selectedTags -> c
+    es.concertsapp.android.gui.settings.SettingsActivity this$0 -> a
+    140:140:int getCount() -> getCount
+    145:145:java.lang.Object getItem(int) -> getItem
+    150:150:long getItemId(int) -> getItemId
+    155:189:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    193:193:java.util.Set getSelectedTags() -> a
+    198:201:void restoreDefaults() -> b
+    127:127:java.util.Set access$300(es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter) -> a
+es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter$1 -> es.concertsapp.android.gui.settings.f:
+    es.concertsapp.android.gui.settings.SettingsActivity$TagsAdapter this$1 -> a
+    170:175:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+es.concertsapp.android.gui.settings.SettingsActivity$ViewHolder -> es.concertsapp.android.gui.settings.g:
+    android.widget.CheckBox checkBox -> a
+    android.widget.TextView textView -> b
 es.concertsapp.android.utils.DialogUtils -> es.concertsapp.android.utils.a:
     31:45:void showMessageDialog(android.content.Context,int,int,android.content.DialogInterface$OnDismissListener) -> a
     49:50:void showMessageDialog(android.content.Context,int,int) -> a
@@ -4636,10 +4674,13 @@ es.concertsapp.android.utils.DialogUtils$1 -> es.concertsapp.android.utils.b:
     91:91:void onTick(long) -> onTick
     92:92:void onFinish() -> onFinish
 es.concertsapp.android.utils.LastFmApiConnectorFactory -> es.concertsapp.android.utils.c:
-    es.lastfm.api.connector.tags.LastFmTags lastFmTags -> a
-    es.lastfm.api.connector.LastFmApiConnector lastFmApiConnector -> b
-    18:21:es.lastfm.api.connector.LastFmApiConnector getInstance() -> a
-    26:27:es.lastfm.api.connector.LastFmApiConnector getNewInstance() -> b
+    es.lastfm.api.connector.LastFmApiConnector lastFmApiConnector -> a
+    21:22:es.lastfm.api.connector.tags.LastFmTags getTags() -> c
+    38:41:es.lastfm.api.connector.LastFmApiConnector getInstance() -> a
+    46:47:es.lastfm.api.connector.LastFmApiConnector getNewInstance() -> b
+es.concertsapp.android.utils.LastFmApiConnectorFactory$1 -> es.concertsapp.android.utils.d:
+    es.concertsapp.android.gui.settings.SelectedTagsStore val$selectedTagsStore -> a
+    25:26:java.lang.String[] getWorkingTags() -> a
 es.concertsapp.android.utils.MyApplication -> es.concertsapp.android.utils.MyApplication:
     android.content.Context context -> a
     java.util.Locale usedLocale -> b
@@ -4648,7 +4689,7 @@ es.concertsapp.android.utils.MyApplication -> es.concertsapp.android.utils.MyApp
     65:65:android.content.res.Resources getAppResources() -> b
     71:72:void lookUpLocate() -> c
     76:79:java.util.Locale getLocale() -> d
-es.concertsapp.android.utils.UnexpectedErrorHandler -> es.concertsapp.android.utils.d:
+es.concertsapp.android.utils.UnexpectedErrorHandler -> es.concertsapp.android.utils.e:
     22:33:void handleUnexpectedError(android.content.Context,java.lang.Throwable,android.content.DialogInterface$OnDismissListener) -> a
     37:38:void handleUnexpectedError(android.content.Context,java.lang.Throwable) -> a
 es.concertsapp.android.utils.date.DateFormater -> es.concertsapp.android.utils.a.a:
@@ -4909,6 +4950,10 @@ es.lastfm.api.connector.exception.LastFmException -> es.a.a.a.c.a:
 es.lastfm.api.connector.tags.LastFmTags -> es.a.a.a.d.a:
     java.lang.String[] getWorkingTags() -> a
 es.lastfm.api.connector.tags.PunkTags -> es.a.a.a.d.b:
+    java.lang.String[] arr -> a
+    22:22:java.lang.String[] getWorkingTags() -> a
+    28:28:java.lang.String toString() -> toString
+es.lastfm.api.connector.tags.PunkTagsExtended -> es.a.a.a.d.c:
     java.lang.String[] arr -> a
     22:22:java.lang.String[] getWorkingTags() -> a
     28:28:java.lang.String toString() -> toString

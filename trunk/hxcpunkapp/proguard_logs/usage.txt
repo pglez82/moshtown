@@ -2196,6 +2196,7 @@ es.concertsapp.android.conf.ConfValues:
     public static final java.lang.String FILENAME_FAVORITES
     public static final java.lang.String FILENAME_CITIES
     public static final java.lang.String FILENAME_CONF
+    public static final java.lang.String FILENAME_TAGS
     public static final int MAX_CITIES_STORED
     public static final double NEAR_EVENT_DISTANCE_FAVOURITES
     public static final int MAX_TOP_TAGS_ARTISTS
@@ -2206,7 +2207,7 @@ es.concertsapp.android.gui.BuildConfig
 es.concertsapp.android.gui.Manifest
 es.concertsapp.android.gui.Manifest$permission
 es.concertsapp.android.gui.R:
-    10:466:public R()
+    10:476:public R()
 es.concertsapp.android.gui.R$attr
 es.concertsapp.android.gui.R$color
 es.concertsapp.android.gui.R$dimen
@@ -2216,7 +2217,7 @@ es.concertsapp.android.gui.R$layout
 es.concertsapp.android.gui.R$menu
 es.concertsapp.android.gui.R$string
 es.concertsapp.android.gui.R$styleable:
-    466:466:public R$styleable()
+    476:476:public R$styleable()
 es.concertsapp.android.gui.band.detail.BandInfoActivity:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.gui.band.detail.BandSectionsPageAdapter:
@@ -2250,7 +2251,9 @@ es.concertsapp.android.utils.DialogUtils:
     17:17:public DialogUtils()
     70:73:public static void showDialogWithChoices(android.content.Context,java.util.List,android.content.DialogInterface$OnClickListener)
 es.concertsapp.android.utils.LastFmApiConnectorFactory:
-    11:11:public LastFmApiConnectorFactory()
+    14:14:public LastFmApiConnectorFactory()
+es.concertsapp.android.utils.LastFmApiConnectorFactory$1:
+    31:31:public java.lang.String getLongDescription()
 es.concertsapp.android.utils.MyAppParameters
 es.concertsapp.android.utils.UnexpectedErrorHandler:
     18:18:public UnexpectedErrorHandler()
@@ -2313,7 +2316,8 @@ es.lastfm.api.connector.tags.LastFmTags:
     public abstract java.lang.String getLongDescription()
 es.lastfm.api.connector.tags.PunkTags:
     34:39:public java.lang.String getLongDescription()
-es.lastfm.api.connector.tags.PunkTagsExtended
+es.lastfm.api.connector.tags.PunkTagsExtended:
+    34:39:public java.lang.String getLongDescription()
 es.lastfm.api.connector.tags.RockTags
 es.lastfm.api.connector.utils.TagUtils:
     18:18:public TagUtils()
