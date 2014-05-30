@@ -20,7 +20,7 @@
                 android:layout_marginLeft="6dp"
                 android:contentDescription="@string/ic_mundo_description"/>
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/editBanda"
             android:layout_width="0dip"
             android:layout_height="43dp"

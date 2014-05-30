@@ -4,74 +4,70 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="25dp"
     android:background="@color/white">
 
-    <LinearLayout
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/distance_textview"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/distance_textview"
+        />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"/>
+    <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="25dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="@string/distance_textview"
-            android:textColor="@color/black"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/distance_textview"
-            />
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"/>
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:progressDrawable="@drawable/barra_estrecha"
-            android:id="@+id/distance_seekbar"
-            android:indeterminate="false"
-            android:max="200" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:progressDrawable="@drawable/barra_estrecha"
+        android:id="@+id/distance_seekbar"
+        android:indeterminate="false"
+        android:max="200" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="14dp"
-            android:layout_gravity="center_horizontal"
-            >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-            android:id="@+id/distance_km_text_view"
-             />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:text="/"
-                android:id="@+id/settings_separator_textview"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/black"
-                />
-        <TextView
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="14dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:id="@+id/distance_km_text_view"
+         />
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
+            android:text="/"
+            android:id="@+id/settings_separator_textview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textColor="@color/black"
-            android:id="@+id/distance_milles_text_view"
-             />
-        </LinearLayout>
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:id="@+id/distance_milles_text_view"
+         />
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -99,17 +95,20 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:divider="@color/black"
         android:fadingEdge="none"
-        android:cacheColorHint="#FFFFFF"
+        android:divider="@color/gray"
+        android:cacheColorHint="#00000000"
         android:id="@+id/listtags"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
