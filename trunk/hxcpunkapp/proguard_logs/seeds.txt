@@ -437,6 +437,7 @@ es.concertsapp.android.gui.R$layout: int aviso_legal_layout
 es.concertsapp.android.gui.R$layout: int aviso_moshtown_layout
 es.concertsapp.android.gui.R$layout: int band_favorites_list
 es.concertsapp.android.gui.R$layout: int band_list
+es.concertsapp.android.gui.R$layout: int band_list_tag_completer_result
 es.concertsapp.android.gui.R$layout: int band_main_layout
 es.concertsapp.android.gui.R$layout: int buttonmore_layout
 es.concertsapp.android.gui.R$layout: int city_list_result_layout
@@ -872,6 +873,7 @@ it.sephiroth.android.library.imagezoom.R$layout: int aviso_legal_layout
 it.sephiroth.android.library.imagezoom.R$layout: int aviso_moshtown_layout
 it.sephiroth.android.library.imagezoom.R$layout: int band_favorites_list
 it.sephiroth.android.library.imagezoom.R$layout: int band_list
+it.sephiroth.android.library.imagezoom.R$layout: int band_list_tag_completer_result
 it.sephiroth.android.library.imagezoom.R$layout: int band_main_layout
 it.sephiroth.android.library.imagezoom.R$layout: int buttonmore_layout
 it.sephiroth.android.library.imagezoom.R$layout: int city_list_result_layout

@@ -104,10 +104,22 @@ public class SelectedTagsStore
     public String[] getAvailableTags()
     {
         Set<String> availableTags = new HashSet<String>();
-
         availableTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
         availableTags.addAll(Arrays.asList(punkTagsExtended.getWorkingTags()));
         return availableTags.toArray(new String[availableTags.size()]);
+    }
+
+    public String[] getAvailableTagsWidthAlm()
+    {
+        String[] availableTags = getAvailableTags();
+        String[] array = new String[availableTags.length];
+        int i=0;
+        for (String tag : availableTags)
+        {
+            array[i]="#"+tag;
+            i++;
+        }
+        return array;
     }
 
 

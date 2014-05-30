@@ -2006,7 +2006,6 @@ de.umass.lastfm.Tag:
     156:157:public static java.util.Collection getTopTags(java.lang.String)
     161:162:public static java.util.Collection getTopAlbums(java.lang.String,java.lang.String)
     166:167:public static java.util.Collection getTopTracks(java.lang.String,java.lang.String)
-    171:172:public static java.util.Collection getTopArtists(java.lang.String,java.lang.String)
     176:176:public static java.util.Collection search(java.lang.String,java.lang.String)
     180:186:public static java.util.Collection search(java.lang.String,int,java.lang.String)
     190:190:public static de.umass.lastfm.Chart getWeeklyArtistChart(java.lang.String,java.lang.String)
@@ -2207,7 +2206,7 @@ es.concertsapp.android.gui.BuildConfig
 es.concertsapp.android.gui.Manifest
 es.concertsapp.android.gui.Manifest$permission
 es.concertsapp.android.gui.R:
-    10:476:public R()
+    10:477:public R()
 es.concertsapp.android.gui.R$attr
 es.concertsapp.android.gui.R$color
 es.concertsapp.android.gui.R$dimen
@@ -2217,7 +2216,7 @@ es.concertsapp.android.gui.R$layout
 es.concertsapp.android.gui.R$menu
 es.concertsapp.android.gui.R$string
 es.concertsapp.android.gui.R$styleable:
-    476:476:public R$styleable()
+    477:477:public R$styleable()
 es.concertsapp.android.gui.band.detail.BandInfoActivity:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.gui.band.detail.BandSectionsPageAdapter:

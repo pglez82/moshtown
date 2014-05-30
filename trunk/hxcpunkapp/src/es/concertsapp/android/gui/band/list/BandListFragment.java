@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -29,6 +31,7 @@ import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
+import es.concertsapp.android.gui.settings.SelectedTagsStore;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
 import es.concertsapp.android.utils.MyAppParameters;
@@ -92,7 +95,7 @@ public class BandListFragment extends ListFragment
 
 
 
-        final EditText searchTextView = (EditText)view.findViewById(R.id.editBanda);
+        final AutoCompleteTextView searchTextView = (AutoCompleteTextView)view.findViewById(R.id.editBanda);
         FontUtils.setRobotoFont(getActivity(),searchTextView, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
         searchTextView.setOnKeyListener(new View.OnKeyListener()
         {
@@ -107,6 +110,16 @@ public class BandListFragment extends ListFragment
                     }
                 }
                 return false;
+            }
+        });
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),R.layout.band_list_tag_completer_result, SelectedTagsStore.getInstance().getAvailableTagsWidthAlm());
+        searchTextView.setThreshold(1);
+        searchTextView.setAdapter(adapter);
+        searchTextView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                searchBands(view);
             }
         });
 
@@ -159,7 +172,7 @@ public class BandListFragment extends ListFragment
 	 */
 	private void searchBands(View v)
 	{
-		EditText text = (EditText)this.getActivity().findViewById(R.id.editBanda);
+        AutoCompleteTextView text = (AutoCompleteTextView)this.getActivity().findViewById(R.id.editBanda);
         //Cerramos el teclado
         KeyBoardUtils.hideKeyboard(getActivity(),text.getWindowToken());
 		String bandName = text.getText().toString();
