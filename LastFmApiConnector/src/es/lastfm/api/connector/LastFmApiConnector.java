@@ -54,7 +54,7 @@ public class LastFmApiConnector
     
     private int page;
     private int totalPages;
-    //Número total de eventos encontrado en esta búsqueda
+    //Nï¿½mero total de eventos encontrado en esta bï¿½squeda
     private int totalEventsFound;
     
     //Listener que se invoca cuando se acaba de procesar una pÃ¡gina
@@ -282,6 +282,8 @@ public class LastFmApiConnector
     /**
      * Devuelve la lista de artistas similares filtrados por estilo
      * @param artistDTO 
+     * @return Devuelve la lista de artistas filtrados por estilo 
+     * @throws es.lastfm.api.connector.exception.LastFmException Si se produce un error
      */
     public List<ArtistDTO> getSimilarArtistsFiltered(ArtistDTO artistDTO) throws LastFmException
     {
@@ -334,14 +336,28 @@ public class LastFmApiConnector
     {
         try
         {
-            Collection<Artist> artists = Artist.search(partialName, key);
-            for (Artist artist : artists)
+            Collection<Artist> artists;
+            if (partialName.startsWith("#"))
             {
-                if (filterArtistByTags(artist.getName()))
+                artists = Tag.getTopArtists(partialName.substring(1), key);
+                for (Artist artist : artists)
                 {
                     newArtistAvaibleListener.newArtistAvailable(new ArtistDTO(artist));
                 }
             }
+            else
+            {
+                artists = Artist.search(partialName, key);
+                for (Artist artist : artists)
+                {
+                    if (filterArtistByTags(artist.getName()))
+                    {
+                        newArtistAvaibleListener.newArtistAvailable(new ArtistDTO(artist));
+                    }
+                }
+            }
+
+
         }
         catch (Throwable e)
         {
