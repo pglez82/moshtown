@@ -219,6 +219,7 @@ public class LastFmApiConnector
             {
                 distance=distance*2;
                 page=1; 
+                totalPages = 1;
                 listPagedEventsFilteredByTags(analyzeArtistTags);
             }
         }
