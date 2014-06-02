@@ -156,6 +156,42 @@ public class MyLocation
         return true;
     }
 
+    /**
+     * Función que sirve para comprobar simplemente si el servicio de localización está habilitado
+     * @param context contexto.
+     * @return true si está habilitao y falso en caso contrario.
+     */
+    public static boolean checkLocationProviders(Context context)
+    {
+        LocationManager lmlocal = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        boolean gps = false;
+        boolean network = false;
+
+        //exceptions will be thrown if provider is not permitted.
+        try
+        {
+            gps = lmlocal.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        }
+        catch (Exception ex)
+        {
+            Log.d(LOG_TAG,"Error obteniendo el gps",ex);
+        }
+        try
+        {
+            network = lmlocal.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        }
+        catch (Exception ex)
+        {
+            Log.d(LOG_TAG,"Error obteniendo la red",ex);
+        }
+
+        //don't start listeners if no provider is enabled
+        if (!gps && !network)
+            return false;
+        else
+            return true;
+    }
+
     LocationListener locationListenerGps = new LocationListener()
     {
         public void onLocationChanged(Location location) {

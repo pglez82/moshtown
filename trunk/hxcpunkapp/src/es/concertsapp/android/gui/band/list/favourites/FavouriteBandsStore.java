@@ -152,4 +152,33 @@ public class FavouriteBandsStore
             }
         }
     }
+
+    /**
+     * Carga de disco las bandas favoritas. Este método solo está pensando para ser utilizado desde
+     * el servicio de carga de bandas favoritas
+     */
+    public static List<ArtistDTO> loadFavouriteBandsStatic(Context context)
+    {
+        List<ArtistDTO> favouriteBandsStatic=null;
+        try
+        {
+            FileInputStream fis = context.openFileInput(ConfValues.FILENAME_FAVORITES);
+            ObjectInputStream is = new ObjectInputStream(fis);
+            favouriteBandsStatic = Collections.synchronizedList((List<ArtistDTO>) is.readObject());
+            is.close();
+            fis.close();
+        }
+        catch (Throwable ignored)
+        {
+        }
+        finally
+        {
+            if (favouriteBandsStatic==null)
+            {
+                favouriteBandsStatic = new ArrayList<ArtistDTO>();
+            }
+        }
+
+        return favouriteBandsStatic;
+    }
 }

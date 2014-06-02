@@ -137,7 +137,7 @@ public class LookForNearEvents
                         for (ArtistEventDTO artistEventDTO : listArtistEventDTO)
                         {
                             double distance = DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), artistEventDTO.getLatEventPlace(), artistEventDTO.getLonEventPlace());
-                            if (distance< ConfValues.NEAR_EVENT_DISTANCE_FAVOURITES)
+                            if (distance< ConfValues.getIntConfigurableValue(favoritesFragment.getActivity(),ConfValues.ConfigurableValue.EVENT_RATIO_DISTANCE))
                             {
                                 artistDTO.setNearEvents(true);
                                 publishProgress();

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.concertsapp.android.gui"
-    android:versionCode="27"
-    android:versionName="1.27"
+    android:versionCode="28"
+    android:versionName="1.28"
     >
 
     <uses-sdk
@@ -123,6 +123,9 @@
                 </action>
             </intent-filter>
         </receiver>
+
+        <service android:name="es.concertsapp.android.background.FavouritesService"
+                android:enabled="true"/>
 
         <!--Clave para google maps api v2-->
         <meta-data

@@ -20,6 +20,8 @@ public class ConfValues implements LastFmApiConfiguration
     public static final String FILENAME_CONF = "configuration.hxa";
     //Archivo con las tags seleccionadas
     public static final String FILENAME_TAGS = "tags.hxa";
+    //Archivo con los eventos ya notificados al usuario como enventos cercanos al usuario (servicio externo a la app @es.concertsapp.android.background.FavouritesService)
+    public static final String FILENAME_EVENTSNOTIFIED = "eventsnotified.hxa";
 
     //Máximo número de ciudades almacenadas como favoritos en la búsqueda de eventos (se resaltan en
     //las sugerencias
@@ -27,7 +29,7 @@ public class ConfValues implements LastFmApiConfiguration
 
     //Distancia para considerar un concierto cercano (de momento solo para marcar que artistas favoritos
     //tienen conciertos cerca
-    public static final double NEAR_EVENT_DISTANCE_FAVOURITES=50;
+    //public static final double NEAR_EVENT_DISTANCE_FAVOURITES=50;
 
     //Tamaño máximo de la lista de tags del artista a analizar.
     public static final int MAX_TOP_TAGS_ARTISTS = 5;
@@ -59,7 +61,10 @@ public class ConfValues implements LastFmApiConfiguration
 
     public enum ConfigurableValue
     {
-        EVENT_RATIO_DISTANCE(50);
+        EVENT_RATIO_DISTANCE(50),
+        //Flag que indica si el servicio de avisar por cocneritos favoritos aun si la app esta cerrada
+        //está activo o no
+        SERVICE_CHECK_FAVOURITE_EVENTS(1);
 
         private Object defaultValue;
         private Object actualValue;
