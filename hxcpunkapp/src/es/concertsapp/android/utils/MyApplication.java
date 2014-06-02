@@ -11,6 +11,8 @@ import org.acra.annotation.ReportsCrashes;
 
 import java.util.Locale;
 
+import es.concertsapp.android.background.FavouritesService;
+import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.gui.R;
 
 /**
@@ -42,7 +44,6 @@ public class MyApplication extends Application
     private static Context context;
     private static Locale usedLocale;
 
-
     public void onCreate(){
         super.onCreate();
         /**
@@ -54,6 +55,9 @@ public class MyApplication extends Application
          */
         ACRA.init(this);
         MyApplication.context = getApplicationContext();
+
+        if (ConfValues.getIntConfigurableValue(context, ConfValues.ConfigurableValue.SERVICE_CHECK_FAVOURITE_EVENTS)==1)
+            FavouritesService.startSchedule();
     }
 
     public static Context getAppContext() {

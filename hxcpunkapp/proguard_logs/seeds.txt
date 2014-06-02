@@ -174,6 +174,8 @@ de.umass.lastfm.scrobble.Rating: de.umass.lastfm.scrobble.Rating[] values()
 de.umass.lastfm.scrobble.Rating: de.umass.lastfm.scrobble.Rating valueOf(java.lang.String)
 de.umass.lastfm.scrobble.Source: de.umass.lastfm.scrobble.Source[] values()
 de.umass.lastfm.scrobble.Source: de.umass.lastfm.scrobble.Source valueOf(java.lang.String)
+es.concertsapp.android.background.FavouritesService
+es.concertsapp.android.background.FavouritesService: FavouritesService()
 es.concertsapp.android.component.ExpandablePanel
 es.concertsapp.android.component.ExpandablePanel: ExpandablePanel(android.content.Context)
 es.concertsapp.android.component.ExpandablePanel: ExpandablePanel(android.content.Context,android.util.AttributeSet)
@@ -390,6 +392,8 @@ es.concertsapp.android.gui.R$id: int menu_stop
 es.concertsapp.android.gui.R$id: int mis_favoritos_title
 es.concertsapp.android.gui.R$id: int nextshowstitle
 es.concertsapp.android.gui.R$id: int nosongsspotify
+es.concertsapp.android.gui.R$id: int notFavBands
+es.concertsapp.android.gui.R$id: int notFavInfo
 es.concertsapp.android.gui.R$id: int notStopButton
 es.concertsapp.android.gui.R$id: int notTextBand
 es.concertsapp.android.gui.R$id: int notTextSong
@@ -443,6 +447,7 @@ es.concertsapp.android.gui.R$layout: int buttonmore_layout
 es.concertsapp.android.gui.R$layout: int city_list_result_layout
 es.concertsapp.android.gui.R$layout: int event_list_main
 es.concertsapp.android.gui.R$layout: int event_map
+es.concertsapp.android.gui.R$layout: int favourites_notification_view
 es.concertsapp.android.gui.R$layout: int item_favourites_row
 es.concertsapp.android.gui.R$layout: int item_row
 es.concertsapp.android.gui.R$layout: int item_searchband_row
@@ -509,6 +514,7 @@ es.concertsapp.android.gui.R$string: int menu_searchevents
 es.concertsapp.android.gui.R$string: int mis_favoritos_title
 es.concertsapp.android.gui.R$string: int more_events_question
 es.concertsapp.android.gui.R$string: int moshtown_conditions
+es.concertsapp.android.gui.R$string: int new_events_notification
 es.concertsapp.android.gui.R$string: int no_bio_text
 es.concertsapp.android.gui.R$string: int no_calendar_message
 es.concertsapp.android.gui.R$string: int no_calendar_title
@@ -826,6 +832,8 @@ it.sephiroth.android.library.imagezoom.R$id: int menu_stop
 it.sephiroth.android.library.imagezoom.R$id: int mis_favoritos_title
 it.sephiroth.android.library.imagezoom.R$id: int nextshowstitle
 it.sephiroth.android.library.imagezoom.R$id: int nosongsspotify
+it.sephiroth.android.library.imagezoom.R$id: int notFavBands
+it.sephiroth.android.library.imagezoom.R$id: int notFavInfo
 it.sephiroth.android.library.imagezoom.R$id: int notStopButton
 it.sephiroth.android.library.imagezoom.R$id: int notTextBand
 it.sephiroth.android.library.imagezoom.R$id: int notTextSong
@@ -879,6 +887,7 @@ it.sephiroth.android.library.imagezoom.R$layout: int buttonmore_layout
 it.sephiroth.android.library.imagezoom.R$layout: int city_list_result_layout
 it.sephiroth.android.library.imagezoom.R$layout: int event_list_main
 it.sephiroth.android.library.imagezoom.R$layout: int event_map
+it.sephiroth.android.library.imagezoom.R$layout: int favourites_notification_view
 it.sephiroth.android.library.imagezoom.R$layout: int item_favourites_row
 it.sephiroth.android.library.imagezoom.R$layout: int item_row
 it.sephiroth.android.library.imagezoom.R$layout: int item_searchband_row
@@ -945,6 +954,7 @@ it.sephiroth.android.library.imagezoom.R$string: int menu_searchevents
 it.sephiroth.android.library.imagezoom.R$string: int mis_favoritos_title
 it.sephiroth.android.library.imagezoom.R$string: int more_events_question
 it.sephiroth.android.library.imagezoom.R$string: int moshtown_conditions
+it.sephiroth.android.library.imagezoom.R$string: int new_events_notification
 it.sephiroth.android.library.imagezoom.R$string: int no_bio_text
 it.sephiroth.android.library.imagezoom.R$string: int no_calendar_message
 it.sephiroth.android.library.imagezoom.R$string: int no_calendar_title

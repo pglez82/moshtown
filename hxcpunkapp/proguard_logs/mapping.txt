@@ -3811,6 +3811,26 @@ de.umass.xml.DomElement -> a.a.c.a:
     139:139:java.util.List getChildren() -> b
     149:156:java.util.List getChildren(java.lang.String) -> f
     165:165:java.lang.String getTagName() -> c
+es.concertsapp.android.background.FavouritesService -> es.concertsapp.android.background.FavouritesService:
+    int notificationId -> a
+    java.util.Set eventsAlreadyNotified -> b
+    62:73:void startSchedule() -> a
+    78:78:android.os.IBinder onBind(android.content.Intent) -> onBind
+    84:85:void onStart(android.content.Intent,int) -> onStart
+    90:91:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    102:120:void loadEventsAlreadyNotified(android.content.Context) -> a
+    130:140:void saveEventsAlreadyNotified(android.content.Context) -> b
+    144:182:void handleCommand(android.content.Intent) -> a
+    186:220:void showNotification(android.content.Context,java.util.Set) -> a
+    47:47:java.util.Set access$000(es.concertsapp.android.background.FavouritesService) -> a
+    47:47:void access$100(es.concertsapp.android.background.FavouritesService,android.content.Context,java.util.Set) -> a
+    47:47:void access$200(es.concertsapp.android.background.FavouritesService,android.content.Context) -> a
+es.concertsapp.android.background.FavouritesService$1 -> es.concertsapp.android.background.a:
+    java.util.List val$listaArtistas -> a
+    android.content.Context val$context -> b
+    java.util.Set val$listaArtistasEventosCerca -> c
+    es.concertsapp.android.background.FavouritesService this$0 -> d
+    156:177:void locationFound(android.location.Location,java.lang.String) -> a
 es.concertsapp.android.component.ExpandablePanel -> es.concertsapp.android.component.ExpandablePanel:
     int mHandleId -> a
     int mContentId -> b
@@ -3884,21 +3904,22 @@ es.concertsapp.android.component.LetterSpacingTextView -> es.concertsapp.android
     45:45:java.lang.CharSequence getText() -> getText
     49:63:void applyLetterSpacing() -> a
 es.concertsapp.android.conf.ConfValues -> es.concertsapp.android.a.a:
-    50:50:int getMaxTopTagsArtist() -> a
-    56:56:int getMaxArtistsEventTags() -> b
-    87:97:int getIntConfigurableValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> a
-    102:103:int restoreIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> b
-    108:113:void setIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue,int) -> a
+    52:52:int getMaxTopTagsArtist() -> a
+    58:58:int getMaxArtistsEventTags() -> b
+    92:102:int getIntConfigurableValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> a
+    107:108:int restoreIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue) -> b
+    113:118:void setIntConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue,int) -> a
 es.concertsapp.android.conf.ConfValues$ConfigurableValue -> es.concertsapp.android.a.b:
     es.concertsapp.android.conf.ConfValues$ConfigurableValue EVENT_RATIO_DISTANCE -> a
-    java.lang.Object defaultValue -> b
-    java.lang.Object actualValue -> c
-    es.concertsapp.android.conf.ConfValues$ConfigurableValue[] $VALUES -> d
-    60:60:es.concertsapp.android.conf.ConfValues$ConfigurableValue[] values() -> values
-    60:60:es.concertsapp.android.conf.ConfValues$ConfigurableValue valueOf(java.lang.String) -> valueOf
-    72:72:java.lang.Object getDefaultValue() -> a
-    76:76:java.lang.Object getActualValue() -> b
-    80:81:void setActualValue(java.lang.Object) -> a
+    es.concertsapp.android.conf.ConfValues$ConfigurableValue SERVICE_CHECK_FAVOURITE_EVENTS -> b
+    java.lang.Object defaultValue -> c
+    java.lang.Object actualValue -> d
+    es.concertsapp.android.conf.ConfValues$ConfigurableValue[] $VALUES -> e
+    62:62:es.concertsapp.android.conf.ConfValues$ConfigurableValue[] values() -> values
+    62:62:es.concertsapp.android.conf.ConfValues$ConfigurableValue valueOf(java.lang.String) -> valueOf
+    77:77:java.lang.Object getDefaultValue() -> a
+    81:81:java.lang.Object getActualValue() -> b
+    85:86:void setActualValue(java.lang.Object) -> a
 es.concertsapp.android.gui.R -> es.concertsapp.android.gui.a:
 es.concertsapp.android.gui.R$styleable -> es.concertsapp.android.gui.b:
     int[] ExpandablePanel -> ExpandablePanel
@@ -4259,6 +4280,7 @@ es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore -> es.concer
     105:109:void notifyAdapters() -> c
     118:127:void saveFavouriteBandsToDisk() -> d
     136:154:void loadFavouriteBands() -> e
+    162:182:java.util.List loadFavouriteBandsStatic(android.content.Context) -> a
 es.concertsapp.android.gui.band.list.favourites.LookForNearEvents -> es.concertsapp.android.gui.band.list.a.i:
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment favoritesFragment -> a
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$LookForNearEventsTask lookForNearEventsTask -> b
@@ -4617,13 +4639,13 @@ es.concertsapp.android.gui.settings.SelectedTagsStore -> es.concertsapp.android.
     java.util.Set selectedTags -> c
     es.lastfm.api.connector.tags.PunkTags punkTags -> d
     es.lastfm.api.connector.tags.PunkTagsExtended punkTagsExtended -> e
-    37:40:es.concertsapp.android.gui.settings.SelectedTagsStore getInstance() -> a
-    45:66:java.util.Set loadSelectedTags() -> f
-    73:83:void saveSelectedTags(java.util.Set) -> a
-    86:93:java.util.Set getSelectedTags() -> b
-    98:101:java.util.Set restoreDefaultTags() -> c
-    106:109:java.lang.String[] getAvailableTags() -> d
-    114:122:java.lang.String[] getAvailableTagsWidthAlm() -> e
+    41:44:es.concertsapp.android.gui.settings.SelectedTagsStore getInstance() -> a
+    53:74:java.util.Set loadSelectedTags() -> f
+    85:95:void saveSelectedTags(java.util.Set) -> a
+    98:105:java.util.Set getSelectedTags() -> b
+    110:113:java.util.Set restoreDefaultTags() -> c
+    118:121:java.lang.String[] getAvailableTags() -> d
+    126:134:java.lang.String[] getAvailableTagsWidthAlm() -> e
 es.concertsapp.android.gui.settings.SettingsActivity -> es.concertsapp.android.gui.settings.SettingsActivity:
     double MILLA_KM -> a
     int MIN_KM -> b
@@ -4689,11 +4711,11 @@ es.concertsapp.android.utils.LastFmApiConnectorFactory$1 -> es.concertsapp.andro
 es.concertsapp.android.utils.MyApplication -> es.concertsapp.android.utils.MyApplication:
     android.content.Context context -> a
     java.util.Locale usedLocale -> b
-    47:57:void onCreate() -> onCreate
-    60:60:android.content.Context getAppContext() -> a
-    65:65:android.content.res.Resources getAppResources() -> b
-    71:72:void lookUpLocate() -> c
-    76:79:java.util.Locale getLocale() -> d
+    48:61:void onCreate() -> onCreate
+    64:64:android.content.Context getAppContext() -> a
+    69:69:android.content.res.Resources getAppResources() -> b
+    75:76:void lookUpLocate() -> c
+    80:83:java.util.Locale getLocale() -> d
 es.concertsapp.android.utils.UnexpectedErrorHandler -> es.concertsapp.android.utils.e:
     22:33:void handleUnexpectedError(android.content.Context,java.lang.Throwable,android.content.DialogInterface$OnDismissListener) -> a
     37:38:void handleUnexpectedError(android.content.Context,java.lang.Throwable) -> a
@@ -4749,7 +4771,8 @@ es.concertsapp.android.utils.geo.MyLocation -> es.concertsapp.android.utils.c.c:
     108:110:int getTimeInMinutes() -> c
     115:118:void saveLocationToCache(android.location.Location,java.lang.String) -> a
     122:156:boolean getInternalLocation(android.content.Context,es.concertsapp.android.utils.geo.MyLocation$LocationResult) -> c
-    253:272:java.lang.String getPlaceName(android.location.Location) -> a
+    166:192:boolean checkLocationProviders(android.content.Context) -> a
+    289:308:java.lang.String getPlaceName(android.location.Location) -> a
     35:35:java.util.Timer access$000(es.concertsapp.android.utils.geo.MyLocation) -> a
     35:35:java.lang.String access$100(es.concertsapp.android.utils.geo.MyLocation,android.location.Location) -> a
     35:35:void access$200(es.concertsapp.android.utils.geo.MyLocation,android.location.Location,java.lang.String) -> a
@@ -4759,19 +4782,19 @@ es.concertsapp.android.utils.geo.MyLocation -> es.concertsapp.android.utils.c.c:
     35:35:boolean access$600(es.concertsapp.android.utils.geo.MyLocation) -> e
 es.concertsapp.android.utils.geo.MyLocation$1 -> es.concertsapp.android.utils.c.d:
     es.concertsapp.android.utils.geo.MyLocation this$0 -> a
-    162:168:void onLocationChanged(android.location.Location) -> onLocationChanged
-    171:171:void onProviderDisabled(java.lang.String) -> onProviderDisabled
-    174:174:void onProviderEnabled(java.lang.String) -> onProviderEnabled
-    177:177:void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    198:204:void onLocationChanged(android.location.Location) -> onLocationChanged
+    207:207:void onProviderDisabled(java.lang.String) -> onProviderDisabled
+    210:210:void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    213:213:void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
 es.concertsapp.android.utils.geo.MyLocation$2 -> es.concertsapp.android.utils.c.e:
     es.concertsapp.android.utils.geo.MyLocation this$0 -> a
-    182:188:void onLocationChanged(android.location.Location) -> onLocationChanged
-    191:191:void onProviderDisabled(java.lang.String) -> onProviderDisabled
-    194:194:void onProviderEnabled(java.lang.String) -> onProviderEnabled
-    197:197:void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    218:224:void onLocationChanged(android.location.Location) -> onLocationChanged
+    227:227:void onProviderDisabled(java.lang.String) -> onProviderDisabled
+    230:230:void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    233:233:void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
 es.concertsapp.android.utils.geo.MyLocation$GetLastLocation -> es.concertsapp.android.utils.c.f:
     es.concertsapp.android.utils.geo.MyLocation this$0 -> a
-    203:244:void run() -> run
+    239:280:void run() -> run
 es.concertsapp.android.utils.geo.MyLocation$LocationResult -> es.concertsapp.android.utils.c.g:
     void locationFound(android.location.Location,java.lang.String) -> a
 es.concertsapp.android.utils.geo.PlaceInterface -> es.concertsapp.android.utils.c.h:

@@ -121,6 +121,9 @@
     <!--Texto de las notificaciones-->
     <string name="notification_stop">Detener</string>
 
+    <!--Notificación de nuevo concierto favoritos-->
+    <string name="new_events_notification">New gigs</string>
+
     <!--ACRA-->
     <string name="acradialogtext">¿Quieres enviar a los desarrolladores el error para ayudarlos a corregirlo?</string>
     <string name="acratoasttext">Se ha producido un error en MoshTown</string>

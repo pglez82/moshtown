@@ -18,12 +18,16 @@ import es.lastfm.api.connector.tags.PunkTagsExtended;
 
 /**
  * Created by pablo on 29/05/14.
+ * Esta clase almacena las tags seleccionadas por el usuario en la ventana de settings.
  */
 public class SelectedTagsStore
 {
     private static SelectedTagsStore instance;
     private Context context;
+    //Conjunto de tags seleccionadas
     private Set<String> selectedTags;
+
+    //Esto es provisional.. simplemente tengo estas instancias aquí para poder sacar un listado de tags.
     private PunkTags punkTags = new PunkTags();
     private PunkTagsExtended punkTagsExtended = new PunkTagsExtended();
 
@@ -40,6 +44,10 @@ public class SelectedTagsStore
         return instance;
     }
 
+    /**
+     * Carga la tags seleccionadas desde un fichero de disco
+     * @return conjunto de tags seleccionadas
+     */
     private Set<String> loadSelectedTags()
     {
         Set<String> selectedTags = null;
@@ -66,6 +74,10 @@ public class SelectedTagsStore
         return selectedTags;
     }
 
+    /**
+     * Salva la lista de tags a disco
+     * @param selectedTags lista de tags
+     */
     public void saveSelectedTags(Set<String> selectedTags)
     {
         FileOutputStream fos;
