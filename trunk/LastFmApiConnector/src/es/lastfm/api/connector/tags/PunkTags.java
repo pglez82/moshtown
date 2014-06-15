@@ -12,15 +12,24 @@ public class PunkTags implements LastFmTags
 {
     
     
-    String[] arr = {"punk","hardcore","punk rock","metalcore","emo",
-        "post-hardcore","screamo","grindcore","pop punk","hardcore punk",
-        "melodic hardcore","crust","ska punk"};
+    private final String[] workingTags = {"metal","alternative rock","indie rock","punk","black metal","death metal","heavy metal","hardcore","progressive rock",
+        "punk rock","thrash metal","metalcore","emo","grindcore","stoner rock","melodic hardcore","ska punk"};
 
+    private final String[] noDefaultTags = {"rock","alternative","indie"};
+    
     @Override
     public String[] getWorkingTags()
     {
-        return arr;
+        return workingTags;
     }
+
+    @Override
+    public String[] getNotDefaultTags()
+    {
+        return noDefaultTags;
+    }
+    
+    
 
     @Override
     public String toString()
@@ -32,7 +41,7 @@ public class PunkTags implements LastFmTags
     public String getLongDescription()
     {
         StringBuilder stringBuilder = new StringBuilder();
-        for (String s : arr)
+        for (String s : workingTags)
         {
             stringBuilder.append(s).append(", ");
         }
