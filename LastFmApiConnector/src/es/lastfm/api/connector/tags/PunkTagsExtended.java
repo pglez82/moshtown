@@ -12,15 +12,22 @@ public class PunkTagsExtended implements LastFmTags
 {
     
     
-    String[] arr = {"metal","alternative rock","indie rock","punk","death metal",
-        "heavy metal","hardcore","punk rock","thrash metal","metalcore","emo",
-        "grindcore","stoner rock", "ska punk"};
+    String[] arr = {"rock","alternative","indie","metal","alternative rock","indie rock","punk","black metal","death metal","heavy metal","hardcore","progressive rock",
+        "punk rock","thrash metal","metalcore","emo","grindcore","stoner rock","melodic hardcore","ska punk"};
 
     @Override
     public String[] getWorkingTags()
     {
         return arr;
     }
+
+    @Override
+    public String[] getNotDefaultTags()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 
     @Override
     public String toString()
