@@ -2,6 +2,9 @@ package es.concertsapp.android.utils;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 
 import org.acra.ACRA;
@@ -14,6 +17,7 @@ import java.util.Locale;
 import es.concertsapp.android.background.FavouritesService;
 import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.settings.SelectedTagsStore;
 
 /**
  * Created by pablo on 27/08/13.
@@ -56,8 +60,35 @@ public class MyApplication extends Application
         ACRA.init(this);
         MyApplication.context = getApplicationContext();
 
-        if (ConfValues.getIntConfigurableValue(context, ConfValues.ConfigurableValue.SERVICE_CHECK_FAVOURITE_EVENTS)==1)
-            FavouritesService.startSchedule();
+        checkIfUpdate();
+
+        /*if (ConfValues.getIntConfigurableValue(context, ConfValues.ConfigurableValue.SERVICE_CHECK_FAVOURITE_EVENTS)==1)
+            FavouritesService.startSchedule();*/
+    }
+
+    /**
+     * Checkea si ha habido un update, en ese caso hace lo que tenga que hacer. La idea es mantener
+     * en la configuración cual es la versión que hay instalada y compararla con la actual, ahí podemos
+     * detectar si ha habido un cambio y a que versión
+     */
+    private void checkIfUpdate()
+    {
+        PackageInfo pInfo;
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
+            long storedVersionCode = ConfValues.getLongConfigurableValue(this, ConfValues.ConfigurableValue.VERSION_CODE);
+            long actualVersionCode = pInfo.versionCode;
+            if (storedVersionCode  <  actualVersionCode)
+            {
+                //Verificamos si hubo un update a la versión 29
+                if (storedVersionCode==0 && actualVersionCode==29)
+                    SelectedTagsStore.getInstance().restoreDefaultTags();
+
+                ConfValues.setLongConfigurationValue(this, ConfValues.ConfigurableValue.VERSION_CODE, actualVersionCode);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     public static Context getAppContext() {

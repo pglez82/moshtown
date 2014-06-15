@@ -113,6 +113,7 @@ public class BandListFragment extends ListFragment
             }
         });
 
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),R.layout.band_list_tag_completer_result, SelectedTagsStore.getInstance().getAvailableTagsWidthAlm());
         searchTextView.setThreshold(1);
         searchTextView.setAdapter(adapter);
@@ -346,6 +347,7 @@ public class BandListFragment extends ListFragment
 		protected Void doInBackground(String... params) 
 		{
 			LastFmApiConnector lastFmApiConnector = LastFmApiConnectorFactory.getInstance();
+
             try
             {
 			    lastFmApiConnector.getArtists(params[0],this);

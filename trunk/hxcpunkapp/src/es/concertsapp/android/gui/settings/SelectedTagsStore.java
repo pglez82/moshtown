@@ -13,6 +13,7 @@ import java.util.Set;
 
 import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.utils.MyApplication;
+import es.lastfm.api.connector.tags.LastFmTags;
 import es.lastfm.api.connector.tags.PunkTags;
 import es.lastfm.api.connector.tags.PunkTagsExtended;
 
@@ -28,8 +29,7 @@ public class SelectedTagsStore
     private Set<String> selectedTags;
 
     //Esto es provisional.. simplemente tengo estas instancias aquí para poder sacar un listado de tags.
-    private PunkTags punkTags = new PunkTags();
-    private PunkTagsExtended punkTagsExtended = new PunkTagsExtended();
+    private LastFmTags punkTags = new PunkTags();
 
     private SelectedTagsStore()
     {
@@ -107,7 +107,11 @@ public class SelectedTagsStore
 
     public Set<String> restoreDefaultTags()
     {
-        selectedTags.clear();
+        if (selectedTags!=null)
+            selectedTags.clear();
+        else
+            selectedTags = new HashSet<String>();
+
         selectedTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
         saveSelectedTags(selectedTags);
         return new HashSet<String>(selectedTags);
@@ -117,10 +121,15 @@ public class SelectedTagsStore
     {
         Set<String> availableTags = new HashSet<String>();
         availableTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
-        availableTags.addAll(Arrays.asList(punkTagsExtended.getWorkingTags()));
+        availableTags.addAll(Arrays.asList(punkTags.getNotDefaultTags()));
         return availableTags.toArray(new String[availableTags.size()]);
     }
 
+    /**
+     * Devuelve el listado de tags con la almuadilla para que el usuario pueda buscar por tags en el
+     * buscador de grupos.
+     * @return
+     */
     public String[] getAvailableTagsWidthAlm()
     {
         String[] availableTags = getAvailableTags();
