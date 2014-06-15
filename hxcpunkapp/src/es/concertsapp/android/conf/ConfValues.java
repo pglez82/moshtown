@@ -61,10 +61,13 @@ public class ConfValues implements LastFmApiConfiguration
 
     public enum ConfigurableValue
     {
+        //Código de la versión que actualmente se está ejecutando.
+        VERSION_CODE(0l),
+
         EVENT_RATIO_DISTANCE(50),
         //Flag que indica si el servicio de avisar por cocneritos favoritos aun si la app esta cerrada
         //está activo o no
-        SERVICE_CHECK_FAVOURITE_EVENTS(1);
+        SERVICE_CHECK_FAVOURITE_EVENTS(0);
 
         private Object defaultValue;
         private Object actualValue;
@@ -85,6 +88,8 @@ public class ConfValues implements LastFmApiConfiguration
             this.actualValue = actualValue;
         }
     }
+
+
 
     //Los valores configurables se devuelven siempre a través de métodos
     public static int getIntConfigurableValue(Context context, ConfigurableValue configurableValue)
@@ -113,6 +118,37 @@ public class ConfValues implements LastFmApiConfiguration
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(configurableValue.name(), newValue); // value to store
+        editor.commit();
+        configurableValue.setActualValue(newValue);
+    }
+
+    //Los valores configurables se devuelven siempre a través de métodos
+    public static long getLongConfigurableValue(Context context, ConfigurableValue configurableValue)
+    {
+        if (configurableValue.getActualValue()==null) {
+            try {
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+                configurableValue.setActualValue(preferences.getLong(configurableValue.name(), (Long) configurableValue.getDefaultValue()));
+            }
+            catch (Throwable e)
+            {
+                configurableValue.setActualValue(configurableValue.getDefaultValue());
+            }
+        }
+        return (Long)configurableValue.getActualValue();
+    }
+
+    public static long restoreLongConfigurationValue(Context context, ConfigurableValue configurableValue)
+    {
+        setLongConfigurationValue(context,configurableValue,(Long)configurableValue.getDefaultValue());
+        return (Long)configurableValue.getActualValue();
+    }
+
+    public static void setLongConfigurationValue(Context context, ConfigurableValue configurableValue, long newValue)
+    {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong(configurableValue.name(), newValue); // value to store
         editor.commit();
         configurableValue.setActualValue(newValue);
     }
