@@ -80,8 +80,8 @@ public class MyApplication extends Application
             long actualVersionCode = pInfo.versionCode;
             if (storedVersionCode  <  actualVersionCode)
             {
-                //Verificamos si hubo un update a la versión 29
-                if (storedVersionCode==0 && actualVersionCode==29)
+                //Verificamos si hubo un update de la versión vieja
+                if (storedVersionCode==0)
                     SelectedTagsStore.getInstance().restoreDefaultTags();
 
                 ConfValues.setLongConfigurationValue(this, ConfValues.ConfigurableValue.VERSION_CODE, actualVersionCode);

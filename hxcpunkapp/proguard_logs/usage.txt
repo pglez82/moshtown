@@ -2185,9 +2185,8 @@ de.umass.util.StringUtilities:
     182:185:public static java.lang.String convertFromBoolean(boolean)
 de.umass.xml.DomElement:
     56:56:public org.w3c.dom.Element getElement()
-es.concertsapp.android.background.FavouritesService:
-    private static final java.lang.String LOG_TAG
-    private static final long INTERVAL
+es.concertsapp.android.background.FavouritesService
+es.concertsapp.android.background.FavouritesService$1
 es.concertsapp.android.component.ExpandablePanel:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.component.LastFmImageView:
@@ -2205,6 +2204,7 @@ es.concertsapp.android.conf.ConfValues:
     public static final int MAX_ARTISTS_EVENT_TAGS
     public static final int TIME_POSITION_EXPIRES
     public static final int TIME_FAVOURITE_CONCERTS_EXPIRES
+    143:144:public static long restoreLongConfigurationValue(android.content.Context,es.concertsapp.android.conf.ConfValues$ConfigurableValue)
 es.concertsapp.android.gui.BuildConfig
 es.concertsapp.android.gui.Manifest
 es.concertsapp.android.gui.Manifest$permission
@@ -2234,6 +2234,8 @@ es.concertsapp.android.gui.band.list.BandListFragment:
     static final java.lang.String LOG_TAG
 es.concertsapp.android.gui.band.list.BandMainActivitySectionsPageAdapter:
     47:47:public java.lang.CharSequence getPageTitle(int)
+es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore:
+    162:182:public static java.util.List loadFavouriteBandsStatic(android.content.Context)
 es.concertsapp.android.gui.band.list.favourites.LookForNearEvents:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.gui.event.detail.EventInfoActivity:
@@ -2267,6 +2269,7 @@ es.concertsapp.android.utils.geo.DistanceCalculator:
     6:6:public DistanceCalculator()
 es.concertsapp.android.utils.geo.MyLocation:
     private static final java.lang.String LOG_TAG
+    166:192:public static boolean checkLocationProviders(android.content.Context)
 es.concertsapp.android.utils.geo.PlaceAutocompleterInterface
 es.concertsapp.android.utils.geo.PlaceInterface:
     public abstract java.lang.String toString()
@@ -2317,9 +2320,8 @@ es.lastfm.api.connector.tags.LastFmTags:
     public abstract java.lang.String toString()
     public abstract java.lang.String getLongDescription()
 es.lastfm.api.connector.tags.PunkTags:
-    34:39:public java.lang.String getLongDescription()
-es.lastfm.api.connector.tags.PunkTagsExtended:
-    34:39:public java.lang.String getLongDescription()
+    43:48:public java.lang.String getLongDescription()
+es.lastfm.api.connector.tags.PunkTagsExtended
 es.lastfm.api.connector.tags.RockTags
 es.lastfm.api.connector.utils.TagUtils:
     18:18:public TagUtils()

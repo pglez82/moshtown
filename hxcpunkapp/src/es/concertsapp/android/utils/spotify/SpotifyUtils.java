@@ -12,7 +12,7 @@ public class SpotifyUtils
 {
     private static SpotifyUtils singleton = null;
 
-    private static final String spotifyUri = "com.spotify.mobile.android.ui";
+    private static final String spotifyUri = "com.spotify.music";
 
     private SpotifyUtils()
     {

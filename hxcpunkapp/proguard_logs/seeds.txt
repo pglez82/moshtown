@@ -174,8 +174,6 @@ de.umass.lastfm.scrobble.Rating: de.umass.lastfm.scrobble.Rating[] values()
 de.umass.lastfm.scrobble.Rating: de.umass.lastfm.scrobble.Rating valueOf(java.lang.String)
 de.umass.lastfm.scrobble.Source: de.umass.lastfm.scrobble.Source[] values()
 de.umass.lastfm.scrobble.Source: de.umass.lastfm.scrobble.Source valueOf(java.lang.String)
-es.concertsapp.android.background.FavouritesService
-es.concertsapp.android.background.FavouritesService: FavouritesService()
 es.concertsapp.android.component.ExpandablePanel
 es.concertsapp.android.component.ExpandablePanel: ExpandablePanel(android.content.Context)
 es.concertsapp.android.component.ExpandablePanel: ExpandablePanel(android.content.Context,android.util.AttributeSet)
