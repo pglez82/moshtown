@@ -11,7 +11,7 @@
     <string name="button_shows">SHOWS</string>
     <string name="button_bands">BANDAS</string>
     <string name="puntos_description">Imagen separadora</string>
-    <string name="slogan_text">YOUR HARDCORE PUNK BROWSER</string>
+    <string name="slogan_text">YOUR ALTERNATIVE BROWSER</string>
     <string name="intro_logo_description">Logo de MoshTown</string>
 
     <!--Listado de conciertos-->
@@ -48,7 +48,7 @@
     <string name="ic_mundo_description">Bola de mundo</string>
     <string name="button_lupa_description">Pincha aquí para buscar grupos</string>
     <string name="button_x_image_description">Pincha aquí para borrar el texto de búsqueda</string>
-    <string name="list_bands_noresults">Ooops, lo sentimos. No hemos encontrado ningún grupo punk/hardcore con ese nombre.</string>
+    <string name="list_bands_noresults">Ooops, lo sentimos. No hemos encontrado ningún grupo punk/hardcore/alternativo con ese nombre.</string>
 
     <!--Actividad listado de favoritos-->
     <string name="mis_favoritos_title">MIS FAVORITOS</string>
@@ -66,7 +66,7 @@
     <string name="no_lastfm_songs">Este grupo no tiene canciones en Last.fm. Inténtalo en Spotify</string>
     <string name="no_spotify_songs">Este grupo no tiene canciones en Spotify.</string>
     <string name="play_description">Pulsa aquí para reproducir o parar una canción</string>
-    <string name="similar_noresults">Lo sentimos .No hemos encontrado ningún artista punk/hardcore relacionado.</string>
+    <string name="similar_noresults">Lo sentimos .No hemos encontrado ningún artista punk/metal/alternativo relacionado.</string>
     <string name="bandevents_noresults">No hay conciertos... de momento.</string>
     <string name="lastfm_title">LAST.FM</string>
     <string name="spotify_title">SPOTIFY</string>
@@ -115,7 +115,7 @@
     <!--Añadir concierto-->
     <!--TODO: revisar este texto-->
     <string name="add_event_title">AÑADIR CONCIERTO</string>
-    <string name="add_event_info">Para que un concierto figure en Moshtown tiene que haber sido publicado previamente en Last.fm. Last.fm es una plataforma donde, tras registrarte de manera gratuita, podrás crear eventos siempre que quieras y en cualquier parte del mundo. Recomendamos revisar cuidadosamente que todos los grupos del cartel hayan sido asociados correctamente al evento y que la dirección y localización de la sala sean las correctas. Una vez publicado en Last.fm nuestro algoritmo lo analizará y lo mostrará en Moshtown, siempre y cuando los grupos del cartel pertenezcan a la escena punk-hardcore.</string>
+    <string name="add_event_info">Para que un concierto figure en Moshtown tiene que haber sido publicado previamente en Last.fm. Last.fm es una plataforma donde, tras registrarte de manera gratuita, podrás crear eventos siempre que quieras y en cualquier parte del mundo. Recomendamos revisar cuidadosamente que todos los grupos del cartel hayan sido asociados correctamente al evento y que la dirección y localización de la sala sean las correctas. Una vez publicado en Last.fm nuestro algoritmo lo analizará y lo mostrará en Moshtown, siempre y cuando los grupos del cartel pertenezcan a la escena punk/metal/alternative.</string>
     <string name="add_event_link">Añadir concierto en Last.fm</string>
 
     <!--Texto de las notificaciones-->
