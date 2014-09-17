@@ -5,6 +5,7 @@
     <string name="app_name">MoshTown</string>
     <string name="button_lastfm_description">Pulsa aquí para acceder a las condiciones legales de nuestra aplicación</string>
     <string name="button_moshtown_description">Pulsa aquí para acceder a las condiciones legales de nuestra aplicación</string>
+    <string name="button_configuration">Pulsa aquí para acceder a la pantalla de configuración</string>
 
 
     <!--Página principal de entrada-->

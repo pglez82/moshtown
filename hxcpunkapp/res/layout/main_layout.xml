@@ -78,29 +78,34 @@
             android:id="@+id/iniciopie"
             android:background="#4d4d4d"
             android:layout_alignParentBottom="true"
-            android:gravity="center_vertical">
-
-        <TextView
-                android:id="@+id/version"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:layout_marginLeft="6dp"/>
-
+            >
         <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_configuration"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/button_configurationbackground"
+            android:contentDescription="@string/button_configuration" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_logolastfm"
                 android:background="@drawable/button_lastfmbackground"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/button_lastfm_description"/>
-        <ImageButton
+                android:contentDescription="@string/button_lastfm_description" />
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_moshtown"
                 android:background="@drawable/button_moshtownbackground"
                 android:layout_marginRight="6dp"
-                android:contentDescription="@string/button_moshtown_description"/>
+                android:contentDescription="@string/button_moshtown_description" />
+
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>

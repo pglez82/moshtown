@@ -32,9 +32,11 @@ import es.concertsapp.android.conf.ConfValues;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.add.EventAddActivity;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
+import es.concertsapp.android.gui.settings.SettingsActivity;
 import es.concertsapp.android.utils.DialogUtils;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.font.FontUtils;
@@ -154,27 +156,7 @@ public class EventListActivity extends MenuFragmentActivity
             }
         });
 
-        ImageButton lastfmButton = (ImageButton)findViewById(R.id.button_logolastfm);
-        lastfmButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(EventListActivity.this, LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
-
-        ImageButton moshtownButton = (ImageButton)findViewById(R.id.button_moshtown);
-        moshtownButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(EventListActivity.this, MoshTownConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        FooterLayoutUtils.initializeButtonsFunctions(this);
 
         if (USE_GEOCODER_DESAMBIGUATION)
         {

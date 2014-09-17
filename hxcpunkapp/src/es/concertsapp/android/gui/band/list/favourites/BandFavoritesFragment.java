@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.MyAppParameters;
@@ -48,7 +49,7 @@ public class BandFavoritesFragment extends ListFragment
         super.onViewCreated(view, savedInstanceState);
 
         FontUtils.setRobotoFont(this.getActivity(),getActivity().findViewById(R.id.mis_favoritos_title), FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
-        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarfavourites);
+        progressBar = (ProgressBar) getActivity().findViewById(R.id.progressbarcommon);
         progressBar.setVisibility(progressBarState);
 
         //Cargamos la lista de bandas de disco
@@ -77,29 +78,7 @@ public class BandFavoritesFragment extends ListFragment
             }
         });
 
-
-
-        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
-        lastfmButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
-
-        ImageButton moshtownButton = (ImageButton)view.findViewById(R.id.button_moshtown);
-        moshtownButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        FooterLayoutUtils.initializeButtonsFunctions(getActivity(),view);
     }
 
     public void setProgressBarState(int progressBarState)

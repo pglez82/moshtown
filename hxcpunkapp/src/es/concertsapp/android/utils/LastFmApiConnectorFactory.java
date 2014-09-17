@@ -1,5 +1,7 @@
 package es.concertsapp.android.utils;
 
+import org.apache.http.MethodNotSupportedException;
+
 import java.util.Set;
 
 import es.concertsapp.android.conf.ConfValues;
@@ -29,6 +31,11 @@ public class LastFmApiConnectorFactory
             @Override
             public String getLongDescription() {
                 return "Tags personalizadas";
+            }
+
+            @Override
+            public String[] getNotDefaultTags() {
+                throw new IllegalArgumentException("No se debería de llamar a este método aquí nunca");
             }
         };
     }

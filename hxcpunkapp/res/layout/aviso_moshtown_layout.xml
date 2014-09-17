@@ -42,14 +42,24 @@
             android:orientation="horizontal"
             android:id="@+id/iniciopie"
             android:background="@color/gray2"
-            android:gravity="center_horizontal|center_vertical"
             >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_configuration"
+            android:layout_marginLeft="3dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/button_configurationbackground"
+            android:contentDescription="@string/button_configuration" />
         <TextView
             android:id="@+id/version"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="6dp"
             android:text="Version"
+            android:gravity="center_vertical"
             />
     </RelativeLayout>
 </LinearLayout>

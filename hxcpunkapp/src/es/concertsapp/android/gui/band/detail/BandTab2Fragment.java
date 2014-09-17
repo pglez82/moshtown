@@ -22,6 +22,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.event.list.EventListHelper;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -230,32 +231,12 @@ public class BandTab2Fragment extends Fragment
             ListView listView = (ListView) rootView.findViewById(R.id.detailedbandlistevents);
             TextView emptyView = (TextView) rootView.findViewById(R.id.listsimilarnoresults);
             listView.setEmptyView(emptyView);
-            eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbareventsband);
+            eventsProgressBar = (ProgressBar) rootView.findViewById(R.id.progressbarcommon);
             eventsProgressBar.setVisibility(eventsProgressBarState);
 
             TextView nextshowstitle = (TextView)rootView.findViewById(R.id.nextshowstitle);
 
-            ImageButton imageButton = (ImageButton)rootView.findViewById(R.id.button_logolastfm);
-            imageButton.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                    startActivity(myIntent);
-                }
-            });
-
-            ImageButton imageButton2 = (ImageButton)rootView.findViewById(R.id.button_moshtown);
-            imageButton2.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
-                    startActivity(myIntent);
-                }
-            });
+            FooterLayoutUtils.initializeButtonsFunctions(getActivity(),rootView);
 
             //Establecemos las fuentes
             FontUtils.setRobotoFont(getActivity(), detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

@@ -29,6 +29,7 @@ import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.settings.SelectedTagsStore;
@@ -90,7 +91,7 @@ public class BandListFragment extends ListFragment
             emptyViewVisibility(emptyViewState,getListView());
         }
 
-        progressBar=(ProgressBar)view.findViewById(R.id.progressbarbandlist);
+        progressBar=(ProgressBar)view.findViewById(R.id.progressbarcommon);
         progressBar.setVisibility(progressBarState);
 
 
@@ -135,27 +136,8 @@ public class BandListFragment extends ListFragment
             }
         });
 
-        ImageButton lastfmButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
-        lastfmButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        FooterLayoutUtils.initializeButtonsFunctions(getActivity(),view);
 
-        ImageButton moshtownButton = (ImageButton)view.findViewById(R.id.button_moshtown);
-        moshtownButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
 
         ImageButton buscarButon = (ImageButton)view.findViewById(R.id.buscarBandaButon);
         buscarButon.setOnClickListener(new OnClickListener() {
