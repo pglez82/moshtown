@@ -25,6 +25,7 @@ import de.umass.lastfm.Channel;
 import de.umass.lastfm.Item;
 import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.gui.R;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.player.SongPlayer;
@@ -73,31 +74,11 @@ public class BandTab3Fragment extends ListFragment implements SongPlayer.PlayerS
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
         artistName = args.getString(MyAppParameters.BANDID);
-        progressBarStreaming=(ProgressBar)view.findViewById(R.id.progressbarstreaming);
+        progressBarStreaming=(ProgressBar)view.findViewById(R.id.progressbarcommon);
         expandablePanelSpotify = (ExpandablePanel)view.findViewById(R.id.expandablepanelspotify);
         progressBarStreaming.setVisibility(progressBarStreamingStatus);
 
-        ImageButton imageButton = (ImageButton)view.findViewById(R.id.button_logolastfm);
-        imageButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
-
-        ImageButton imageButton2 = (ImageButton)view.findViewById(R.id.button_moshtown);
-        imageButton2.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        FooterLayoutUtils.initializeButtonsFunctions(getActivity(),view);
 
         //Establecemos las fuentes
         FontUtils.setRobotoFont(getActivity(),view.findViewById(R.id.lastfmpanelbutton),FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

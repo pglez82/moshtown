@@ -72,6 +72,14 @@
             android:id="@+id/iniciopie"
             android:background="@color/gray2"
             >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:id="@+id/button_configuration"
+            android:background="@drawable/button_configurationbackground"
+            android:contentDescription="@string/button_configuration" />
     </RelativeLayout>
 
 </LinearLayout>

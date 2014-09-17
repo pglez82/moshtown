@@ -24,6 +24,7 @@ import de.umass.lastfm.ImageSize;
 import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.detail.BandInfoActivity;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuFragmentActivity;
@@ -147,27 +148,7 @@ public class EventInfoActivity extends MenuFragmentActivity
                 }
              });
 
-            ImageButton imageButton = (ImageButton)findViewById(R.id.button_logolastfm);
-            imageButton.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(EventInfoActivity.this, LegalConditionsActivity.class);
-                    startActivity(myIntent);
-                }
-            });
-
-            ImageButton moshtownButton = (ImageButton)findViewById(R.id.button_moshtown);
-            moshtownButton.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    Intent myIntent = new Intent(EventInfoActivity.this, MoshTownConditionsActivity.class);
-                    startActivity(myIntent);
-                }
-            });
+            FooterLayoutUtils.initializeButtonsFunctions(this);
 
             Button shareEventButton = (Button)findViewById(R.id.buttonshareevent);
             shareEventButton.setOnClickListener(new View.OnClickListener() {

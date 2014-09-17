@@ -8,7 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import es.concertsapp.android.conf.ConfValues;
@@ -117,11 +119,16 @@ public class SelectedTagsStore
         return new HashSet<String>(selectedTags);
     }
 
+    /**
+     * Devuelve la lista de tags disponibles, ordenadas por orden alfabético
+     * @return lista de tags ordenadas por orden alfabético.
+     */
     public String[] getAvailableTags()
     {
-        Set<String> availableTags = new HashSet<String>();
+        List<String> availableTags = new ArrayList<String>();
         availableTags.addAll(Arrays.asList(punkTags.getWorkingTags()));
         availableTags.addAll(Arrays.asList(punkTags.getNotDefaultTags()));
+        Collections.sort(availableTags);
         return availableTags.toArray(new String[availableTags.size()]);
     }
 

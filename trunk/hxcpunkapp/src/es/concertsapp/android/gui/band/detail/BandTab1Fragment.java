@@ -28,6 +28,7 @@ import es.concertsapp.android.component.ExpandablePanel;
 import es.concertsapp.android.component.LastFmImageView;
 import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.utils.LastFmApiConnectorFactory;
@@ -107,7 +108,7 @@ public class BandTab1Fragment extends Fragment
                 }
                 tagsTextView.setText(sb.toString());
 
-                similarArtistsProgressBar = (ProgressBar)rootView.findViewById(R.id.progressbarsimilarband);
+                similarArtistsProgressBar = (ProgressBar)rootView.findViewById(R.id.progressbarcommon);
                 similarArtistsProgressBar.setVisibility(similarArtistsProgressBarState);
 
                 //Cargamos los artistas similares
@@ -178,27 +179,7 @@ public class BandTab1Fragment extends Fragment
                 descTextView.setMovementMethod(new ScrollingMovementMethod());
                 descTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
-                ImageButton imageButton = (ImageButton)rootView.findViewById(R.id.button_logolastfm);
-                imageButton.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view)
-                    {
-                        Intent myIntent = new Intent(getActivity(), LegalConditionsActivity.class);
-                        startActivity(myIntent);
-                    }
-                });
-
-                ImageButton imageButton2 = (ImageButton)rootView.findViewById(R.id.button_moshtown);
-                imageButton2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view)
-                    {
-                        Intent myIntent = new Intent(getActivity(), MoshTownConditionsActivity.class);
-                        startActivity(myIntent);
-                    }
-                });
+                FooterLayoutUtils.initializeButtonsFunctions(getActivity(),rootView);
 
                 //Establecemos las fuentes
                 FontUtils.setRobotoFont(getActivity(),detailedBandName, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);

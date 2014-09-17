@@ -16,9 +16,11 @@ import es.concertsapp.android.gui.R;
 import es.concertsapp.android.gui.band.list.BandMainActivity;
 import es.concertsapp.android.gui.event.detail.EventInfoActivity;
 import es.concertsapp.android.gui.event.list.EventListActivity;
+import es.concertsapp.android.gui.footer.FooterLayoutUtils;
 import es.concertsapp.android.gui.legal.LegalConditionsActivity;
 import es.concertsapp.android.gui.legal.MoshTownConditionsActivity;
 import es.concertsapp.android.gui.menu.MenuActivity;
+import es.concertsapp.android.gui.settings.SettingsActivity;
 import es.concertsapp.android.utils.MyAppParameters;
 import es.concertsapp.android.utils.MyApplication;
 import es.concertsapp.android.utils.font.FontUtils;
@@ -55,27 +57,7 @@ public class MainActivity extends MenuActivity
         });
         FontUtils.setRobotoFont(this,buttonBands, FontUtils.FontType.ROBOTOCONDENSED_LIGHT);
 
-        ImageButton imageButton = (ImageButton)findViewById(R.id.button_logolastfm);
-        imageButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(MainActivity.this, LegalConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
-
-        ImageButton imageButton2 = (ImageButton)findViewById(R.id.button_moshtown);
-        imageButton2.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(MainActivity.this, MoshTownConditionsActivity.class);
-                startActivity(myIntent);
-            }
-        });
+        FooterLayoutUtils.initializeButtonsFunctions(this);
 
 
         checkIfComingFromLink();

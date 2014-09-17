@@ -96,6 +96,13 @@
             android:background="#4d4d4d"
             android:gravity="center_vertical"
             >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_configuration"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/button_configurationbackground"
+            android:contentDescription="@string/button_configuration" />
         <ProgressBar
                 style="@android:style/Widget.ProgressBar.Small"
                 android:layout_width="wrap_content"
