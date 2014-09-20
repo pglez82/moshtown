@@ -214,6 +214,7 @@ es.concertsapp.android.gui.R$dimen: int activity_horizontal_margin
 es.concertsapp.android.gui.R$dimen: int activity_vertical_margin
 es.concertsapp.android.gui.R$drawable: int barra_estrecha
 es.concertsapp.android.gui.R$drawable: int button_addgigbackground
+es.concertsapp.android.gui.R$drawable: int button_configurationbackground
 es.concertsapp.android.gui.R$drawable: int button_estrella_favs_image
 es.concertsapp.android.gui.R$drawable: int button_estrella_off_image
 es.concertsapp.android.gui.R$drawable: int button_estrella_on_image
@@ -229,9 +230,12 @@ es.concertsapp.android.gui.R$drawable: int estrella_favs
 es.concertsapp.android.gui.R$drawable: int estrella_favs_pulsado
 es.concertsapp.android.gui.R$drawable: int fondo_lista_ciudad
 es.concertsapp.android.gui.R$drawable: int fondo_titulo_conciertos
+es.concertsapp.android.gui.R$drawable: int ic_action_settings
 es.concertsapp.android.gui.R$drawable: int ic_calendario
 es.concertsapp.android.gui.R$drawable: int ic_close
 es.concertsapp.android.gui.R$drawable: int ic_configuracion
+es.concertsapp.android.gui.R$drawable: int ic_configuracion_barra
+es.concertsapp.android.gui.R$drawable: int ic_configuracion_barra_pulsado
 es.concertsapp.android.gui.R$drawable: int ic_estrella_grupos_off
 es.concertsapp.android.gui.R$drawable: int ic_estrella_grupos_on
 es.concertsapp.android.gui.R$drawable: int ic_estrella_off
@@ -307,6 +311,7 @@ es.concertsapp.android.gui.R$id: int buttonConciertos
 es.concertsapp.android.gui.R$id: int buttonGrupos
 es.concertsapp.android.gui.R$id: int buttonSpotifyNotInstalled
 es.concertsapp.android.gui.R$id: int button_addconcert
+es.concertsapp.android.gui.R$id: int button_configuration
 es.concertsapp.android.gui.R$id: int button_logolastfm
 es.concertsapp.android.gui.R$id: int button_moshtown
 es.concertsapp.android.gui.R$id: int buttonaddcalendar
@@ -399,12 +404,8 @@ es.concertsapp.android.gui.R$id: int panelgroup1
 es.concertsapp.android.gui.R$id: int placelistinfo
 es.concertsapp.android.gui.R$id: int playstop
 es.concertsapp.android.gui.R$id: int positionButon
-es.concertsapp.android.gui.R$id: int progressbarbandlist
+es.concertsapp.android.gui.R$id: int progressbarcommon
 es.concertsapp.android.gui.R$id: int progressbareventlist
-es.concertsapp.android.gui.R$id: int progressbareventsband
-es.concertsapp.android.gui.R$id: int progressbarfavourites
-es.concertsapp.android.gui.R$id: int progressbarsimilarband
-es.concertsapp.android.gui.R$id: int progressbarstreaming
 es.concertsapp.android.gui.R$id: int puntos
 es.concertsapp.android.gui.R$id: int rate_app
 es.concertsapp.android.gui.R$id: int relatedpanelbutton
@@ -442,6 +443,7 @@ es.concertsapp.android.gui.R$layout: int band_list
 es.concertsapp.android.gui.R$layout: int band_list_tag_completer_result
 es.concertsapp.android.gui.R$layout: int band_main_layout
 es.concertsapp.android.gui.R$layout: int buttonmore_layout
+es.concertsapp.android.gui.R$layout: int buttonsandprogressbar
 es.concertsapp.android.gui.R$layout: int city_list_result_layout
 es.concertsapp.android.gui.R$layout: int event_list_main
 es.concertsapp.android.gui.R$layout: int event_map
@@ -470,6 +472,7 @@ es.concertsapp.android.gui.R$string: int bio_text
 es.concertsapp.android.gui.R$string: int buscar_text
 es.concertsapp.android.gui.R$string: int buscarbanda_text
 es.concertsapp.android.gui.R$string: int button_bands
+es.concertsapp.android.gui.R$string: int button_configuration
 es.concertsapp.android.gui.R$string: int button_gps_description
 es.concertsapp.android.gui.R$string: int button_lastfm_description
 es.concertsapp.android.gui.R$string: int button_lupa2_description
@@ -654,6 +657,7 @@ it.sephiroth.android.library.imagezoom.R$dimen: int activity_horizontal_margin
 it.sephiroth.android.library.imagezoom.R$dimen: int activity_vertical_margin
 it.sephiroth.android.library.imagezoom.R$drawable: int barra_estrecha
 it.sephiroth.android.library.imagezoom.R$drawable: int button_addgigbackground
+it.sephiroth.android.library.imagezoom.R$drawable: int button_configurationbackground
 it.sephiroth.android.library.imagezoom.R$drawable: int button_estrella_favs_image
 it.sephiroth.android.library.imagezoom.R$drawable: int button_estrella_off_image
 it.sephiroth.android.library.imagezoom.R$drawable: int button_estrella_on_image
@@ -669,9 +673,12 @@ it.sephiroth.android.library.imagezoom.R$drawable: int estrella_favs
 it.sephiroth.android.library.imagezoom.R$drawable: int estrella_favs_pulsado
 it.sephiroth.android.library.imagezoom.R$drawable: int fondo_lista_ciudad
 it.sephiroth.android.library.imagezoom.R$drawable: int fondo_titulo_conciertos
+it.sephiroth.android.library.imagezoom.R$drawable: int ic_action_settings
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_calendario
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_close
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_configuracion
+it.sephiroth.android.library.imagezoom.R$drawable: int ic_configuracion_barra
+it.sephiroth.android.library.imagezoom.R$drawable: int ic_configuracion_barra_pulsado
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_estrella_grupos_off
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_estrella_grupos_on
 it.sephiroth.android.library.imagezoom.R$drawable: int ic_estrella_off
@@ -747,6 +754,7 @@ it.sephiroth.android.library.imagezoom.R$id: int buttonConciertos
 it.sephiroth.android.library.imagezoom.R$id: int buttonGrupos
 it.sephiroth.android.library.imagezoom.R$id: int buttonSpotifyNotInstalled
 it.sephiroth.android.library.imagezoom.R$id: int button_addconcert
+it.sephiroth.android.library.imagezoom.R$id: int button_configuration
 it.sephiroth.android.library.imagezoom.R$id: int button_logolastfm
 it.sephiroth.android.library.imagezoom.R$id: int button_moshtown
 it.sephiroth.android.library.imagezoom.R$id: int buttonaddcalendar
@@ -839,12 +847,8 @@ it.sephiroth.android.library.imagezoom.R$id: int panelgroup1
 it.sephiroth.android.library.imagezoom.R$id: int placelistinfo
 it.sephiroth.android.library.imagezoom.R$id: int playstop
 it.sephiroth.android.library.imagezoom.R$id: int positionButon
-it.sephiroth.android.library.imagezoom.R$id: int progressbarbandlist
+it.sephiroth.android.library.imagezoom.R$id: int progressbarcommon
 it.sephiroth.android.library.imagezoom.R$id: int progressbareventlist
-it.sephiroth.android.library.imagezoom.R$id: int progressbareventsband
-it.sephiroth.android.library.imagezoom.R$id: int progressbarfavourites
-it.sephiroth.android.library.imagezoom.R$id: int progressbarsimilarband
-it.sephiroth.android.library.imagezoom.R$id: int progressbarstreaming
 it.sephiroth.android.library.imagezoom.R$id: int puntos
 it.sephiroth.android.library.imagezoom.R$id: int rate_app
 it.sephiroth.android.library.imagezoom.R$id: int relatedpanelbutton
@@ -882,6 +886,7 @@ it.sephiroth.android.library.imagezoom.R$layout: int band_list
 it.sephiroth.android.library.imagezoom.R$layout: int band_list_tag_completer_result
 it.sephiroth.android.library.imagezoom.R$layout: int band_main_layout
 it.sephiroth.android.library.imagezoom.R$layout: int buttonmore_layout
+it.sephiroth.android.library.imagezoom.R$layout: int buttonsandprogressbar
 it.sephiroth.android.library.imagezoom.R$layout: int city_list_result_layout
 it.sephiroth.android.library.imagezoom.R$layout: int event_list_main
 it.sephiroth.android.library.imagezoom.R$layout: int event_map
@@ -910,6 +915,7 @@ it.sephiroth.android.library.imagezoom.R$string: int bio_text
 it.sephiroth.android.library.imagezoom.R$string: int buscar_text
 it.sephiroth.android.library.imagezoom.R$string: int buscarbanda_text
 it.sephiroth.android.library.imagezoom.R$string: int button_bands
+it.sephiroth.android.library.imagezoom.R$string: int button_configuration
 it.sephiroth.android.library.imagezoom.R$string: int button_gps_description
 it.sephiroth.android.library.imagezoom.R$string: int button_lastfm_description
 it.sephiroth.android.library.imagezoom.R$string: int button_lupa2_description

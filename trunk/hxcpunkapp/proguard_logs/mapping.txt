@@ -3932,195 +3932,177 @@ es.concertsapp.android.gui.band.detail.BandTab1Fragment -> es.concertsapp.androi
     android.widget.ProgressBar similarArtistsProgressBar -> S
     int similarArtistsProgressBarState -> T
     es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists downloadSimilarArtists -> U
-    72:75:void onCreate(android.os.Bundle) -> d
-    80:220:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    225:227:void setProgressBarVisibility(int) -> b
-    233:242:void setAddFavouriteButton(android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> a
-    246:254:void setRemoveFavouriteButton(android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> b
-    402:408:void onDestroy() -> n
-    42:42:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$000(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> a
-    42:42:void access$100(es.concertsapp.android.gui.band.detail.BandTab1Fragment,android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> a
-    42:42:void access$200(es.concertsapp.android.gui.band.detail.BandTab1Fragment,android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> b
-    42:42:java.lang.Throwable access$402(es.concertsapp.android.gui.band.detail.BandTab1Fragment,java.lang.Throwable) -> a
-    42:42:es.lastfm.api.connector.dto.ArtistDTO access$500(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> b
-    42:42:java.lang.Throwable access$400(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> c
+    73:76:void onCreate(android.os.Bundle) -> d
+    81:201:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    206:208:void setProgressBarVisibility(int) -> b
+    214:223:void setAddFavouriteButton(android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> a
+    227:235:void setRemoveFavouriteButton(android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> b
+    383:389:void onDestroy() -> n
+    43:43:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$000(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> a
+    43:43:void access$100(es.concertsapp.android.gui.band.detail.BandTab1Fragment,android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> a
+    43:43:void access$200(es.concertsapp.android.gui.band.detail.BandTab1Fragment,android.widget.Button,es.lastfm.api.connector.dto.ArtistDTO) -> b
+    43:43:java.lang.Throwable access$402(es.concertsapp.android.gui.band.detail.BandTab1Fragment,java.lang.Throwable) -> a
+    43:43:es.lastfm.api.connector.dto.ArtistDTO access$500(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> b
+    43:43:java.lang.Throwable access$400(es.concertsapp.android.gui.band.detail.BandTab1Fragment) -> c
 es.concertsapp.android.gui.band.detail.BandTab1Fragment$1 -> es.concertsapp.android.gui.band.detail.d:
     android.widget.ImageView val$flechaBio -> a
     es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> b
-    143:144:void onExpand(int,android.view.View,android.view.View) -> a
-    149:150:void onCollapse(int,android.view.View,android.view.View) -> b
+    144:145:void onExpand(int,android.view.View,android.view.View) -> a
+    150:151:void onCollapse(int,android.view.View,android.view.View) -> b
 es.concertsapp.android.gui.band.detail.BandTab1Fragment$2 -> es.concertsapp.android.gui.band.detail.e:
     android.widget.ImageView val$flechaRelated -> a
     es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> b
-    160:161:void onExpand(int,android.view.View,android.view.View) -> a
-    166:167:void onCollapse(int,android.view.View,android.view.View) -> b
+    161:162:void onExpand(int,android.view.View,android.view.View) -> a
+    167:168:void onCollapse(int,android.view.View,android.view.View) -> b
 es.concertsapp.android.gui.band.detail.BandTab1Fragment$3 -> es.concertsapp.android.gui.band.detail.f:
-    es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> a
-    187:189:void onClick(android.view.View) -> onClick
+    es.lastfm.api.connector.dto.ArtistDTO val$artist -> a
+    android.widget.Button val$button -> b
+    es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> c
+    218:220:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.band.detail.BandTab1Fragment$4 -> es.concertsapp.android.gui.band.detail.g:
-    es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> a
-    198:200:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$5 -> es.concertsapp.android.gui.band.detail.h:
     es.lastfm.api.connector.dto.ArtistDTO val$artist -> a
     android.widget.Button val$button -> b
     es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> c
-    237:239:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$6 -> es.concertsapp.android.gui.band.detail.i:
-    es.lastfm.api.connector.dto.ArtistDTO val$artist -> a
-    android.widget.Button val$button -> b
-    es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> c
-    250:252:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$ArtistHolder -> es.concertsapp.android.gui.band.detail.j:
+    231:233:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.detail.BandTab1Fragment$ArtistHolder -> es.concertsapp.android.gui.band.detail.h:
     android.widget.TextView bandName -> a
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists -> es.concertsapp.android.gui.band.detail.k:
+es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists -> es.concertsapp.android.gui.band.detail.i:
     android.widget.ListView listView -> b
     es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$SimilarArtistsAdapter similarBandsAdapter -> c
     int noElementsVisibility -> d
     es.concertsapp.android.gui.band.detail.BandTab1Fragment this$0 -> a
-    271:285:void updateListView(android.widget.ListView) -> a
-    289:291:void setNoElementsVisibility(int) -> a
-    360:364:void onPreExecute() -> onPreExecute
-    369:380:java.util.List doInBackground(java.lang.String[]) -> a
-    386:396:void onPostExecute(java.util.List) -> a
-    262:262:void onPostExecute(java.lang.Object) -> onPostExecute
-    262:262:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    262:262:es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$SimilarArtistsAdapter access$300(es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists) -> a
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$1 -> es.concertsapp.android.gui.band.detail.l:
+    252:266:void updateListView(android.widget.ListView) -> a
+    270:272:void setNoElementsVisibility(int) -> a
+    341:345:void onPreExecute() -> onPreExecute
+    350:361:java.util.List doInBackground(java.lang.String[]) -> a
+    367:377:void onPostExecute(java.util.List) -> a
+    243:243:void onPostExecute(java.lang.Object) -> onPostExecute
+    243:243:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    243:243:es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$SimilarArtistsAdapter access$300(es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists) -> a
+es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$1 -> es.concertsapp.android.gui.band.detail.j:
     es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists this$1 -> a
-    278:283:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$SimilarArtistsAdapter -> es.concertsapp.android.gui.band.detail.m:
+    259:264:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists$SimilarArtistsAdapter -> es.concertsapp.android.gui.band.detail.k:
     java.util.List listSimilarArtists -> b
     es.concertsapp.android.gui.band.detail.BandTab1Fragment$DownloadSimilarArtists this$1 -> a
-    306:309:int getCount() -> getCount
-    315:318:java.lang.Object getItem(int) -> getItem
-    324:324:long getItemId(int) -> getItemId
-    330:348:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-es.concertsapp.android.gui.band.detail.BandTab2Fragment -> es.concertsapp.android.gui.band.detail.n:
+    287:290:int getCount() -> getCount
+    296:299:java.lang.Object getItem(int) -> getItem
+    305:305:long getItemId(int) -> getItemId
+    311:329:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+es.concertsapp.android.gui.band.detail.BandTab2Fragment -> es.concertsapp.android.gui.band.detail.l:
     es.lastfm.api.connector.dto.ArtistDTO artistDTO -> P
     java.lang.Throwable backgroundError -> Q
     android.widget.ProgressBar eventsProgressBar -> R
     int eventsProgressBarState -> S
     es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask downDonwloadEventsBandTask -> T
     es.concertsapp.android.gui.event.list.EventListHelper eventListHelper -> U
-    202:205:void onCreate(android.os.Bundle) -> d
-    210:283:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    288:290:void setProgressBarVisibility(int) -> b
-    295:301:void onDestroy() -> n
-    36:36:es.concertsapp.android.gui.event.list.EventListHelper access$100(es.concertsapp.android.gui.band.detail.BandTab2Fragment) -> a
-    36:36:java.lang.Throwable access$202(es.concertsapp.android.gui.band.detail.BandTab2Fragment,java.lang.Throwable) -> a
-    36:36:java.lang.Throwable access$200(es.concertsapp.android.gui.band.detail.BandTab2Fragment) -> b
-es.concertsapp.android.gui.band.detail.BandTab2Fragment$1 -> es.concertsapp.android.gui.band.detail.o:
-    es.concertsapp.android.gui.band.detail.BandTab2Fragment this$0 -> a
-    244:246:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab2Fragment$2 -> es.concertsapp.android.gui.band.detail.p:
-    es.concertsapp.android.gui.band.detail.BandTab2Fragment this$0 -> a
-    255:257:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask -> es.concertsapp.android.gui.band.detail.q:
+    203:206:void onCreate(android.os.Bundle) -> d
+    211:264:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    269:271:void setProgressBarVisibility(int) -> b
+    276:282:void onDestroy() -> n
+    37:37:es.concertsapp.android.gui.event.list.EventListHelper access$100(es.concertsapp.android.gui.band.detail.BandTab2Fragment) -> a
+    37:37:java.lang.Throwable access$202(es.concertsapp.android.gui.band.detail.BandTab2Fragment,java.lang.Throwable) -> a
+    37:37:java.lang.Throwable access$200(es.concertsapp.android.gui.band.detail.BandTab2Fragment) -> b
+es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask -> es.concertsapp.android.gui.band.detail.m:
     android.widget.ListView listView -> b
     es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$BandEventsAdapter bandEventsAdapter -> c
     int noElementsVisibility -> d
     es.concertsapp.android.gui.band.detail.BandTab2Fragment this$0 -> a
-    71:85:void updateListView(android.widget.ListView) -> a
-    89:91:void setNoElementsVisibility(int) -> a
-    160:164:void onPreExecute() -> onPreExecute
-    169:180:java.util.List doInBackground(java.lang.String[]) -> a
-    186:196:void onPostExecute(java.util.List) -> a
-    62:62:void onPostExecute(java.lang.Object) -> onPostExecute
-    62:62:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    62:62:es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$BandEventsAdapter access$000(es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask) -> a
-es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$1 -> es.concertsapp.android.gui.band.detail.r:
+    72:86:void updateListView(android.widget.ListView) -> a
+    90:92:void setNoElementsVisibility(int) -> a
+    161:165:void onPreExecute() -> onPreExecute
+    170:181:java.util.List doInBackground(java.lang.String[]) -> a
+    187:197:void onPostExecute(java.util.List) -> a
+    63:63:void onPostExecute(java.lang.Object) -> onPostExecute
+    63:63:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    63:63:es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$BandEventsAdapter access$000(es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask) -> a
+es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$1 -> es.concertsapp.android.gui.band.detail.n:
     es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask this$1 -> a
-    78:83:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$BandEventsAdapter -> es.concertsapp.android.gui.band.detail.s:
+    79:84:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask$BandEventsAdapter -> es.concertsapp.android.gui.band.detail.o:
     java.util.List listEvents -> b
     es.concertsapp.android.gui.band.detail.BandTab2Fragment$DonwloadEventsBandTask this$1 -> a
-    106:109:int getCount() -> getCount
-    115:118:java.lang.Object getItem(int) -> getItem
-    124:124:long getItemId(int) -> getItemId
-    130:148:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-es.concertsapp.android.gui.band.detail.BandTab3Fragment -> es.concertsapp.android.gui.band.detail.t:
+    107:110:int getCount() -> getCount
+    116:119:java.lang.Object getItem(int) -> getItem
+    125:125:long getItemId(int) -> getItemId
+    131:149:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+es.concertsapp.android.gui.band.detail.BandTab3Fragment -> es.concertsapp.android.gui.band.detail.p:
     java.lang.String artistName -> X
     java.lang.Throwable backgroundError -> Y
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask downloadPodcastTask -> Z
     android.widget.ProgressBar progressBarStreaming -> aa
     int progressBarStreamingStatus -> ab
     es.concertsapp.android.component.ExpandablePanel expandablePanelSpotify -> ac
-    59:62:void onCreate(android.os.Bundle) -> d
-    67:67:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    73:161:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    165:167:void setStreamingProgressBarVisibility(int) -> b
-    172:179:void onDestroy() -> n
-    183:194:void showPlayButton(android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> a
-    198:209:void showStopButton(android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> b
-    214:221:void playerStatusChanged() -> B
-    427:430:void playSong(de.umass.lastfm.Item) -> a
-    434:435:void stopSong() -> C
-    454:461:void onDestroyView() -> m
-    40:40:void access$000(es.concertsapp.android.gui.band.detail.BandTab3Fragment,de.umass.lastfm.Item) -> a
-    40:40:void access$100(es.concertsapp.android.gui.band.detail.BandTab3Fragment,android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> a
-    40:40:void access$200(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> a
-    40:40:void access$300(es.concertsapp.android.gui.band.detail.BandTab3Fragment,android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> b
-    40:40:es.concertsapp.android.component.ExpandablePanel access$500(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> b
-    40:40:java.lang.Throwable access$802(es.concertsapp.android.gui.band.detail.BandTab3Fragment,java.lang.Throwable) -> a
-    40:40:java.lang.Throwable access$800(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> c
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$1 -> es.concertsapp.android.gui.band.detail.u:
-    es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> a
-    86:88:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$2 -> es.concertsapp.android.gui.band.detail.v:
-    es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> a
-    97:99:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$3 -> es.concertsapp.android.gui.band.detail.w:
+    60:63:void onCreate(android.os.Bundle) -> d
+    68:68:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    74:142:void onViewCreated(android.view.View,android.os.Bundle) -> a
+    146:148:void setStreamingProgressBarVisibility(int) -> b
+    153:160:void onDestroy() -> n
+    164:175:void showPlayButton(android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> a
+    179:190:void showStopButton(android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> b
+    195:202:void playerStatusChanged() -> B
+    408:411:void playSong(de.umass.lastfm.Item) -> a
+    415:416:void stopSong() -> C
+    435:442:void onDestroyView() -> m
+    41:41:void access$000(es.concertsapp.android.gui.band.detail.BandTab3Fragment,de.umass.lastfm.Item) -> a
+    41:41:void access$100(es.concertsapp.android.gui.band.detail.BandTab3Fragment,android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> a
+    41:41:void access$200(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> a
+    41:41:void access$300(es.concertsapp.android.gui.band.detail.BandTab3Fragment,android.widget.ImageButton,de.umass.lastfm.Item,es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter) -> b
+    41:41:es.concertsapp.android.component.ExpandablePanel access$500(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> b
+    41:41:java.lang.Throwable access$802(es.concertsapp.android.gui.band.detail.BandTab3Fragment,java.lang.Throwable) -> a
+    41:41:java.lang.Throwable access$800(es.concertsapp.android.gui.band.detail.BandTab3Fragment) -> c
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$1 -> es.concertsapp.android.gui.band.detail.q:
     android.widget.ImageView val$flechaLast -> a
     es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> b
-    120:121:void onExpand(int,android.view.View,android.view.View) -> a
-    126:127:void onCollapse(int,android.view.View,android.view.View) -> b
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$4 -> es.concertsapp.android.gui.band.detail.x:
+    101:102:void onExpand(int,android.view.View,android.view.View) -> a
+    107:108:void onCollapse(int,android.view.View,android.view.View) -> b
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$2 -> es.concertsapp.android.gui.band.detail.r:
     android.widget.ImageView val$flechaSpotify -> a
     es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> b
-    137:138:void onExpand(int,android.view.View,android.view.View) -> a
-    143:144:void onCollapse(int,android.view.View,android.view.View) -> b
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$5 -> es.concertsapp.android.gui.band.detail.y:
+    118:119:void onExpand(int,android.view.View,android.view.View) -> a
+    124:125:void onCollapse(int,android.view.View,android.view.View) -> b
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$3 -> es.concertsapp.android.gui.band.detail.s:
     de.umass.lastfm.Item val$song -> a
     android.widget.ImageButton val$imageButton -> b
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter val$podcastAdapter -> c
     es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> d
-    189:192:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$6 -> es.concertsapp.android.gui.band.detail.z:
+    170:173:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$4 -> es.concertsapp.android.gui.band.detail.t:
     android.widget.ImageButton val$imageButton -> a
     de.umass.lastfm.Item val$song -> b
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter val$podcastAdapter -> c
     es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> d
-    204:207:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask -> es.concertsapp.android.gui.band.detail.aa:
+    185:188:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask -> es.concertsapp.android.gui.band.detail.u:
     android.widget.ListView listView -> b
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter podcastsAdapter -> c
     java.lang.String spotifyUri -> d
     es.concertsapp.android.utils.spotify.SpotifyUtils spotifyUtils -> e
     es.concertsapp.android.gui.band.detail.BandTab3Fragment this$0 -> a
-    239:295:void updateListView(android.widget.ListView) -> a
-    382:386:void onPreExecute() -> onPreExecute
-    391:405:de.umass.lastfm.Channel doInBackground(java.lang.String[]) -> a
-    411:422:void onPostExecute(de.umass.lastfm.Channel) -> a
-    229:229:void onPostExecute(java.lang.Object) -> onPostExecute
-    229:229:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    229:229:java.lang.String access$400(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> a
-    229:229:es.concertsapp.android.utils.spotify.SpotifyUtils access$600(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> b
-    229:229:es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter access$700(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> c
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$1 -> es.concertsapp.android.gui.band.detail.ab:
+    220:276:void updateListView(android.widget.ListView) -> a
+    363:367:void onPreExecute() -> onPreExecute
+    372:386:de.umass.lastfm.Channel doInBackground(java.lang.String[]) -> a
+    392:403:void onPostExecute(de.umass.lastfm.Channel) -> a
+    210:210:void onPostExecute(java.lang.Object) -> onPostExecute
+    210:210:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    210:210:java.lang.String access$400(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> a
+    210:210:es.concertsapp.android.utils.spotify.SpotifyUtils access$600(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> b
+    210:210:es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter access$700(es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask) -> c
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$1 -> es.concertsapp.android.gui.band.detail.v:
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask this$1 -> a
-    258:259:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$2 -> es.concertsapp.android.gui.band.detail.ac:
+    239:240:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$2 -> es.concertsapp.android.gui.band.detail.w:
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask this$1 -> a
-    288:289:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter -> es.concertsapp.android.gui.band.detail.ad:
+    269:270:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask$PodcastsAdapter -> es.concertsapp.android.gui.band.detail.x:
     java.util.List songs -> b
     es.concertsapp.android.gui.band.detail.BandTab3Fragment$DonwloadPodcastsTask this$1 -> a
-    313:316:int getCount() -> getCount
-    322:325:java.lang.Object getItem(int) -> getItem
-    331:331:long getItemId(int) -> getItemId
-    336:336:java.util.List getSongs() -> a
-    342:370:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-es.concertsapp.android.gui.band.detail.BandTab3Fragment$PodcastHolder -> es.concertsapp.android.gui.band.detail.ae:
+    294:297:int getCount() -> getCount
+    303:306:java.lang.Object getItem(int) -> getItem
+    312:312:long getItemId(int) -> getItemId
+    317:317:java.util.List getSongs() -> a
+    323:351:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+es.concertsapp.android.gui.band.detail.BandTab3Fragment$PodcastHolder -> es.concertsapp.android.gui.band.detail.y:
     android.widget.TextView song -> a
     android.widget.ImageButton playstopButton -> b
 es.concertsapp.android.gui.band.list.BandListFragment -> es.concertsapp.android.gui.band.list.a:
@@ -4130,85 +4112,79 @@ es.concertsapp.android.gui.band.list.BandListFragment -> es.concertsapp.android.
     int emptyViewState -> aa
     es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore favouriteBandsStore -> ab
     java.lang.Throwable errorBackground -> ac
-    63:67:void onCreate(android.os.Bundle) -> d
-    72:73:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    79:169:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    176:189:void searchBands(android.view.View) -> a
-    193:202:void emptyViewVisibility(int,android.widget.ListView) -> a
-    206:211:void setProgressBarState(int) -> b
-    45:45:void access$000(es.concertsapp.android.gui.band.list.BandListFragment,android.view.View) -> a
-    45:45:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$200(es.concertsapp.android.gui.band.list.BandListFragment) -> a
-    45:45:java.lang.Throwable access$502(es.concertsapp.android.gui.band.list.BandListFragment,java.lang.Throwable) -> a
-    45:45:void access$600(es.concertsapp.android.gui.band.list.BandListFragment,int) -> a
-    45:45:void access$700(es.concertsapp.android.gui.band.list.BandListFragment,int,android.widget.ListView) -> a
-    45:45:java.lang.Throwable access$500(es.concertsapp.android.gui.band.list.BandListFragment) -> b
+    64:68:void onCreate(android.os.Bundle) -> d
+    73:74:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    80:151:void onViewCreated(android.view.View,android.os.Bundle) -> a
+    158:171:void searchBands(android.view.View) -> a
+    175:184:void emptyViewVisibility(int,android.widget.ListView) -> a
+    188:193:void setProgressBarState(int) -> b
+    46:46:void access$000(es.concertsapp.android.gui.band.list.BandListFragment,android.view.View) -> a
+    46:46:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$200(es.concertsapp.android.gui.band.list.BandListFragment) -> a
+    46:46:java.lang.Throwable access$502(es.concertsapp.android.gui.band.list.BandListFragment,java.lang.Throwable) -> a
+    46:46:void access$600(es.concertsapp.android.gui.band.list.BandListFragment,int) -> a
+    46:46:void access$700(es.concertsapp.android.gui.band.list.BandListFragment,int,android.widget.ListView) -> a
+    46:46:java.lang.Throwable access$500(es.concertsapp.android.gui.band.list.BandListFragment) -> b
 es.concertsapp.android.gui.band.list.BandListFragment$1 -> es.concertsapp.android.gui.band.list.b:
     es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    104:112:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
+    105:113:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
 es.concertsapp.android.gui.band.list.BandListFragment$2 -> es.concertsapp.android.gui.band.list.c:
     es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    123:124:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    124:125:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 es.concertsapp.android.gui.band.list.BandListFragment$3 -> es.concertsapp.android.gui.band.list.d:
     android.widget.AutoCompleteTextView val$searchTextView -> a
     es.concertsapp.android.gui.band.list.BandListFragment this$0 -> b
-    134:135:void onClick(android.view.View) -> onClick
+    135:136:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.band.list.BandListFragment$4 -> es.concertsapp.android.gui.band.list.e:
     es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    144:146:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.BandListFragment$5 -> es.concertsapp.android.gui.band.list.f:
-    es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    155:157:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.BandListFragment$6 -> es.concertsapp.android.gui.band.list.g:
-    es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    165:166:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask -> es.concertsapp.android.gui.band.list.h:
+    147:148:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask -> es.concertsapp.android.gui.band.list.f:
     android.widget.ListView listView -> b
     java.util.List listBands -> c
     es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter searchBandsAdapter -> d
     es.concertsapp.android.gui.band.list.BandListFragment this$0 -> a
-    322:334:void updateListView(android.widget.ListView) -> a
-    338:339:void notifyNewFavorites() -> a
-    343:343:es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter getSearchBandsAdapter() -> b
-    349:359:java.lang.Void doInBackground(java.lang.String[]) -> a
-    368:375:void onProgressUpdate(es.lastfm.api.connector.dto.ArtistDTO[]) -> a
-    380:391:void onPreExecute() -> onPreExecute
-    397:405:void onPostExecute(java.lang.Void) -> a
-    409:410:void newArtistAvailable(es.lastfm.api.connector.dto.ArtistDTO) -> a
-    213:213:void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
-    213:213:void onPostExecute(java.lang.Object) -> onPostExecute
-    213:213:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    213:213:java.util.List access$100(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask) -> a
-es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$1 -> es.concertsapp.android.gui.band.list.i:
+    304:316:void updateListView(android.widget.ListView) -> a
+    320:321:void notifyNewFavorites() -> a
+    325:325:es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter getSearchBandsAdapter() -> b
+    331:341:java.lang.Void doInBackground(java.lang.String[]) -> a
+    350:357:void onProgressUpdate(es.lastfm.api.connector.dto.ArtistDTO[]) -> a
+    362:373:void onPreExecute() -> onPreExecute
+    379:387:void onPostExecute(java.lang.Void) -> a
+    391:392:void newArtistAvailable(es.lastfm.api.connector.dto.ArtistDTO) -> a
+    195:195:void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
+    195:195:void onPostExecute(java.lang.Object) -> onPostExecute
+    195:195:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    195:195:java.util.List access$100(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask) -> a
+es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$1 -> es.concertsapp.android.gui.band.list.g:
     es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask this$1 -> a
-    328:332:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter -> es.concertsapp.android.gui.band.list.j:
+    310:314:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter -> es.concertsapp.android.gui.band.list.h:
     es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask this$1 -> a
-    228:231:int getCount() -> getCount
-    237:240:java.lang.Object getItem(int) -> getItem
-    246:246:long getItemId(int) -> getItemId
-    251:261:void setAddFavouriteButton(android.widget.ImageView,int) -> a
-    265:273:void setRemoveFavouriteButton(android.widget.ImageView,int) -> b
-    283:311:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-    223:223:void access$300(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter,android.widget.ImageView,int) -> a
-    223:223:void access$400(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter,android.widget.ImageView,int) -> b
-es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter$1 -> es.concertsapp.android.gui.band.list.k:
+    210:213:int getCount() -> getCount
+    219:222:java.lang.Object getItem(int) -> getItem
+    228:228:long getItemId(int) -> getItemId
+    233:243:void setAddFavouriteButton(android.widget.ImageView,int) -> a
+    247:255:void setRemoveFavouriteButton(android.widget.ImageView,int) -> b
+    265:293:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    205:205:void access$300(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter,android.widget.ImageView,int) -> a
+    205:205:void access$400(es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter,android.widget.ImageView,int) -> b
+es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter$1 -> es.concertsapp.android.gui.band.list.i:
     int val$position -> a
     android.widget.ImageView val$button -> b
     es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter this$2 -> c
-    255:258:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter$2 -> es.concertsapp.android.gui.band.list.l:
+    237:240:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter$2 -> es.concertsapp.android.gui.band.list.j:
     int val$position -> a
     android.widget.ImageView val$button -> b
     es.concertsapp.android.gui.band.list.BandListFragment$SearchBandsTask$SearchBandsAdapter this$2 -> c
-    269:271:void onClick(android.view.View) -> onClick
+    251:253:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.band.list.BandMainActivity -> es.concertsapp.android.gui.band.list.BandMainActivity:
     21:59:void onCreate(android.os.Bundle) -> onCreate
-es.concertsapp.android.gui.band.list.BandMainActivity$1 -> es.concertsapp.android.gui.band.list.m:
+es.concertsapp.android.gui.band.list.BandMainActivity$1 -> es.concertsapp.android.gui.band.list.k:
     es.concertsapp.android.gui.band.list.BandMainActivity this$0 -> a
     35:35:void onPageScrolled(int,float,int) -> a
     39:43:void onPageSelected(int) -> a
     48:48:void onPageScrollStateChanged(int) -> b
-es.concertsapp.android.gui.band.list.BandMainActivitySectionsPageAdapter -> es.concertsapp.android.gui.band.list.n:
+es.concertsapp.android.gui.band.list.BandMainActivitySectionsPageAdapter -> es.concertsapp.android.gui.band.list.l:
     es.concertsapp.android.gui.band.list.BandListFragment bandListFragment -> a
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment bandFavoritesFragment -> b
     24:34:android.support.v4.app.Fragment getItem(int) -> a
@@ -4218,36 +4194,30 @@ es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment -> es.conc
     android.widget.ProgressBar progressBar -> Y
     int progressBarState -> Z
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter favouriteBandsAdapter -> aa
-    34:36:void onCreate(android.os.Bundle) -> d
-    41:42:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    48:103:void onViewCreated(android.view.View,android.os.Bundle) -> a
-    107:113:void setProgressBarState(int) -> b
-    24:24:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$100(es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment) -> a
+    35:37:void onCreate(android.os.Bundle) -> d
+    42:43:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    49:82:void onViewCreated(android.view.View,android.os.Bundle) -> a
+    86:92:void setProgressBarState(int) -> b
+    25:25:es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore access$100(es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment) -> a
 es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$1 -> es.concertsapp.android.gui.band.list.a.b:
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment this$0 -> a
-    71:77:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$2 -> es.concertsapp.android.gui.band.list.a.c:
-    es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment this$0 -> a
-    88:90:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$3 -> es.concertsapp.android.gui.band.list.a.d:
-    es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment this$0 -> a
-    99:101:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$BandSearchHolder -> es.concertsapp.android.gui.band.list.a.e:
+    72:78:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$BandSearchHolder -> es.concertsapp.android.gui.band.list.a.c:
     android.widget.ImageView tocancercaImage -> a
     android.widget.TextView favoriteName -> b
     android.widget.ImageView favouriteButton -> c
     android.widget.TextView tocancercaTextView -> d
-es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter -> es.concertsapp.android.gui.band.list.a.f:
+es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter -> es.concertsapp.android.gui.band.list.a.d:
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment this$0 -> a
-    128:128:int getCount() -> getCount
-    134:137:java.lang.Object getItem(int) -> getItem
-    143:143:long getItemId(int) -> getItemId
-    149:194:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter$1 -> es.concertsapp.android.gui.band.list.a.g:
+    107:107:int getCount() -> getCount
+    113:116:java.lang.Object getItem(int) -> getItem
+    122:122:long getItemId(int) -> getItemId
+    128:173:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter$1 -> es.concertsapp.android.gui.band.list.a.e:
     int val$position -> a
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment$FavoriteBandsAdapter this$1 -> b
-    171:172:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore -> es.concertsapp.android.gui.band.list.a.h:
+    150:151:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore -> es.concertsapp.android.gui.band.list.a.f:
     es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore singleton -> a
     java.util.List favouriteBands -> b
     android.content.Context context -> c
@@ -4263,7 +4233,7 @@ es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore -> es.concer
     105:109:void notifyAdapters() -> c
     118:127:void saveFavouriteBandsToDisk() -> d
     136:154:void loadFavouriteBands() -> e
-es.concertsapp.android.gui.band.list.favourites.LookForNearEvents -> es.concertsapp.android.gui.band.list.a.i:
+es.concertsapp.android.gui.band.list.favourites.LookForNearEvents -> es.concertsapp.android.gui.band.list.a.g:
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment favoritesFragment -> a
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$LookForNearEventsTask lookForNearEventsTask -> b
     java.util.Timer timer -> c
@@ -4276,20 +4246,20 @@ es.concertsapp.android.gui.band.list.favourites.LookForNearEvents -> es.concerts
     29:29:es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment access$200(es.concertsapp.android.gui.band.list.favourites.LookForNearEvents) -> c
     29:29:java.lang.Throwable access$302(es.concertsapp.android.gui.band.list.favourites.LookForNearEvents,java.lang.Throwable) -> a
     29:29:java.lang.Throwable access$300(es.concertsapp.android.gui.band.list.favourites.LookForNearEvents) -> d
-es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$1 -> es.concertsapp.android.gui.band.list.a.j:
+es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$1 -> es.concertsapp.android.gui.band.list.a.h:
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents this$0 -> a
     49:50:void run() -> run
-es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$2 -> es.concertsapp.android.gui.band.list.a.k:
+es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$2 -> es.concertsapp.android.gui.band.list.a.i:
     es.concertsapp.android.gui.band.list.favourites.BandFavoritesFragment val$favouritesActivity -> a
     es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore val$favouriteBandsStore -> b
     java.util.List val$artistToLookUp -> c
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents this$0 -> d
     68:87:void locationFound(android.location.Location,java.lang.String) -> a
-es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$2$1 -> es.concertsapp.android.gui.band.list.a.l:
+es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$2$1 -> es.concertsapp.android.gui.band.list.a.j:
     android.location.Location val$location -> a
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$2 this$1 -> b
     75:84:void run() -> run
-es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$LookForNearEventsTask -> es.concertsapp.android.gui.band.list.a.m:
+es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$LookForNearEventsTask -> es.concertsapp.android.gui.band.list.a.k:
     es.concertsapp.android.gui.band.list.favourites.FavouriteBandsStore favouriteBandsStore -> b
     android.location.Location location -> c
     es.concertsapp.android.gui.band.list.favourites.LookForNearEvents this$0 -> a
@@ -4300,40 +4270,37 @@ es.concertsapp.android.gui.band.list.favourites.LookForNearEvents$LookForNearEve
     110:110:void onPostExecute(java.lang.Object) -> onPostExecute
     110:110:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 es.concertsapp.android.gui.event.add.EventAddActivity -> es.concertsapp.android.gui.event.add.EventAddActivity:
-    23:38:void onCreate(android.os.Bundle) -> onCreate
+    25:51:void onCreate(android.os.Bundle) -> onCreate
 es.concertsapp.android.gui.event.add.EventAddActivity$1 -> es.concertsapp.android.gui.event.add.a:
     es.concertsapp.android.gui.event.add.EventAddActivity this$0 -> a
-    35:36:void onClick(android.view.View) -> onClick
+    37:38:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.add.EventAddActivity$2 -> es.concertsapp.android.gui.event.add.b:
+    es.concertsapp.android.gui.event.add.EventAddActivity this$0 -> a
+    46:48:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.event.detail.EventInfoActivity -> es.concertsapp.android.gui.event.detail.EventInfoActivity:
     es.lastfm.api.connector.LastFmApiConnector lastFmApiConnector -> n
     java.lang.String[] bands -> o
     es.lastfm.api.connector.dto.DetailedEventDTO detailedEventDTO -> p
     es.concertsapp.android.utils.date.DateFormater dateFormater -> q
-    55:205:void onCreate(android.os.Bundle) -> onCreate
-    209:233:void buttonAddCalendar(android.view.View) -> buttonAddCalendar
-    237:242:void buttonShowMap(android.view.View) -> buttonShowMap
-    44:44:java.lang.String[] access$000(es.concertsapp.android.gui.event.detail.EventInfoActivity) -> a
-    44:44:es.lastfm.api.connector.dto.DetailedEventDTO access$100(es.concertsapp.android.gui.event.detail.EventInfoActivity) -> b
+    56:186:void onCreate(android.os.Bundle) -> onCreate
+    190:214:void buttonAddCalendar(android.view.View) -> buttonAddCalendar
+    218:223:void buttonShowMap(android.view.View) -> buttonShowMap
+    45:45:java.lang.String[] access$000(es.concertsapp.android.gui.event.detail.EventInfoActivity) -> a
+    45:45:es.lastfm.api.connector.dto.DetailedEventDTO access$100(es.concertsapp.android.gui.event.detail.EventInfoActivity) -> b
 es.concertsapp.android.gui.event.detail.EventInfoActivity$1 -> es.concertsapp.android.gui.event.detail.a:
     android.widget.ImageView val$flechaBio -> a
     es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> b
-    107:108:void onExpand(int,android.view.View,android.view.View) -> a
-    113:114:void onCollapse(int,android.view.View,android.view.View) -> b
+    108:109:void onExpand(int,android.view.View,android.view.View) -> a
+    114:115:void onCollapse(int,android.view.View,android.view.View) -> b
 es.concertsapp.android.gui.event.detail.EventInfoActivity$2 -> es.concertsapp.android.gui.event.detail.b:
     es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> a
-    143:147:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    144:148:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 es.concertsapp.android.gui.event.detail.EventInfoActivity$3 -> es.concertsapp.android.gui.event.detail.c:
     es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> a
-    156:158:void onClick(android.view.View) -> onClick
+    157:159:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.event.detail.EventInfoActivity$4 -> es.concertsapp.android.gui.event.detail.d:
     es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> a
-    167:169:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.detail.EventInfoActivity$5 -> es.concertsapp.android.gui.event.detail.e:
-    es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> a
-    176:178:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.detail.EventInfoActivity$6 -> es.concertsapp.android.gui.event.detail.f:
-    es.concertsapp.android.gui.event.detail.EventInfoActivity this$0 -> a
-    201:202:void onDismiss(android.content.DialogInterface) -> onDismiss
+    182:183:void onDismiss(android.content.DialogInterface) -> onDismiss
 es.concertsapp.android.gui.event.detail.EventMapActivity -> es.concertsapp.android.gui.event.detail.EventMapActivity:
     28:54:void onCreate(android.os.Bundle) -> onCreate
 es.concertsapp.android.gui.event.list.EventListActivity -> es.concertsapp.android.gui.event.list.EventListActivity:
@@ -4342,78 +4309,72 @@ es.concertsapp.android.gui.event.list.EventListActivity -> es.concertsapp.androi
     java.util.List listPlacesSearched -> p
     es.concertsapp.android.utils.geo.LatitudeLongitude latlonSearch -> q
     es.concertsapp.android.utils.geo.PlaceInterface lastSearch -> r
-    78:264:void onCreate(android.os.Bundle) -> onCreate
-    269:272:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
-    278:278:android.widget.ListView getListView() -> f
-    288:306:void loadListPlacesSearched() -> j
-    315:350:void saveListPlacesSearched(es.concertsapp.android.utils.geo.PlaceInterface) -> a
-    358:385:void botonBuscar() -> g
-    390:408:void showGpsAnimation(boolean) -> b
-    418:438:void getPosition(android.view.View) -> getPosition
-    443:445:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
-    449:451:void avoidAutocomplete() -> h
-    456:458:void botonListMore() -> i
-    49:49:es.concertsapp.android.gui.event.list.EventListActivityRetained access$000(es.concertsapp.android.gui.event.list.EventListActivity) -> a
-    49:49:es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter access$100(es.concertsapp.android.gui.event.list.EventListActivity) -> b
-    49:49:es.concertsapp.android.utils.geo.LatitudeLongitude access$202(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.LatitudeLongitude) -> a
-    49:49:es.concertsapp.android.utils.geo.LatitudeLongitude access$200(es.concertsapp.android.gui.event.list.EventListActivity) -> c
-    49:49:void access$300(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.PlaceInterface) -> a
-    49:49:es.concertsapp.android.utils.geo.PlaceInterface access$402(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.PlaceInterface) -> b
-    49:49:java.util.List access$500(es.concertsapp.android.gui.event.list.EventListActivity) -> d
-    49:49:java.util.List access$502(es.concertsapp.android.gui.event.list.EventListActivity,java.util.List) -> a
-    49:49:void access$600(es.concertsapp.android.gui.event.list.EventListActivity,boolean) -> a
+    80:246:void onCreate(android.os.Bundle) -> onCreate
+    251:254:void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    260:260:android.widget.ListView getListView() -> f
+    270:288:void loadListPlacesSearched() -> j
+    297:332:void saveListPlacesSearched(es.concertsapp.android.utils.geo.PlaceInterface) -> a
+    340:367:void botonBuscar() -> g
+    372:390:void showGpsAnimation(boolean) -> b
+    400:420:void getPosition(android.view.View) -> getPosition
+    425:427:void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    431:433:void avoidAutocomplete() -> h
+    438:440:void botonListMore() -> i
+    51:51:es.concertsapp.android.gui.event.list.EventListActivityRetained access$000(es.concertsapp.android.gui.event.list.EventListActivity) -> a
+    51:51:es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter access$100(es.concertsapp.android.gui.event.list.EventListActivity) -> b
+    51:51:es.concertsapp.android.utils.geo.LatitudeLongitude access$202(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.LatitudeLongitude) -> a
+    51:51:es.concertsapp.android.utils.geo.LatitudeLongitude access$200(es.concertsapp.android.gui.event.list.EventListActivity) -> c
+    51:51:void access$300(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.PlaceInterface) -> a
+    51:51:es.concertsapp.android.utils.geo.PlaceInterface access$402(es.concertsapp.android.gui.event.list.EventListActivity,es.concertsapp.android.utils.geo.PlaceInterface) -> b
+    51:51:java.util.List access$500(es.concertsapp.android.gui.event.list.EventListActivity) -> d
+    51:51:java.util.List access$502(es.concertsapp.android.gui.event.list.EventListActivity,java.util.List) -> a
+    51:51:void access$600(es.concertsapp.android.gui.event.list.EventListActivity,boolean) -> a
 es.concertsapp.android.gui.event.list.EventListActivity$1 -> es.concertsapp.android.gui.event.list.a:
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    101:105:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    103:107:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 es.concertsapp.android.gui.event.list.EventListActivity$10 -> es.concertsapp.android.gui.event.list.b:
-    android.widget.AutoCompleteTextView val$searchTextView -> a
-    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    241:243:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$11 -> es.concertsapp.android.gui.event.list.c:
-    android.widget.AutoCompleteTextView val$searchTextView -> a
-    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    252:261:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
-es.concertsapp.android.gui.event.list.EventListActivity$12 -> es.concertsapp.android.gui.event.list.d:
     es.concertsapp.android.utils.geo.PlaceInterface val$place -> a
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    322:348:void run() -> run
-es.concertsapp.android.gui.event.list.EventListActivity$13 -> es.concertsapp.android.gui.event.list.e:
+    304:330:void run() -> run
+es.concertsapp.android.gui.event.list.EventListActivity$11 -> es.concertsapp.android.gui.event.list.c:
     android.view.View val$view -> a
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    427:428:void locationFound(android.location.Location,java.lang.String) -> a
-es.concertsapp.android.gui.event.list.EventListActivity$2 -> es.concertsapp.android.gui.event.list.f:
+    409:410:void locationFound(android.location.Location,java.lang.String) -> a
+es.concertsapp.android.gui.event.list.EventListActivity$2 -> es.concertsapp.android.gui.event.list.d:
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    116:117:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$3 -> es.concertsapp.android.gui.event.list.g:
+    118:119:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.list.EventListActivity$3 -> es.concertsapp.android.gui.event.list.e:
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    131:132:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$4 -> es.concertsapp.android.gui.event.list.h:
+    133:134:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.list.EventListActivity$4 -> es.concertsapp.android.gui.event.list.f:
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    142:143:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$5 -> es.concertsapp.android.gui.event.list.i:
+    144:145:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.list.EventListActivity$5 -> es.concertsapp.android.gui.event.list.g:
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    152:154:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$6 -> es.concertsapp.android.gui.event.list.j:
-    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    163:165:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$7 -> es.concertsapp.android.gui.event.list.k:
-    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    174:176:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.event.list.EventListActivity$8 -> es.concertsapp.android.gui.event.list.l:
+    154:156:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.list.EventListActivity$6 -> es.concertsapp.android.gui.event.list.h:
     android.widget.AutoCompleteTextView val$searchTextView -> a
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    201:202:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-es.concertsapp.android.gui.event.list.EventListActivity$9 -> es.concertsapp.android.gui.event.list.m:
+    183:184:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+es.concertsapp.android.gui.event.list.EventListActivity$7 -> es.concertsapp.android.gui.event.list.i:
     android.widget.AutoCompleteTextView val$searchTextView -> a
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
-    212:230:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-es.concertsapp.android.gui.event.list.EventListActivity$ReturnFromLocation -> es.concertsapp.android.gui.event.list.n:
+    194:212:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+es.concertsapp.android.gui.event.list.EventListActivity$8 -> es.concertsapp.android.gui.event.list.j:
+    android.widget.AutoCompleteTextView val$searchTextView -> a
+    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
+    223:225:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.event.list.EventListActivity$9 -> es.concertsapp.android.gui.event.list.k:
+    android.widget.AutoCompleteTextView val$searchTextView -> a
+    es.concertsapp.android.gui.event.list.EventListActivity this$0 -> b
+    234:243:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
+es.concertsapp.android.gui.event.list.EventListActivity$ReturnFromLocation -> es.concertsapp.android.gui.event.list.l:
     android.location.Location location -> b
     java.lang.String name -> c
     android.content.Context context -> d
     es.concertsapp.android.gui.event.list.EventListActivity this$0 -> a
-    481:511:void run() -> run
-es.concertsapp.android.gui.event.list.EventListActivityRetained -> es.concertsapp.android.gui.event.list.o:
+    463:493:void run() -> run
+es.concertsapp.android.gui.event.list.EventListActivityRetained -> es.concertsapp.android.gui.event.list.m:
     es.concertsapp.android.gui.event.list.EventPageAdapter eventPageAdapter -> P
     es.concertsapp.android.gui.event.list.EventListActivity eventListActivity -> Q
     es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible visibleElement -> R
@@ -4430,27 +4391,27 @@ es.concertsapp.android.gui.event.list.EventListActivityRetained -> es.concertsap
     102:104:void onDetach() -> p
     108:127:void showElement(es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible) -> a
     131:136:void hideAllElements() -> B
-es.concertsapp.android.gui.event.list.EventListActivityRetained$1 -> es.concertsapp.android.gui.event.list.p:
+es.concertsapp.android.gui.event.list.EventListActivityRetained$1 -> es.concertsapp.android.gui.event.list.n:
     int[] $SwitchMap$es$concertsapp$android$gui$event$list$EventListActivityRetained$ListElementsOnlyOneVisible -> a
-es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible -> es.concertsapp.android.gui.event.list.q:
+es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible -> es.concertsapp.android.gui.event.list.o:
     es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible NO_RESULTS -> a
     es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible LOADING -> b
     es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible MORE_RESULTS -> c
     es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible[] $VALUES -> d
     20:20:es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible[] values() -> values
     20:20:es.concertsapp.android.gui.event.list.EventListActivityRetained$ListElementsOnlyOneVisible valueOf(java.lang.String) -> valueOf
-es.concertsapp.android.gui.event.list.EventListHelper -> es.concertsapp.android.gui.event.list.r:
+es.concertsapp.android.gui.event.list.EventListHelper -> es.concertsapp.android.gui.event.list.p:
     java.lang.String letraGris -> a
     java.lang.String letraBlanco -> b
     es.concertsapp.android.utils.date.DateFormater dateFormater -> c
     42:52:void loadInfoEvent(android.content.Context,es.concertsapp.android.gui.event.list.EventListHelper$EventHolder,java.lang.String,java.lang.String,java.util.Date) -> a
     56:57:void loadInfoEvent(android.content.Context,es.concertsapp.android.gui.event.list.EventListHelper$EventHolder,es.lastfm.api.connector.dto.EventDTO) -> a
     61:62:void loadInfoEvent(android.content.Context,es.concertsapp.android.gui.event.list.EventListHelper$EventHolder,es.lastfm.api.connector.dto.ArtistEventDTO) -> a
-es.concertsapp.android.gui.event.list.EventListHelper$EventHolder -> es.concertsapp.android.gui.event.list.s:
+es.concertsapp.android.gui.event.list.EventListHelper$EventHolder -> es.concertsapp.android.gui.event.list.q:
     android.widget.TextView eventDate -> a
     android.widget.TextView placeListInfo -> b
     android.widget.TextView concertListInfo -> c
-es.concertsapp.android.gui.event.list.EventPageAdapter -> es.concertsapp.android.gui.event.list.t:
+es.concertsapp.android.gui.event.list.EventPageAdapter -> es.concertsapp.android.gui.event.list.r:
     es.concertsapp.android.gui.event.list.EventListActivity eventListActivity -> a
     es.concertsapp.android.gui.event.list.EventListActivityRetained eventListActivityRetained -> b
     int itemRowResID -> c
@@ -4492,8 +4453,8 @@ es.concertsapp.android.gui.event.list.EventPageAdapter -> es.concertsapp.android
     28:28:java.util.List access$1000(es.concertsapp.android.gui.event.list.EventPageAdapter) -> i
     28:28:int access$300(es.concertsapp.android.gui.event.list.EventPageAdapter) -> j
     28:28:java.lang.Throwable access$000(es.concertsapp.android.gui.event.list.EventPageAdapter) -> k
-es.concertsapp.android.gui.event.list.EventPageAdapter$1 -> es.concertsapp.android.gui.event.list.u:
-es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask -> es.concertsapp.android.gui.event.list.v:
+es.concertsapp.android.gui.event.list.EventPageAdapter$1 -> es.concertsapp.android.gui.event.list.s:
+es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask -> es.concertsapp.android.gui.event.list.t:
     es.concertsapp.android.gui.event.list.EventPageAdapter this$0 -> a
     71:77:void onPreExecute() -> onPreExecute
     82:120:java.lang.Boolean doInBackground(java.lang.Void[]) -> a
@@ -4505,10 +4466,10 @@ es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask -> es.concert
     66:66:void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     66:66:void onPostExecute(java.lang.Object) -> onPostExecute
     66:66:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask$1 -> es.concertsapp.android.gui.event.list.w:
+es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask$1 -> es.concertsapp.android.gui.event.list.u:
     es.concertsapp.android.gui.event.list.EventPageAdapter$LoadingTask this$1 -> a
     141:142:void run() -> run
-es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter -> es.concertsapp.android.gui.event.list.x:
+es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter -> es.concertsapp.android.gui.event.list.v:
     java.util.List listPlaces -> a
     es.concertsapp.android.utils.geo.impl.GooglePlacesApi googlePlacesApi -> b
     int normalResultView -> c
@@ -4524,50 +4485,63 @@ es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter -> es.concertsap
     25:25:es.concertsapp.android.utils.geo.impl.GooglePlacesApi access$100(es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter) -> a
     25:25:java.util.List access$000(es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter) -> b
     25:25:java.util.List access$200(es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter) -> c
-es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter$1 -> es.concertsapp.android.gui.event.list.y:
+es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter$1 -> es.concertsapp.android.gui.event.list.w:
     es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter this$0 -> a
     60:87:android.widget.Filter$FilterResults performFiltering(java.lang.CharSequence) -> performFiltering
     93:101:void publishResults(java.lang.CharSequence,android.widget.Filter$FilterResults) -> publishResults
-es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter$1$1 -> es.concertsapp.android.gui.event.list.z:
+es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter$1$1 -> es.concertsapp.android.gui.event.list.x:
     es.concertsapp.android.gui.event.list.PlacesAutoCompleteAdapter$1 this$1 -> a
     69:73:int compare(es.concertsapp.android.utils.geo.PlaceInterface,es.concertsapp.android.utils.geo.PlaceInterface) -> a
     65:65:int compare(java.lang.Object,java.lang.Object) -> compare
+es.concertsapp.android.gui.footer.FooterLayoutUtils -> es.concertsapp.android.gui.a.a:
+    24:28:void initializeButtonsFunctions(android.app.Activity) -> a
+    37:41:void initializeButtonsFunctions(android.app.Activity,android.view.View) -> a
+    45:77:void setListeners(android.app.Activity,android.widget.ImageButton,android.widget.ImageButton,android.widget.ImageButton) -> a
+es.concertsapp.android.gui.footer.FooterLayoutUtils$1 -> es.concertsapp.android.gui.a.b:
+    android.app.Activity val$activity -> a
+    49:51:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.footer.FooterLayoutUtils$2 -> es.concertsapp.android.gui.a.c:
+    android.app.Activity val$activity -> a
+    59:61:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.footer.FooterLayoutUtils$3 -> es.concertsapp.android.gui.a.d:
+    android.app.Activity val$activity -> a
+    72:74:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.legal.LegalConditionsActivity -> es.concertsapp.android.gui.legal.LegalConditionsActivity:
-    23:42:void onCreate(android.os.Bundle) -> onCreate
+    25:55:void onCreate(android.os.Bundle) -> onCreate
 es.concertsapp.android.gui.legal.LegalConditionsActivity$1 -> es.concertsapp.android.gui.legal.a:
     es.concertsapp.android.gui.legal.LegalConditionsActivity this$0 -> a
-    37:39:void onClick(android.view.View) -> onClick
+    39:41:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.legal.LegalConditionsActivity$2 -> es.concertsapp.android.gui.legal.b:
+    es.concertsapp.android.gui.legal.LegalConditionsActivity this$0 -> a
+    50:52:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.legal.MoshTownConditionsActivity -> es.concertsapp.android.gui.legal.MoshTownConditionsActivity:
-    17:31:void onCreate(android.os.Bundle) -> onCreate
+    21:46:void onCreate(android.os.Bundle) -> onCreate
+es.concertsapp.android.gui.legal.MoshTownConditionsActivity$1 -> es.concertsapp.android.gui.legal.c:
+    es.concertsapp.android.gui.legal.MoshTownConditionsActivity this$0 -> a
+    42:44:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.mainpage.MainActivity -> es.concertsapp.android.gui.mainpage.MainActivity:
-    31:87:void onCreate(android.os.Bundle) -> onCreate
-    91:112:void checkIfComingFromLink() -> a
-    116:118:void buttonConciertos(android.view.View) -> a
-    122:124:void buttonBands(android.view.View) -> b
-    27:27:void access$000(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> a
-    27:27:void access$100(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> b
+    33:69:void onCreate(android.os.Bundle) -> onCreate
+    73:94:void checkIfComingFromLink() -> a
+    98:100:void buttonConciertos(android.view.View) -> a
+    104:106:void buttonBands(android.view.View) -> b
+    29:29:void access$000(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> a
+    29:29:void access$100(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> b
 es.concertsapp.android.gui.mainpage.MainActivity$1 -> es.concertsapp.android.gui.mainpage.a:
     es.concertsapp.android.gui.mainpage.MainActivity this$0 -> a
-    44:45:void onClick(android.view.View) -> onClick
+    46:47:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.mainpage.MainActivity$2 -> es.concertsapp.android.gui.mainpage.b:
     es.concertsapp.android.gui.mainpage.MainActivity this$0 -> a
-    53:54:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.mainpage.MainActivity$3 -> es.concertsapp.android.gui.mainpage.c:
-    es.concertsapp.android.gui.mainpage.MainActivity this$0 -> a
-    64:66:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.mainpage.MainActivity$4 -> es.concertsapp.android.gui.mainpage.d:
-    es.concertsapp.android.gui.mainpage.MainActivity this$0 -> a
-    75:77:void onClick(android.view.View) -> onClick
-es.concertsapp.android.gui.menu.MenuActions -> es.concertsapp.android.gui.a.a:
+    55:56:void onClick(android.view.View) -> onClick
+es.concertsapp.android.gui.menu.MenuActions -> es.concertsapp.android.gui.b.a:
     26:28:boolean onCreateOptionsMenu(android.view.Menu,android.app.Activity) -> a
     33:35:boolean onPrepareOptionsMenu(android.view.Menu,android.app.Activity) -> b
     43:90:boolean onOptionsItemSelected(android.view.MenuItem,android.app.Activity) -> a
-es.concertsapp.android.gui.menu.MenuActivity -> es.concertsapp.android.gui.a.b:
+es.concertsapp.android.gui.menu.MenuActivity -> es.concertsapp.android.gui.b.b:
     17:20:void onCreate(android.os.Bundle) -> onCreate
     26:26:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     32:32:boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
     38:38:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-es.concertsapp.android.gui.menu.MenuFragmentActivity -> es.concertsapp.android.gui.a.c:
+es.concertsapp.android.gui.menu.MenuFragmentActivity -> es.concertsapp.android.gui.b.c:
     15:15:boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     21:21:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     27:27:boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
@@ -4620,13 +4594,13 @@ es.concertsapp.android.gui.settings.SelectedTagsStore -> es.concertsapp.android.
     android.content.Context context -> b
     java.util.Set selectedTags -> c
     es.lastfm.api.connector.tags.LastFmTags punkTags -> d
-    41:44:es.concertsapp.android.gui.settings.SelectedTagsStore getInstance() -> a
-    53:74:java.util.Set loadSelectedTags() -> f
-    85:95:void saveSelectedTags(java.util.Set) -> a
-    98:105:java.util.Set getSelectedTags() -> b
-    110:117:java.util.Set restoreDefaultTags() -> c
-    122:125:java.lang.String[] getAvailableTags() -> d
-    135:143:java.lang.String[] getAvailableTagsWidthAlm() -> e
+    43:46:es.concertsapp.android.gui.settings.SelectedTagsStore getInstance() -> a
+    55:76:java.util.Set loadSelectedTags() -> f
+    87:97:void saveSelectedTags(java.util.Set) -> a
+    100:107:java.util.Set getSelectedTags() -> b
+    112:119:java.util.Set restoreDefaultTags() -> c
+    128:132:java.lang.String[] getAvailableTags() -> d
+    142:150:java.lang.String[] getAvailableTagsWidthAlm() -> e
 es.concertsapp.android.gui.settings.SettingsActivity -> es.concertsapp.android.gui.settings.SettingsActivity:
     double MILLA_KM -> a
     int MIN_KM -> b
@@ -4683,12 +4657,13 @@ es.concertsapp.android.utils.DialogUtils$1 -> es.concertsapp.android.utils.b:
     92:92:void onFinish() -> onFinish
 es.concertsapp.android.utils.LastFmApiConnectorFactory -> es.concertsapp.android.utils.c:
     es.lastfm.api.connector.LastFmApiConnector lastFmApiConnector -> a
-    21:22:es.lastfm.api.connector.tags.LastFmTags getTags() -> c
-    38:41:es.lastfm.api.connector.LastFmApiConnector getInstance() -> a
-    46:47:es.lastfm.api.connector.LastFmApiConnector getNewInstance() -> b
+    23:24:es.lastfm.api.connector.tags.LastFmTags getTags() -> c
+    45:48:es.lastfm.api.connector.LastFmApiConnector getInstance() -> a
+    53:54:es.lastfm.api.connector.LastFmApiConnector getNewInstance() -> b
 es.concertsapp.android.utils.LastFmApiConnectorFactory$1 -> es.concertsapp.android.utils.d:
     es.concertsapp.android.gui.settings.SelectedTagsStore val$selectedTagsStore -> a
-    25:26:java.lang.String[] getWorkingTags() -> a
+    27:28:java.lang.String[] getWorkingTags() -> a
+    38:38:java.lang.String[] getNotDefaultTags() -> b
 es.concertsapp.android.utils.MyApplication -> es.concertsapp.android.utils.MyApplication:
     android.content.Context context -> a
     java.util.Locale usedLocale -> b
