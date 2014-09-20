@@ -37,40 +37,43 @@ public class FooterLayoutUtils
         ImageButton lastfmButton = (ImageButton)rootView.findViewById(R.id.button_logolastfm);
         ImageButton moshtownButton = (ImageButton)rootView.findViewById(R.id.button_moshtown);
         ImageButton configurationButton = (ImageButton)rootView.findViewById(R.id.button_configuration);
-        setListeners(activity, lastfmButton,moshtownButton,configurationButton);
+        setListeners(activity, moshtownButton,lastfmButton,configurationButton);
     }
 
     private static void setListeners(final Activity activity, ImageButton moshtownButton, ImageButton lastFmButton, ImageButton configurationButton)
     {
-        lastFmButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(activity, LegalConditionsActivity.class);
-                activity.startActivity(myIntent);
-            }
-        });
+        if (lastFmButton!=null) {
+            lastFmButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(activity, LegalConditionsActivity.class);
+                    activity.startActivity(myIntent);
+                }
+            });
+        }
 
-        moshtownButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(activity, MoshTownConditionsActivity.class);
-                activity.startActivity(myIntent);
-            }
-        });
+        if (moshtownButton!=null) {
+            moshtownButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(activity, MoshTownConditionsActivity.class);
+                    activity.startActivity(myIntent);
+                }
+            });
+        }
 
-        configurationButton.setOnClickListener(new View.OnClickListener()
+        if (configurationButton!=null)
+        {
+            configurationButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 Intent myIntent = new Intent(activity, SettingsActivity.class);
                 activity.startActivity(myIntent);
-            }
+                }
         });
+        }
     }
 
 }

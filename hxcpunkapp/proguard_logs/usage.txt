@@ -2209,7 +2209,7 @@ es.concertsapp.android.gui.BuildConfig
 es.concertsapp.android.gui.Manifest
 es.concertsapp.android.gui.Manifest$permission
 es.concertsapp.android.gui.R:
-    10:484:public R()
+    10:487:public R()
 es.concertsapp.android.gui.R$attr
 es.concertsapp.android.gui.R$color
 es.concertsapp.android.gui.R$dimen
@@ -2219,7 +2219,7 @@ es.concertsapp.android.gui.R$layout
 es.concertsapp.android.gui.R$menu
 es.concertsapp.android.gui.R$string
 es.concertsapp.android.gui.R$styleable:
-    484:484:public R$styleable()
+    487:487:public R$styleable()
 es.concertsapp.android.gui.band.detail.BandInfoActivity:
     private static final java.lang.String LOG_TAG
 es.concertsapp.android.gui.band.detail.BandSectionsPageAdapter:
@@ -2247,6 +2247,8 @@ es.concertsapp.android.gui.event.list.EventListActivity:
     private static final boolean USE_GEOCODER_DESAMBIGUATION
 es.concertsapp.android.gui.event.list.EventPageAdapter:
     static final java.lang.String LOG_TAG
+es.concertsapp.android.gui.footer.FooterLayoutUtils:
+    16:16:public FooterLayoutUtils()
 es.concertsapp.android.gui.menu.MenuActions:
     22:22:public MenuActions()
 es.concertsapp.android.gui.player.SongPlayer:
@@ -2255,9 +2257,9 @@ es.concertsapp.android.utils.DialogUtils:
     17:17:public DialogUtils()
     70:73:public static void showDialogWithChoices(android.content.Context,java.util.List,android.content.DialogInterface$OnClickListener)
 es.concertsapp.android.utils.LastFmApiConnectorFactory:
-    14:14:public LastFmApiConnectorFactory()
+    16:16:public LastFmApiConnectorFactory()
 es.concertsapp.android.utils.LastFmApiConnectorFactory$1:
-    31:31:public java.lang.String getLongDescription()
+    33:33:public java.lang.String getLongDescription()
 es.concertsapp.android.utils.MyAppParameters
 es.concertsapp.android.utils.UnexpectedErrorHandler:
     18:18:public UnexpectedErrorHandler()
