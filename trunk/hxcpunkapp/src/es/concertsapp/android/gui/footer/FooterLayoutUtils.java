@@ -24,7 +24,7 @@ public class FooterLayoutUtils
         ImageButton lastfmButton = (ImageButton)activity.findViewById(R.id.button_logolastfm);
         ImageButton moshtownButton = (ImageButton)activity.findViewById(R.id.button_moshtown);
         ImageButton configurationButton = (ImageButton)activity.findViewById(R.id.button_configuration);
-        setListeners(activity, lastfmButton,moshtownButton,configurationButton);
+        setListeners(activity, moshtownButton,lastfmButton,configurationButton);
     }
 
     /**
