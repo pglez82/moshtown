@@ -73,22 +73,32 @@ public class MainActivity extends MenuActivity
         final Intent intent = getIntent();
         final String action = intent.getAction();
 
-        if (intent !=null && intent.getData()!=null && Intent.ACTION_VIEW.equals(action)) {
-            final List<String> segments = intent.getData().getPathSegments();
-            if (segments!=null && segments.size() == 2) {
-                if ("events".equals(segments.get(0)))
-                {
-                    try {
-                        int eventId = Integer.parseInt(segments.get(1));
-                        Intent i = new Intent(MainActivity.this, EventInfoActivity.class);
-                        i.putExtra(MyAppParameters.EVENTID, eventId);
-                        startActivity(i);
-                    }
-                    catch (Throwable e)
-                    {
-                        //No hacemos nada, dejamos la app en la pagina principal
-                    }
+
+        if (intent !=null && intent.getData()!=null && Intent.ACTION_VIEW.equals(action))
+        {
+            int eventId = -1;
+            if ("moshtown".equals(intent.getData().getScheme()))
+            {
+                final List<String> segments = intent.getData().getPathSegments();
+                if (segments != null && segments.size() ==1)
+                    try{eventId = Integer.parseInt(segments.get(0));}catch (Throwable e){}
+            }
+            else
+            {
+                final List<String> segments = intent.getData().getPathSegments();
+                if (segments != null && segments.size() == 2) {
+                    if ("events".equals(segments.get(0)))
+                        try{eventId = Integer.parseInt(segments.get(1));} catch (Throwable e){}
                 }
+            }
+            try {
+                if (eventId!=-1) {
+                    Intent i = new Intent(MainActivity.this, EventInfoActivity.class);
+                    i.putExtra(MyAppParameters.EVENTID, eventId);
+                    startActivity(i);
+                }
+            } catch (Throwable e) {
+                //No hacemos nada, dejamos la app en la pagina principal
             }
         }
     }

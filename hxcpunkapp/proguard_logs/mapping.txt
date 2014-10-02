@@ -4521,9 +4521,9 @@ es.concertsapp.android.gui.legal.MoshTownConditionsActivity$1 -> es.concertsapp.
     42:44:void onClick(android.view.View) -> onClick
 es.concertsapp.android.gui.mainpage.MainActivity -> es.concertsapp.android.gui.mainpage.MainActivity:
     33:69:void onCreate(android.os.Bundle) -> onCreate
-    73:94:void checkIfComingFromLink() -> a
-    98:100:void buttonConciertos(android.view.View) -> a
-    104:106:void buttonBands(android.view.View) -> b
+    73:104:void checkIfComingFromLink() -> a
+    108:110:void buttonConciertos(android.view.View) -> a
+    114:116:void buttonBands(android.view.View) -> b
     29:29:void access$000(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> a
     29:29:void access$100(es.concertsapp.android.gui.mainpage.MainActivity,android.view.View) -> b
 es.concertsapp.android.gui.mainpage.MainActivity$1 -> es.concertsapp.android.gui.mainpage.a:
