@@ -36,7 +36,7 @@ public class MainActivity extends MenuActivity
 		
         LetterSpacingTextView sloganTextView = (LetterSpacingTextView)findViewById(R.id.text_slogan);
         FontUtils.setRobotoFont(this,sloganTextView, FontUtils.FontType.ROBOTOCONDENSED_BOLD);
-        sloganTextView.setLetterSpacing(6);
+        sloganTextView.setCustomLetterSpacing(6);
         sloganTextView.setText(R.string.slogan_text);
 
         Button buttonConcerts = (Button)findViewById(R.id.buttonConciertos);

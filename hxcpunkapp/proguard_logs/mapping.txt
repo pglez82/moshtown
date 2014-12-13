@@ -3876,10 +3876,10 @@ es.concertsapp.android.component.LastFmImageView$1 -> es.concertsapp.android.com
     es.concertsapp.android.component.LastFmImageView this$0 -> a
     63:64:boolean onPreDraw() -> onPreDraw
 es.concertsapp.android.component.LetterSpacingTextView -> es.concertsapp.android.component.LetterSpacingTextView:
-    float letterSpacing -> a
+    float customLetterSpacing -> a
     java.lang.CharSequence originalText -> b
-    29:29:float getLetterSpacing() -> getLetterSpacing
-    33:35:void setLetterSpacing(float) -> setLetterSpacing
+    29:29:float getCustomLetterSpacing() -> getCustomLetterSpacing
+    33:35:void setCustomLetterSpacing(float) -> setCustomLetterSpacing
     39:41:void setText(java.lang.CharSequence,android.widget.TextView$BufferType) -> setText
     45:45:java.lang.CharSequence getText() -> getText
     49:63:void applyLetterSpacing() -> a
